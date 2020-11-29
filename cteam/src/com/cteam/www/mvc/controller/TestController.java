@@ -23,12 +23,16 @@ public class TestController {
 		return "index";
 		}
          
-	@GetMapping(value="/services.do")
+	@GetMapping(value="/apply_services.do")
 	public String services(Model m) {
-	   return "services";
+	   return "apply_services";
 	   }
-
-            
+	
+	@GetMapping(value="/apply_services_type.do")
+	public String apply_services_type(Model m) {
+	   return "apply_services_type";
+	   }          
+	
 	@GetMapping(value="/testimonial.do")
 	public String testimonial(Model m) {
 	   return "testimonial";
@@ -44,5 +48,17 @@ public class TestController {
 	public String about(Model m) {
 	   return "about";
 	   }  
+	@GetMapping(value="/caregiver_service_main.do")
+	public String caregiver_service_main(Model m) {
+		return "caregiver_service_main";
+	}  
+	@GetMapping(value="/walking_service_main.do")
+	public String walking_service_main(Model m) {
+		return "walking_service_main";
+	}  
+	@GetMapping(value="/life_service_main.do")
+	public String life_service_main(Model m) {
+		return "life_service_main";
+	}  
 
 }

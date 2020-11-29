@@ -65,7 +65,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
                     <li><a href="#" class="nav-link">서비스 소개</a></li>
                     <li><a href="#" class="nav-link">서비스 신청하기</a></li>

@@ -65,13 +65,12 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">Our service</a></li>
-                    <li><a href="#" class="nav-link">Apply for service</a></li>
-                    <li><a href="#" class="nav-link">Hospice Care</a></li>
-                    <li><a href="#" class="nav-link">Quality Medical Care</a></li>
-                    <li><a href="#" class="nav-link">Excellent Cuisine</a></li>
+                    <li><a href="#" class="nav-link">서비스 소개</a></li>
+                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="#" class="nav-link">서비스 후기</a></li>
                     <li class="has-children">
                       <a href="#">More Links</a>
                       <ul class="dropdown">
@@ -105,6 +104,7 @@
     </header>
 
 
+
     <!-- MAIN -->
 
 
@@ -113,9 +113,9 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">Our Services</h1>
-            <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum totam alias iusto?</p>
-            <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+            <h1 class="heading mb-3">전문 도우미 서비스</h1>
+            <p class="lead text-white mb-5">생활을 바꿉니다. 전문 도우미가 필요하신가요? </p>
+            <p><a href="apply_services_type.do" class="btn btn-primary">서비스 신청하기</a></p>
           </div>
         </div>
       </div>  
@@ -291,7 +291,7 @@
       </div>
     </div>
 
-  </div> <!-- .site-wrap -->
+
 
   <script src="resources/js/jquery-3.3.1.min.js"></script>
   <script src="resources/js/jquery-ui.js"></script>
