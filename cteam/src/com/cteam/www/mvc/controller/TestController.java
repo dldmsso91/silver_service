@@ -60,5 +60,25 @@ public class TestController {
 	public String life_service_main(Model m) {
 		return "life_service_main";
 	}  
+	@GetMapping(value="/apply_services_detail.do")
+	public String apply_services_detail(Model m) {
+		return "apply_services_detail";
+	}  
+	@GetMapping(value="/apply_caregiver_detail.do")
+	public String apply_caregiver_detail(Model m) {
+		return "apply_caregiver_detail";
+	}  
+	@GetMapping(value="/recommend_service.do")
+	public String recommend_service(Model m) {
+		return "recommend_service";
+	}  
+	@GetMapping(value="/test.do")
+	public String test(Model m) {
+		return "test";
+	}  
+	@GetMapping(value="/succesed_apply_service.do")
+	public String succesed_apply_service(Model m) {
+		return "succesed_apply_service";
+	}  
 
 }

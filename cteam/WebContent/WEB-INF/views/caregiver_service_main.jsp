@@ -8,6 +8,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	
+
+
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -131,8 +139,8 @@ width: 35%;
               <div class="service-text">
                 <h3>간병 도우미</h3>
                 <p>간병인 선생님을 찾으시나요?환자분과 간병인 선생님의 신뢰할 수 있는 좋은간병을 약속 드립니다. </p>
-            	<p><a href="apply_services_type.do" class="btn btn-primary">서비스 신청하기</a></p>               
-            	<p><a href="apply_services_type.do" class="btn btn-primary">간병인 지원하기</a></p>               
+            	<p><a href="apply_services_detail.do" class="btn btn-primary">서비스 신청하기</a></p>               
+            	<p><a href="apply_caregiver_detail.do" class="btn btn-primary">간병인 지원하기</a></p>               
               </div>
         </div>
       </div>

@@ -1733,3 +1733,4 @@ var widgetsSlider = $.widget( "ui.slider", $.ui.mouse, {
 
 
 }));
+
