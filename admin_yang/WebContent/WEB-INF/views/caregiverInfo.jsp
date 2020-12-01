@@ -23,8 +23,6 @@
   <link rel="stylesheet" href="resources/styles/animate.css">
   <link rel="stylesheet" href="resources/styles/sublime.css">
   <!-- endbuild -->
-  <link href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" rel="stylesheet" crossorigin="anonymous" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/js/all.min.js" crossorigin="anonymous"></script>
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -49,7 +47,7 @@
         <!-- /toggle offscreen menu -->
 
         <!-- logo -->
-        <a href="index.html" class="navbar-brand">
+        <a href="index.do" class="navbar-brand">
           <img src="resources/images/logo.png" alt="">
           <span class="heading-font">
                         Sublime
@@ -220,7 +218,7 @@
     </header>
     <!-- /top header -->
 
-    <section class="layout">
+   <section class="layout">
       <!-- sidebar menu -->
       <aside class="sidebar offscreen-left">
         <!-- main navigation -->
@@ -249,7 +247,6 @@
               </a>
             </li>
             <!-- /forms -->
-
             <!-- maps -->
             <li>
               <a href="javascript:;">
@@ -361,14 +358,9 @@
   <script src="resources/scripts/bootstrap-datatables.js"></script>
   <script src="resources/scripts/datatables.js"></script>
   <!-- /page script -->
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
   <script src="resources/scripts/scripts.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.min.js" crossorigin="anonymous"></script>
   <script src="resources/assets/demo/chart-area-demo.js"></script>
   <script src="resources/assets/demo/chart-bar-demo.js"></script>
-  <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js" crossorigin="anonymous"></script>
-  <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js" crossorigin="anonymous"></script>
   <script src="resources/assets/demo/datatables-demo.js"></script>
 
 </body>

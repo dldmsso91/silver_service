@@ -47,7 +47,7 @@
         <!-- /toggle offscreen menu -->
 
         <!-- logo -->
-        <a href="index.html" class="navbar-brand">
+        <a href="index.do" class="navbar-brand">
           <img src="resources/images/logo.png" alt="">
           <span class="heading-font">
                         Sublime
