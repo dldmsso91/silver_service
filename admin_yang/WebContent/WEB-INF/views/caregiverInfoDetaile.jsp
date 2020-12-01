@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <!-- /meta -->
 
-  <title>Sublime - Web Application Admin Dashboard</title>
+  <title>관리자 페이지</title>
 
   <!-- page level plugin styles -->
   <link rel="stylesheet" href="resources/vendor/fullcalendar/dist/fullcalendar.css">
@@ -23,7 +23,6 @@
   <link rel="stylesheet" href="resources/styles/animate.css">
   <link rel="stylesheet" href="resources/styles/sublime.css">
   <!-- endbuild -->
-  
 
   <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!--[if lt IE 9]>
@@ -277,56 +276,78 @@
         </nav>
       </aside>
       <!-- /sidebar menu -->
-		
-		 <!-- main content -->
-       <section class="main-content bg-white">
 
-        <!-- content wrapper -->
-        <div class="content-wrap">
+      <aside class="sidebar-250 canvas-right bg-default br ">
 
-          <!-- inner content wrapper -->
-          <div class="card mb-4">
-	        <div class="card-header">
-	            <h2><i class="fa fa-gears"></i>회원정보 관리</h2>
-	        </div>
-	        <div class="card-body">
-	            <div class="table-responsive">
-	                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-	                    <thead>
-	                        <tr>
-	                            <th>ID</th>
-	                            <th>이름</th>
-	                            <th>나이</th>
-	                            <th>성별</th>
-	                            <th>주소</th>
-	                            <th>건강상태</th>
-	                            <th>담당간병인</th>
-	                            <th>삭제</th>
-	                        </tr>
-	                    </thead>
-	                    <tbody>
-	                        <tr>
-	                            <td><a href="memberInfoDetail.do">ID</td>
-	                            <td>이름</td>
-	                            <td>나이</td>
-	                            <td>성별</td>
-	                            <td>주소</td>
-	                            <td>건강상태</td>
-	                            <td>담당간병인</td>
-	                            <td><input type="button" value="삭제"></td>
-	                        </tr>
-	                    </tbody>
-	                </table>
-	            </div>
-	        </div>   
-          <!-- /inner content wrapper -->
-		</div>
+        <div class="p15">
+          <div class="h3 no-m text-uppercase">
+            <strong class="week-day"></strong>
+          </div>
+          <div class="h5 current-date"></div>
+
+
+
+          <h6 class="mt25">Draggable <b>Events</b></h6>
+
+          <div class="input-group mb25">
+            <input type="text" class="form-control input-sm new-event">
+            <div class="input-group-btn">
+
+
+              <div class="btn-group">
+                <button type="button" class="btn btn-default btn-outline btn-sm dropdown-toggle" data-toggle="dropdown">
+                  <span id="event-color-btn">
+
+                                        <i class="fa fa-circle"></i>
+                                    </span>
+                </button>
+                <ul class="dropdown-menu event-color pull-rightd" role="menu">
+                  <li><a href="#" data-class="primary"><i class="fa fa-circle text-primary"></i> Primary</a>
+                  </li>
+                  <li><a href="#" data-class="success"><i class="fa fa-circle text-success"></i> Success</a>
+                  </li>
+                  <li><a href="#" data-class="info"><i class="fa fa-circle text-info"></i> Info</a>
+                  </li>
+                  <li><a href="#" data-class="warning"><i class="fa fa-circle text-warning"></i> Warning</a>
+                  </li>
+                  <li><a href="#" data-class="danger"><i class="fa fa-circle text-danger"></i> Danger</a>
+                  </li>
+                  <li><a href="#" data-class="color"><i class="fa fa-circle text-default"></i> Default</a>
+                  </li>
+
+                </ul>
+              </div>
+              <button type="button" class="btn btn-default btn-outline btn-sm add-event">Add</button>
+
+            </div>
+          </div>
+
+          <div class="external-events mb15" id="external-events">
+            <div class="external-event label label-default" data-class="bg-default">Team Building</div>
+            <div class="external-event label label-primary" data-class="bg-primary">Personal Event</div>
+            <div class="external-event label label-success" data-class="bg-success">Meeting</div>
+            <div class="external-event label label-info" data-class="bg-info">Recreational</div>
+            <div class="external-event label label-warning" data-class="bg-warning">Task</div>
+            <div class="external-event label label-danger" data-class="bg-danger">Event</div>
+          </div>
+          <p>
+            <input type="checkbox" id="drop-remove">
+            <label for="drop-remove">remove after drop</label>
+          </p>
         </div>
+
+      </aside>
+
+      <!-- main content -->
+      <section class="main-content bg-white">
+
+            
         <!-- /content wrapper -->
         <a class="exit-offscreen"></a>
-       </section>
+      </section>
       <!-- /main content -->
-     </section> 
+    </section>
+
   </div>
 
   <!-- build:js({.tmp,app}) scripts/app.min.js -->
@@ -340,8 +361,9 @@
   <!-- endbuild -->
 
   <!-- page level scripts -->
-  <script src="resources/vendor/chosen_v1.4.0/chosen.jquery.min.js"></script>
-  <script src="resources/vendor/datatables/media/js/jquery.dataTables.js"></script>
+  <script src="resources/vendor/moment/moment.js"></script>
+  <script src="resources/vendor/jquery-ui.custom.min.js"></script>
+  <script src="resources/vendor/fullcalendar/dist/fullcalendar.min.js"></script>
   <!-- /page level scripts -->
 
   <!-- template scripts -->
@@ -350,16 +372,8 @@
   <!-- /template scripts -->
 
   <!-- page script -->
-  <script src="resources/scripts/bootstrap-datatables.js"></script>
-  <script src="resources/scripts/datatables.js"></script>
+  <script src="resources/scripts/calendar.js"></script>
   <!-- /page script -->
-  
-  <script src="resources/scripts/scripts.js"></script>
-  
-  <script src="resources/assets/demo/chart-area-demo.js"></script>
-  <script src="resources/assets/demo/chart-bar-demo.js"></script>
-  
-  <script src="resources/assets/demo/datatables-demo.js"></script>
 
 </body>
 <!-- /body -->

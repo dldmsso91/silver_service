@@ -291,7 +291,7 @@
 
               <div class="wrapper no-p">
                   <div class="panel-heading no-b">
-                    <h2>회원위치 검색</h2>
+                    <h2><i class="fa fa-group"></i>회원위치 검색</h2>
                   </div>
                   <div class="panel-heading no-b">
                     <input type="text" placeholder="회원이름 입력">

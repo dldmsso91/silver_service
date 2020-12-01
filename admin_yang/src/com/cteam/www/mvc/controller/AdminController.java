@@ -40,10 +40,16 @@ public class AdminController {
 		return "caregiverInfo";
 	}
 	
-	@GetMapping(value="/kakaomap.do")
-	public String kakaomap(Model m) {
+	@GetMapping(value="/caregiverInfoDetail.do")
+	public String caregiverInfoDetail(Model m) {
 	
-		return "kakaomap";
+		return "caregiverInfoDetail";
+	}
+	
+	@GetMapping(value="/memberInfoDetail.do")
+	public String memberInfoDetail(Model m) {
+	
+		return "memberInfoDetail";
 	}
          
 }

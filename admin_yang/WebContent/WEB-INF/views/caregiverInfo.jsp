@@ -286,7 +286,7 @@
           <!-- inner content wrapper -->
           <div class="card mb-4">
 	        <div class="card-header">
-	            <h2>간병인 평가/관리</h2>
+	            <h2><i class="fa fa-gears"></i>간병인 평가/관리</h2>
 	        </div>
 	        <div class="card-body">
 	            <div class="table-responsive">
@@ -302,13 +302,12 @@
 	                            <th>담당 회원</th>
 	                            <th>평점</th>
 	                            <th>신고여부</th>
-	                            <th>수정</th>
 	                            <th>삭제</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
 	                        <tr>
-	                            <td>ID</td>
+	                            <td><a href="caregiverInfoDetail.do">ID</a></td>
 	                            <td>이름</td>
 	                            <td>나이</td>
 	                            <td>성별</td>
@@ -317,8 +316,7 @@
 	                            <td>담당 회원</td>
 	                            <td>평점</td>
 	                            <td>신고여부</td>
-	                            <td>수정</td>
-	                            <td>삭제</td>
+	                            <td><input type="submit" value="삭제"></td>
 	                        </tr>
 	                    </tbody>
 	                </table>
