@@ -113,6 +113,7 @@ public class TestController {
 	@GetMapping(value="/my_resume.do")
 	public String my_resume(Model m) {
 		return "my_resume";
+<<<<<<< HEAD
 	}
 	
 	@GetMapping(value="/communityService.do")
@@ -135,5 +136,8 @@ public class TestController {
 		return "elderlyhomeLocation";
 	}
 	
+=======
+	}  
+>>>>>>> refs/remotes/origin/master
 
 }
