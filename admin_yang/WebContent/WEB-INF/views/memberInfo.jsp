@@ -358,9 +358,6 @@
   
   <script src="resources/scripts/scripts.js"></script>
   
-  <script src="resources/assets/demo/chart-area-demo.js"></script>
-  <script src="resources/assets/demo/chart-bar-demo.js"></script>
-  
   <script src="resources/assets/demo/datatables-demo.js"></script>
 
 </body>
