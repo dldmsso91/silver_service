@@ -74,9 +74,9 @@ public class TestController {
 	}  
 	
 	
-	@GetMapping(value="/apply_services_detail.do")
-	public String apply_services_detail(Model m) {
-		return "apply_services_detail";
+	@GetMapping(value="/ServiceWrite.do")
+	public String ServiceWrite(Model m) {
+		return "ServiceWrite";
 	}  
 	
 	
@@ -96,11 +96,31 @@ public class TestController {
 	public String resume_giver(Model m) {
 		return "resume_giver";
 	}  
+
+	@GetMapping(value="/giver_resume_detail.do")
+	public String giver_resume_detail(Model m) {
+		return "giver_resume_detail";
+	}  
+
+	@GetMapping(value="/my_giver_resume_detail.do")
+	public String my_giver_resume_detail(Model m) {
+		return "my_giver_resume_detail";
+	}  
+
+	@GetMapping(value="/my_resume_update.do")
+	public String my_resume_update(Model m) {
+		return "my_resume_update";
+	}  
 	
 	
 	@GetMapping(value="/succesed_apply_service.do")
 	public String succesed_apply_service(Model m) {
 		return "succesed_apply_service";
+	}  
+
+	@GetMapping(value="/my_service.do")
+	public String my_service(Model m) {
+		return "my_service";
 	}  
 	
 	
@@ -114,6 +134,32 @@ public class TestController {
 	public String my_resume(Model m) {
 		return "my_resume";
 	}
+
+	@GetMapping(value="/hugi_service.do")
+	public String hugi_service(Model m) {
+		return "hugi_service";
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	@GetMapping(value="/communityService.do")
 	public String communityService(Model m) {
@@ -134,4 +180,10 @@ public class TestController {
 	public String elderlyhomeLocation(Model m) {
 		return "elderlyhomeLocation";
 	}
+	
+
 }
+
+
+	
+	

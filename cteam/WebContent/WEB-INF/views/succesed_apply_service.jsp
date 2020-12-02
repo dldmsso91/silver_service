@@ -70,26 +70,18 @@
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
                   <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+
 
 
                 <li><a href="blog.do" class="nav-link">Blog</a></li>
@@ -123,7 +115,7 @@
           <div class="col-lg-6 align-self-center">
             <h1 class="heading mb-3">서비스 신청이 완료되었습니다.</h1>
             <p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다. </p>
-            <p><a href="succesed_apply_giver.do" class="btn btn-primary">신청내역 확인하기</a></p>
+            <p><a href="my_service.do" class="btn btn-primary">신청내역 확인하기</a></p>
           </div>
         </div>
       </div>  

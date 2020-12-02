@@ -75,26 +75,18 @@ width: 35%;
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
-              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
                   <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+
 
 
                 <li><a href="blog.do" class="nav-link">Blog</a></li>
@@ -139,7 +131,7 @@ width: 35%;
               <div class="service-text">
                 <h3>간병 도우미</h3>
                 <p>간병인 선생님을 찾으시나요?환자분과 간병인 선생님의 신뢰할 수 있는 좋은간병을 약속 드립니다. </p>
-            	<p><a href="apply_services_detail.do" class="btn btn-primary">서비스 신청하기</a></p>               
+            	<p><a href="ServiceWrite.do" class="btn btn-primary">서비스 신청하기</a></p>               
             	<p><a href="apply_caregiver_detail.do" class="btn btn-primary">간병인 지원하기</a></p>               
               </div>
         </div>

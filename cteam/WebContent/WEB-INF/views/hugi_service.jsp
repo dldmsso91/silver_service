@@ -232,7 +232,7 @@ h3{	margin-top: 30px;
 
     </div>
 
-	<h2>추천 도우미 탐색하기</h2>
+	<h2>지금 수많은 전문 도우미들이 고객님을 기다립니다!</h2>
 
 	<form>
 		<div class='bxslider_area'>

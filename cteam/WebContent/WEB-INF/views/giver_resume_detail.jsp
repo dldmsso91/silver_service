@@ -80,11 +80,10 @@
 
 	    	if(result){ 
 
-		    	location.replace('index.do');
-		    	alert("삭제되었습니다");
-		    	} 
+		    	yes 
+		    	location.replace('index.php');} 
 
-		    else{  }
+		    else{ no }
 
 		    });
         });
@@ -343,10 +342,7 @@ margin: 0 auto;
 					</tr>
 			</table>
 				<div class="button_div">
-         			<p><a href="my_resume_update.do" class="btn btn-primary">수정</a></p>				
-         			<p><a href="#" class="btn btn-primary" id="delete">삭제</a></p>				
-<!-- 			       	<input name="write" type="submit" value="작성하기"> -->
-<!-- 	               	<input name="cancel"type="reset" value="취소하기"> -->
+         			<p><a href="succesed_apply_service.do" class="btn btn-primary">선택하기</a></p>						
 				</div>
 		    </div>
 	    </div>

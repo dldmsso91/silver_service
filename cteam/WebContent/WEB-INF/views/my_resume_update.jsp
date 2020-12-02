@@ -34,6 +34,30 @@
 
   <link rel="stylesheet" href="resources/css/style_page.css">
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+    <script type="text/javascript">
+
+    $(function(){
+	    $('#update').click(function(){
+	    	var result = confirm('정말 수정하시겠습니까?'); 
+
+	    	if(result){ 
+
+		    	location.replace('index.do');
+		    	alert("수정되었습니다");
+		    	} 
+
+		    else{  }
+
+		    });
+        });
+
+    </script>
+
 <style>
 .table{    
 
@@ -152,7 +176,7 @@ margin: 0 auto;
     <!-- MAIN -->
 
 
-    <div id="test" class="slide-item overlay">
+   <div id="test" class="slide-item overlay">
 
     </div>
 
@@ -465,7 +489,7 @@ margin: 0 auto;
          </table>
 				<div class="button_div">
          			<p><a href="apply_services.do" class="btn btn-primary">취소</a></p>				
-         			<p><a href="succesed_apply_giver.do" class="btn btn-primary">작성</a></p>				
+         			<p><a href="#" class="btn btn-primary" id="update">수정하기</a></p>				
 <!-- 			       	<input name="write" type="submit" value="작성하기"> -->
 <!-- 	               	<input name="cancel"type="reset" value="취소하기"> -->
 				</div>
