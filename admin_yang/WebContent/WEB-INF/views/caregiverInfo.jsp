@@ -284,11 +284,11 @@
         <div class="content-wrap">
 
           <!-- inner content wrapper -->
-          <div class="card mb-4">
-	        <div class="card-header">
-	            <h2><i class="fa fa-gears"></i>간병인 평가/관리</h2>
+           <div class="wrapper">
+            <div class="mb25">
+	            <h2><i class="fa fa-gears"></i> 간병인 평가/관리</h2>
 	        </div>
-	        <div class="card-body">
+	        <div class="panel-body">
 	            <div class="table-responsive">
 	                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
 	                    <thead>
@@ -302,12 +302,13 @@
 	                            <th>담당 회원</th>
 	                            <th>평점</th>
 	                            <th>신고여부</th>
+	                            <th>수정</th>
 	                            <th>삭제</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
 	                        <tr>
-	                            <td><a href="caregiverInfoDetail.do">ID</a></td>
+	                            <td>ID</td>
 	                            <td>이름</td>
 	                            <td>나이</td>
 	                            <td>성별</td>
@@ -316,7 +317,8 @@
 	                            <td>담당 회원</td>
 	                            <td>평점</td>
 	                            <td>신고여부</td>
-	                            <td><input type="submit" value="삭제"></td>
+	                            <td><a href="caregiverInfoDetail.do"><input type="button" class="btn btn-default" value="수정"></a></td>
+	                            <td><input type="submit" class="btn btn-default" value="삭제"></td>
 	                        </tr>
 	                    </tbody>
 	                </table>

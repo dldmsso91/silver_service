@@ -10,7 +10,7 @@
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1, maximum-scale=1">
   <!-- /meta -->
 
-  <title>Sublime - Web Application Admin Dashboard</title>
+  <title>관리자 페이지</title>
 
   <!-- page level plugin styles -->
   <link rel="stylesheet" href="resources/vendor/fullcalendar/dist/fullcalendar.css">
@@ -247,7 +247,6 @@
               </a>
             </li>
             <!-- /forms -->
-
             <!-- maps -->
             <li>
               <a href="javascript:;">
@@ -278,181 +277,205 @@
       </aside>
       <!-- /sidebar menu -->
 
-      <aside class="sidebar-250 canvas-right bg-default br ">
-
-        <div class="p15">
-          <div class="h3 no-m text-uppercase">
-            <strong class="week-day"></strong>
-          </div>
-          <div class="h5 current-date"></div>
-
-
-
-          <h6 class="mt25">Draggable <b>Events</b></h6>
-
-          <div class="input-group mb25">
-            <input type="text" class="form-control input-sm new-event">
-            <div class="input-group-btn">
-
-
-              <div class="btn-group">
-                <button type="button" class="btn btn-default btn-outline btn-sm dropdown-toggle" data-toggle="dropdown">
-                  <span id="event-color-btn">
-
-                                        <i class="fa fa-circle"></i>
-                                    </span>
-                </button>
-                <ul class="dropdown-menu event-color pull-rightd" role="menu">
-                  <li><a href="#" data-class="primary"><i class="fa fa-circle text-primary"></i> Primary</a>
-                  </li>
-                  <li><a href="#" data-class="success"><i class="fa fa-circle text-success"></i> Success</a>
-                  </li>
-                  <li><a href="#" data-class="info"><i class="fa fa-circle text-info"></i> Info</a>
-                  </li>
-                  <li><a href="#" data-class="warning"><i class="fa fa-circle text-warning"></i> Warning</a>
-                  </li>
-                  <li><a href="#" data-class="danger"><i class="fa fa-circle text-danger"></i> Danger</a>
-                  </li>
-                  <li><a href="#" data-class="color"><i class="fa fa-circle text-default"></i> Default</a>
-                  </li>
-
-                </ul>
-              </div>
-              <button type="button" class="btn btn-default btn-outline btn-sm add-event">Add</button>
-
-            </div>
-          </div>
-
-          <div class="external-events mb15" id="external-events">
-            <div class="external-event label label-default" data-class="bg-default">Team Building</div>
-            <div class="external-event label label-primary" data-class="bg-primary">Personal Event</div>
-            <div class="external-event label label-success" data-class="bg-success">Meeting</div>
-            <div class="external-event label label-info" data-class="bg-info">Recreational</div>
-            <div class="external-event label label-warning" data-class="bg-warning">Task</div>
-            <div class="external-event label label-danger" data-class="bg-danger">Event</div>
-          </div>
-          <p>
-            <input type="checkbox" id="drop-remove">
-            <label for="drop-remove">remove after drop</label>
-          </p>
-        </div>
-
-      </aside>
 
       <!-- main content -->
       <section class="main-content bg-white">
 
-        <header class="header navbar bg-white shadow">
-          <div class="btn-group">
-            <button type="button" class="btn btn-primary navbar-btn" id="calendar-prev">Left</button>
-            <button type="button" class="btn btn-primary navbar-btn" id="calendar-next">Middle</button>
-          </div>
-
-          <div class="pull-right">
-            <button type="button" class="btn btn-primary navbar-btn" id="calendar-today">Middle</button>
-            <div class="btn-group" data-toggle="buttons">
-              <label class="btn btn-primary navbar-btn" id="calendar-month">
-                <input type="radio" name="options" id="option2">
-                <span></span>
-              </label>
-              <label class="btn btn-primary navbar-btn" id="calendar-week">
-                <input type="radio" name="options" id="option3">
-                <span></span>
-              </label>
-              <label class="btn btn-primary navbar-btn" id="calendar-day">
-                <input type="radio" name="options" id="option4">
-                <span></span>
-              </label>
-            </div>
-          </div>
-        </header>
 		
 		<!-- content wrapper -->
         <div class="content-wrap">
 
           <!-- inner content wrapper -->
           <div class="wrapper">
-            <ol class="breadcrumb">
-              <li>
-                <a href="javascript:;"><i class="ti-home mr5"></i>관리자 페이지</a>
-              </li>
-            </ol>
-
-              <div class="col-md-6">
-                <section class="panel">
-                  <div class="panel-heading no-b">
-                    <h2>일정 관리</h2>
-                  </div>
-                  <div class="panel-body">
-                    <div id="calendar"></div>
-                  </div>
-                </section>
-              </div>
             
-            <div class="row">
-              <div class="col-md-6">
-                <section class="panel no-b">
+
+              <div class="wrapper no-p">
                   <div class="panel-heading no-b">
-                    <h2>오늘의 업무</h2>
+                    <h2><i class="fa fa-group"></i> 간병인 배정</h2>
                   </div>
-
+                  <div class="panel-heading no-b">
+                    <input type="text" placeholder="회원이름 입력">
+                    <input type="button" value="검색">
+                  </div>
+                  <section class="panel">
+                  <div class="page-interface"><img src="resources/images/AlphaGo.jpg"></div>
+                  <header class="panel-heading">회원정보</header>
                   <div class="panel-body">
-
-                    <table class="table no-m">
-                      <thead>
-                        <tr>
-                          <th class="col-md-5 pd-l-lg">
-                            <span class="pd-l-sm"></span>업무내용</th>
-                          <th class="col-md-2">분류</th>
-                          <th class="col-md-2">기한</th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        <tr>
-                          <td>
-                            <span class="pd-l-sm"></span>간병인 배정</td>
-                          <td>간병인 배정</td>
-                          <td>2020-01-14</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span class="pd-l-sm"></span>노인 커뮤니티</td>
-                          <td>노인 커뮤니티</td>
-                          <td>2020-01-14</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span class="pd-l-sm"></span>음성인식지원</td>
-                          <td>음성인식지원</td>
-                          <td>2020-01-14</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span class="pd-l-sm"></span>노약자 대중교통</td>
-                          <td>노약자 대중교통</td>
-                          <td>2020-01-14</td>
-                        </tr>
-                        <tr>
-                          <td>
-                            <span class="pd-l-sm"></span>도시락 지원 서비스</td>
-                          <td>도시락 지원 서비스</td>
-                          <td>2020-01-14</td>
-                        </tr>
-
-                      </tbody>
-                    </table>
+                    <form role="form">
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">이름 : </label>
+                        <label for="exampleInputEmail1">알파고</label>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">나이 : </label>
+                        <label for="exampleInputEmail1">65</label>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">성별 : </label>
+                        <label for="exampleInputEmail1">남성</label>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">주소 : </label>
+                        <label for="exampleInputEmail1">서울시 금천구 가산동</label>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputEmail1">담당간병인 : </label>
+                        <label for="exampleInputEmail1">없음</label>
+                      </div>
+                      <label for="exampleInputEmail1">특이사항 : </label>
+                      <div class="panel panel-default">
+                        
+                        <textarea id="console" style="min-height: 200px" class="form-control no-resize no-b" autocomplete="off"></textarea>
+                      </div>                  
+                    </form>
                   </div>
                 </section>
               </div>
-            </div>
             
            </div>
+           
           </div>
+          
             
         <!-- /content wrapper -->
         <a class="exit-offscreen"></a>
+        
       </section>
       <!-- /main content -->
+      <!-- chat panel -->
+      <aside class="sidebar-700 offscreen-right">
+        <div class="content-wrap">
+          <div class="wrapper">
+            <div class="slimscroll" data-height="auto" data-size="6px" data-distance="0">
+
+              <div class="pt15 pl15 pr15 pb0 clearfix">
+                
+
+              <div class="pt15 pl15 pr15 pb0">
+                <div class="h2 text-muted"><i class="fa fa-group"></i><b> 추천 간병인 목록</b>
+                </div>
+              </div>
+
+               <section class="panel no-b">
+                  <div class="panel-body">
+                    <a href="javascript:;" class="show text-center">
+                      <img src="resources/images/JerryRoyster.jpg" class="avatar avatar-lg" alt="">
+                    </a>
+
+                    <div class="show mt15 mb15 text-center">
+                      <div class="h5"><b>제리 로이스터</b>
+                      </div>
+                      <p class="show text-muted">부산</p>
+                    </div>
+
+                  </div>
+                  <div class="panel-footer no-p no-b">
+                    <div class="row no-m">
+                      <div class="col-xs-4 bg-primary p10 text-center brbl">
+                        <a href="javascript:;">
+                          <span class="ti-heart show mb5"> 만족도</span>
+                          <span>8888</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-info p10 text-center">
+                        <a href="javascript:;">
+                          <span class="ti-support show mb5"> 간병 분야</span>
+                          <span>재활 환자</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-primary p10 text-center brbr">
+                        <a href="javascript:;">
+                          <span class="ti-mouse show mb5"> 경력</span>
+                          <span>8년</span>
+                        </a>
+                      </div>
+                      <a href="javascript:;" class="btn btn-primary btn-xs mt5">이 추천 간병인을 배정</a>
+                    </div>
+                  </div>
+                </section>
+
+               <section class="panel no-b">
+                  <div class="panel-body">
+                    <a href="javascript:;" class="show text-center">
+                      <img src="resources/images/UliStielike.jpg" class="avatar avatar-lg" alt="">
+                    </a>
+
+                    <div class="show mt15 mb15 text-center">
+                      <div class="h5"><b>울리 슈틸리케</b>
+                      </div>
+                      <p class="show text-muted">서울</p>
+                    </div>
+
+                  </div>
+                  <div class="panel-footer no-p no-b">
+                    <div class="row no-m">
+                      <div class="col-xs-4 bg-primary p10 text-center brbl">
+                        <a href="javascript:;">
+                          <span class="ti-heart show mb5"> 만족도</span>
+                          <span>782</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-info p10 text-center">
+                        <a href="javascript:;">
+                          <span class="ti-support show mb5"> 간병 분야</span>
+                          <span>암 환자</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-primary p10 text-center brbr">
+                        <a href="javascript:;">
+                          <span class="ti-mouse show mb5"> 경력</span>
+                          <span>10년</span>
+                        </a>
+                      </div>
+                      <a href="javascript:;" class="btn btn-primary btn-xs mt5">이 추천 간병인을 배정</a>
+                    </div>
+                  </div>
+                </section>
+                
+                <section class="panel no-b">
+                  <div class="panel-body">
+                    <a href="javascript:;" class="show text-center">
+                      <img src="resources/images/felixpie.jpg" class="avatar avatar-lg"  alt="">
+                    </a>
+
+                    <div class="show mt15 mb15 text-center">
+                      <div class="h5"><b>펠릭스 피에</b>
+                      </div>
+                      <p class="show text-muted">대전</p>
+                    </div>
+
+                  </div>
+                  <div class="panel-footer no-p no-b">
+                    <div class="row no-m">
+                      <div class="col-xs-4 bg-primary p10 text-center brbl">
+                        <a href="javascript:;">
+                          <span class="ti-heart show mb5"> 만족도</span>
+                          <span>1234</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-info p10 text-center">
+                        <a href="javascript:;">
+                          <span class="ti-support show mb5"> 간병 분야</span>
+                          <span>치매 환자</span>
+                        </a>
+                      </div>
+                      <div class="col-xs-4 bg-primary p10 text-center brbr">
+                        <a href="javascript:;">
+                          <span class="ti-mouse show mb5"> 경력</span>
+                          <span>7년</span>
+                        </a>
+                      </div>
+                      <a href="javascript:;" class="btn btn-primary btn-xs mt5">이 추천 간병인을 배정</a>
+                    </div>
+                  </div>
+                </section>
+
+             
+            </div>
+          </div>
+        </div>
+      </aside>
+      <!-- /chat panel -->
     </section>
 
   </div>
@@ -470,7 +493,6 @@
   <!-- page level scripts -->
   <script src="resources/vendor/moment/moment.js"></script>
   <script src="resources/vendor/jquery-ui.custom.min.js"></script>
-  <script src="resources/vendor/fullcalendar/dist/fullcalendar.min.js"></script>
   <!-- /page level scripts -->
 
   <!-- template scripts -->
@@ -479,9 +501,8 @@
   <!-- /template scripts -->
 
   <!-- page script -->
-  <script src="resources/scripts/calendar.js"></script>
+  
   <!-- /page script -->
-
 </body>
 <!-- /body -->
 

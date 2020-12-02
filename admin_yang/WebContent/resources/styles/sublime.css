@@ -153,7 +153,7 @@ img {
   width: 100%;
 }
 .avatar-lg {
-  width: 128px;
+  width: 300px;
 }
 .avatar-md {
   width: 64px;
@@ -915,6 +915,9 @@ h6,
 }
 /* Sidebar sizes */
 @media screen and (min-width: 768px) {
+  .sidebar-700 {
+    width: 700px;
+  }
   .sidebar-300 {
     width: 300px;
   }

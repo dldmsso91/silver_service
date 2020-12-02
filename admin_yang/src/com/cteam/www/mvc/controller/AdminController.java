@@ -9,11 +9,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class AdminController {
-      
+	  
 	@GetMapping(value="/index.do")
 	public String index(Model m) {
 	
 		return "index";
+	}
+	
+	@GetMapping(value="/default.do")
+	public String home(Model m) {
+	
+		return "default";
 	}
 	
 	@GetMapping(value="/memberInfo.do")
@@ -50,6 +56,12 @@ public class AdminController {
 	public String memberInfoDetail(Model m) {
 	
 		return "memberInfoDetail";
+	}
+	
+	@GetMapping(value="/signup.do")
+	public String signup(Model m) {
+	
+		return "signup";
 	}
          
 }

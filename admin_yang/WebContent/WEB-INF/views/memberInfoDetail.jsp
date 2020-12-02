@@ -287,7 +287,7 @@
           <!-- inner content wrapper -->
           <div class="wrapper">
             <div class="mb25">
-              <h2 class="no-m">회원정보 수정</h2>
+              <h2 class="no-m"><i class="fa fa-gear"></i> 회원정보 수정</h2>
             </div>     
 
             <div class="panel">

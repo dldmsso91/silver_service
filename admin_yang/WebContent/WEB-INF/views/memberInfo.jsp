@@ -285,9 +285,9 @@
         <div class="content-wrap">
 
           <!-- inner content wrapper -->
-          <div class="card mb-4">
-	        <div class="card-header">
-	            <h2><i class="fa fa-gears"></i>회원정보 관리</h2>
+         <div class="wrapper">
+            <div class="mb25">
+	            <h2><i class="fa fa-gears"></i> 회원정보 관리</h2>
 	        </div>
 	        <div class="card-body">
 	            <div class="table-responsive">
@@ -301,19 +301,21 @@
 	                            <th>주소</th>
 	                            <th>건강상태</th>
 	                            <th>담당간병인</th>
+	                            <th>수정</th>
 	                            <th>삭제</th>
 	                        </tr>
 	                    </thead>
 	                    <tbody>
 	                        <tr>
-	                            <td><a href="memberInfoDetail.do">ID</td>
+	                            <td>ID</td>
 	                            <td>이름</td>
 	                            <td>나이</td>
 	                            <td>성별</td>
 	                            <td>주소</td>
 	                            <td>건강상태</td>
 	                            <td>담당간병인</td>
-	                            <td><input type="button" value="삭제"></td>
+	                            <td><a href="memberInfoDetail.do"><input type="button" class="btn btn-default" value="수정"></a></td>
+	                            <td><input type="submit" class="btn btn-default" value="삭제"></td>
 	                        </tr>
 	                    </tbody>
 	                </table>
