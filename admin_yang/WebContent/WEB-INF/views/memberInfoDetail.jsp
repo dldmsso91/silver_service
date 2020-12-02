@@ -361,7 +361,6 @@
   <!-- page level scripts -->
   <script src="resources/vendor/moment/moment.js"></script>
   <script src="resources/vendor/jquery-ui.custom.min.js"></script>
-  <script src="resources/vendor/fullcalendar/dist/fullcalendar.min.js"></script>
   <!-- /page level scripts -->
 
   <!-- template scripts -->
@@ -370,7 +369,6 @@
   <!-- /template scripts -->
 
   <!-- page script -->
-  <script src="resources/scripts/calendar.js"></script>
   <!-- /page script -->
 
 </body>
