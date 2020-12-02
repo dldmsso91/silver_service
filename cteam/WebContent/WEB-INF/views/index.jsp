@@ -83,8 +83,20 @@
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
+				<li class="has-children">
+                  <a href="#" class="nav-link">Community</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 

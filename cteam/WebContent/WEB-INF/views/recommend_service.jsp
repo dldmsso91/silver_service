@@ -283,7 +283,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="resume_giver.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -329,7 +329,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="resume_giver.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/3.jpg" />
@@ -376,7 +376,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>	
-			<a href="test.do" class="btn btn-primary">신청하기</a>			  		  
+			<a href="resume_giver.do" class="btn btn-primary">신청하기</a>			  		  
 			  </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
@@ -422,7 +422,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="resume_giver.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -468,7 +468,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="resume_giver.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 				  <img src="resources/images/3.jpg" />
@@ -514,7 +514,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>			  
-				<a href="test.do" class="btn btn-primary">신청하기</a>		  
+				<a href="resume_giver.do" class="btn btn-primary">신청하기</a>		  
 			  </li>
 			</ul>
 		</div>

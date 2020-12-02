@@ -93,8 +93,20 @@
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
+				<li class="has-children">
+                  <a href="#" class="nav-link">Community</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
@@ -541,10 +553,8 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-
             </div>
           </div>
-
         </div>
       </div>
     </div>

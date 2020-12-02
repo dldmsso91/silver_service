@@ -1,13 +1,477 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
-<html>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!doctype html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+  <title>Elderly &mdash; Website Template by Colorlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	
+
+
+  <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="resources/css/aos.css">
+
+  <link rel="stylesheet" href="resources/css/style_page.css">
+
+<style>
+.table{    
+
+	width: 45%;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;}
+.layer{
+    text-align: center;
+    margin-top: 25px;
+}
+.button_div{
+    display: inline-flex;
+    width: 15%;
+    margin: 0 auto;
+    margin-top: 20px;
+}
+.button_div input{
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.button_div a{
+
+}
+.button_div p{
+margin: 0 auto;
+}
+
+.My_Image{
+    width: 150px;
+    overflow: hidden;
+    height: 160px;
+    border-radius: 30px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+.My_Image img{
+    width: 100%;
+}
+
+</style>
+
+
 </head>
-<body>
-apply_caregiver_detail.do
-<a href="apply_caregiver_detail.do" class="btn btn-primary">ê°„ë³‘ì¸ ì§€ì›í•˜ê¸°</a>  
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
+
+    <div class="site-mobile-menu site-navbar-target">
+      <div class="site-mobile-menu-header">
+        <div class="site-mobile-menu-close mt-3">
+          <span class="icon-close2 js-menu-toggle"></span>
+        </div>
+      </div>
+      <div class="site-mobile-menu-body"></div>
+    </div>
+
+    
+    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+
+      <div class="container">
+        <div class="row align-items-center">
+
+          <div class="col-6 col-xl-2">
+            <div class="mb-0 site-logo"><a href="index.do" class="mb-0">Elderly<span class="text-primary">.</span> </a></div>
+          </div>
+
+          <div class="col-12 col-md-10 d-none d-xl-block">
+            <nav class="site-navigation position-relative text-right" role="navigation">
+
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+                <li><a href="index.do" class="active nav-link">Home</a></li>
+                <li class="has-children">
+                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <ul class="dropdown">
+                    <li><a href="#" class="nav-link">¼­ºñ½º ¼Ò°³</a></li>
+                    <li><a href="#" class="nav-link">¼­ºñ½º ½ÅÃ»ÇÏ±â</a></li>
+                    <li><a href="#" class="nav-link">µµ¿ì¹Ì Áö¿øÇÏ±â</a></li>
+                    <li><a href="#" class="nav-link">¼­ºñ½º ÈÄ±â</a></li>
+                    <li class="has-children">
+                      <a href="#">More Links</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+
+
+                <li><a href="blog.do" class="nav-link">Blog</a></li>
+                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="contact.do" class="nav-link">Contact</a></li>
+
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
+              </ul>
+            </nav>
+          </div>
+
+
+          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-white"></span></a></div>
+
+        </div>
+      </div>
+
+    </header>
+
+
+
+    <!-- MAIN -->
+
+
+    <div id="test" class="slide-item overlay">
+
+    </div>
+
+
+
+
+
+<form action="POST" class='wirtehugi'>
+    <div class="layer" >
+
+          <div class="layer_inner">
+			<h1>°£º´ÀÎ Áö¿øÇÏ±â</h1>
+			<div class="My_Image">
+			<img src="resources/images/1.jpg" alt="My Image">		
+			</div>
+				<table class="ui celled table">
+				<tr><td rowspan="5">±âº»Á¤º¸</td></tr>
+				<tr>
+					<td>ÀÌ¸§</td>
+					<td><input type='text' name='name' style="width: 30%;" /></td>
+				</tr>
+				<tr>
+					<td>³ªÀÌ</td>
+						<td>
+							<p><select name="age"  style="width: 30%;">
+							<!--  ¹İº¹¹®À¸·Î ÇöÀç ³¯Â¥ºÎÅÍ 90³âÀü±îÁö¸¸ Ãâ·Â -->
+							<option value="----">----</option>
+							</select></p>
+    					</td>
+				</tr>
+				<tr>
+					<td> ¼ºº° </td>
+					<td> 
+                               	<input type='radio' name='gender' value='Male' />³²ÀÚ&nbsp;&nbsp;&nbsp;
+									<input type='radio' name='gender' value='Female' />¿©ÀÚ
+     				</td>
+   				</tr>				
+      				<tr>
+      					<td>ÁÖ¼Ò</td>
+      					<td><input type="text" name="address"  style="width: 30%;"></td>
+      				</tr>
+				<tr>
+					<td rowspan="6">Ãß°¡Á¤º¸</td>
+					</tr>      				
+					<td class="td01">ÃâÅğ±ÙÇü<br>Èñ¸Á±Ù¹«Áö¿ª</td> 
+					<td>     				
+						<span class="tit01">1Áö¸Á
+							<select name="area1_search" id="area1_search" onchange="change_renew_commute1(this.selectedIndex);" class="select_css03 w20p">
+								<option value="">½Ã/µµ</option>
+								<option value="¼­¿ï">¼­¿ï</option><option value="°æ±â">°æ±â</option><option value="ºÎ»ê">ºÎ»ê</option><option value="ÀÎÃµ">ÀÎÃµ</option><option value="°­¿ø">°­¿ø</option><option value="°æ³²">°æ³²</option><option value="°æºÏ">°æºÏ</option><option value="±¤ÁÖ">±¤ÁÖ</option><option value="´ë±¸">´ë±¸</option><option value="´ëÀü">´ëÀü</option><option value="¼¼Á¾">¼¼Á¾</option><option value="¿ï»ê">¿ï»ê</option><option value="Àü³²">Àü³²</option><option value="ÀüºÏ">ÀüºÏ</option><option value="Á¦ÁÖ">Á¦ÁÖ</option><option value="Ãæ³²">Ãæ³²</option><option value="ÃæºÏ">ÃæºÏ</option><option value="ÇØ¿Ü">ÇØ¿Ü</option>
+							</select>
+							<select name="area2_search" id="area2_search" class="select_css03 w30p">
+								<option value="">±¸/±º</option>
+							</select>
+							<input type="text" name="area2_search_text" id="area2_search_text" class="inbor1" value="" style="width: 70px; display: none">
+						</span> 
+					<br>
+						<span class="tit01">2Áö¸Á
+							<select name="area4_search" id="area4_search" onchange="change_renew_commute2(this.selectedIndex);" class="select_css03 w20p">
+								<option value="">½Ã/µµ</option>
+								<option value="¼­¿ï">¼­¿ï</option><option value="°æ±â">°æ±â</option><option value="ºÎ»ê">ºÎ»ê</option><option value="ÀÎÃµ">ÀÎÃµ</option><option value="°­¿ø">°­¿ø</option><option value="°æ³²">°æ³²</option><option value="°æºÏ">°æºÏ</option><option value="±¤ÁÖ">±¤ÁÖ</option><option value="´ë±¸">´ë±¸</option><option value="´ëÀü">´ëÀü</option><option value="¼¼Á¾">¼¼Á¾</option><option value="¿ï»ê">¿ï»ê</option><option value="Àü³²">Àü³²</option><option value="ÀüºÏ">ÀüºÏ</option><option value="Á¦ÁÖ">Á¦ÁÖ</option><option value="Ãæ³²">Ãæ³²</option><option value="ÃæºÏ">ÃæºÏ</option><option value="ÇØ¿Ü">ÇØ¿Ü</option>
+							</select>
+							<select name="area5_search" id="area5_search" class="select_css03 w30p">
+								<option value="">±¸/±º</option>
+							</select>
+							<input type="text" name="area_5_search_text" id="area5_search_text" value="" class="inbor1" style="width: 70px; display: none">
+						</span> 
+					<br>
+						<span class="tit01">3Áö¸Á
+							<select name="area6_search" id="area6_search" onchange="change_renew_commute3(this.selectedIndex);" class="select_css03 w20p">
+								<option value="">½Ã/µµ</option>
+								<option value="¼­¿ï">¼­¿ï</option><option value="°æ±â">°æ±â</option><option value="ºÎ»ê">ºÎ»ê</option><option value="ÀÎÃµ">ÀÎÃµ</option><option value="°­¿ø">°­¿ø</option><option value="°æ³²">°æ³²</option><option value="°æºÏ">°æºÏ</option><option value="±¤ÁÖ">±¤ÁÖ</option><option value="´ë±¸">´ë±¸</option><option value="´ëÀü">´ëÀü</option><option value="¼¼Á¾">¼¼Á¾</option><option value="¿ï»ê">¿ï»ê</option><option value="Àü³²">Àü³²</option><option value="ÀüºÏ">ÀüºÏ</option><option value="Á¦ÁÖ">Á¦ÁÖ</option><option value="Ãæ³²">Ãæ³²</option><option value="ÃæºÏ">ÃæºÏ</option><option value="ÇØ¿Ü">ÇØ¿Ü</option>
+							</select>
+							<select name="area7_search" id="area7_search" class="select_css03 w30p">
+								<option value="">±¸/±º</option>
+							</select>
+							<input type="text" name="area7_search_text" id="area7_search_text" value="" class="inbor1" style="width: 70px; display: none;">
+						</span> 
+					<div style="margin: 10px 0 5px 30px; display: none" id="all_area_view">
+						<label><input type="checkbox" value="1" name="all_area">
+						<span id="all_area_name"></span>Áö¿ªÀüÃ¼
+						<span style="color: #FF0000">(Èñ¸Á±Ù¹«Áö¿ª 1,2,3Áö¸Á À§ÁÖ·Î Ã¤¿ëÀÚ¿¡°Ô ¾Ë¸²ÀÌ ³ª°©´Ï´Ù.)</span></label>
+					</div>
+				</td>
+			<tr>
+				<td>°æ·Â</td>
+				<td>
+					<select name="carrer"  style="width: 25%;" >
+						<option>-------</option>
+						<option value="0">1</option>
+						<option value="1">1</option>
+						<option value="2">2</option>
+						<option value="3">3</option>
+						<option value="4">4</option>
+						<option value="5">5</option>
+						<option value="6">6</option>
+						<option value="7">7</option>
+						<option value="8">8</option>
+						<option value="9">9</option>
+						<option value="10">10</option>
+					</select>³â
+				</td>
+			</tr>
+		<tr>
+			<td>±Ù¹«½Ã°£</td>
+			<td>
+				<div class="r_time1">
+					<input type="hidden" class="r_time_v" name="r_time" id="r_time" value="">
+					<script type="text/javascript">
+						$(document).ready(function() {
+							var b_val = $("#r_time").val();
+							$(".r_b_time").click(function() {
+								if ($(this).hasClass("on")) {
+									$(this).removeClass("on");
+								} else {
+									$(this).addClass("on");
+								}
+	
+								var re_val = "";
+								var r_b_time_text_chk = "";
+								$(".r_b_time.on").each(function() {
+									// re_val º¯¼ö°¡ ºñ¾îÀÖÀ»¶§
+									if (re_val != "") {
+										re_val += "," + $(this).data("val");
+									} else {
+										re_val += $(this).data("val");
+									}
+	
+									if ($(this).data("val") == "1005") {
+										r_b_time_text_chk = "y";
+									}
+								});
+	
+								if (r_b_time_text_chk == "y") {
+									$("#r_time_text").show();
+								} else {
+									$("#r_time_text").hide();
+								}
+	
+								$("#r_time").val(re_val);
+							});
+	
+							if ($(".r_b_time").eq(4).hasClass("on") == true) {
+								$("#r_time_text").show();
+							}
+						});
+					</script>
+					<span id="r_time_text">
+						<select name="r_time_start" id="r_time_start" class="select_css03">
+							<option value="">½ÃÀÛ½Ã°£</option>
+							<optgroup label="¿ÀÀü">																														
+							<option value="01:00" style="background:#CCFFFF;">¿ÀÀü 1:00</option>																																																																	
+							<option value="01:30" style="background:#CCFFFF;">¿ÀÀü 1:30</option>																																											
+							<option value="02:00" style="background:#CCFFFF;">¿ÀÀü 2:00</option>																																											
+							<option value="02:30" style="background:#CCFFFF;">¿ÀÀü 2:30</option>																																											
+							<option value="03:00" style="background:#CCFFFF;">¿ÀÀü 3:00</option>																																											
+							<option value="03:30" style="background:#CCFFFF;">¿ÀÀü 3:30</option>																																											
+							<option value="04:00" style="background:#CCFFFF;">¿ÀÀü 4:00</option>																																											
+							<option value="04:30" style="background:#CCFFFF;">¿ÀÀü 4:30</option>																																											
+							<option value="05:00" style="background:#CCFFFF;">¿ÀÀü 5:00</option>																																											
+							<option value="05:30" style="background:#CCFFFF;">¿ÀÀü 5:30</option>																																											
+							<option value="06:00" style="background:#CCFFFF;">¿ÀÀü 6:00</option>																																											
+							<option value="06:30" style="background:#CCFFFF;">¿ÀÀü 6:30</option>																																											
+							<option value="07:00" style="background:#CCFFFF;">¿ÀÀü 7:00</option>																																											
+							<option value="07:30" style="background:#CCFFFF;">¿ÀÀü 7:30</option>																																											
+							<option value="08:00" style="background:#CCFFFF;">¿ÀÀü 8:00</option>																																											
+							<option value="08:30" style="background:#CCFFFF;">¿ÀÀü 8:30</option>																																											
+							<option value="09:00" style="background:#CCFFFF;">¿ÀÀü 9:00</option>																																											
+							<option value="09:30" style="background:#CCFFFF;">¿ÀÀü 9:30</option>																																											
+							<option value="10:00" style="background:#CCFFFF;">¿ÀÀü 10:00</option>																																											
+							<option value="10:30" style="background:#CCFFFF;">¿ÀÀü 10:30</option>																																											
+							<option value="11:00" style="background:#CCFFFF;">¿ÀÀü 11:00</option>																																											
+							<option value="11:30" style="background:#CCFFFF;">¿ÀÀü 11:30</option>																												
+							</optgroup><optgroup label="¿ÀÈÄ">															
+							<option value="12:00" style="background:#FFCC99;">³· 12:00</option>																																											
+							<option value="12:30" style="background:#FFCC99;">³· 12:30</option>																																											
+							<option value="13:00" style="background:#FFCC99;">¿ÀÈÄ 1:00</option>																																											
+							<option value="13:30" style="background:#FFCC99;">¿ÀÈÄ 1:30</option>																																											
+							<option value="14:00" style="background:#FFCC99;">¿ÀÈÄ 2:00</option>																																											
+							<option value="14:30" style="background:#FFCC99;">¿ÀÈÄ 2:30</option>																																											
+							<option value="15:00" style="background:#FFCC99;">¿ÀÈÄ 3:00</option>																																											
+							<option value="15:30" style="background:#FFCC99;">¿ÀÈÄ 3:30</option>																																											
+							<option value="16:00" style="background:#FFCC99;">¿ÀÈÄ 4:00</option>																																											
+							<option value="16:30" style="background:#FFCC99;">¿ÀÈÄ 4:30</option>																																											
+							<option value="17:00" style="background:#FFCC99;">¿ÀÈÄ 5:00</option>																																											
+							<option value="17:30" style="background:#FFCC99;">¿ÀÈÄ 5:30</option>																																											
+							<option value="18:00" style="background:#FFCC99;">¿ÀÈÄ 6:00</option>																																											
+							<option value="18:30" style="background:#FFCC99;">¿ÀÈÄ 6:30</option>																																											
+							<option value="19:00" style="background:#FFCC99;">¿ÀÈÄ 7:00</option>																																											
+							<option value="19:30" style="background:#FFCC99;">¿ÀÈÄ 7:30</option>																																											
+							<option value="20:00" style="background:#FFCC99;">¿ÀÈÄ 8:00</option>																																											
+							<option value="20:30" style="background:#FFCC99;">¿ÀÈÄ 8:30</option>																																											
+							<option value="21:00" style="background:#FFCC99;">¿ÀÈÄ 9:00</option>																																											
+							<option value="21:30" style="background:#FFCC99;">¿ÀÈÄ 9:30</option>																																											
+							<option value="22:00" style="background:#FFCC99;">¿ÀÈÄ 10:00</option>																																											
+							<option value="22:30" style="background:#FFCC99;">¿ÀÈÄ 10:30</option>																																											
+							<option value="23:00" style="background:#FFCC99;">¿ÀÈÄ 11:00</option>																																											
+							<option value="23:30" style="background:#FFCC99;">¿ÀÈÄ 11:30</option>																																											
+							<option value="00:00" style="background:#FFCC99;">¹ã 12:00</option>																																											
+							<option value="00:30" style="background:#FFCC99;">¹ã 12:30</option>
+							</optgroup>
+						</select>ºÎÅÍ&nbsp;&nbsp;
+
+						<select name="r_time_end" id="r_time_end" class="select_css03">
+							<option value="">Á¾·á½Ã°£</option>
+							<optgroup label="¿ÀÈÄ">
+							<option value="12:00" style="background: #FFCC99">³· 12:00</option>
+							<option value="12:30" style="background: #FFCC99">³· 12:30</option>
+							<option value="13:00" style="background: #FFCC99">¿ÀÈÄ 1:00</option>
+							<option value="13:30" style="background: #FFCC99">¿ÀÈÄ 1:30</option>
+							<option value="14:00" style="background: #FFCC99">¿ÀÈÄ 2:00</option>
+							<option value="14:30" style="background: #FFCC99">¿ÀÈÄ 2:30</option>
+							<option value="15:00" style="background: #FFCC99">¿ÀÈÄ 3:00</option>
+							<option value="15:30" style="background: #FFCC99">¿ÀÈÄ 3:30</option>
+							<option value="16:00" style="background: #FFCC99">¿ÀÈÄ 4:00</option>
+							<option value="16:30" style="background: #FFCC99">¿ÀÈÄ 4:30</option>
+							<option value="17:00" style="background: #FFCC99">¿ÀÈÄ 5:00</option>
+							<option value="17:30" style="background: #FFCC99">¿ÀÈÄ 5:30</option>
+							<option value="18:00" style="background: #FFCC99">¿ÀÈÄ 6:00</option>
+							<option value="18:30" style="background: #FFCC99">¿ÀÈÄ 6:30</option>
+							<option value="19:00" style="background: #FFCC99">¿ÀÈÄ 7:00</option>
+							<option value="19:30" style="background: #FFCC99">¿ÀÈÄ 7:30</option>
+							<option value="20:00" style="background: #FFCC99">¿ÀÈÄ 8:00</option>
+							<option value="20:30" style="background: #FFCC99">¿ÀÈÄ 8:30</option>
+							<option value="21:00" style="background: #FFCC99">¿ÀÈÄ 9:00</option>
+							<option value="21:30" style="background: #FFCC99">¿ÀÈÄ 9:30</option>
+							<option value="22:00" style="background: #FFCC99">¿ÀÈÄ 10:00</option>
+							<option value="22:30" style="background: #FFCC99">¿ÀÈÄ 10:30</option>
+							<option value="23:00" style="background: #FFCC99">¿ÀÈÄ 11:00</option>
+							<option value="23:30" style="background: #FFCC99">¿ÀÈÄ 11:30</option>
+							<option value="00:00" style="background: #FFCC99">¹ã 12:00</option>
+							<option value="00:30" style="background: #FFCC99">¹ã 12:30</option>
+							</optgroup>
+							<optgroup>
+							<option value="01:00" style="background: #CCFFFF">¿ÀÀü 1:00</option>
+							<option value="01:30" style="background: #CCFFFF">¿ÀÀü 1:30</option>
+							<option value="02:00" style="background: #CCFFFF">¿ÀÀü 2:00</option>
+							<option value="02:30" style="background: #CCFFFF">¿ÀÀü 2:30</option>
+							<option value="03:00" style="background: #CCFFFF">¿ÀÀü 3:00</option>
+							<option value="03:30" style="background: #CCFFFF">¿ÀÀü 3:30</option>
+							<option value="04:00" style="background: #CCFFFF">¿ÀÀü 4:00</option>
+							<option value="04:30" style="background: #CCFFFF">¿ÀÀü 4:30</option>
+							<option value="05:00" style="background: #CCFFFF">¿ÀÀü 5:00</option>
+							<option value="05:30" style="background: #CCFFFF">¿ÀÀü 5:30</option>
+							<option value="06:00" style="background: #CCFFFF">¿ÀÀü 6:00</option>
+							<option value="06:30" style="background: #CCFFFF">¿ÀÀü 6:30</option>
+							<option value="07:00" style="background: #CCFFFF">¿ÀÀü 7:00</option>
+							<option value="07:30" style="background: #CCFFFF">¿ÀÀü 7:30</option>
+							<option value="08:00" style="background: #CCFFFF">¿ÀÀü 8:00</option>
+							<option value="08:30" style="background: #CCFFFF">¿ÀÀü 8:30</option>
+							<option value="09:00" style="background: #CCFFFF">¿ÀÀü 9:00</option>
+							<option value="09:30" style="background: #CCFFFF">¿ÀÀü 9:30</option>
+							<option value="10:00" style="background: #CCFFFF">¿ÀÀü 10:00</option>
+							<option value="10:30" style="background: #CCFFFF">¿ÀÀü 10:30</option>
+							<option value="11:00" style="background: #CCFFFF">¿ÀÀü 11:00</option>
+							<option value="11:30" style="background: #CCFFFF">¿ÀÀü 11:30</option>
+							</optgroup>
+						</select> ±îÁö
+					</span>
+
+				</div>
+				</td>
+				</tr>
+					<tr>
+						<td>
+						Èñ¸Á±Ş¿©
+						</td>
+						<td>
+							<input type="radio" name="salay" value="timesalary">½Ã°£Á¦&nbsp;&nbsp;&nbsp;
+							<input type="radio" name="salay" value="salary">¿ù±ŞÁ¦
+						</td>
+					</tr>
+					<tr>
+						<td>ÀÚ°İÁõ</td>
+						<td>
+						
+			               <input type="radio" name="license" value="license">À¯&nbsp;&nbsp;&nbsp;
+			               <input type="radio" name="license" value="nolicense">¹«						
+
+					</tr>
+			</table>
+				<div class="button_div">
+         			<p><a href="apply_services.do" class="btn btn-primary">Ãë¼Ò</a></p>				
+         			<p><a href="succesed_apply_giver.do" class="btn btn-primary">ÀÛ¼º</a></p>				
+<!-- 			       	<input name="write" type="submit" value="ÀÛ¼ºÇÏ±â"> -->
+<!-- 	               	<input name="cancel"type="reset" value="Ãë¼ÒÇÏ±â"> -->
+				</div>
+		    </div>
+	    </div>
+    </form>
+
+    </div>
+
+
+ <script src="resources/js/jquery-3.3.1.min.js"></script>
+  <script src="resources/js/jquery-ui.js"></script>
+  <script src="resources/js/popper.min.js"></script>
+  <script src="resources/js/bootstrap.min.js"></script>
+  <script src="resources/js/owl.carousel.min.js"></script>
+  <script src="resources/js/jquery.countdown.min.js"></script>
+  <script src="resources/js/jquery.easing.1.3.js"></script>
+  <script src="resources/js/aos.js"></script>
+  <script src="resources/js/jquery.waypoints.min.js"></script>
+  <script src="resources/js/jquery.animateNumber.min.js"></script>
+  <script src="resources/js/jquery.fancybox.min.js"></script>
+  <script src="resources/js/jquery.sticky.js"></script>
+  <script src="resources/js/isotope.pkgd.min.js"></script>
+
+
+  <script src="resources/js/main.js"></script>
+
+
 </body>
 </html>
