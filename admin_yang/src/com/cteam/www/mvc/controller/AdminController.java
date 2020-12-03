@@ -13,55 +13,55 @@ public class AdminController {
 	@GetMapping(value="/index.do")
 	public String index(Model m) {
 	
-		return "index";
+		return "index_jw";
 	}
 	
 	@GetMapping(value="/default.do")
 	public String home(Model m) {
 	
-		return "default";
+		return "default_jw";
 	}
 	
 	@GetMapping(value="/memberInfo.do")
 	public String memberInfo(Model m) {
 	
-		return "memberInfo";
+		return "memberInfo_jw";
 	}
 	
 	@GetMapping(value="/findMember.do")
 	public String findMember(Model m) {
 	
-		return "findMember";
+		return "findMember_jw";
 	}
 	
 	@GetMapping(value="/assignCaregiver.do")
 	public String assignCaregiver(Model m) {
 	
-		return "assignCaregiver";
+		return "assignCaregiver_jw";
 	}
 	
 	@GetMapping(value="/caregiverInfo.do")
 	public String caregiverInfo(Model m) {
 	
-		return "caregiverInfo";
+		return "caregiverInfo_jw";
 	}
 	
 	@GetMapping(value="/caregiverInfoDetail.do")
 	public String caregiverInfoDetail(Model m) {
 	
-		return "caregiverInfoDetail";
+		return "caregiverInfoDetail_jw";
 	}
 	
 	@GetMapping(value="/memberInfoDetail.do")
 	public String memberInfoDetail(Model m) {
 	
-		return "memberInfoDetail";
+		return "memberInfoDetail_jw";
 	}
 	
 	@GetMapping(value="/signup.do")
 	public String signup(Model m) {
 	
-		return "signup";
+		return "signup_jw";
 	}
          
 }

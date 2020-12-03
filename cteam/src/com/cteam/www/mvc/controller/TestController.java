@@ -28,8 +28,6 @@ public class TestController {
 	
 		return "test1";
 		}
-	
-	
          
 	
 	@GetMapping(value="/testimonial.do")
@@ -160,51 +158,6 @@ public class TestController {
 	public String hugi_service(Model m) {
 		return "hugi_service";
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	@GetMapping(value="/communityService.do")
-	public String communityService(Model m) {
-		return "communityService";
-	}
-	
-	@GetMapping(value="/medicalLocation.do")
-	public String medicalLocation(Model m) {
-		return "medicalLocation";
-	}
-	
-	@GetMapping(value="/silverhallLocation.do")
-	public String silverhallLocation(Model m) {
-		return "silverhallLocation";
-	}
-	
-	@GetMapping(value="/elderlyhomeLocation.do")
-	public String elderlyhomeLocation(Model m) {
-		return "elderlyhomeLocation";
-	}
-	
-
 }
-
-
 	
 	
