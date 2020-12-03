@@ -8,38 +8,27 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
-	
-	
-
-
-
-
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
-
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/jquery-ui.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
-
   <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
-
   <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
-
   <link rel="stylesheet" href="resources/css/aos.css">
-
   <link rel="stylesheet" href="resources/css/style_page.css">
   
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  
+  
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -142,11 +131,171 @@
 
     </div>
 
-	<h2>친구위치 검색</h2>
+	<h2 align="center">친구위치 검색</h2>
 	
 	
-	<div id="map" style="width:100%;height:800px;"></div>
+	
+	<div class="site-section">
+    <div class="container">
+      <div class="row justify-content-between">
+        <div class="col-lg-7">
+          <div class="section-heading">
+            <div id="map" style="width:100%;height:800px;"></div>
+          </div>
+        </div>
+        <div class="col-lg-5">
 
+          <div class="d-block custom-media algin-items-stretch">
+            	
+			<div id="chatbox">
+  <div id="friendslist">
+      <div id="topmenu">
+          <span class="friends"></span>
+            <span class="chats"></span>
+            <span class="history"></span>
+        </div>
+        
+        <div id="friends">
+          <div class="friend">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                <p>
+                  <strong>Miro Badev</strong>
+                  <span>mirobadev@gmail.com</span>
+                </p>
+                <div class="status available"></div>
+            </div>
+            
+            <div class="friend">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                <p>
+                  <strong>Martin Joseph</strong>
+                  <span>marjoseph@gmail.com</span>
+                </p>
+                <div class="status away"></div>
+            </div>
+            
+            <div class="friend">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg" />
+                <p>
+                  <strong>Tomas Kennedy</strong>
+                  <span>tomaskennedy@gmail.com</span>
+                </p>
+                <div class="status inactive"></div>
+            </div>
+            
+            <div class="friend">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg" />
+                <p>
+                  <strong>Enrique Sutton</strong>
+                  <span>enriquesutton@gmail.com</span>
+                </p>
+                <div class="status inactive"></div>
+            </div>
+            
+            <div class="friend">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/5_copy.jpg" />
+                <p>
+                <strong>  Darnell Strickland</strong>
+                  <span>darnellstrickland@gmail.com</span>
+                </p>
+                <div class="status inactive"></div>
+            </div>
+            
+            <div class="friend">
+              <img src="resources/images/avatar.jpg" />
+                <p>
+                <strong>  Darnell Strickland</strong>
+                  <span>darnellstrickland@gmail.com</span>
+                </p>
+                <div class="status inactive"></div>
+            </div>
+            
+            <div id="search">
+              <input type="text" id="searchfield" value="Search contacts..." />
+            </div>
+            
+        </div>                
+        
+    </div>  
+    
+    <div id="chatview" class="p1">      
+        <div id="profile">
+
+            <div id="close">
+                <div class="cy"></div>
+                <div class="cx"></div>
+            </div>
+            
+            <p>Miro Badev</p>
+            <span>miro@badev@gmail.com</span>
+        </div>
+        <div id="chat-messages">
+          <label>Thursday 02</label>
+            
+            <div class="message">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                <div class="bubble">
+                  Really cool stuff!
+                    <div class="corner"></div>
+                    <span>3 min</span>
+                </div>
+            </div>
+            
+            <div class="message right">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                <div class="bubble">
+                  Can you share a link for the tutorial?
+                    <div class="corner"></div>
+                    <span>1 min</span>
+                </div>
+            </div>
+            
+            <div class="message">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                <div class="bubble">
+                  Yeah, hold on
+                    <div class="corner"></div>
+                    <span>Now</span>
+                </div>
+            </div>
+            
+            <div class="message right">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
+                <div class="bubble">
+                  Can you share a link for the tutorial?
+                    <div class="corner"></div>
+                    <span>1 min</span>
+                </div>
+            </div>
+            
+            <div class="message">
+              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
+                <div class="bubble">
+                  Yeah, hold on
+                    <div class="corner"></div>
+                    <span>Now</span>
+                </div>
+            </div>
+            
+        </div>
+      
+        <div id="sendmessage">
+          <input type="text" value="Send message..." />
+            <button id="send"></button>
+        </div>
+    
+    </div>        
+</div>
+    
+
+            
+            
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+	
  
     <div class="feature-v1">
       <div class="d-md-flex align-items-center">
@@ -271,7 +420,7 @@
     </div>
 
 
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
   <script src="resources/js/bootstrap.min.js"></script>
@@ -284,9 +433,9 @@
   <script src="resources/js/jquery.fancybox.min.js"></script>
   <script src="resources/js/jquery.sticky.js"></script>
   <script src="resources/js/isotope.pkgd.min.js"></script>
-
-
   <script src="resources/js/main.js"></script>
+  
+  
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
   <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  

@@ -142,7 +142,7 @@
 
     </div>
 
-	<h2>요양시설 정보</h2>
+	<h2 align="center">요양시설 정보</h2>
 	
 	<div id="map" style="width:100%;height:800px;"></div>
 

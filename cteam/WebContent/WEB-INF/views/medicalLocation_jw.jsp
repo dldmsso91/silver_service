@@ -141,7 +141,7 @@
 
     </div>
 
-	<h2>의료복지시설 정보</h2>
+	<h2 align="center">의료복지시설 정보</h2>
 	
 	<div id="map" style="width:100%;height:800px;"></div>
 
