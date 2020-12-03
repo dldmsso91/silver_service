@@ -40,13 +40,13 @@
         <div class="col-xs-10 col-xs-offset-1 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-4">
           <section class="panel bg-white no-b">
             <ul class="switcher-dash-action">
-              <li><a href="default.do" class="selected">관리자 로그인</a>
+              <li><a href="login.do" class="selected">관리자 로그인</a>
               </li>
               <li class="active"><a href="#" class="">회원가입</a>
               </li>
             </ul>
             <div class="p15">
-              <form role="form" action="signin.html">
+              <form role="form" action="signin.do">
                 <input type="text" class="form-control input-lg mb25" placeholder="Choose a username" autofocus>
                 <input type="text" class="form-control input-lg mb25" placeholder="Email address">
                 <input type="password" class="form-control input-lg mb25" placeholder="Password">
