@@ -45,8 +45,6 @@
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
-
-
   <div id="overlayer"></div>
   <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -82,7 +80,7 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
@@ -91,9 +89,8 @@
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-
 				<li class="has-children">
-                  <a href="#" class="nav-link">Community</a>
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
                   <ul class="dropdown">
                     <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">

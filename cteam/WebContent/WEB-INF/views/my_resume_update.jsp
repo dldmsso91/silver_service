@@ -138,10 +138,10 @@ margin: 0 auto;
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
 
-             <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
+              <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
@@ -150,9 +150,20 @@ margin: 0 auto;
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
