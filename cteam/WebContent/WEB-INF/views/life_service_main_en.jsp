@@ -32,8 +32,13 @@
 
   <link rel="stylesheet" href="resources/css/aos.css">
 
-  <link rel="stylesheet" href="resources/css/style.css">
+  <link rel="stylesheet" href="resources/css/style_page.css">
 
+<style>
+.service-text{
+width: 35%;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -73,11 +78,11 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -114,22 +119,68 @@
 
     </header>
 
-
-
     <!-- MAIN -->
 
 
 
-    <div class="slide-item overlay" style="background-image: url('resources/images/slider-2.jpg')">
+    <div id="test" class="slide-item overlay">
+
+    </div>
+
+
+
+
+    <div class="site-section">
       <div class="container">
-        <div class="row justify-content-center text-center">
-          <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">전문 도우미 서비스</h1>
-            <p class="lead text-white mb-5">생활을 바꿉니다. 전문 도우미가 필요하신가요? </p>
-            <p><a href="apply_services_type.do" class="btn btn-primary">서비스 신청하기</a></p>
+        <div class="row">
+          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+            <div class="service">
+              <img src="resources/images/img_2_sq.jpg" alt="Image" class="img-fluid">
+            </div>
+          </div>
+              <div class="service-text">
+                <h3>생활 도우미</h3>
+                <p>당신의 일상 속 품질을 높이세요! 빨래와 정리, 가사 생활도우미에게 맡겨보세요. </p>
+            	<p><a href="apply_services_type_en.do" class="btn btn-primary">서비스 신청하기</a></p>               
+            	<p><a href="apply_services_type_en.do" class="btn btn-primary">도우미 지원하기</a></p>               
+              </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="feature-v1">
+      <div class="d-md-flex align-items-center">
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">Independent Living For Senior Couples</h3>
+            <a href="#" class="small">Learn More</a>
           </div>
         </div>
-      </div>  
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
+            <a href="#" class="small">Learn More</a>
+          </div>
+        </div>
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading">Try Our Services</span>
+            <h3 class="heading">Senior Home Patient Care Services</h3>
+            <a href="#" class="small">Learn More</a>
+          </div>
+        </div>
+      </div>
     </div>
 
 
@@ -142,9 +193,9 @@
           </div>
           <div class="col-md-6 col-lg-5 ml-auto">
             <div class="section-heading">
-              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
+              <h2 class="heading mb-3 text-white" style="width: 85%;">Caring Senior service!</h2>
               
-              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
+              <p class="text-white" style="width: 85%;">고객의 품격에 걸맞은 격조높은 일상생활을 위한 '도우미 서비스'를 제공합니다. Elderly의 특별한 고객이 되어, 오직 '나'만을 위해 선출된 맞춤 서비스를 받아보시기 바랍니다. </p>
               <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
               <p><a href="#" class="btn btn-white">서비스 신청</a></p>
             </div>
@@ -153,6 +204,7 @@
       </div>
     </div>
 
+    
 
 
     <div class="site-footer bg-light">

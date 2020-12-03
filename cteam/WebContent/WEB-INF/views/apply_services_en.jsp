@@ -33,6 +33,53 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style.css">
+  
+  
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: true,
+	  minSlides: 4,
+	  maxSlides: 2,
+	  slideWidth: 500,
+	  slideMargin: 10,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
+	});
+});   
+
+	$('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  alert("test");
+	  return false;
+	});	
+</script> 
+  
+<style>
+.btn {
+    font-size: 23px;
+    text-transform: uppercase;
+    border-radius: 30px;
+    padding: 15px 29px;
+}
+.slide-item .heading, .cover .heading {
+    font-size: 55px;
+}
+</style>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -73,11 +120,11 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -120,13 +167,13 @@
 
 
 
-    <div class="slide-item overlay" style="background-image: url('resources/images/promise2.jpg')">
+    <div class="slide-item overlay" style="background-image: url('resources/images/slider-2.jpg')">
       <div class="container">
         <div class="row justify-content-center text-center">
-          <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">도우미 지원이 완료되었습니다.</h1>
-            <p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다. </p>
-            <p><a href="my_resume.do" class="btn btn-primary">지원내역 확인하기</a></p>
+          <div class="col-lg-6 align-self-center" style="background-color: rgb(123 123 123 / 26%); border-radius: 20px;text-align: center;">
+            <h1 class="heading mb-3">Caring Senior service!</h1>
+            <p class="lead text-white mb-5">Elderly의 특별한 고객이 되어, 오직 '나'만을 위해 선출된 맞춤 서비스를 받아보시기 바랍니다. </p>
+            <p><a href="apply_services_type_en.do" class="btn btn-primary">서비스 신청하기</a></p>
           </div>
         </div>
       </div>  
@@ -135,72 +182,7 @@
 
 
 
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_4_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
 
-
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
-              
-              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
 
 
     <div class="site-footer bg-light">

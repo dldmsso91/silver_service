@@ -34,7 +34,7 @@
 
   <link rel="stylesheet" href="resources/css/style_page.css">
 
-
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
 
 
 
@@ -75,6 +75,7 @@
     <script type="text/javascript">
 
     $(function(){
+// 	    ----------------------------------------삭제시, confirm이 나오게 하는 코드        
 	    $('#delete').click(function(){
 	    	var result = confirm('정말 삭제하시겠습니까?'); 
 
@@ -86,7 +87,43 @@
 		    else{ no }
 
 		    });
-        });
+
+
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		$("#inner_item1").hide();
+
+		$(".item1").click(function () { 
+			$("#inner_item1").show();
+			$(".item1").on("click" , function(){
+				$("#inner_item1").hide();
+			});
+		});  
+		$("#inner_item2").hide();
+
+		$(".item2").click(function () { 
+			$("#inner_item2").show();
+			$(".item2").on("click" , function(){
+				$("#inner_item2").hide();
+			});
+		});  
+		$("#inner_item3").hide();
+
+		$(".item3").click(function () { 
+			$("#inner_item3").show();
+			$(".item3").on("click" , function(){
+				$("#inner_item3").hide();
+			});
+		});  
+		$("#inner_item4").hide();
+
+		$(".item4").click(function () { 
+			$("#inner_item4").show();
+			$(".item4").on("click" , function(){
+				$("#inner_item4").hide();
+			});
+		});  
+		 
+     });
 
     </script>
 
@@ -95,11 +132,13 @@
 <style>
 .table{    
 
-	width: 55%;
+	width: 100%;
     margin-bottom: 1rem;
     text-align: center;
     margin: 0 auto;
-    margin-top: 50px;}
+    margin-top: 50px;
+    font-size:16px;
+    }
 .sub_table{
     text-align: center;
     margin: 0 auto;
@@ -137,6 +176,27 @@ margin: 0 auto;
     width: 100%;
 }
 
+
+.resume_table{
+	width: 50%;
+    margin: 0 auto;
+    margin-top: 50px;
+
+}
+#resume{
+    margin: 0 auto;
+    width: 100%;
+    font-size: 4vh;
+    text-align: left;
+}
+
+.item1,.item2,.item3,.item4{
+    width: 100%;
+    font-size: 3vh;
+    text-align: left;
+
+
+}
 </style>
 
 
@@ -179,11 +239,11 @@ margin: 0 auto;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -228,138 +288,166 @@ margin: 0 auto;
     <div id="test" class="slide-item overlay">
 
     </div>
+    
 
 
 
 
 
-<form action="POST" class='wirtehugi'>
     <div class="layer" >
 
           <div class="layer_inner">
 			<h1>도우미 이력서 열람</h1>
 			<div class="My_Image">
 			<img src="resources/images/1.jpg" alt="My Image">		
-			</div>
-				<table class="ui celled table">
-				<tr><td rowspan="5">기본정보</td></tr>
-				<tr>
-					<td>이름</td>
-					<td>이문자</td>
-				</tr>
-				<tr>
-					<td>나이</td>
-						<td>
-							43세
-    					</td>
-				</tr>
-				<tr>
-					<td> 성별 </td>
-					<td> 
-						여자
-     				</td>
-   				</tr>				
-      				<tr>
-      					<td>주소</td>
-      					<td>서울특별시 강서구 하늘길 77(방화동 886)</td>
-      				</tr>
-				<tr>
-					<td rowspan="7">추가정보</td>
-					</tr>  
-					<tr>    				
-					<td class="td01">출퇴근형<br>희망근무지역</td> 
-					<td>     				
-						<span class="tit01">1지망 :
-								서울 / 마포구 전체 
-
-							<input type="text" name="area2_search_text" id="area2_search_text" class="inbor1" value="" style="width: 70px; display: none">
-						</span> 
-					<br>
-						<span class="tit01">2지망 :
-								서울 / 마포구 전체 
-						</span> 
-					<br>
-						<span class="tit01">3지망 :
-								서울 / 마포구 전체 
-						</span> 
-					<div style="margin: 10px 0 5px 30px; display: none" id="all_area_view">
-						<label><input type="checkbox" value="1" name="all_area">
-						<span id="all_area_name"></span>지역전체
-						<span style="color: #FF0000">(희망근무지역 1,2,3지망 위주로 채용자에게 알림이 나갑니다.)</span></label>
+			</div>				
+			<div class="resume_table">
+				<div class="item1" style="background: #f9f3ec;">
+				&nbsp;&nbsp;&nbsp;기본 정보
+					<div class="inner_item1" id="inner_item1" style="background: white;">
+					<table class="ui celled table">
+						<tr><td rowspan="5">기본정보</td></tr>
+							<tr>
+								<td>이름</td>
+								<td>이문자</td>
+							</tr>
+							<tr>
+								<td>나이</td>
+									<td>
+										43세
+			    					</td>
+							</tr>
+							<tr>
+								<td> 성별 </td>
+								<td> 
+									여자
+			     				</td>
+			   				</tr>				
+			      				<tr>
+			      					<td>주소</td>
+			      					<td>서울특별시 강서구 하늘길 77(방화동 886)</td>
+			      				</tr>
+	      				</table>
+						</div>
 					</div>
-				</td>
-			<tr>
-				<td>경력</td>
-				<td>
-					10년
-				</td>
-			</tr>
-		<tr>
-			<td>근무시간</td>
-			<td>
-				오전 9:00 ~ 오후 11:00 까지 가능
-			</td>
-				</tr>
+					<div class="item2" style="background: #9bdac5;" >
+						&nbsp;&nbsp;&nbsp;추가정보
+						<div class="inner_item2" id="inner_item2" style="background: white;">
+	    				<table class="ui celled table">
+						<tr>
+							<td rowspan="7">추가정보</td>
+							</tr>  
+							<tr>    				
+							<td class="td01">출퇴근형<br>희망근무지역</td> 
+							<td>     				
+								<span class="tit01">1지망 :
+										서울 / 마포구 전체 
+		
+									<input type="text" name="area2_search_text" id="area2_search_text" class="inbor1" value="" style="width: 70px; display: none">
+								</span> 
+							<br>
+								<span class="tit01">2지망 :
+										서울 / 마포구 전체 
+								</span> 
+							<br>
+								<span class="tit01">3지망 :
+										서울 / 마포구 전체 
+								</span> 
+							<div style="margin: 10px 0 5px 30px; display: none" id="all_area_view">
+								<label><input type="checkbox" value="1" name="all_area">
+								<span id="all_area_name"></span>지역전체
+								<span style="color: #FF0000">(희망근무지역 1,2,3지망 위주로 채용자에게 알림이 나갑니다.)</span></label>
+							</div>
+						</td>
 					<tr>
+						<td>경력</td>
 						<td>
-						희망급여
-						</td>
-						<td>
-							시간제
+							10년
 						</td>
 					</tr>
+				<tr>
+					<td>근무시간</td>
+					<td>
+						오전 9:00 ~ 오후 11:00 까지 가능
+					</td>
+						</tr>
+							<tr>
+								<td>
+								희망급여
+								</td>
+								<td>
+									시간제
+								</td>
+							</tr>
+							<tr>
+								<td>자격증</td>
+								<td>				
+									유
+								</td>
+							</tr>
+							<tr>
+								<td>간단 자기소개</td>
+								<td>				
+									안녕하세요 오랜 경력으로 최선을 다하겠습니다! 믿고 맡겨주세요!
+								</td>
+							</tr>
+						</table>
+					</div>	
+				</div>
+				<div class="item3" style="background: #fbcbcb;">
+				&nbsp;&nbsp;&nbsp;성격 진단검사
+					<div class="inner_item3" id="inner_item3" style="background: white;">			
+	    				<table class="ui celled table">
+						<tr>
+							<td rowspan="2">성격 진단검사</td>
+						</tr>
+							<tr>
+								<td>	
+								    <table class="sub_table" style="border: 1px solid #dee2e6;">
+								    	<tr><th>외향성</th><th>호감성</th><th>성실성</th><th>정서적 불안정성</th><th>경험에 대한 개방성</th></tr>
+								    	<tr><td>55</td><td>66</td><td>77</td><td>88</td><td>99</td></tr>
+								    </table>			
+							</td>
+							<td></td>
+						</tr>
+						</table>
+					</div>
+				</div>
+				<div class="item4" style="background: antiquewhite;">
+				&nbsp;&nbsp;&nbsp;경력사항
+					<div class="inner_item4" id="inner_item4" style="background: white;">			
+					<table class="ui celled table">						
 					<tr>
-						<td>자격증</td>
-						<td>				
-							유
-						</td>
-					</tr>
-					<tr>
-						<td>간단 자기소개</td>
-						<td>				
-							안녕하세요 오랜 경력으로 최선을 다하겠습니다! 믿고 맡겨주세요!
-						</td>
-					</tr>
-					<tr>
-						<td rowspan="1">성격 진단검사</td>
-							<td colspan="2">
-							    <div id="curve_chart" style="width: 900px; height: 500px"></div>	
-							    <table class="sub_table" style="border: 1px solid #dee2e6;">
-							    	<tr><th>외향성</th><th>호감성</th><th>성실성</th><th>정서적 불안정성</th><th>경험에 대한 개방성</th></tr>
-							    	<tr><td>55</td><td>66</td><td>77</td><td>88</td><td>99</td></tr>
-							    </table>			
-						</td>
-					</tr>
-					<tr>
-					<td rowspan="7">경력사항</td>
-					</tr>    
-					<tr>  				
-						<td class="td01">좋은간병</td> 
-						<td>     				
-							2010~2020년
-						</td>
-					</tr>
-					<tr>  				
-						<td class="td01">좋은간병</td> 
-						<td>     				
-							2010~2020년
-						</td>
-					</tr>
-					<tr>  				
-						<td class="td01">좋은간병</td> 
-						<td>     				
-							2010~2020년
-						</td>
-					</tr>
-			</table>
+						<td rowspan="7">경력사항</td>
+						</tr>    
+						<tr>  				
+							<td class="td01">좋은간병</td> 
+							<td>     				
+								2010~2020년
+							</td>
+						</tr>
+						<tr>  				
+							<td class="td01">좋은간병</td> 
+							<td>     				
+								2010~2020년
+							</td>
+						</tr>
+						<tr>  				
+							<td class="td01">좋은간병</td> 
+							<td>     				
+								2010~2020년
+							</td>
+						</tr>
+				</table>
+			</div>			
 		    </div>
+				<div class="button_div">
+         			<p><a href="succesed_apply_service_en.do" class="btn btn-primary" style="margin-top: 30px;">선택하기</a></p>						
+				</div>
 	    </div>
-    </form>
-
     </div>
 
 
- <script src="resources/js/jquery-3.3.1.min.js"></script>
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
   <script src="resources/js/bootstrap.min.js"></script>

@@ -38,6 +38,76 @@
 
   <link rel="stylesheet" href="resources/css/style_page.css">
 
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
+  
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: true,
+	  minSlides: 6,
+	  maxSlides: 2,
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
+	});
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
+});   
+
+</script> 
+
+<style>
+
+
+.col-lg-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 21%;
+    max-width: 30%;
+    padding: 2%;
+}
+.service .service-inner p {
+    font-size: 19px;
+    color: #848484;
+}
+
+.service .service-inner h3 {
+    font-size: 30px;
+    color: #565656;
+    
+    }
+    
+.img-fluid {
+
+    border-radius: 145px;
+}    
+
+.service .service-inner {
+    border: 0px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    padding: 10px;
+    text-align: center;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -77,11 +147,11 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -132,10 +202,11 @@
 
     <div class="site-section">
       <div class="container">
+        <h1 style="margin-bottom: 50px; text-align: center;">원하시는 서비스를 선택해 주세요!</h1>
         <div class="row">
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <a href="caregiver_service_main.do" class="d-block"><img src="resources/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
+              <a href="caregiver_service_main_en.do" class="d-block"><img src="resources/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
               <div class="service-inner">
                 <h3>간병 도우미</h3>
                 <p>전문 간병인이 필요하신가요?</p>
@@ -144,7 +215,7 @@
           </div>
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <a href="walking_service_main.do" class="d-block"><img src="resources/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
+              <a href="walking_service_main_en.do" class="d-block"><img src="resources/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
               <div class="service-inner">
                 <h3>외출 도우미</h3>
                 <p>언제 어디서든 함께!</p>
@@ -153,7 +224,7 @@
           </div>
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <a href="life_service_main.do" class="d-block"><img src="resources/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
+              <a href="life_service_main_en.do" class="d-block"><img src="resources/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
               <div class="service-inner">
                 <h3>생활 도우미</h3>
                 <p>생활의 품질을 높이고 싶으신가요?</p>
@@ -167,27 +238,213 @@
  
 
 
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
+    <div class="feature-v1">
+      <div class="d-md-flex align-items-center">
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/help.png" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading"><h5>도우미 서비스</h5></span>
+            <h3 class="heading">편안한 생활과 전문적인 손길이 필요하신가요?</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
-              
-              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
-            </div>
+        </div>
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/community.png" alt="Image" class="img-fluid">
+          </span>
+          <div>
+            <span class="subheading"><h5>커뮤니티 서비스</h5></span>
+            <h3 class="heading">내 친구가 어디에있지? 지금 찾아보세요!</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
+          </div>
+        </div>
+        <div class="d-flex pagination-item h-100">
+          <span class="icon-wrap">
+            <img src="resources/images/bus.png" alt="Image" class="img-fluid">
+<!--             <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid"> -->
+          </span>
+          <div>
+            <span class="subheading"><h5>교통 서비스</h5></span>
+            <h3 class="heading">복잡한 교통안내! 더이상 어려워 마세요~</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
       </div>
     </div>
 
+    <div class="site-section bg-primary">
+      <div class="container">
+        <div class="row">
+        <h1 style="color: white;">지금 최고의 도우미들을 확인해보세요!</h1>
+			<form>
+				<div class='bxslider_area'>
+					<ul class="bxslider">
+					  <li>
+					  <img src="resources/images/1.jpg" />
+				      <h3>이문자</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  	
+					  </li>
+					  <li>
+					  <img src="resources/images/2.jpg"/>
+				      <h3>이요롱</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+					  <img src="resources/images/3.jpg" />
+				      <h3>김애용</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>	
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		    		  
+					  </li>
+					  <li>
+					  <img src="resources/images/1.jpg" />
+				      <h3>이문자</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+					  <img src="resources/images/2.jpg"/>
+				      <h3>이요롱</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+						  <img src="resources/images/3.jpg" />
+					      <h3>김애용</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>		  
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+					  <img src="resources/images/1.jpg" />
+				      <h3>이문자</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  	
+					  </li>
+					  <li>
+					  <img src="resources/images/2.jpg"/>
+				      <h3>이요롱</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+					  <img src="resources/images/3.jpg" />
+				      <h3>김애용</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>	
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		    		  
+					  </li>
+					  <li>
+					  <img src="resources/images/1.jpg" />
+				      <h3>이문자</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+					  <img src="resources/images/2.jpg"/>
+				      <h3>이요롱</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+						<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+					  </li>
+					  <li>
+						  <img src="resources/images/3.jpg" />
+					      <h3>김애용</h3>
+		  		      <h5>도우미에 대한 평가</h5>	
+							<p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						</p>	  
+						<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>						  
+					</ul>
+				</div>
+			</form>
+        </div>
+      </div>
+    </div>
     
+
+
 
 
     <div class="site-footer bg-light">
@@ -254,7 +511,7 @@
 
 
 
-  <script src="resources/js/jquery-3.3.1.min.js"></script>
+
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
   <script src="resources/js/bootstrap.min.js"></script>
@@ -274,4 +531,5 @@
 
 
 </body>
+
 </html>

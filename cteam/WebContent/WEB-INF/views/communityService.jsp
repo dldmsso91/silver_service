@@ -80,11 +80,11 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>

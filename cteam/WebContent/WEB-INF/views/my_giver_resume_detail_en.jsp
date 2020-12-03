@@ -34,7 +34,7 @@
 
   <link rel="stylesheet" href="resources/css/style_page.css">
 
-
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
 
 
 
@@ -75,6 +75,9 @@
     <script type="text/javascript">
 
     $(function(){
+
+// 	    ----------------------------------------삭제시, confirm이 나오게 하는 코드
+        
 	    $('#delete').click(function(){
 	    	var result = confirm('정말 삭제하시겠습니까?'); 
 
@@ -86,7 +89,8 @@
 		    else{ no }
 
 		    });
-        });
+
+
 
     </script>
 
@@ -179,11 +183,11 @@ margin: 0 auto;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -352,9 +356,6 @@ margin: 0 auto;
 						</td>
 					</tr>
 			</table>
-				<div class="button_div">
-         			<p><a href="succesed_apply_service.do" class="btn btn-primary">선택하기</a></p>						
-				</div>
 		    </div>
 	    </div>
     </form>

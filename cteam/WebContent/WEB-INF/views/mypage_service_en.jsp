@@ -35,19 +35,11 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
-
-<script src="https://code.jquery.com/jquery-3.4.1.js"   
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
-	crossorigin="anonymous">
-</script>
-
-
+  
+ 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-
-
-
 
 <script>
 $(document).ready(function(){
@@ -59,18 +51,12 @@ $(document).ready(function(){
 	  minSlides: 4,
 	  maxSlides: 2,
 	  slideWidth: 500,
-	  slideMargin: 10,
-	  touchEnabled : (navigator.maxTouchPoints > 0)
+	  slideMargin: 10
 	});
 });   
 
-	$('.starRev span').click(function(){
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  alert("test");
-	  return false;
-	});	
 </script> 
+
   
 <style>
 h2{text-align: center;
@@ -191,11 +177,11 @@ h3{	margin-top: 30px;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -232,7 +218,6 @@ h3{	margin-top: 30px;
 
     </header>
 
-
     <!-- MAIN -->
 
 
@@ -240,7 +225,119 @@ h3{	margin-top: 30px;
     <div id="test" class="slide-item overlay">
 
     </div>
-
+    <h3 style="margin-left: 620px;">서비스 이용내역</h3>
+                  		<table border="1" style='width: 652.5px;margin-left: 620px;'>
+  <tbody>
+  <!--  반복문으로 사용 -->
+       <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+         <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+      <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+      <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+    <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+    <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+     <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+    <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+    <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+    <tr>
+      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
+      <td>
+      	<p>김길동</p>
+      	<p>경기도 전역(인천)|서울전체</p>
+      	<p>별점</p>
+      </td>
+      <td>2020.12.01</td>
+      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
+    </tr>
+  </tbody>
+	</tbody>
+	</table>	
+	</div>
+     <form action="" id="setRows">		        	    
+            <p>
+        		<input type="hidden" name="rowPerPage" value="3">
+     		 </p>
+     		 </form>
 	<h2>추천 도우미 탐색하기</h2>
 
 	<form>
@@ -290,7 +387,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  	
+			<a href="test.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -336,7 +433,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+			<a href="test.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/3.jpg" />
@@ -383,7 +480,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>	
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		    		  
+			<a href="test.do" class="btn btn-primary">신청하기</a>			  		  
 			  </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
@@ -429,7 +526,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+			<a href="test.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -475,7 +572,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+			<a href="test.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 				  <img src="resources/images/3.jpg" />
@@ -521,98 +618,11 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>			  
-				<a href="giver_resume_detail.do" class="btn btn-primary">상세보기</a>		  
+				<a href="test.do" class="btn btn-primary">신청하기</a>		  
 			  </li>
 			</ul>
 		</div>
 	</form>
-
-
- 
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
-              
-              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    
-
-
-    <div class="site-footer bg-light">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4">
-            <h2 class="footer-heading mb-4">About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
-            <div class="my-5 social">
-              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Amazing Atmosphere</a></li>
-                  <li><a href="#">Caring Staff</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Helpful Link</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Hospice Care</a></li>
-                  <li><a href="#">Excellent Cuisine</a></li>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Resources</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Health Care</a></li>
-                  <li><a href="#">Elderly Care</a></li>
-                  <li><a href="#">Care with Love</a></li>
-                  <li><a href="#">Quality Care</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-              <p class="copyright"><small>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
-
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
-    </div>
 
 
 
@@ -631,7 +641,7 @@ h3{	margin-top: 30px;
 
 
   <script src="resources/js/main.js"></script>
-
+<script></script>
 
 
 </body>

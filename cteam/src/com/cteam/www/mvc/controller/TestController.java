@@ -31,15 +31,6 @@ public class TestController {
 	
 	
          
-	@GetMapping(value="/apply_services.do")
-	public String services(Model m) {
-	   return "apply_services";
-	   }
-	
-	@GetMapping(value="/apply_services_type.do")
-	public String apply_services_type(Model m) {
-	   return "apply_services_type";
-	   }          
 	
 	@GetMapping(value="/testimonial.do")
 	public String testimonial(Model m) {
@@ -56,22 +47,103 @@ public class TestController {
 	public String about(Model m) {
 	   return "about";
 	   }  
-	@GetMapping(value="/caregiver_service_main.do")
+	
+	
+	
+	
+	//--------------------------------------------------------------en_controller
+	@GetMapping(value="/apply_services_en.do")
+	public String services(Model m) {
+		return "apply_services_en";
+	}
+	
+	@GetMapping(value="/apply_services_type_en.do")
+	public String apply_services_type(Model m) {
+		return "apply_services_type_en";
+	}          
+	@GetMapping(value="/caregiver_service_main_en.do")
 	public String caregiver_service_main(Model m) {
-		return "caregiver_service_main";
+		return "caregiver_service_main_en";
 	}  
 	
 	
-	@GetMapping(value="/walking_service_main.do")
+	@GetMapping(value="/walking_service_main_en.do")
 	public String walking_service_main(Model m) {
-		return "walking_service_main";
+		return "walking_service_main_en";
 	}  
 	
 	
-	@GetMapping(value="/life_service_main.do")
-	public String life_service_main(Model m) {
-		return "life_service_main";
+	@GetMapping(value="/life_service_main_en.do")
+	public String life_service_main_en(Model m) {
+		return "life_service_main_en";
 	}  
+	
+	
+	@GetMapping(value="/apply_caregiver_detail_en.do")
+	public String apply_caregiver_detail_en(Model m) {
+		return "apply_caregiver_detail_en";
+	}  
+	
+	@GetMapping(value="/recommend_service_en.do")
+	public String recommend_service_en(Model m) {
+		return "recommend_service_en";
+	}  
+	
+	
+	@GetMapping(value="/resume_giver_en.do")
+	public String resume_giver_en(Model m) {
+		return "resume_giver_en";
+	}  
+	
+	@GetMapping(value="/giver_resume_detail_en.do")
+	public String giver_resume_detail_en(Model m) {
+		return "giver_resume_detail_en";
+	}  
+	
+	@GetMapping(value="/my_giver_resume_detail_en.do")
+	public String my_giver_resume_detail_en(Model m) {
+		return "my_giver_resume_detail_en";
+	}  
+	
+	@GetMapping(value="/my_resume_update_en.do")
+	public String my_resume_update_en(Model m) {
+		return "my_resume_update_en";
+	}  
+	
+	@GetMapping(value="/my_service_en.do")
+	public String my_service_en(Model m) {
+		return "my_service_en";
+	}  
+	
+	@GetMapping(value="/succesed_apply_service_en.do")
+	public String succesed_apply_service_en(Model m) {
+		return "succesed_apply_service_en";
+	}  
+	
+	@GetMapping(value="/succesed_apply_giver_en.do")
+	public String succesed_apply_giver_en(Model m) {
+		return "succesed_apply_giver_en";
+	}  
+
+	@GetMapping(value="/my_resume_en.do")
+	public String my_resume_en(Model m) {
+		return "my_resume_en";
+	}
+	
+	
+	//--------------------------------------------------------------en_controller_end
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	@GetMapping(value="/ServiceWrite.do")
@@ -80,61 +152,10 @@ public class TestController {
 	}  
 	
 	
-	@GetMapping(value="/apply_caregiver_detail.do")
-	public String apply_caregiver_detail(Model m) {
-		return "apply_caregiver_detail";
-	}  
 	
 	
-	@GetMapping(value="/recommend_service.do")
-	public String recommend_service(Model m) {
-		return "recommend_service";
-	}  
-	
-	
-	@GetMapping(value="/resume_giver.do")
-	public String resume_giver(Model m) {
-		return "resume_giver";
-	}  
-
-	@GetMapping(value="/giver_resume_detail.do")
-	public String giver_resume_detail(Model m) {
-		return "giver_resume_detail";
-	}  
-
-	@GetMapping(value="/my_giver_resume_detail.do")
-	public String my_giver_resume_detail(Model m) {
-		return "my_giver_resume_detail";
-	}  
-
-	@GetMapping(value="/my_resume_update.do")
-	public String my_resume_update(Model m) {
-		return "my_resume_update";
-	}  
-	
-	
-	@GetMapping(value="/succesed_apply_service.do")
-	public String succesed_apply_service(Model m) {
-		return "succesed_apply_service";
-	}  
-
-	@GetMapping(value="/my_service.do")
-	public String my_service(Model m) {
-		return "my_service";
-	}  
-	
-	
-	@GetMapping(value="/succesed_apply_giver.do")
-	public String succesed_apply_giver(Model m) {
-		return "succesed_apply_giver";
-	}  
 
 	
-	@GetMapping(value="/my_resume.do")
-	public String my_resume(Model m) {
-		return "my_resume";
-	}
-
 	@GetMapping(value="/hugi_service.do")
 	public String hugi_service(Model m) {
 		return "hugi_service";

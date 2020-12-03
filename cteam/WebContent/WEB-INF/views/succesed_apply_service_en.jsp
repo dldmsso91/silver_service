@@ -32,13 +32,8 @@
 
   <link rel="stylesheet" href="resources/css/aos.css">
 
-  <link rel="stylesheet" href="resources/css/style_page.css">
+  <link rel="stylesheet" href="resources/css/style.css">
 
-<style>
-.service-text{
-width: 35%;
-}
-</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -78,11 +73,11 @@ width: 35%;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -119,56 +114,25 @@ width: 35%;
 
     </header>
 
+
     <!-- MAIN -->
 
 
 
-    <div id="test" class="slide-item overlay">
-
-    </div>
-
-
-
-
-    <div class="site-section">
+    <div class="slide-item overlay" style="background-image: url('resources/images/promis.jpg')">
       <div class="container">
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <img src="resources/images/img_3_sq.jpg" alt="Image" class="img-fluid">
-            </div>
-          </div>
-              <div class="service-text">
-                <h3>간병 도우미</h3>
-                <p>간병인 선생님을 찾으시나요?환자분과 간병인 선생님의 신뢰할 수 있는 좋은간병을 약속 드립니다. </p>
-            	<p><a href="ServiceWrite.do" class="btn btn-primary">서비스 신청하기</a></p>               
-            	<p><a href="apply_caregiver_detail.do" class="btn btn-primary">간병인 지원하기</a></p>               
-              </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
-              
-              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
-            </div>
+        <div class="row justify-content-center text-center">
+          <div class="col-lg-6 align-self-center">
+            <h1 class="heading mb-3">서비스 신청이 완료되었습니다.</h1>
+            <p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다. </p>
+            <p><a href="my_service_en.do" class="btn btn-primary">신청내역 확인하기</a></p>
           </div>
         </div>
-      </div>
+      </div>  
     </div>
 
-    
+
+
 
 
     <div class="site-footer bg-light">

@@ -34,6 +34,30 @@
 
   <link rel="stylesheet" href="resources/css/style_page.css">
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+    <script type="text/javascript">
+
+    $(function(){
+	    $('#update').click(function(){
+	    	var result = confirm('정말 수정하시겠습니까?'); 
+
+	    	if(result){ 
+
+		    	location.replace('index.do');
+		    	alert("수정되었습니다");
+		    	} 
+
+		    else{  }
+
+		    });
+        });
+
+    </script>
+
 <style>
 .table{    
 
@@ -117,11 +141,11 @@ margin: 0 auto;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -159,8 +183,8 @@ margin: 0 auto;
     </header>
 
 
-
     <!-- MAIN -->
+
 
 
    <div id="test" class="slide-item overlay">
@@ -475,8 +499,8 @@ margin: 0 auto;
 			</tr>
          </table>
 				<div class="button_div">
-         			<p><a href="apply_services.do" class="btn btn-primary">취소</a></p>				
-         			<p><a href="succesed_apply_giver.do" class="btn btn-primary">작성</a></p>				
+         			<p><a href="apply_services_en.do" class="btn btn-primary">취소</a></p>				
+         			<p><a href="#" class="btn btn-primary" id="update">수정하기</a></p>				
 <!-- 			       	<input name="write" type="submit" value="작성하기"> -->
 <!-- 	               	<input name="cancel"type="reset" value="취소하기"> -->
 				</div>
