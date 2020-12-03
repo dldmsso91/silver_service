@@ -8,12 +8,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
-	
-	
+   
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">   
+   
+   
 
 
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
@@ -37,7 +37,7 @@
 <style>
 .table{    
 
-	width: 45%;
+   width: 45%;
     margin-bottom: 1rem;
     text-align: center;
     margin: 0 auto;
@@ -159,7 +159,6 @@ margin: 0 auto;
     </header>
 
 
-
     <!-- MAIN -->
 
 
@@ -175,12 +174,12 @@ margin: 0 auto;
     <div class="layer" >
 
           <div class="layer_inner">
-         <h1>생활도우미 지원하기</h1>
+         <h1>서비스 신청하기</h1>
          <div class="My_Image">
-         <img src="resources/images/1.jpg" alt="My Image">      
+         <img src="resources/images/img_3_sq.jpg" alt="My Image">      
          </div>
             <table class="ui celled table">
-            <tr><td rowspan="5">기본정보</td></tr>
+            <tr><td rowspan="8">기본정보</td></tr>
             <tr>
                <td>이름</td>
                <td><input type='text' name='name' style="width: 30%;" /></td>
@@ -210,68 +209,29 @@ margin: 0 auto;
                      <td><input type="text" name="address"  style="width: 30%;"></td>
                   </tr>
             <tr>
-               <td rowspan="8">추가정보</td>
-               </tr>                  
-               <td class="td01">출퇴근형<br>희망근무지역</td> 
-               <td>                 
-                  <span class="tit01">1지망
-                     <select name="area1_search" id="area1_search" onchange="change_renew_commute1(this.selectedIndex);" class="select_css03 w20p">
-                        <option value="">시/도</option>
-                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
-                     </select>
-                     <select name="area2_search" id="area2_search" class="select_css03 w30p">
-                        <option value="">구/군</option>
-                     </select>
-                     <input type="text" name="area2_search_text" id="area2_search_text" class="inbor1" value="" style="width: 70px; display: none">
-                  </span> 
-               <br>
-                  <span class="tit01">2지망
-                     <select name="area4_search" id="area4_search" onchange="change_renew_commute2(this.selectedIndex);" class="select_css03 w20p">
-                        <option value="">시/도</option>
-                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
-                     </select>
-                     <select name="area5_search" id="area5_search" class="select_css03 w30p">
-                        <option value="">구/군</option>
-                     </select>
-                     <input type="text" name="area_5_search_text" id="area5_search_text" value="" class="inbor1" style="width: 70px; display: none">
-                  </span> 
-               <br>
-                  <span class="tit01">3지망
-                     <select name="area6_search" id="area6_search" onchange="change_renew_commute3(this.selectedIndex);" class="select_css03 w20p">
-                        <option value="">시/도</option>
-                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
-                     </select>
-                     <select name="area7_search" id="area7_search" class="select_css03 w30p">
-                        <option value="">구/군</option>
-                     </select>
-                     <input type="text" name="area7_search_text" id="area7_search_text" value="" class="inbor1" style="width: 70px; display: none;">
-                  </span> 
-               <div style="margin: 10px 0 5px 30px; display: none" id="all_area_view">
-                  <label><input type="checkbox" value="1" name="all_area">
-                  <span id="all_area_name"></span>지역전체
-                  <span style="color: #FF0000">(희망근무지역 1,2,3지망 위주로 채용자에게 알림이 나갑니다.)</span></label>
-               </div>
-            </td>
-         <tr>
-            <td>경력</td>
-            <td>
-               <select name="carrer"  style="width: 25%;" >
-                  <option></option>
-                  <option value="1">1</option>
-                  <option value="2">2</option>
-                  <option value="3">3</option>
-                  <option value="4">4</option>
-                  <option value="5">5</option>
-                  <option value="6">6</option>
-                  <option value="7">7</option>
-                  <option value="8">8</option>
-                  <option value="9">9</option>
-                  <option value="10">10</option>
-               </select>년
-            </td>
-         </tr>
-      <tr>
-         <td>근무시간</td>
+            <td>현재상태</td>
+             <td>
+             	<input type="checkbox" name="status" value="수술"><label>수술</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="재활"><label>재활</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="암"><label>암</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="치매"><label>치매</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="정신질환"><label>정신질환</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="실명"><label>실명</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="격리"><label>격리</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="전염성"><label>전염성</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="욕창"><label>욕창</label>&nbsp;&nbsp;&nbsp;
+             	<input type="checkbox" name="status" value="의식불명"><label>의식불명</label>
+             </td>
+               </tr>
+               <tr>
+               <td>거동여부</td>
+               <td>
+                           <input type='radio' name='walk' value='walk' /><label>거동가능</label>&nbsp;&nbsp;&nbsp;
+                           <input type='radio' name='walk' value='nowalk' /><label>거동불가능</label>
+               </td>
+               </tr>
+               <tr>
+         <td>희망시간</td>
          <td>
             <div class="r_time1">
                <input type="hidden" class="r_time_v" name="r_time" id="r_time" value="">
@@ -430,58 +390,15 @@ margin: 0 auto;
             </div>
             </td>
             </tr>
-               <tr>
-                  <td>
-                  희망급여
-                  </td>
-                  <td>
-                     <input type="radio" name="salay" value="timesalary">시간제&nbsp;&nbsp;&nbsp;
-                     <input type="radio" name="salay" value="salary">월급제
-                  </td>
-               </tr>
-               <tr>
-                  <td>자격증</td>
-                  <td>
-                  
-                        <input type="radio" name="license" value="license">유&nbsp;&nbsp;&nbsp;
-                        <input type="radio" name="license" value="nolicense">무                  
-               </tr>
-               <tr>
-               <td>흡연여부</td>
-               <td>
-               		<input type="radio" name="smoke" value="smoke"><label>흡연</label>&nbsp;&nbsp;&nbsp;
-               		<input type="radio" name="smoke" value="nosmoke"><label>비흡연</label>
-               </td>
-               </tr>
-               <tr>
-               <td>국적</td>
-               <td>
-               		<input type="radio" name="country" value="korea"><label>한국</label>&nbsp;&nbsp;&nbsp;
-               		<input type="radio" name="country" value="josun"><label>조선족교포</label>&nbsp;&nbsp;&nbsp;
-               		<input type="radio" name="country" value="asia"><label>동아시아</label>&nbsp;&nbsp;&nbsp;
-               		<input type="radio" name="country" value="etc"><label>기타</label>
-               </td>
-               </tr>
-                <tr><td rowspan="5">경력사항</td></tr>
-            <tr>
-               <td>회사명</td>
-               <td><input type='text' name='companyname' style="width: 30%;" /></td>
-            </tr>
-			<tr>
-			<td>근무기간</td>
-			<td>
-			<input type='date' name='startday'/>&nbsp; 부터 &nbsp; <input type='date' name='endday'/> 까지
-			</td>
-			</tr>
          </table>
-				<div class="button_div">
-         			<p><a href="apply_services.do" class="btn btn-primary">취소</a></p>				
-         			<p><a href="succesed_apply_giver.do" class="btn btn-primary">작성</a></p>				
-<!-- 			       	<input name="write" type="submit" value="작성하기"> -->
-<!-- 	               	<input name="cancel"type="reset" value="취소하기"> -->
-				</div>
-		    </div>
-	    </div>
+            <div class="button_div">
+                  <p><a href="recommend_service.do" class="btn btn-primary">작성</a></p>   
+                  <p><a href="apply_services.do" class="btn btn-primary">취소</a></p>               
+<!--                    <input name="write" type="submit" value="작성하기"> -->
+<!--                      <input name="cancel"type="reset" value="취소하기"> -->
+            </div>
+          </div>
+       </div>
     </form>
 
     </div>
@@ -503,7 +420,7 @@ margin: 0 auto;
 
 
   <script src="resources/js/main.js"></script>
-
+<script></script>
 
 </body>
 </html>

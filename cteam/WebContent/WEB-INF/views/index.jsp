@@ -65,26 +65,17 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
 				<li class="has-children">
-                  <a href="#" class="nav-link">Community</a>
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
                   <ul class="dropdown">
                     <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">
@@ -116,7 +107,6 @@
     </header>
 
 
-
     <!-- MAIN -->
 
 
@@ -124,10 +114,11 @@
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">Expert Care for the Elderly</h1>
-            <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum totam alias iusto?</p>
-            <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+          <div class="col-lg-6 align-self-center" style="background-color: rgb(123 123 123 / 26%); border-radius: 20px;text-align: center;">
+            <h1 class="heading mb-3" style="width: 85%;">지금 회원가입하고<br> 서비스를 누리세요!</h1>
+            <p class="lead text-white mb-5">조금 더 편안한 삶과 전문가의 손길이 필요하신가요?</p>
+            <p><a href="#" class="btn btn-primary">회원가입</a>
+            <a href="#" class="btn btn-primary">로그인</a></p>
           </div>
         </div>
       </div>  

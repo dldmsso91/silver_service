@@ -73,26 +73,29 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
+                    <li><a href="apply_services.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
@@ -177,42 +180,6 @@
       </div>
     </div>
 
-    <div class="feature-v1">
-      <div class="d-md-flex align-items-center">
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Independent Living For Senior Couples</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Senior Home Patient Care Services</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
 
     <div class="site-section bg-primary">
       <div class="container">
@@ -222,12 +189,11 @@
           </div>
           <div class="col-md-6 col-lg-5 ml-auto">
             <div class="section-heading">
-              <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
+              <h2 class="heading mb-3 text-white" style="width: 85%;">높은 품질의 실버서비스!</h2>
               
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-              <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">Learn More</a></p>
+              <p class="text-white" style="width: 85%;">언제나 고객님의 삶의 질을 높이기 위해 연구진들이 모여 서비스를 만듭니다!</p>
+              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
+              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
             </div>
           </div>
         </div>
