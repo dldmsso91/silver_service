@@ -8,11 +8,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-	
-	<link rel="preconnect" href="https://fonts.gstatic.com">
-	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
-	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
-	
+   
+   <link rel="preconnect" href="https://fonts.gstatic.com">
+   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">   
+   
 
 
 
@@ -64,7 +64,9 @@
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
-
+				  <p><a href="login_scm.do" class="btn btn-primary">로그인</a>
+			 	 <a href="hoewon_scm.do" class="btn btn-primary">회원가입</a>
+			  </p>
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
@@ -77,7 +79,7 @@
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
 
-				<li class="has-children">
+            <li class="has-children">
                   <a href="#" class="nav-link">커뮤니티 서비스</a>
                   <ul class="dropdown">
                     <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
@@ -94,9 +96,6 @@
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -117,11 +116,12 @@
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 align-self-center" style="background-color: rgb(123 123 123 / 26%); border-radius: 20px;text-align: center;">
-            <h1 class="heading mb-3" style="width: 85%;">지금 회원가입하고<br> 서비스를 누리세요!</h1>
-            <p class="lead text-white mb-5">조금 더 편안한 삶과 전문가의 손길이 필요하신가요?</p>
-            <p><a href="#" class="btn btn-primary">회원가입</a>
-            <a href="#" class="btn btn-primary">로그인</a></p>
+          <div class="col-lg-6 align-self-center">
+            <h1 class="heading mb-3">Test Page</h1>
+            <p class="lead text-white mb-5">잘 부탁 드리겠습니다</p>
+             <p><a href="list_scm.do" class="btn btn-primary">공지사항</a></p>
+            <p><a href="list2_scm.do" class="btn btn-primary">새소식</a></p>
+            <p><a href="ServiceCenter_scm.do" class="btn btn-primary">고객센터</a></p>
           </div>
         </div>
       </div>  
@@ -538,8 +538,10 @@
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
               Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
               <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+
             </div>
           </div>
+
         </div>
       </div>
     </div>
