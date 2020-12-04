@@ -119,7 +119,6 @@
             <h1 class="heading mb-3">독거노인분들을 위한</h1>
 			<h1 class="heading mb-3">음성인식 서비스</h1>
             <h2><p class="lead text-white mb-5">터치 한 번으로 모든 서비스를 소통해주는 ~~</p><h2>
-            <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
           </div>
         </div>
       </div>  
