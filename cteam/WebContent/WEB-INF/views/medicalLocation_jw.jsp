@@ -67,8 +67,7 @@
     </div>
 
 <!-- Header Start --> 
-   
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -111,7 +110,7 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
               </ul>

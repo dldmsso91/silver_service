@@ -3,7 +3,6 @@
 <!doctype html>
 <html lang="en">
 <head>
- <!-- css  -->
   <title>Elderly &mdash; Website Template by Colorlib</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
@@ -66,32 +65,37 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
+
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">
-                      <a href="#">More Links</a>
+                      <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
-
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
-                <li><a href="about.do" class="nav-link">버스 정보 </a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -105,7 +109,6 @@
     </header>
 
 
-
     <!-- MAIN -->
 
 
@@ -116,7 +119,7 @@
           <div class="col-lg-6 align-self-center">
             <h1 class="heading mb-3">노약자 교통 정보</h1>
             <p class="lead text-white mb-5">이쪽을 누르면 이동하게 됩니다. </p>
-            <p><a href="about_bis.do" class="btn btn-primary">교통 정보</a></p>
+            <p><a href="bus_main.do" class="btn btn-primary">교통 정보</a></p>
           </div>
         </div>
       </div>  
