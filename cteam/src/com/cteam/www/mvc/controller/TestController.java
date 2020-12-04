@@ -129,10 +129,14 @@ public class TestController {
 	}
 	
 	
+	
 	//--------------------------------------------------------------en_controller_end
 	
-	
-	
+	@GetMapping(value="/about.do")
+	public String about_sw(Model m) {
+	   return "about_sw";
+	   }  
+	//------------------------------------------------
 	
 	
 	
