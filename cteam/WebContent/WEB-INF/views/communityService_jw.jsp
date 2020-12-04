@@ -56,6 +56,8 @@
     </div>
 
     
+<!-- Header Start --> 
+   
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -71,53 +73,37 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-<<<<<<< HEAD:cteam/WebContent/WEB-INF/views/communityService.jsp
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
                     <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
-=======
-                  <a href="apply_services.do" class="nav-link">Services</a>
-                  <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="#" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="#" class="nav-link">도우미 지원하기</a></li>
-                    <li><a href="#" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
-                      <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
-                      </ul>
-                    </li>
->>>>>>> 9c5807f95e0cc383f5d737a701b755560ee714f3:cteam/WebContent/WEB-INF/views/communityService_jw.jsp
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
 
 				<li class="has-children">
-                  <a href="#" class="nav-link">Community</a>
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
                   <ul class="dropdown">
                     <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">
                       <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
                         <li><a href="medicalLocation.do">의료복지시설</a></li>
-                        <li><a href="silverhallLocation.do">경로당</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
                         <li><a href="elderlyhomeLocation.do">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -129,6 +115,9 @@
       </div>
 
     </header>
+
+
+<!-- Header End -->
 
 
     <!-- MAIN -->

@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class DyController {
 
-	@GetMapping(value="/dy_stats_admin.do")
-	public String dy_stats_admin(Model m) {
+	@GetMapping(value="/stats_admin_dy.do")
+	public String stats_admin_dy(Model m) {
 	
-		return "dy_stats_admin";
+		return "stats_admin_dy";
 	}
 	
-	@GetMapping(value="/dy_voice_service_intro.do")
-	public String dy_voice_service_intro(Model m) {
+	@GetMapping(value="/voice_service_intro_dy.do")
+	public String voice_service_intro_dy(Model m) {
 	
-		return "dy_voice_service_intro";
+		return "voice_service_intro_dy";
 	}
 	
 }

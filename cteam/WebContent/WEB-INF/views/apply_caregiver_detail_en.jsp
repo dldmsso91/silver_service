@@ -101,7 +101,8 @@ margin: 0 auto;
       <div class="site-mobile-menu-body"></div>
     </div>
 
-    
+<!-- Header Start --> 
+   
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -124,7 +125,12 @@ margin: 0 auto;
                     <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
 
 				<li class="has-children">
                   <a href="#" class="nav-link">커뮤니티 서비스</a>
@@ -143,9 +149,6 @@ margin: 0 auto;
                 <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -159,6 +162,7 @@ margin: 0 auto;
     </header>
 
 
+<!-- Header End -->
 
     <!-- MAIN -->
 
