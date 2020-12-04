@@ -16,11 +16,6 @@ public class TestController {
       return "blog";
       }
       
-	@GetMapping(value="/index.do")
-	public String index(Model m) {
-	
-		return "index";
-		}
 	
 	
 	@GetMapping(value="/test1.do")
@@ -132,10 +127,10 @@ public class TestController {
 	
 	//--------------------------------------------------------------en_controller_end
 	
-	@GetMapping(value="/about.do")
-	public String about_sw(Model m) {
-	   return "about_sw";
-	   }  
+//	@GetMapping(value="/about.do")
+//	public String about_sw(Model m) {
+//	   return "about_sw";
+//	   }  
 	//------------------------------------------------
 	
 	
