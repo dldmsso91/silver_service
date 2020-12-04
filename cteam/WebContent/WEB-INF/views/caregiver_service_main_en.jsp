@@ -142,8 +142,8 @@ $(document).ready(function(){
  					<li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
-                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
-                        <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
+                        <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
                       </ul>
                       </li>
                   </ul>
