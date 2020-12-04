@@ -246,7 +246,7 @@ var charts = function () {
 
     return res;
   }
-
+/*
   function update() {
 
     plot.setData([getRandomData()]);
@@ -256,7 +256,7 @@ var charts = function () {
     plot.draw();
     setTimeout(update, updateInterval);
   }
-
+*/
   function showTooltip(x, y, contents) {
     $('<div id="tooltip">' + contents + '</div>').css({
       top: y - 10,
@@ -307,7 +307,7 @@ var charts = function () {
       },
       stack: true
     });
-
+/*
     plot = $.plot('.realtime', [getRandomData()], {
       colors: ['#535a6c'],
       lines: {
@@ -331,7 +331,7 @@ var charts = function () {
       }
 
     });
-
+*/
     $.plot('.category', [categoryData], {
       colors: ['#24ACE5'],
       series: {
