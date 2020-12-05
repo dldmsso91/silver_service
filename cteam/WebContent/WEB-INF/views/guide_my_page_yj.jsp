@@ -57,6 +57,14 @@ $(document).ready(function(){
 
 </script> 
 
+<script>
+	 $('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  alert("test");
+	  return false;
+	});	
+</script> 
   
 <style>
 h2{text-align: center;
@@ -142,6 +150,8 @@ h3{	margin-top: 30px;
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
+
+
   <div id="overlayer"></div>
   <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -162,8 +172,6 @@ h3{	margin-top: 30px;
     </div>
 
     
-<!-- Header Start --> 
-   
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -179,37 +187,41 @@ h3{	margin-top: 30px;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
-                  <ul class="dropdown">
-                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
-                  </ul>
-                </li>
-
-				<li class="has-children">
-                  <a href="#" class="nav-link">커뮤니티 서비스</a>
-                  <ul class="dropdown">
-                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li><a href="#" class="nav-link">서비스 소개</a></li>
+                    <li><a href="customer_service_apply.do" class="nav-link">서비스 신청하기</a></li>                      
                     <li class="has-children">
-                      <a href="#">커뮤니티 공간 정보</a>
+                    <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation.do">의료복지시설</a></li>
-                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
+                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
+                    <li><a href="guide_my_page.do" class="nav-link">도우미_서비스 신청리스트</a></li>
+                    <li><a href="guide_worktime.do" class="nav-link">출퇴근기록</a></li>
+                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
+                    <li class="has-children">
+                      <a href="#">More Links</a>
+                      <ul class="dropdown">
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
+                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+
+
+                <li><a href="blog.do" class="nav-link">Blog</a></li>
+                <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -223,8 +235,6 @@ h3{	margin-top: 30px;
     </header>
 
 
-<!-- Header End -->	
-
     <!-- MAIN -->
 
 
@@ -232,130 +242,19 @@ h3{	margin-top: 30px;
     <div id="test" class="slide-item overlay">
 
     </div>
-    <h3 style="margin-left: 620px;">서비스 이용내역</h3>
-                  		<table border="1" style='width: 652.5px;margin-left: 620px;'>
-  <tbody>
-  <!--  반복문으로 사용 -->
-       <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-         <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-      <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-      <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-     <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-  </tbody>
-	</tbody>
-	</table>	
-	</div>
-     <form action="" id="setRows">		        	    
-            <p>
-        		<input type="hidden" name="rowPerPage" value="3">
-     		 </p>
-     		 </form>
-	<h2>추천 도우미 탐색하기</h2>
+
+	<h2>신청 접수된 고객리스트</h2>
 
 	<form>
 		<div class='bxslider_area'>
 			<ul class="bxslider">
 			  <li>
 			  <img src="resources/images/1.jpg" />
-		      <h3>이문자</h3>
-		      <h5>간병 서비스 이력</h5>
-		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
-			  <img src="resources/images/4.png"/>
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
 			  <div class="care-list">
 				  <div class="item">
 				  	<div class="title">재활</div>
@@ -386,115 +285,15 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
-			  </li>
-			  <li>
-			  <img src="resources/images/2.jpg"/>
-		      <h3>이요롱</h3>
-		      <h5>간병 서비스 이력</h5>
-		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
-			  <img src="resources/images/5.png"/>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
-			  </li>
-			  <li>
-			  <img src="resources/images/3.jpg" />
-		      <h3>김애용</h3>
-		      <h5>간병 서비스 이력</h5>
-		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	  
-			  <img src="resources/images/4.png"/>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>	
-			<a href="test.do" class="btn btn-primary">신청하기</a>			  		  
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
-		      <h3>이문자</h3>
-		      <h5>간병 서비스 이력</h5>
-		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
-			  <img src="resources/images/4.png"/>
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
 			  <div class="care-list">
 				  <div class="item">
 				  	<div class="title">재활</div>
@@ -525,22 +324,15 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
 			  </li>
 			  <li>
-			  <img src="resources/images/2.jpg"/>
-		      <h3>이요롱</h3>
-		      <h5>간병 서비스 이력</h5>
-		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
-			  <img src="resources/images/5.png"/>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
 			  <div class="care-list">
 				  <div class="item">
 				  	<div class="title">재활</div>
@@ -571,65 +363,131 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
 			  </li>
 			  <li>
-				  <img src="resources/images/3.jpg" />
-			      <h3>김애용</h3>
-			      <h5>간병 서비스 이력</h5>
-			      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	  
-				  <img src="resources/images/4.png"/>
-				  <div class="care-list">
-					  <div class="item">
-					  	<div class="title">재활</div>
-					  	<div class="line-color re"></div>
-					  	<div class="count">
-					  		<span>12</span>회
-					  	</div>
-					  </div>
-					  <div class="item">
-					  	<div class="title">암</div>
-					  	<div class="line-color am"></div>
-					  	<div class="count">
-					  		<span>12</span>회
-					  	</div>
-					  </div>
-					  <div class="item">
-					  	<div class="title">치매</div>
-					  	<div class="line-color ch"></div>
-					  	<div class="count">
-					  		<span>12</span>회
-					  	</div>
-					  </div>
-					  <div class="item">
-					  	<div class="title">격리</div>
-					  	<div class="line-color su"></div>
-					  	<div class="count">
-					  		<span>12</span>회
-					  	</div>
-					  </div>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <div class="care-list">
+				  <div class="item">
+				  	<div class="title">재활</div>
+				  	<div class="line-color re"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
 				  </div>
-  		      <h5>도우미에 대한 평가</h5>	
-	  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>			  
-				<a href="test.do" class="btn btn-primary">신청하기</a>		  
+				  <div class="item">
+				  	<div class="title">암</div>
+				  	<div class="line-color am"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">치매</div>
+				  	<div class="line-color ch"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">격리</div>
+				  	<div class="line-color su"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+			  </div>
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
 			  </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <div class="care-list">
+				  <div class="item">
+				  	<div class="title">재활</div>
+				  	<div class="line-color re"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">암</div>
+				  	<div class="line-color am"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">치매</div>
+				  	<div class="line-color ch"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">격리</div>
+				  	<div class="line-color su"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+			  </div>
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
+			  </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <div class="care-list">
+				  <div class="item">
+				  	<div class="title">재활</div>
+				  	<div class="line-color re"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">암</div>
+				  	<div class="line-color am"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">치매</div>
+				  	<div class="line-color ch"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+				  <div class="item">
+				  	<div class="title">격리</div>
+				  	<div class="line-color su"></div>
+				  	<div class="count">
+				  		<span>12</span>회
+				  	</div>
+				  </div>
+			  </div>
+			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
+			  </li>		
 			</ul>
 		</div>
 	</form>
+</div>
+
+
 
 
 

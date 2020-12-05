@@ -57,6 +57,14 @@ $(document).ready(function(){
 
 </script> 
 
+<script>
+	 $('.starRev span').click(function(){
+	  $(this).parent().children('span').removeClass('on');
+	  $(this).addClass('on').prevAll('span').addClass('on');
+	  alert("test");
+	  return false;
+	});	
+</script> 
   
 <style>
 h2{text-align: center;
@@ -142,6 +150,8 @@ h3{	margin-top: 30px;
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
+
+
   <div id="overlayer"></div>
   <div class="loader">
     <div class="spinner-border text-primary" role="status">
@@ -162,8 +172,6 @@ h3{	margin-top: 30px;
     </div>
 
     
-<!-- Header Start --> 
-   
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -179,37 +187,33 @@ h3{	margin-top: 30px;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
+                  <a href="apply_services.do" class="nav-link">Services</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
-                  </ul>
-                </li>
-                <li class="has-children">
-                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
-                  <ul class="dropdown">
-                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
-                  </ul>
-                </li>
-
-				<li class="has-children">
-                  <a href="#" class="nav-link">커뮤니티 서비스</a>
-                  <ul class="dropdown">
-                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li><a href="#" class="nav-link">서비스 소개</a></li>
+                    <li><a href="customer_service_apply.do" class="nav-link">서비스 신청하기</a></li>
+                    <li><a href="customer_service_check.do" class="nav-link">서비스 확인하기</a></li>
+                    <li><a href="customer_use_content.do" class="nav-link">서비스 이용안내</a></li>
+                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
                     <li class="has-children">
-                      <a href="#">커뮤니티 공간 정보</a>
+                      <a href="#">More Links</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation.do">의료복지시설</a></li>
-                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
+                        <li><a href="#">Menu One</a></li>
+                        <li><a href="#">Menu Two</a></li>
+                        <li><a href="#">Menu Three</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
+                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+
+
+                <li><a href="blog.do" class="nav-link">Blog</a></li>
+                <li><a href="about.do" class="nav-link">About</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
+                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -223,8 +227,6 @@ h3{	margin-top: 30px;
     </header>
 
 
-<!-- Header End -->	
-
     <!-- MAIN -->
 
 
@@ -232,119 +234,21 @@ h3{	margin-top: 30px;
     <div id="test" class="slide-item overlay">
 
     </div>
-    <h3 style="margin-left: 620px;">서비스 이용내역</h3>
-                  		<table border="1" style='width: 652.5px;margin-left: 620px;'>
-  <tbody>
-  <!--  반복문으로 사용 -->
-       <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-         <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-      <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-      <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-     <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-    <tr>
-      <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid" style="width: 250px;"></td>
-      <td>
-      	<p>김길동</p>
-      	<p>경기도 전역(인천)|서울전체</p>
-      	<p>별점</p>
-      </td>
-      <td>2020.12.01</td>
-      <td><input type="button" value="후기 쓰기"><input type="button" value="재신청"></td>
-    </tr>
-  </tbody>
-	</tbody>
-	</table>	
-	</div>
-     <form action="" id="setRows">		        	    
-            <p>
-        		<input type="hidden" name="rowPerPage" value="3">
-     		 </p>
-     		 </form>
+    <h3 style="margin-left: 620px;">서비스 확인하기</h3>
+   <img src="resources/images/person_1.jpg" alt="Image" class="img-fluid" style="margin-left:600px;">
+            <blockquote style="margin-left: 600px;">
+              <p class="quote">김길동</p>
+              <p>서울전체|서울전역</p>
+              <p><img src="resources/images/별점.PNG" alt="Image"></p>
+            </blockquote>
+            <blockquote style="margin-left: 600px;">
+              <p>간병일정 <strong>2020.12.01</strong> </p>
+              <p>간병장소 <strong>서울특별시 종로구 대학로 103</strong> </p>
+              <p>환자정보 <strong>남|70세|중증치매|거동불가</strong> </p>
+              <p>특이사항 <strong>욕창방지 부탁드려요</strong> </p>
+              <!-- 상세보기 클릭시 간병인 이력서 열람 페이지 재신청 클릭시 서비스 신청하기 페이지 -->
+              <p><a href=""><input type="button" value="상세 보기"></a>&nbsp;&nbsp;&nbsp;<a href="customer_service_apply.do"><input type="button" value="재신청"></a></p>
+            </blockquote>
 	<h2>추천 도우미 탐색하기</h2>
 
 	<form>
@@ -394,7 +298,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="customer_service_apply.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -440,7 +344,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/3.jpg" />
@@ -487,7 +391,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>	
-			<a href="test.do" class="btn btn-primary">신청하기</a>			  		  
+			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>			  		  
 			  </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
@@ -533,7 +437,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
@@ -579,7 +483,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>
-			<a href="test.do" class="btn btn-primary">신청하기</a>
+			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
 			  </li>
 			  <li>
 				  <img src="resources/images/3.jpg" />
@@ -625,7 +529,7 @@ h3{	margin-top: 30px;
 				  <span class="starR">별4</span>
 				  <span class="starR">별5</span>
 			  </div>			  
-				<a href="test.do" class="btn btn-primary">신청하기</a>		  
+				<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>		  
 			  </li>
 			</ul>
 		</div>

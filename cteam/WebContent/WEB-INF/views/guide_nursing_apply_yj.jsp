@@ -22,7 +22,6 @@
   <link rel="stylesheet" href="resources/css/jquery-ui.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
-  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
 
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
 
@@ -33,7 +32,47 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: true,
+	  minSlides: 6,
+	  maxSlides: 2,
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
+	});
+
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
+});   
+
+
+</script> 
+
+
+<style>
 <style>
 .table{    
 
@@ -57,7 +96,7 @@
     margin-right: 1%;
 }
 .button_div a{
-
+	width: 155px;
 }
 .button_div p{
 margin: 0 auto;
@@ -75,9 +114,28 @@ margin: 0 auto;
     width: 100%;
 }
 
+
+
+
+.apply_button{    
+
+	text-align: center;
+    margin-top: 60px;}
+    
+
+#apply_button{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    padding: 2vh;
+    border-radius: 3px;
+    background: #5fb56e;
+    border: 0px;
+}    
+    
+    
+    
 </style>
-
-
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -104,7 +162,7 @@ margin: 0 auto;
     
 <!-- Header Start --> 
    
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -123,7 +181,13 @@ margin: 0 auto;
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -163,8 +227,6 @@ margin: 0 auto;
     </header>
 
 
-<!-- Header End -->
-
 
     <!-- MAIN -->
 
@@ -181,12 +243,12 @@ margin: 0 auto;
     <div class="layer" >
 
           <div class="layer_inner">
-         <h1>서비스 신청하기</h1>
+         <h1>간병인 지원하기</h1>
          <div class="My_Image">
-         <img src="resources/images/img_3_sq.jpg" alt="My Image">      
+         <img src="resources/images/1.jpg" alt="My Image">      
          </div>
             <table class="ui celled table">
-            <tr><td rowspan="8">기본정보</td></tr>
+            <tr><td rowspan="5">기본정보</td></tr>
             <tr>
                <td>이름</td>
                <td><input type='text' name='name' style="width: 30%;" /></td>
@@ -216,29 +278,68 @@ margin: 0 auto;
                      <td><input type="text" name="address"  style="width: 30%;"></td>
                   </tr>
             <tr>
-            <td>현재상태</td>
-             <td>
-             	<input type="checkbox" name="status" value="수술"><label>수술</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="재활"><label>재활</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="암"><label>암</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="치매"><label>치매</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="정신질환"><label>정신질환</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="실명"><label>실명</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="격리"><label>격리</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="전염성"><label>전염성</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="욕창"><label>욕창</label>&nbsp;&nbsp;&nbsp;
-             	<input type="checkbox" name="status" value="의식불명"><label>의식불명</label>
-             </td>
-               </tr>
-               <tr>
-               <td>거동여부</td>
-               <td>
-                           <input type='radio' name='walk' value='walk' /><label>거동가능</label>&nbsp;&nbsp;&nbsp;
-                           <input type='radio' name='walk' value='nowalk' /><label>거동불가능</label>
-               </td>
-               </tr>
-               <tr>
-         <td>희망시간</td>
+               <td rowspan="6">추가정보</td>
+               </tr>                  
+               <td class="td01">출퇴근형<br>희망근무지역</td> 
+               <td>                 
+                  <span class="tit01">1지망
+                     <select name="area1_search" id="area1_search" onchange="change_renew_commute1(this.selectedIndex);" class="select_css03 w20p">
+                        <option value="">시/도</option>
+                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
+                     </select>
+                     <select name="area2_search" id="area2_search" class="select_css03 w30p">
+                        <option value="">구/군</option>
+                     </select>
+                     <input type="text" name="area2_search_text" id="area2_search_text" class="inbor1" value="" style="width: 70px; display: none">
+                  </span> 
+               <br>
+                  <span class="tit01">2지망
+                     <select name="area4_search" id="area4_search" onchange="change_renew_commute2(this.selectedIndex);" class="select_css03 w20p">
+                        <option value="">시/도</option>
+                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
+                     </select>
+                     <select name="area5_search" id="area5_search" class="select_css03 w30p">
+                        <option value="">구/군</option>
+                     </select>
+                     <input type="text" name="area_5_search_text" id="area5_search_text" value="" class="inbor1" style="width: 70px; display: none">
+                  </span> 
+               <br>
+                  <span class="tit01">3지망
+                     <select name="area6_search" id="area6_search" onchange="change_renew_commute3(this.selectedIndex);" class="select_css03 w20p">
+                        <option value="">시/도</option>
+                        <option value="서울">서울</option><option value="경기">경기</option><option value="부산">부산</option><option value="인천">인천</option><option value="강원">강원</option><option value="경남">경남</option><option value="경북">경북</option><option value="광주">광주</option><option value="대구">대구</option><option value="대전">대전</option><option value="세종">세종</option><option value="울산">울산</option><option value="전남">전남</option><option value="전북">전북</option><option value="제주">제주</option><option value="충남">충남</option><option value="충북">충북</option><option value="해외">해외</option>
+                     </select>
+                     <select name="area7_search" id="area7_search" class="select_css03 w30p">
+                        <option value="">구/군</option>
+                     </select>
+                     <input type="text" name="area7_search_text" id="area7_search_text" value="" class="inbor1" style="width: 70px; display: none;">
+                  </span> 
+               <div style="margin: 10px 0 5px 30px; display: none" id="all_area_view">
+                  <label><input type="checkbox" value="1" name="all_area">
+                  <span id="all_area_name"></span>지역전체
+                  <span style="color: #FF0000">(희망근무지역 1,2,3지망 위주로 채용자에게 알림이 나갑니다.)</span></label>
+               </div>
+            </td>
+         <tr>
+            <td>경력</td>
+            <td>
+               <select name="carrer"  style="width: 25%;" >
+                  <option></option>
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                  <option value="7">7</option>
+                  <option value="8">8</option>
+                  <option value="9">9</option>
+                  <option value="10">10</option>
+               </select>년
+            </td>
+         </tr>
+      <tr>
+         <td>근무시간</td>
          <td>
             <div class="r_time1">
                <input type="hidden" class="r_time_v" name="r_time" id="r_time" value="">
@@ -397,10 +498,39 @@ margin: 0 auto;
             </div>
             </td>
             </tr>
+               <tr>
+                  <td>
+                  희망급여
+                  </td>
+                  <td>
+                     <input type="radio" name="salay" value="timesalary">시간제&nbsp;&nbsp;&nbsp;
+                     <input type="radio" name="salay" value="salary">월급제
+                  </td>
+               </tr>
+               <tr>
+                  <td>자격증</td>
+                  <td>
+                  
+                        <input type="radio" name="license" value="license">유&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="license" value="nolicense">무                  
+
+               </tr>
+ <tr><td rowspan="5">경력사항</td></tr>
+            <tr>
+               <td>회사명</td>
+               <td><input type='text' name='companyname' style="width: 30%;" /></td>
+            </tr>
+			<tr>
+			<td>근무기간</td>
+			<td>
+			<input type='date' name='startday'/>&nbsp; 부터 &nbsp; <input type='date' name='endday'/> 까지
+			</td>
+			</tr>
          </table>
             <div class="button_div">
-                  <p><a href="recommend_service_en.do" class="btn btn-primary">작성</a></p>   
-                  <p><a href="apply_services_en.do" class="btn btn-primary">취소</a></p>               
+             <p><a href="" class="btn btn-primary">직업적성검사</a></p><br/> 
+                  <p><a href="succesed_apply_giver_en.do" class="btn btn-primary">작성</a></p>   
+                  <p><a href="apply_services_en.do" class="btn btn-primary">취소</a></p>                      
 <!--                    <input name="write" type="submit" value="작성하기"> -->
 <!--                      <input name="cancel"type="reset" value="취소하기"> -->
             </div>
@@ -427,7 +557,8 @@ margin: 0 auto;
 
 
   <script src="resources/js/main.js"></script>
-<script></script>
+    <script src="resources/js/star.js"></script>
+<Script></Script>
 
 </body>
 </html>

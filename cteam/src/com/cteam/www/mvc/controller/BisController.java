@@ -14,14 +14,12 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class BisController {
 
-
-	
-	@GetMapping(value = "/about_info.do")
-	public String about_info(Model m) {
-		return "about_info_sw";
+	@GetMapping(value = "/bus_info.do")
+	public String bus_info(Model m) {
+		return "bus_info_sw";
 	}
-	@GetMapping(value = "/about_bis.do")
-	public String about_bis(Model m) {
-		return "about_bis_sw";
+	@GetMapping(value = "/bus_main.do")
+	public String bus_main(Model m) {
+		return "bus_main_sw";
 	}
 }

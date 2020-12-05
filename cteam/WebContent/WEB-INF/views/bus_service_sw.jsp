@@ -72,7 +72,12 @@
                     <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
 
 				<li class="has-children">
                   <a href="#" class="nav-link">커뮤니티 서비스</a>
@@ -88,12 +93,9 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -115,52 +117,52 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">About Us</h1>
-            <p class="lead text-white mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum totam alias iusto?</p>
-            <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+            <h1 class="heading mb-3">노약자 교통 정보</h1>
+            <p class="lead text-white mb-5">이쪽을 누르면 이동하게 됩니다. </p>
+            <p><a href="bus_main.do" class="btn btn-primary">교통 정보</a></p>
           </div>
         </div>
       </div>  
     </div>
 
-    <div class="site-section bg-primary count-numbers">
+    <!-- <div class="site-section bg-primary count-numbers">
       <div class="container">
         <div class="row">
          <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
           <div class="counter-wrap text-center">
             <strong class="counter d-block"><span class="number" data-number="5890"></span></strong>
-            <span>Rooms Available</span>
+            <span>1</span>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
           <div class="counter-wrap text-center">
             <strong class="counter d-block"><span class="number" data-number="530"></span></strong>
-            <span>Nurse Staff</span>
+            <span>2</span>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
           <div class="counter-wrap text-center">
             <strong class="counter d-block"><span class="number" data-number="4029"></span></strong>
-            <span>Senior Living</span>
+            <span>3span>
           </div>
         </div>
         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
           <div class="counter-wrap text-center">
             <strong class="counter d-block"><span class="number" data-number="7020"></span></strong>
-            <span>Happy People</span>
+            <span>4</span>
           </div>
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
-  <div class="site-section">
+  <!-- <div class="site-section">
     <div class="container">
       <div class="row justify-content-between">
         <div class="col-lg-7">
           <div class="section-heading">
-            <h2 class="heading mb-3">Senior Care Center is for Your Family</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perspiciatis deleniti, maiores quia aliquam, odit iure aspernatur voluptate delectus ipsa.</p>
+            <h2 class="heading mb-3">메인 2</h2>
+            <p class="mb-5">메인2</p>
 
             <div class="row">
               <div class="col-lg-6">
@@ -168,11 +170,11 @@
               </div>
               <div class="col-lg-6">
                 <ul class="list-unstyled ul-check primary">
-                  <li>Consectetur adipisicing elit</li>
-                  <li>Voluptate delectus ipsa</li>
-                  <li>Maiores quia aliquam</li>
-                  <li>Consectetur adipisicing elit</li>
-                  <li>Voluptate delectus ipsa</li>
+                  <li>선택1</li>
+                  <li>선택2</li>
+                  <li>선택3</li>
+                  <li>선택4</li>
+                  <li>선택5</li>
                 </ul>
               </div>
             </div>
@@ -195,41 +197,41 @@
     <div class="container">
       <div class="row justify-content-center mb-5">
         <div class="col-lg-7 text-center mx-auto">
-          <h2 class="heading mb-3 text-black">Our Awesome Team</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis fuga quas ut molestiae totam porro explicabo! Aliquid iure, ullam commodi.</p>
+          <h2 class="heading mb-3 text-black">메인 3</h2>
+          <p>메인 3.</p>
         </div>
       </div>
       <div class="row">
         <div class="col-lg-3">
           <div class="team text-center">
             <img src="resources/images/staff_1.jpg" alt="" class="img-fluid">
-            <h3>Jean Smith</h3>
-            <span class="position d-block">Caregiver</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, praesentium?</p>
+            <h3>이름1</h3>
+            <span class="position d-block">이름1</span>
+            <p> 4</p>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="team text-center">
             <img src="resources/images/staff_2.jpg" alt="" class="img-fluid">
-            <h3>Myla Anderson</h3>
-            <span class="position d-block">Caregiver</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, praesentium?</p>
+            <h3>이름2</h3>
+            <span class="position d-block">이름2</span>
+            <p>  5</p>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="team text-center">
             <img src="resources/images/staff_3.jpg" alt="" class="img-fluid">
-            <h3>Cathy Jackson</h3>
-            <span class="position d-block">Caregiver</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, praesentium?</p>
+            <h3>이름3</h3>
+            <span class="position d-block">이름3</span>
+            <p>  6?</p>
           </div>
         </div>
         <div class="col-lg-3">
           <div class="team text-center">
             <img src="resources/images/staff_4.jpg" alt="" class="img-fluid">
-            <h3>Mellissa Gold</h3>
-            <span class="position d-block">Caregiver</span>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, praesentium?</p>
+            <h3>이름4</h3>
+            <span class="position d-block">이름4</span>
+            <p>7</p>
           </div>
         </div>
       </div>
@@ -241,9 +243,9 @@
       <div class="row mb-5 justify-content-center">
         <div class="col-7 text-center">
           <div class="heading">
-            <h2 class="text-black">Other Opportunities</h2>
+            <h2 class="text-black">메인 4.</h2>
           </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, culpa.</p>
+          <p>메인페이지 4.</p>
         </div>
       </div>
       <div class="row">
@@ -251,7 +253,7 @@
           <div class="d-block d-flex custom-media algin-items-stretch">
             <div class="text text-left">
               <h3>You can live here with love</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
+              <p class="mb-4">여기는 어디 9.</p>
               <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
             </div>
             <div class="img-bg" style="background-image: url('images/img_2.jpg')"></div>
@@ -261,7 +263,7 @@
           <div class="d-block d-flex custom-media algin-items-stretch">
             <div class="text text-left">
               <h3>You can live here with love</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
+              <p class="mb-4">여기는 어디 10</p>
               <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
             </div>
             <div class="img-bg" style="background-image: url('images/img_3.jpg')"></div>
@@ -269,15 +271,16 @@
         </div>
       </div>
     </div>
-  </div>
+  </div> -->
 
+<!-- footer page -->
 
   <div class="site-footer bg-light">
     <div class="container">
       <div class="row">
         <div class="col-lg-4">
-          <h2 class="footer-heading mb-4">About</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
+          <h2 class="footer-heading mb-4">footer page</h2>
+          <p>하단 페이지 </p>
           <div class="my-5 social">
             <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
             <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
@@ -290,29 +293,29 @@
             <div class="col-lg-4">
               <h2 class="footer-heading mb-4">Quick Links</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Amazing Atmosphere</a></li>
-                <li><a href="#">Caring Staff</a></li>
-                <li><a href="#">FAQs</a></li>
-                <li><a href="#">About Us</a></li>
-                <li><a href="#">Contact Us</a></li>
+                <li><a href="#">Amazing Atmosphere1</a></li>
+                <li><a href="#">Caring Staff2</a></li>
+                <li><a href="#">FAQs3</a></li>
+                <li><a href="#">About Us4</a></li>
+                <li><a href="#">Contact Us5</a></li>
               </ul>
             </div>
             <div class="col-lg-4">
               <h2 class="footer-heading mb-4">Helpful Link</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Hospice Care</a></li>
-                <li><a href="#">Excellent Cuisine</a></li>
-                <li><a href="#">Privacy</a></li>
-                <li><a href="#">Terms</a></li>
+                <li><a href="#">Hospice Care1</a></li>
+                <li><a href="#">Excellent Cuisine2</a></li>
+                <li><a href="#">Privacy3</a></li>
+                <li><a href="#">Terms4</a></li>
               </ul>
             </div>
             <div class="col-lg-4">
               <h2 class="footer-heading mb-4">Resources</h2>
               <ul class="list-unstyled">
-                <li><a href="#">Health Care</a></li>
-                <li><a href="#">Elderly Care</a></li>
-                <li><a href="#">Care with Love</a></li>
-                <li><a href="#">Quality Care</a></li>
+                <li><a href="#">Health Care1</a></li>
+                <li><a href="#">Elderly Care2</a></li>
+                <li><a href="#">Care with Love3</a></li>
+                <li><a href="#">Quality Care4</a></li>
               </ul>
             </div>
           </div>

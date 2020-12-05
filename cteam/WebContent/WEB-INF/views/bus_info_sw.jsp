@@ -41,19 +41,19 @@
 	<div id="gnb" class="gnb">
 		<ul>
 			<li class="gnb_menu" id="node_find"><a class=""
-				href="<c:url value='/about_bis.do'/>"> <img
+				href="<c:url value='/bus_main.do'/>"> <img
 					src="resources/images/node_icon.png" alt="" class="gnb_icon">
 					정류소 찾기
 			</a></li>
 
 			<li class="gnb_menu" id="about_info"><a class=""
-				href="<c:url value='/about_info.do'/>"> <img
+				href="<c:url value='/bus_info.do'/>"> <img
 					src="resources/images/bus_icon.png" alt="" class="gnb_icon">
 					버스 노선
 			</a></li>
 
 			<li class="gnb_menu" id="home"><a class=""
-				href="<c:url value='/'/>"> <img src="resources/images/home.png"
+				href="<c:url value='/index.do'/>"> <img src="resources/images/home.png"
 					alt="" class="gnb_icon"> 매인화면
 			</a></li>
 
