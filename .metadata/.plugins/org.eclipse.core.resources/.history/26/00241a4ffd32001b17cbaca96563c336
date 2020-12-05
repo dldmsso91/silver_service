@@ -1,0 +1,26 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<form>
+<script type="text/javascript"> //
+<![CDATA[ $(document).ready(function(){ $('.bxslider').bxSlider(); }); //]]> 
+</script>
+
+
+
+			<div class="bxslider">
+              <div><img src="resources/images/img_3_sq.jpg" ></div>
+              <div><img src="resources/images/img_3_sq.jpg" ></div>
+              <div><img src="resources/images/img_3_sq.jpg" ></div>
+            </div>
+   
+</form>
+
+</body>
+</html>
