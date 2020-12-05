@@ -41,10 +41,11 @@ public class TestController {
 	   }
 
             
-	@GetMapping(value="/about.do")
-	public String about(Model m) {
-	   return "about";
+	@GetMapping(value="/bus_service.do")
+	public String bus_service(Model m) {
+	   return "bus_service_sw";
 	   }  
+	
 	
 	
 	
@@ -129,10 +130,14 @@ public class TestController {
 	}
 	
 	
+	
 	//--------------------------------------------------------------en_controller_end
 	
-	
-	
+//	@GetMapping(value="/about.do")
+//	public String about_sw(Model m) {
+//	   return "about_sw";
+//	   }  
+	//------------------------------------------------
 	
 	
 	

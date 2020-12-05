@@ -63,6 +63,8 @@ width: 35%;
     </div>
 
     
+<!-- Header Start --> 
+   
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
@@ -82,10 +84,21 @@ width: 35%;
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
 
 				<li class="has-children">
                   <a href="#" class="nav-link">커뮤니티 서비스</a>
@@ -101,12 +114,9 @@ width: 35%;
                     </li>
                   </ul>
                 </li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -118,6 +128,9 @@ width: 35%;
       </div>
 
     </header>
+
+
+<!-- Header End -->
 
     <!-- MAIN -->
 
@@ -141,8 +154,8 @@ width: 35%;
               <div class="service-text">
                 <h3>생활 도우미</h3>
                 <p>당신의 일상 속 품질을 높이세요! 빨래와 정리, 가사 생활도우미에게 맡겨보세요. </p>
-            	<p><a href="apply_services_type_en.do" class="btn btn-primary">서비스 신청하기</a></p>               
-            	<p><a href="apply_services_type_en.do" class="btn btn-primary">도우미 지원하기</a></p>               
+            	<p><a href="customer_service_apply_yj.do" class="btn btn-primary">서비스 신청하기</a></p>               
+            	<p><a href="guide_Life_apply_yj.do" class="btn btn-primary">도우미 지원하기</a></p>               
               </div>
         </div>
       </div>
@@ -197,7 +210,7 @@ width: 35%;
               
               <p class="text-white" style="width: 85%;">고객의 품격에 걸맞은 격조높은 일상생활을 위한 '도우미 서비스'를 제공합니다. Elderly의 특별한 고객이 되어, 오직 '나'만을 위해 선출된 맞춤 서비스를 받아보시기 바랍니다. </p>
               <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">서비스 신청</a></p>
+              <p><a href="customer_service_apply_yj.do" class="btn btn-white">서비스 신청</a></p>
             </div>
           </div>
         </div>

@@ -63,5 +63,11 @@ public class AdminController {
 	
 		return "signup_jw";
 	}
+	
+	@GetMapping(value="/stats_admin_dy.do")
+	public String stats_admin_dy(Model m) {
+	
+		return "stats_admin_dy";
+	}
          
 }
