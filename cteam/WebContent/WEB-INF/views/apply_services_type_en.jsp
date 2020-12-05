@@ -71,7 +71,14 @@ $(document).ready(function(){
         $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
         return false;
     });
+    
+	$('.service').hover(function() {
+			$(this).find("h3").css("color", "#dc8c8c");
+		}, function(){
+			$(this).find("h3").css("color", "#565656");
+		});
 });   
+
 
 </script> 
 

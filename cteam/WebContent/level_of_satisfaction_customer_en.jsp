@@ -76,6 +76,9 @@ h3{
    border: 0px;
 }
 
+.service img{
+	padding: 10%;
+}
 
 </style>
 <script src="https://code.jquery.com/jquery-3.4.1.js"   
@@ -229,21 +232,21 @@ $(function(){
         <div class="row">
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <img src="resources/images/sad.png" alt="Image" class="img-fluid" id="bed_img" style="border-radius: 100px;">
+              <img src="resources/images/sad_face.png" alt="Image" class="img-fluid" id="bed_img" style="border-radius: 100px;">
               <div class="service-inner">
               </div>
             </div>
           </div>
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <img src="resources/images/notbed.png" alt="Image" class="img-fluid" id="notbed_img" style="border-radius: 100px;">
+              <img src="resources/images/straight face.png" alt="Image" class="img-fluid" id="notbed_img" style="border-radius: 100px;">
               <div class="service-inner">
               </div>
             </div>
           </div>
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
-              <img src="resources/images/happy.png" alt="Image" class="img-fluid" id="happy_img" style="border-radius: 100px;">
+              <img src="resources/images/happy_face.png" alt="Image" class="img-fluid" id="happy_img" style="border-radius: 100px;">
               <div class="service-inner">
               </div>
             </div>

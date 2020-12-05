@@ -454,7 +454,7 @@ margin: 0 auto;
             </tr>
          </table>
             <div class="button_div">
-                  <p><a href="succesed_apply_giver.do" class="btn btn-primary">작성</a></p>   
+                  <p><a href="recommend_service_en.do" class="btn btn-primary">작성</a></p>   
                   <p><a href="index.do" class="btn btn-primary">취소</a></p>               
 <!--                    <input name="write" type="submit" value="작성하기"> -->
 <!--                      <input name="cancel"type="reset" value="취소하기"> -->
