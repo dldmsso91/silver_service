@@ -144,7 +144,7 @@ height;
         </form>
 	</div>
 
-</body>
+
 <div class="site-footer bg-light">
       <div class="container">
         <div class="row">
@@ -206,4 +206,5 @@ height;
         </div>
       </div>
     </div>
+    </body>
 </html>
