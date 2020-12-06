@@ -33,7 +33,47 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
 
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: true,
+	  minSlides: 6,
+	  maxSlides: 2,
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
+	});
+
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
+});   
+
+
+</script> 
+
+
+<style>
 <style>
 .table{    
 
@@ -75,9 +115,38 @@ margin: 0 auto;
     width: 100%;
 }
 
+
+.apply_button{    
+
+	text-align: center;
+    margin-top: 60px;}
+    
+
+#apply_button{
+    margin-left: 10px;
+    margin-right: 10px;
+    font-size: 15px;
+    padding: 2vh;
+    border-radius: 3px;
+    background: #5fb56e;
+    border: 0px;
+}    
+    
+#worktime{
+width:100px;
+    background-color: green;
+    border: none;
+    color:#fff;
+    padding: 15px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 15px;
+    margin: 27px;
+    cursor: pointer;
+    border-radius:10px;
+}
 </style>
-
-
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -102,7 +171,9 @@ margin: 0 auto;
     </div>
 
     
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+<!-- Header Start --> 
+   
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -117,50 +188,48 @@ margin: 0 auto;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="customer_service_apply.do" class="nav-link">서비스 신청하기</a></li>                      
-                    <li class="has-children">
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+ 					<li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
-                        <li><a href="customer_service_apply.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
                         <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
                       </ul>
                       </li>
-                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
-                    <li><a href="guide_my_page.do" class="nav-link">도우미_서비스 신청리스트</a></li>
-                    <li><a href="guide_worktime.do" class="nav-link">출퇴근기록</a></li>
-                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
+
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">
-                      <a href="#">More Links</a>
+                      <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
-
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
-
-
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-white"></span></a></div>
-
-        </div>
-      </div>
+</div>
+</div>
 
     </header>
 
@@ -186,10 +255,10 @@ margin: 0 auto;
          </div>
          <p>
          
-          <button onclick="start_time()" value="">출근</button> &nbsp;  &nbsp;  &nbsp; 
-          <button onclick="end_time()" value="">퇴근</button>
+          <button onclick="start_time()" value="" id="worktime">출근</button> &nbsp;  &nbsp;  &nbsp; 
+          <button onclick="end_time()" value="" id="worktime">퇴근</button>
           </p>
-            <table class="ui celled table">
+            <table class="ui celled table" style="width: 1200px;margin-bottom: 1rem;color: #212529;margin: auto;">
             <tr><td rowspan="3">출퇴근정보</td></tr>
             <tr>
                <td>출근시간</td>

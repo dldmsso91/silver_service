@@ -35,9 +35,9 @@ public class MoonController {
 	      return "customer_service_check_yj";
 	      }
 	   
-	   @GetMapping(value="/customer_use_content._yj.do")
-	   public String customer_use_content(Model m) {
-	      return "customer_use_content";
+	   @GetMapping(value="/customer_use_content_yj.do")
+	   public String customer_use_content_yj(Model m) {
+	      return "customer_use_content_yj";
 	      }
 	   
 	   @GetMapping(value="/guide_Life_apply_yj.do")
@@ -59,6 +59,12 @@ public class MoonController {
 	   public String boaguide_worktime_yjrdList(Model m) {
 	      return "guide_worktime_yj";
 	      }
+	   
+	   @GetMapping(value="/succesed_apply_guide_my_page_yj.do")
+	   public String succesed_apply_guide_my_page_yj(Model m) {
+	      return "succesed_apply_guide_my_page_yj";
+	      }
+	      
 	      
 	
 }

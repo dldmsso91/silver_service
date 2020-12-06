@@ -24,7 +24,6 @@
 
   <link rel="stylesheet" href="resources/css/aos.css">
     <link rel="stylesheet" href="resources/css/style2.css">
-  <link rel="stylesheet" href="resources/css/style_page.css">
   <link rel="stylesheet" href="resources/css/care_service_en.css">
 
 <script src="https://code.jquery.com/jquery-3.4.1.js"   
@@ -233,7 +232,7 @@ img {
                     </table>
                     
                      <div class="button_div">
-                  <p><a href="customer_hugi_list.do" class="btn btn-primary">작성하기</a>
+                  <p><a href="customer_hugi_list_yj.do" class="btn btn-primary">작성하기</a>
                   <a href="index.do" class="btn btn-primary">취소하기</a></p></div>
                     	
                     	<!-- <input name="write" type="submit" value="작성하기">

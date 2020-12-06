@@ -207,7 +207,15 @@ img {
           </tr>
           <tr>
             <th>별점</th>
-            <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
           </tr>
           <tr>
             <tH>이용날짜</th>
@@ -240,70 +248,150 @@ img {
       <td>1</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>2</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>3</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>4</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>5</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>6</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>7</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>8</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>9</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
     <tr>
       <td>10</td>
       <td><a href="customer_hugi_detail_look_yj.do">작성자</a></td>
       <td><img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid"></td>
-      <td>별점</td>
+            <td>
+            <p id="star_grade">
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+						        <a href="#">★</a>
+				</p>
+				</td>
       <td>날짜</td>
     </tr>
   </tbody>

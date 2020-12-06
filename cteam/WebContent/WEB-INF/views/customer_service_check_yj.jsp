@@ -35,11 +35,20 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
-  
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
 
 <script>
 $(document).ready(function(){
@@ -50,20 +59,19 @@ $(document).ready(function(){
 	  pager: true,
 	  minSlides: 4,
 	  maxSlides: 2,
-	  slideWidth: 500,
-	  slideMargin: 10
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
 	});
+
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
 });   
 
-</script> 
 
-<script>
-	 $('.starRev span').click(function(){
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  alert("test");
-	  return false;
-	});	
 </script> 
   
 <style>
@@ -84,17 +92,29 @@ h3{	margin-top: 30px;
 .bx-wrapper li{
     border: 1px solid #cacaca;
     padding: 10px;
+    border-radius: 20px;
+    box-shadow: 5px 5px 5px #e8e8e8;
                 }
 .bx-wrapper li img{
 	height: 240px;
     margin: 0 auto;
+    border-radius: 15px;    
                 }      
 .bx-wrapper li a{
     margin-top: 30px;
-                }      
+                } 
+                
+.bx-wrapper li p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    width: 65%;
+    margin: 0 auto;
+}     
 .care-list {
     display: flex;
     font-size: 90%;
+    margin: 0 auto;
+    width: 60%;
 }
 
 .care-list .item {
@@ -143,13 +163,18 @@ h3{	margin-top: 30px;
   text-indent: -9999px;
   cursor: pointer;
 }
-.starR.on{background-position:0 0;}              
+.starR.on{background-position:0 0;}     
+
+.bx-wrapper {
+    -webkit-box-shadow: 0 0 5px #ccc0;
+    box-shadow: 0 0 5px #ccc0;
+    border: 5px solid #fff;
+    background: #fff;
+}                 
 </style>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
 
 
   <div id="overlayer"></div>
@@ -172,7 +197,9 @@ h3{	margin-top: 30px;
     </div>
 
     
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+<!-- Header Start --> 
+   
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -187,33 +214,43 @@ h3{	margin-top: 30px;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="customer_service_apply.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="customer_service_check.do" class="nav-link">서비스 확인하기</a></li>
-                    <li><a href="customer_use_content.do" class="nav-link">서비스 이용안내</a></li>
-                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
-                    <li class="has-children">
-                      <a href="#">More Links</a>
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
+
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
-
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -223,7 +260,6 @@ h3{	margin-top: 30px;
 
         </div>
       </div>
-
     </header>
 
 
@@ -247,16 +283,18 @@ h3{	margin-top: 30px;
               <p>환자정보 <strong>남|70세|중증치매|거동불가</strong> </p>
               <p>특이사항 <strong>욕창방지 부탁드려요</strong> </p>
               <!-- 상세보기 클릭시 간병인 이력서 열람 페이지 재신청 클릭시 서비스 신청하기 페이지 -->
-              <p><a href=""><input type="button" value="상세 보기"></a>&nbsp;&nbsp;&nbsp;<a href="customer_service_apply.do"><input type="button" value="재신청"></a></p>
+              <p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>&nbsp;&nbsp;&nbsp;<a href="customer_service_apply_yj.do" class="btn btn-primary">재신청</a></p>
             </blockquote>
 	<h2>추천 도우미 탐색하기</h2>
 
-	<form>
+<form>
 		<div class='bxslider_area'>
 			<ul class="bxslider">
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>이문자</h3>
+		      <hr>
 		      <h5>간병 서비스 이력</h5>
 		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
 			  <img src="resources/images/4.png"/>
@@ -290,19 +328,21 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
+		      <hr>
   		      <h5>도우미에 대한 평가</h5>	
-			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="customer_service_apply.do" class="btn btn-primary">신청하기</a>
+				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		  	
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
 		      <h3>이요롱</h3>
+		      <hr>
 		      <h5>간병 서비스 이력</h5>
 		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
 			  <img src="resources/images/5.png"/>
@@ -336,19 +376,21 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
+		      <hr>
   		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
+				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		  
 			  </li>
 			  <li>
 			  <img src="resources/images/3.jpg" />
 		      <h3>김애용</h3>
+		      <hr>
 		      <h5>간병 서비스 이력</h5>
 		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	  
 			  <img src="resources/images/4.png"/>
@@ -383,19 +425,21 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
+		      <hr>
   		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>	
-			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>			  		  
+				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		    		  
 			  </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>이문자</h3>
+		      <hr>
 		      <h5>간병 서비스 이력</h5>
 		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
 			  <img src="resources/images/4.png"/>
@@ -429,19 +473,21 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
+		      <hr>
   		      <h5>도우미에 대한 평가</h5>	
-			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
+				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		  
 			  </li>
 			  <li>
 			  <img src="resources/images/2.jpg"/>
 		      <h3>이요롱</h3>
+		      <hr>
 		      <h5>간병 서비스 이력</h5>
 		      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	
 			  <img src="resources/images/5.png"/>
@@ -475,19 +521,21 @@ h3{	margin-top: 30px;
 				  	</div>
 				  </div>
 			  </div>
+		      	<hr>
   		      <h5>도우미에 대한 평가</h5>	
-  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>
-			<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>
+ 				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		  
 			  </li>
 			  <li>
 				  <img src="resources/images/3.jpg" />
 			      <h3>김애용</h3>
+		      	<hr>
 			      <h5>간병 서비스 이력</h5>
 			      <p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p>	  
 				  <img src="resources/images/4.png"/>
@@ -521,20 +569,20 @@ h3{	margin-top: 30px;
 					  	</div>
 					  </div>
 				  </div>
+		      	<hr>
   		      <h5>도우미에 대한 평가</h5>	
-	  			  <div class="starRev">
-				  <span class="starR on">별1</span>
-				  <span class="starR">별2</span>
-				  <span class="starR">별3</span>
-				  <span class="starR">별4</span>
-				  <span class="starR">별5</span>
-			  </div>			  
-				<a href="customer__service_apply.do" class="btn btn-primary">신청하기</a>		  
+				<p id="star_grade">
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				        <a href="#">★</a>
+				</p>		  
+				<a href="giver_resume_detail_en.do" class="btn btn-primary">상세보기</a>		  
 			  </li>
 			</ul>
 		</div>
 	</form>
-
 
 
   <script src="resources/js/jquery-ui.js"></script>

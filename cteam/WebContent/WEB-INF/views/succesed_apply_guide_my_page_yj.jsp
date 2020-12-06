@@ -136,9 +136,9 @@
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">서비스 신청이 완료되었습니다.</h1>
+            <h1 class="heading mb-3">서비스 신청 확인이 완료되었습니다.</h1>
             <p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다. </p>
-            <p><a href="my_service_en.do" class="btn btn-primary">신청내역 확인하기</a></p>
+            <p><a href="guide_my_page_yj.do" class="btn btn-primary">신청내역 확인하기</a></p>
           </div>
         </div>
       </div>  

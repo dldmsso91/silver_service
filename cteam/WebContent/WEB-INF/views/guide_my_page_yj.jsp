@@ -35,11 +35,20 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
-  
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
 
 <script>
 $(document).ready(function(){
@@ -48,22 +57,21 @@ $(document).ready(function(){
 	  autoControls: true,
 	  stopAutoOnClick: true,
 	  pager: true,
-	  minSlides: 4,
+	  minSlides: 5,
 	  maxSlides: 2,
-	  slideWidth: 500,
-	  slideMargin: 10
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
 	});
+
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+        return false;
+    });
 });   
 
-</script> 
 
-<script>
-	 $('.starRev span').click(function(){
-	  $(this).parent().children('span').removeClass('on');
-	  $(this).addClass('on').prevAll('span').addClass('on');
-	  alert("test");
-	  return false;
-	});	
 </script> 
   
 <style>
@@ -143,13 +151,22 @@ h3{	margin-top: 30px;
   text-indent: -9999px;
   cursor: pointer;
 }
-.starR.on{background-position:0 0;}              
+.starR.on{background-position:0 0;}       
+.confirm_button{
+    width: 100px;
+    height: 30px;
+    background-color: green;
+    margin: auto;
+    border-radius: 30px;
+    text-align: center;
+    font-size: 15px;
+    font-family: "돋움";
+}
+}       
 </style>
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
 
 
   <div id="overlayer"></div>
@@ -172,7 +189,9 @@ h3{	margin-top: 30px;
     </div>
 
     
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+<!-- Header Start --> 
+   
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -187,50 +206,48 @@ h3{	margin-top: 30px;
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services.do" class="nav-link">Services</a>
+                  <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
-                    <li><a href="#" class="nav-link">서비스 소개</a></li>
-                    <li><a href="customer_service_apply.do" class="nav-link">서비스 신청하기</a></li>                      
-                    <li class="has-children">
+                    <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+ 					<li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
                         <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
                       </ul>
                       </li>
-                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
-                    <li><a href="guide_my_page.do" class="nav-link">도우미_서비스 신청리스트</a></li>
-                    <li><a href="guide_worktime.do" class="nav-link">출퇴근기록</a></li>
-                    <li><a href="customer_hugi_list.do" class="nav-link">서비스 후기</a></li>
+                  </ul>
+                </li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
+
+				<li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">친구위치 검색</a></li>
                     <li class="has-children">
-                      <a href="#">More Links</a>
+                      <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
-                        <li><a href="#">Menu One</a></li>
-                        <li><a href="#">Menu Two</a></li>
-                        <li><a href="#">Menu Three</a></li>
+                        <li><a href="medicalLocation.do">의료복지시설</a></li>
+                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
-
-
-                <li><a href="blog.do" class="nav-link">Blog</a></li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
-
-
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-white"></span></a></div>
-
-        </div>
-      </div>
+</div>
+</div>
 
     </header>
 
@@ -255,38 +272,8 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>고객명 : {{}}</h3>
@@ -294,38 +281,8 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>고객명 : {{}}</h3>
@@ -333,38 +290,8 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>고객명 : {{}}</h3>
@@ -372,38 +299,8 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>고객명 : {{}}</h3>
@@ -411,38 +308,8 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			  <li>
 			  <img src="resources/images/1.jpg" />
 		      <h3>고객명 : {{}}</h3>
@@ -450,45 +317,75 @@ h3{	margin-top: 30px;
 		      <p>간병일정 : {{}}</p>	
 		      <p>간병장소 : {{}}</p>
 		      <p>환자정보 : {{}}</p>
-			  <div class="care-list">
-				  <div class="item">
-				  	<div class="title">재활</div>
-				  	<div class="line-color re"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">암</div>
-				  	<div class="line-color am"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">치매</div>
-				  	<div class="line-color ch"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-				  <div class="item">
-				  	<div class="title">격리</div>
-				  	<div class="line-color su"></div>
-				  	<div class="count">
-				  		<span>12</span>회
-				  	</div>
-				  </div>
-			  </div>
-			<a href="guide_confirm.do" class="btn btn-primary">확인하기</a>
-			  </li>		
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
+			  <li>
+			  <img src="resources/images/1.jpg" />
+		      <h3>고객명 : {{}}</h3>
+		      <h5>신청 고객 정보</h5>
+		      <p>간병일정 : {{}}</p>	
+		      <p>간병장소 : {{}}</p>
+		      <p>환자정보 : {{}}</p>
+			  <p><a href="succesed_apply_guide_my_page_yj.do" class="btn btn-primary">확인하기</a></p>
+			 </li>
 			</ul>
 		</div>
 	</form>
 </div>
-
-
-
 
 
   <script src="resources/js/jquery-ui.js"></script>
