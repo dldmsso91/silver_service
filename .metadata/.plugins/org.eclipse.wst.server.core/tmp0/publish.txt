@@ -1,8 +1,0 @@
-#Tomcat publish data
-<<<<<<< HEAD
-#Sat Dec 05 20:38:44 KST 2020
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\gfhgfhgf\\.m2\\repository\\org\\springframework\\spring-web\\4.3.26.RELEASE\\spring-web-4.3.26.RELEASE.jar=WEB-INF/lib/spring-web-4.3.26.RELEASE.jar
-=======
-#Fri Dec 04 22:28:39 KST 2020
-org.eclipse.jst.jee.server\:/binary\:C\:\\Users\\Lee\\.m2\\repository\\org\\springframework\\spring-web\\4.3.26.RELEASE\\spring-web-4.3.26.RELEASE.jar=WEB-INF/lib/spring-web-4.3.26.RELEASE.jar
->>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
