@@ -1,0 +1,134 @@
+<style>
+.col-lg-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 30%;
+    max-width: 30%;
+}
+.service-text{
+	width: 30%;
+    padding: 20px;
+    border: 12px solid #f1f1eb;
+    border-radius: 8px;
+	text-align: center;    
+}
+.img-fluid {
+    border-radius: 10px;
+}
+p {
+    margin-top: 10px;
+    margin-bottom: 1rem;
+}
+.feature-v1 .pagination-item {
+
+    background: #f9f9f6;
+}
+.container {
+    max-width: 1700px;
+}
+.bg-primary {
+    background-color: #9ebadc !important;
+}
+
+.slide-item.overlay:before, .cover.overlay:before {
+    background: rgb(22 93 144 / 35%);
+}
+</style>
+  
+<style>
+
+h2{text-align: center;
+	margin-top: 30px;
+    margin-bottom: 50px;}
+h5{	margin-top: 30px;
+    }
+h3{	margin-top: 9px;
+    }
+.bxslider_area{
+	margin: 0 auto;
+    margin-bottom: 150px;
+    margin-top: 30px;
+    border: 10px solid white;
+    border-radius: 30px;
+    padding: 30px;
+}
+.bx-wrapper{
+    margin: 0px auto;
+	text-align: center;
+                }
+.bx-wrapper li {
+    padding: 10px;
+    background: white;
+    border-radius: 30px;
+}
+.bx-wrapper li img {
+    height: 225px;
+    margin: 0 auto;
+    border-radius: 18px;
+}   
+.bx-wrapper li a{
+    margin-top: 20px;
+                }      
+.care-list {
+    display: flex;
+    font-size: 90%;
+}
+
+.care-list .item {
+    background: #ededed;
+    margin: .3em;
+    padding: .5em;
+    border-radius: .5em;
+    text-align: center;
+    width: 3.6em;
+    font-size: 85%;
+}
+
+.title {
+    color: #000;
+    line-height: 1.8em;
+    font-size: 85%;
+}                
+.care-list .line-color {
+    width: 100%;
+    border-radius: 1em;
+    height: .3em;
+    margin: 0 0 .3em 0;
+}
+.care-list .line-color.re {
+    background: #ff4b57;
+}  
+.care-list .line-color.am {
+    background: #ff763a;
+}
+.care-list .line-color.ch {
+    background: #ffb300;
+}
+.care-list .line-color.su {
+    background: #96d84b;
+}
+.care-list .count {
+    color: #000;
+    font-weight: bold;
+}
+.starR{
+  background: url('http://miuu227.godohosting.com/images/icon/ico_review.png') no-repeat right 0;
+  background-size: auto 100%;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+.starR.on{background-position:0 0;}        
+.bx-wrapper {
+    -moz-box-shadow: 0 0 5px #ccc;
+    -webkit-box-shadow: 0 0 5px #ccc0;
+    box-shadow: 0 0 5px #ccc0;
+    border: 5px solid #fff0;
+    background: #fff0;
+}
+      
+
+
+</style>

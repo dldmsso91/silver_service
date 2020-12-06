@@ -93,7 +93,11 @@
                     </li>
                   </ul>
                 </li>
+<<<<<<< HEAD
                 <li><a href="about.do" class="nav-link">About</a></li>
+=======
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
               </ul>
@@ -119,7 +123,10 @@
             <h1 class="heading mb-3">독거노인분들을 위한</h1>
 			<h1 class="heading mb-3">음성인식 서비스</h1>
             <h2><p class="lead text-white mb-5">터치 한 번으로 모든 서비스를 소통해주는 ~~</p><h2>
+<<<<<<< HEAD
             <p><a href="#" class="btn btn-primary">Get In Touch</a></p>
+=======
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
           </div>
         </div>
       </div>  

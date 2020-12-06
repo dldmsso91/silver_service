@@ -1,0 +1,121 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+<script type="text/javascript">
+$(function(){
+
+	$("#test").click(function(){
+	alert('hi');
+	});
+
+	 $('#star_grade a').click(function(){
+	    $(this).parent().children("a").removeClass("on");  /* 별점의 on 클래스 전부 제거 */ 
+	    $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+	    return false;
+
+
+		 });
+
+
+
+
+
+		var tableObj = $("#resume");
+		var trObj = tableObj.find("tr");
+		var trOddObj = trObj.filter(":even");
+		var trEvenObj = trObj.filter(":odd");
+
+
+		trEvenObj.hide();
+
+		trOddObj.click(function () { 
+				$(this).next().show();
+			$(this).on("click" , function(){
+				$(this).next().hide();
+			});
+		});
+
+})
+
+</script>
+<script>
+
+
+
+	 
+$('#star_grade a').click(function(){
+	
+});
+</script>
+
+
+
+<style>
+     #star_grade a{
+        text-decoration: none;
+        color: gray;
+    }
+    #star_grade a.on{
+        color: red;
+    }
+</style>
+</head>
+<body>
+<input type="button" id="test" value="test">
+
+
+<p id="star_grade">
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+        <a href="#">★</a>
+</p>
+   <table id="resume" class="move" border=0 cellspacing=0 width=200 cellpadding=5>
+      <tr bgcolor=#0078C8>
+         <td><b>Action</b>
+      <tr bgcolor=#DBF1FF>
+         <td>
+            &nbsp;&nbsp;&nbsp;Die Hard<br>
+            &nbsp;&nbsp;&nbsp;Matrix<br>
+            &nbsp;&nbsp;&nbsp;Iron Man
+      
+      <tr bgcolor=#FF8000>
+         <td><b>SF</b>
+      <tr bgcolor=#DBF1FF>
+         <td>
+            &nbsp;&nbsp;&nbsp;Star Track<br>
+            &nbsp;&nbsp;&nbsp;Interstella<br>
+            &nbsp;&nbsp;&nbsp;Star Wars
+      <tr bgcolor=#408080>
+         <td><b>Thriller</b>
+      <tr bgcolor=#DBF1FF>
+         <td>
+            &nbsp;&nbsp;&nbsp;Six Sense<br>
+            &nbsp;&nbsp;&nbsp;Misty<br>
+            &nbsp;&nbsp;&nbsp;Visitor
+
+   </table>
+
+
+<div class="all">
+	<div class="item" >
+	test
+	
+	</div>
+	<div class="item" >
+	
+	test1
+	</div>
+</div>
+
+</body>
+</html>

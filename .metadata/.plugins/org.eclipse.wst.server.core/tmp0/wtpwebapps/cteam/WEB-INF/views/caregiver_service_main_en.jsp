@@ -120,7 +120,11 @@ $(document).ready(function(){
     
 <!-- Header Start --> 
    
+<<<<<<< HEAD
     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+=======
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 
       <div class="container">
         <div class="row align-items-center">
@@ -163,7 +167,11 @@ $(document).ready(function(){
                     </li>
                   </ul>
                 </li>
+<<<<<<< HEAD
                 <li><a href="about.do" class="nav-link">About</a></li>
+=======
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
               </ul>

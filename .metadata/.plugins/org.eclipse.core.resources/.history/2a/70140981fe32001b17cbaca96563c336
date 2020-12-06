@@ -1,0 +1,33 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="utf-8">
+    <title>Simple Site</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <script src="js/jquery.1.12.4.js" type="text/javascript"></script>
+    <script src="plugins/bxslider/js/jquery.bxslider.js" type="text/javascript"></script>
+    <script>
+        $(document).ready(function(){
+        	$('.bxslider').bxSlider({
+        		  auto: true,
+        		  autoControls: true,
+        		  stopAutoOnClick: true,
+        		  pager: true,
+        		  slideWidth: 600
+        		});  
+        });        
+    </script>
+</head>
+<body>
+    <div class="slider">
+        <div class="background__01">test</div>
+        <div class="background__02">test</div>
+        <div class="background__03">test</div>
+
+
+    </div>
+</body>    
+</html>

@@ -153,7 +153,11 @@
              Note: The pattern used is equivalent to using pattern="common" -->
         <Valve className="org.apache.catalina.valves.AccessLogValve" directory="logs" pattern="%h %l %u %t &quot;%r&quot; %s %b" prefix="localhost_access_log" suffix=".txt"/>
 
+<<<<<<< HEAD
       <Context docBase="D:\2020.12.28_수료생_이은내\team_project\final_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\2020.12.28_수료생_이은내\team_project\final_project\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\cteam" path="/cteam" reloadable="true" source="org.eclipse.jst.jee.server:cteam">
+=======
+      <Context docBase="D:\eunnae\work\final_Team\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\ROOT" path="" reloadable="false"/><Context docBase="D:\eunnae\work\final_Team\workspace\.metadata\.plugins\org.eclipse.wst.server.core\tmp0\wtpwebapps\cteam" path="/cteam" reloadable="true" source="org.eclipse.jst.jee.server:cteam">
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 <Resource auth="Container" driverClassName="oracle.jdbc.driver.OracleDriver" maxActive="20" maxIdle="10" maxWait="-1" name="jdbc/myora" password="test00" type="javax.sql.DataSource" url="jdbc:oracle:thin:@localhost:1521:orcl" username="kosmorpa"/>
 </Context></Host>
     </Engine>
