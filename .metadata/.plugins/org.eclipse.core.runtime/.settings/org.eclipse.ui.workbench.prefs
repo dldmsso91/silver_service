@@ -2,6 +2,10 @@
 <<<<<<< HEAD
 PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
 eclipse.preferences.version=1
+=======
+<<<<<<< HEAD
+PLUGINS_NOT_ACTIVATED_ON_STARTUP=;org.eclipse.m2e.discovery;
+eclipse.preferences.version=1
 org.eclipse.ui.commands=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<org.eclipse.ui.commands/>
 =======
 //org.eclipse.ui.commands/state/org.eclipse.wst.xml.views.XPathView.processor.xpathprocessor/org.eclipse.ui.commands.radioState=xpath10
@@ -16,3 +20,4 @@ org.eclipse.ui.workbench.ACTIVE_TAB_BG_END=255,255,255
 org.eclipse.ui.workbench.ACTIVE_TAB_BG_START=255,255,255
 org.eclipse.ui.workbench.INACTIVE_TAB_BG_START=242,242,242
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
