@@ -71,7 +71,14 @@ $(document).ready(function(){
         $(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
         return false;
     });
+    
+	$('.service').hover(function() {
+			$(this).find("h3").css("color", "#dc8c8c");
+		}, function(){
+			$(this).find("h3").css("color", "#565656");
+		});
 });   
+
 
 </script> 
 
@@ -152,8 +159,14 @@ $(document).ready(function(){
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
+                    <li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_nursing_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
                 <li class="has-children">

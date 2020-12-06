@@ -90,39 +90,52 @@
 
 
 // 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
-		$("#inner_item1").hide();
 
-		$(".item1").click(function () { 
-			$("#inner_item1").show();
-			$(".item1").on("click" , function(){
-				$("#inner_item1").hide();
-			});
-		});  
-		$("#inner_item2").hide();
 
-		$(".item2").click(function () { 
-			$("#inner_item2").show();
-			$(".item2").on("click" , function(){
-				$("#inner_item2").hide();
-			});
-		});  
-		$("#inner_item3").hide();
+		var inner_item = $(".inner_item")
+		var inner_item1 = $(".inner_item1")
+		var inner_item2 = $(".inner_item2")
+		var inner_item3 = $(".inner_item3")
+		var inner_item4 = $(".inner_item4")
 
-		$(".item3").click(function () { 
-			$("#inner_item3").show();
-			$(".item3").on("click" , function(){
-				$("#inner_item3").hide();
-			});
-		});  
-		$("#inner_item4").hide();
+		
+		inner_item.children().hide()
 
-		$(".item4").click(function () { 
-			$("#inner_item4").show();
-			$(".item4").on("click" , function(){
-				$("#inner_item4").hide();
-			});
-		});  
-		 
+		$(".item1").click(function () { 		
+			inner_item1.toggle(function(){
+				inner_item1.addClass('show');
+				  }, function(){
+				inner_item1.addClass('hide');
+				  });
+		});
+		$(".item2").click(function () { 		
+			inner_item2.toggle(function(){
+				inner_item2.addClass('show');
+				  }, function(){
+					  inner_item2.addClass('hide');
+				  });
+		});
+		$(".item3").click(function () { 		
+			inner_item3.toggle(function(){
+				inner_item3.addClass('show');
+				  }, function(){
+			inner_item3.addClass('hide');
+				  });
+		});
+		$(".item4").click(function () { 		
+			inner_item4.toggle(function(){
+				inner_item4.addClass('show');
+				  }, function(){
+			inner_item4.addClass('hide');
+				  });
+		});
+
+		
+
+
+
+
+		
      });
 
     </script>
@@ -178,7 +191,7 @@ margin: 0 auto;
 
 
 .resume_table{
-	width: 50%;
+	width: 80%;
     margin: 0 auto;
     margin-top: 50px;
 
@@ -191,11 +204,18 @@ margin: 0 auto;
 }
 
 .item1,.item2,.item3,.item4{
-    width: 100%;
-    font-size: 3vh;
-    text-align: left;
-
-
+    font-size: 2vh;
+    text-align: center;
+    border-radius: 50px;
+    width: 54%;
+    padding: 1%;
+    margin: 0 auto;
+    display: inline;    
+}
+.inner_item {
+    position: relative;
+    top: 10px;
+    margin-bottom: 2rem;
 }
 </style>
 
@@ -307,10 +327,36 @@ margin: 0 auto;
 			<h1>도우미 이력서 열람</h1>
 			<div class="My_Image">
 			<img src="resources/images/1.jpg" alt="My Image">		
-			</div>				
+			</div>		
+			
+			
+			
+			
+			
+					
 			<div class="resume_table">
+			
 				<div class="item1" style="background: #f9f3ec;">
-				&nbsp;&nbsp;&nbsp;기본 정보
+				<img src="resources/images/info.png" alt="My Image" style="width: 3%;">
+				기본 정보</div>
+				<div class="item2" style="background: #9bdac5;" >
+				<img src="resources/images/plus_info.png" alt="My Image" style="width: 3%;">
+					추가정보</div>
+				<div class="item3" style="background: #fbcbcb;">
+				<img src="resources/images/heart_info.png" alt="My Image" style="width: 3%;">
+				성격 진단검사</div>
+
+				<div class="item4" style="background: antiquewhite;">
+				<img src="resources/images/job_info.png" alt="My Image" style="width: 3%;">
+				경력사항</div>					
+			</div>				
+			
+			
+			
+			
+			
+			
+			<div class="inner_item">
 					<div class="inner_item1" id="inner_item1" style="background: white;">
 					<table class="ui celled table">
 						<tr><td rowspan="5">기본정보</td></tr>
@@ -336,9 +382,10 @@ margin: 0 auto;
 			      				</tr>
 	      				</table>
 						</div>
-					</div>
-					<div class="item2" style="background: #9bdac5;" >
-						&nbsp;&nbsp;&nbsp;추가정보
+<!-- 						-----------------------------------------------------------inner_item1 -->
+
+	
+
 						<div class="inner_item2" id="inner_item2" style="background: white;">
 	    				<table class="ui celled table">
 						<tr>
@@ -400,9 +447,7 @@ margin: 0 auto;
 							</tr>
 						</table>
 					</div>	
-				</div>
-				<div class="item3" style="background: #fbcbcb;">
-				&nbsp;&nbsp;&nbsp;성격 진단검사
+<!-- 					-----------------------------------------------------------inner_item2		 -->
 					<div class="inner_item3" id="inner_item3" style="background: white;">			
 	    				<table class="ui celled table">
 						<tr>
@@ -418,10 +463,8 @@ margin: 0 auto;
 							<td></td>
 						</tr>
 						</table>
-					</div>
-				</div>
-				<div class="item4" style="background: antiquewhite;">
-				&nbsp;&nbsp;&nbsp;경력사항
+					</div>	
+<!-- 					-----------------------------------------------------------inner_item3		 -->
 					<div class="inner_item4" id="inner_item4" style="background: white;">			
 					<table class="ui celled table">						
 					<tr>
@@ -446,14 +489,16 @@ margin: 0 auto;
 							</td>
 						</tr>
 				</table>
-			</div>			
-		    </div>
+			</div>
+<!-- 			-----------------------------------------------------------inner_item4		 -->
+			</div>	
+		
 				<div class="button_div">
          			<p><a href="succesed_apply_service_en.do" class="btn btn-primary" style="margin-top: 30px;">선택하기</a></p>						
 				</div>
 	    </div>
     </div>
-
+</div>
 
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
