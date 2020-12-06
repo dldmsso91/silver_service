@@ -238,7 +238,6 @@
                 <div class="bubble">
                   	고통이 없으면 성취도 없다 근데 고통이 있다고해서 성취도 있는 것은 아니다.
                     <div class="corner"></div>
-                    <span>4 min</span>
                 </div>
             </div>
             
@@ -247,7 +246,6 @@
                 <div class="bubble">
                   	위험을 감수하지 않으면 실패도 하지 않는다.
                     <div class="corner"></div>
-                    <span>3 min</span>
                 </div>
             </div>
             
@@ -256,7 +254,6 @@
                 <div class="bubble">
                   	남들이 알아주지 않더라도 너의 일을 묵묵히 하다보면 결국 남 좋은 일만 하게 된다.
                     <div class="corner"></div>
-                    <span>2 min</span>
                 </div>
             </div>
             
@@ -265,7 +262,6 @@
                 <div class="bubble">
                   	열심히 일하다보면 언젠가 보상을 받기도 한다. 하지만 게으름을 피우면 당장 확실한 보상을 받는다.
                     <div class="corner"></div>
-                    <span>1 min</span>
                 </div>
             </div>
             
@@ -274,7 +270,6 @@
                 <div class="bubble">
                   	남들이 널 필요로 한다고 해서 그게 니가 중요한 사람이라는 뜻은 아니다.
                     <div class="corner"></div>
-                    <span>Now</span>
                 </div>
             </div>
             
