@@ -106,8 +106,15 @@
 				inner_item1.addClass('show');
 				  }, function(){
 				inner_item1.addClass('hide');
-				  });
+				  });		  
 		});
+
+
+
+
+
+
+		
 		$(".item2").click(function () { 		
 			inner_item2.toggle(function(){
 				inner_item2.addClass('show');
@@ -191,10 +198,10 @@ margin: 0 auto;
 
 
 .resume_table{
-	width: 80%;
+	width: 45%;
     margin: 0 auto;
     margin-top: 50px;
-
+    display: flex;
 }
 #resume{
     margin: 0 auto;
@@ -216,6 +223,12 @@ margin: 0 auto;
     position: relative;
     top: 10px;
     margin-bottom: 2rem;
+}
+
+.resume_table img{
+
+    width: 20%;
+
 }
 </style>
 
@@ -335,20 +348,30 @@ margin: 0 auto;
 			
 					
 			<div class="resume_table">
-			
+				
 				<div class="item1" style="background: #f9f3ec;">
-				<img src="resources/images/info.png" alt="My Image" style="width: 3%;">
-				기본 정보</div>
+				<img src="resources/images/info.png" alt="My Image" >
+				<br>기본 정보
+				</div>
+				
+				
 				<div class="item2" style="background: #9bdac5;" >
-				<img src="resources/images/plus_info.png" alt="My Image" style="width: 3%;">
-					추가정보</div>
+				<img src="resources/images/plus_info.png" alt="My Image" >
+				<br>추가정보
+				</div>
+					
+					
 				<div class="item3" style="background: #fbcbcb;">
-				<img src="resources/images/heart_info.png" alt="My Image" style="width: 3%;">
-				성격 진단검사</div>
+				<img src="resources/images/heart_info.png" alt="My Image" >
+				<br>성격 진단검사
+				</div>
+
+
 
 				<div class="item4" style="background: antiquewhite;">
-				<img src="resources/images/job_info.png" alt="My Image" style="width: 3%;">
-				경력사항</div>					
+				<img src="resources/images/job_info.png" alt="My Image" >
+				<br>경력사항
+				</div>					
 			</div>				
 			
 			
