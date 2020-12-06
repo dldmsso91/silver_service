@@ -1,0 +1,39 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Elderly &mdash; Website Template by Colorlib</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	  
+  
+  
+  
+  
+  
+  
+  <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+
+  <link rel="stylesheet" href="resources/css/bootstrap.min.css">
+  <link rel="stylesheet" href="resources/css/jquery-ui.css">
+  <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+
+  <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+
+  <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+
+  <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+
+  <link rel="stylesheet" href="resources/css/aos.css">
+
+  <link rel="stylesheet" href="resources/css/style_page.css">
