@@ -8,7 +8,37 @@
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+<<<<<<< HEAD
 			<item value="inner_item1"/>
+=======
+<<<<<<< HEAD
+			<item value="test"/>
+			<item value=""/>
+			<item value="main-menu"/>
+			<item value="login_table"/>
+			<item value="oldman"/>
+			<item value="img"/>
+			<item value="menu"/>
+			<item value="site-menu"/>
+			<item value="home"/>
+			<item value="icon-linkedin"/>
+			<item value="nav-link"/>
+			<item value="새소식"/>
+			<item value="공지사항"/>
+			<item value="index_scm.do"/>
+			<item value="서비스"/>
+		</list>
+		<list key="replacehistory">
+		</list>
+	</section>
+	<section name="org.eclipse.ui.texteditor.FindReplaceDialog_dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="543"/>
+		<item key="DIALOG_Y_ORIGIN" value="382"/>
+		<item key="DIALOG_WIDTH" value="310"/>
+		<item key="DIALOG_HEIGHT" value="442"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|10.5|0|WINDOWS|1|-14|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+=======
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503
 			<item value="style=&quot;"/>
 			<item value="nav-link"/>
 			<item value="form"/>
@@ -37,5 +67,6 @@
 		<item key="DIALOG_WIDTH" value="288"/>
 		<item key="DIALOG_HEIGHT" value="329"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
 	</section>
 </section>

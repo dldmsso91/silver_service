@@ -1,0 +1,52 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+    <script type="text/javascript">
+
+    $(function(){
+
+
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		$("#inner_item1").hide();
+
+		$(".item1").click(function () { 
+			$("#inner_item1").show();
+			$(".item1").on("click" , function(){
+				$("#inner_item1").hide();
+			$(".item1").on("click" , function(){
+				$("#inner_item1").hide();
+			});
+		});  
+
+
+
+
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		
+		 
+     });
+
+    </script>
+
+</head>
+<body>
+<div class="all">
+	<div class="test">
+		<div class="inner_test">
+		
+		
+		</div>
+	
+	
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

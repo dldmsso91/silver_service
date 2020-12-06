@@ -28,7 +28,17 @@
   <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="resources/css/aos.css">
   <link rel="stylesheet" href="resources/css/style.css">
-
+<style>
+.login_img img {
+    vertical-align: middle;
+    border-style: none;
+    width: 20px;
+}
+.text-right {
+    text-align: right !important;
+    width: 1047px;
+}
+</style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -55,7 +65,7 @@
     
 <!-- Header Start --> 
    
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+     <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -66,17 +76,14 @@
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
- 				 <p><a href="login_scm.do" class="btn btn-primary">로그인</a>
-			 	 <a href="hoewon_scm.do" class="btn btn-primary">회원가입</a>
-			  </p>
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
-                    <li class="has-children">
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+					 <li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
@@ -108,7 +115,8 @@
                 </li>
                 <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
-
+				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>로그인</li>
+              	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>회원가입</li>
               </ul>
             </nav>
           </div>
@@ -124,10 +132,13 @@
 <<<<<<< HEAD
 =======
 
+>>>>>>> refs/remotes/origin/main
 <!-- Header End -->
+<<<<<<< HEAD
+=======
 
 
->>>>>>> 286e570d7ef4ea53b774095abd8eee74827c87bd
+>>>>>>> refs/remotes/origin/main
     <!-- MAIN -->
 
 
@@ -136,8 +147,8 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">Test Page</h1>
-            <p class="lead text-white mb-5">잘 부탁 드리겠습니다</p>
+            <h1 class="heading mb-3">노인지원센터</h1>
+            <p class="lead text-white mb-5">지금 회원가입 하시고 혜택을 누리세요!</p>
              <p><a href="list_scm.do" class="btn btn-primary">공지사항</a></p>
             <p><a href="list2_scm.do" class="btn btn-primary">새소식</a></p>
             <p><a href="ServiceCenter_scm.do" class="btn btn-primary">고객센터</a></p>

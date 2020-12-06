@@ -129,10 +129,18 @@
     {
       "name": "Azure IoT EdgeHub deployment",
       "description": "Azure IoT EdgeHub deployment schema",
+<<<<<<< HEAD
+      "url": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.2",
+      "versions": {
+        "1.0": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.0",
+        "1.1": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.1",
+        "1.2": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.2"
+=======
       "url": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.1",
       "versions": {
         "1.0": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.0",
         "1.1": "https://json.schemastore.org/azure-iot-edgehub-deployment-1.1"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
       }
     },
     {
@@ -466,6 +474,19 @@
       "url": "https://json.schemastore.org/cloudbuild"
     },
     {
+<<<<<<< HEAD
+      "name": "workflows.json",
+      "description": "Google Cloud Workflows configuration file",
+      "fileMatch": [
+        "workflows.json",
+        "workflows.yaml",
+        "workflows.yml",
+        "*.workflows.json",
+        "*.workflows.yaml",
+        "*.workflows.yml"
+      ],
+      "url": "https://json.schemastore.org/workflows"
+=======
       "name": "cloudworkflows.json",
       "description": "Google Cloud Workflows configuration file",
       "fileMatch": [
@@ -477,6 +498,7 @@
         "*.cloudworkflows.yml"
       ],
       "url": "https://json.schemastore.org/cloudworkflows"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
     },
     {
       "name": "AWS CloudFormation",
@@ -1020,6 +1042,19 @@
       "url": "https://json.schemastore.org/haxelib"
     },
     {
+<<<<<<< HEAD
+      "name": "Hayson",
+      "description": "Project Haystack data",
+      "fileMatch": [
+        "*.hayson.json",
+        "*.hayson.yaml",
+        "*.hayson.yml"
+      ],
+      "url": "https://bitbucket.org/finproducts/hayson/raw/master/hayson-json-schema.json"
+    },
+    {
+=======
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
       "name": "host.json",
       "description": "JSON schema for Azure Functions host.json files",
       "fileMatch": [
@@ -1089,7 +1124,11 @@
     {
       "name": "Jovo Language Models",
       "description": "JSON Schema for Jovo language Models (https://www.jovo.tech/docs/model)",
+<<<<<<< HEAD
+      "url": "https://json.schemastore.org/jovo-language-model"
+=======
       "url": "http://json.schemastore.org/jovo-language-model"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
     },
     {
       "name": ".jsbeautifyrc",
@@ -1153,8 +1192,13 @@
       ],
       "url": "https://json.schemastore.org/feed",
       "versions": {
+<<<<<<< HEAD
+        "1": "https://json.schemastore.org/feed-1",
+        "1.1": "https://json.schemastore.org/feed"
+=======
         "1": "http://json.schemastore.org/feed-1",
         "1.1": "http://json.schemastore.org/feed"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
       }
     },
     {
@@ -1296,7 +1340,11 @@
       "fileMatch": [
         "admin/config*.yml"
       ],
+<<<<<<< HEAD
+      "url": "https://json.schemastore.org/netlify.json"
+=======
       "url": "http://json.schemastore.org/netlify.json"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
     },
     {
       "name": "Nightwatch.js",
@@ -1461,9 +1509,17 @@
     },
     {
       "name": "pgap_yaml_input_reader",
+<<<<<<< HEAD
+      "description": "NCBI Prokaryotic Genome Annotation Pipeline (PGAP) input metadata (submol) JSON/YAML configuration file",
+      "fileMatch": [
+        "submol*.json",
+        "submol*.yml",
+        "submol*.yaml"
+=======
       "description": "PGAPx yaml input JSON configuration",
       "fileMatch": [
          "pgap_yaml_input_reader.json"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
       ],
       "url": "https://json.schemastore.org/pgap_yaml_input_reader"
     },
@@ -2469,7 +2525,11 @@
     {
       "name": "Windows Package Manager",
       "description": "Windows Package Manager Manifest file",
+<<<<<<< HEAD
+      "url": "https://json.schemastore.org/winget-pkgs",
+=======
       "url": "http://json.schemastore.org/winget-pkgs",
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
       "fileMatch": [
         "manifests/*/*/*.yaml"
       ]
@@ -2548,7 +2608,11 @@
       "fileMatch": [
         "**/api.json"
       ],
+<<<<<<< HEAD
+      "url": "https://json.schemastore.org/apibuilder.json"
+=======
       "url": "http://json.schemastore.org/apibuilder.json"
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
     },
     {
       "name": "Gradle Enterprise",

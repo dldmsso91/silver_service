@@ -8,32 +8,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="preconnect" href="https://fonts.gstatic.com">
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	  
+  
+  
+  
+  
+  
+  
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
+
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/jquery-ui.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+
   <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+
   <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+
   <link rel="stylesheet" href="resources/css/aos.css">
+
   <link rel="stylesheet" href="resources/css/style_page.css">
+
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
   
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-  
-  
-  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700' rel='stylesheet' type='text/css'>
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
 
 
   <div id="overlayer"></div>
@@ -58,7 +73,7 @@
     
 <!-- Header Start --> 
    
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -76,8 +91,14 @@
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
+                    <li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_nursing_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -128,16 +149,16 @@
 
     </div>
 
-	<h2 align="center">친구위치 검색</h2>
-	
-	
-	
-	<div class="site-section">
-    <div class="container">
-      <div class="row justify-content-between">
+
+
+
+    <div class="site-section">
+      <div class="container">
+        <h1 style="margin-bottom: 50px; text-align: center;">커뮤니티 서비스</h1>
+        <div class="row justify-content-between">
         <div class="col-lg-7">
           <div class="section-heading">
-            <div id="map" style="width:100%;height:800px;"></div>
+            <div id="map" style="width:100%;height:600px;"></div>
           </div>
         </div>
         <div class="col-lg-5">
@@ -156,8 +177,8 @@
           <div class="friend">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
                 <p>
-                  <strong>Miro Badev</strong>
-                  <span>mirobadev@gmail.com</span>
+                  <strong>챗휴먼</strong>
+                  <span>chathuman@gmail.com</span>
                 </p>
                 <div class="status available"></div>
             </div>
@@ -165,8 +186,8 @@
             <div class="friend">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
                 <p>
-                  <strong>Martin Joseph</strong>
-                  <span>marjoseph@gmail.com</span>
+                  <strong>고장내는 기계</strong>
+                  <span>errormachine@gmail.com</span>
                 </p>
                 <div class="status away"></div>
             </div>
@@ -174,8 +195,8 @@
             <div class="friend">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg" />
                 <p>
-                  <strong>Tomas Kennedy</strong>
-                  <span>tomaskennedy@gmail.com</span>
+                  <strong>지옥에서 온 악마</strong>
+                  <span>devilfromhell@gmail.com</span>
                 </p>
                 <div class="status inactive"></div>
             </div>
@@ -183,29 +204,13 @@
             <div class="friend">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg" />
                 <p>
-                  <strong>Enrique Sutton</strong>
-                  <span>enriquesutton@gmail.com</span>
+                  <strong>금붕어</strong>
+                  <span>forgetperthreesecond@gmail.com</span>
                 </p>
                 <div class="status inactive"></div>
             </div>
             
-            <div class="friend">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/5_copy.jpg" />
-                <p>
-                <strong>  Darnell Strickland</strong>
-                  <span>darnellstrickland@gmail.com</span>
-                </p>
-                <div class="status inactive"></div>
-            </div>
             
-            <div class="friend">
-              <img src="resources/images/avatar.jpg" />
-                <p>
-                <strong>  Darnell Strickland</strong>
-                  <span>darnellstrickland@gmail.com</span>
-                </p>
-                <div class="status inactive"></div>
-            </div>
             
             <div id="search">
               <input type="text" id="searchfield" value="Search contacts..." />
@@ -224,7 +229,6 @@
             </div>
             
             <p>Miro Badev</p>
-            <span>miro@badev@gmail.com</span>
         </div>
         <div id="chat-messages">
           <label>Thursday 02</label>
@@ -232,45 +236,40 @@
             <div class="message">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
                 <div class="bubble">
-                  Really cool stuff!
+                  	고통이 없으면 성취도 없다 근데 고통이 있다고해서 성취도 있는 것은 아니다.
                     <div class="corner"></div>
-                    <span>3 min</span>
                 </div>
             </div>
             
             <div class="message right">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
                 <div class="bubble">
-                  Can you share a link for the tutorial?
+                  	위험을 감수하지 않으면 실패도 하지 않는다.
                     <div class="corner"></div>
-                    <span>1 min</span>
                 </div>
             </div>
             
             <div class="message">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
                 <div class="bubble">
-                  Yeah, hold on
+                  	남들이 알아주지 않더라도 너의 일을 묵묵히 하다보면 결국 남 좋은 일만 하게 된다.
                     <div class="corner"></div>
-                    <span>Now</span>
                 </div>
             </div>
             
             <div class="message right">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
                 <div class="bubble">
-                  Can you share a link for the tutorial?
+                  	열심히 일하다보면 언젠가 보상을 받기도 한다. 하지만 게으름을 피우면 당장 확실한 보상을 받는다.
                     <div class="corner"></div>
-                    <span>1 min</span>
                 </div>
             </div>
             
             <div class="message">
               <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
                 <div class="bubble">
-                  Yeah, hold on
+                  	남들이 널 필요로 한다고 해서 그게 니가 중요한 사람이라는 뜻은 아니다.
                     <div class="corner"></div>
-                    <span>Now</span>
                 </div>
             </div>
             
@@ -290,68 +289,51 @@
           </div>
         </div>
       </div>
+      </div>
     </div>
-  </div>
-	
+
  
+
+
     <div class="feature-v1">
       <div class="d-md-flex align-items-center">
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/help.png" alt="Image" class="img-fluid">
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Independent Living For Senior Couples</h3>
-            <a href="#" class="small">Learn More</a>
+            <span class="subheading"><h5>도우미 서비스</h5></span>
+            <h3 class="heading">편안한 생활과 전문적인 손길이 필요하신가요?</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/community.png" alt="Image" class="img-fluid">
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
-            <a href="#" class="small">Learn More</a>
+            <span class="subheading"><h5>커뮤니티 서비스</h5></span>
+            <h3 class="heading">내 친구가 어디에있지? 지금 찾아보세요!</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/bus.png" alt="Image" class="img-fluid">
+<!--             <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid"> -->
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Senior Home Patient Care Services</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
-              
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-              <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">Learn More</a></p>
-            </div>
+            <span class="subheading"><h5>교통 서비스</h5></span>
+            <h3 class="heading">복잡한 교통안내! 더이상 어려워 마세요~</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
       </div>
     </div>
 
     
+
+
 
 
     <div class="site-footer bg-light">
@@ -417,7 +399,8 @@
     </div>
 
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
   <script src="resources/js/bootstrap.min.js"></script>
@@ -431,7 +414,6 @@
   <script src="resources/js/jquery.sticky.js"></script>
   <script src="resources/js/isotope.pkgd.min.js"></script>
   <script src="resources/js/main.js"></script>
-  
   
   <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
   <script>
@@ -498,5 +480,7 @@
  </script>
 
 
+
 </body>
+
 </html>

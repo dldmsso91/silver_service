@@ -1,0 +1,74 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+    <script type="text/javascript">
+
+    $(function(){
+// 	    ----------------------------------------삭제시, confirm이 나오게 하는 코드        
+	    $('#delete').click(function(){
+	    	var result = confirm('정말 삭제하시겠습니까?'); 
+
+	    	if(result){ 
+
+		    	yes 
+		    	location.replace('index.php');} 
+
+		    else{ no }
+
+		    });
+
+
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		$("#inner_item1").hide();
+
+		$(".item1").click(function () { 
+			$("#inner_item1").show();
+			$(".item1").on("click" , function(){
+				$("#inner_item1").hide();
+			$(".item1").on("click" , function(){
+				$("#inner_item1").hide();
+			});
+		});  
+		$("#inner_item2").hide();
+
+		$(".item2").click(function () { 
+			$("#inner_item2").show();
+			$(".item2").on("click" , function(){
+				$("#inner_item2").hide();
+			});
+		});  
+		$("#inner_item3").hide();
+
+		$(".item3").click(function () { 
+			$("#inner_item3").show();
+			$(".item3").on("click" , function(){
+				$("#inner_item3").hide();
+			});
+		});  
+		$("#inner_item4").hide();
+
+		$(".item4").click(function () { 
+			$("#inner_item4").show();
+			$(".item4").on("click" , function(){
+				$("#inner_item4").hide();
+			});
+		});  
+
+
+
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		
+		 
+     });
+
+    </script>
+
+</head>
+<body>
+
+</body>
+</html>

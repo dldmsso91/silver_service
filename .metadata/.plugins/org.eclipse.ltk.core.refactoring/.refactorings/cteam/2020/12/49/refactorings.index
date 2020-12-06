@@ -1,3 +1,23 @@
+<<<<<<< HEAD
+1607068909066	Delete element
+1607068915263	Rename resource 'index_scm.jsp'
+1607068923111	Rename resource 'index_en.jsp'
+1607069006492	Delete element
+1607069089309	Rename type 'TestController'
+1607069118556	Move compilation unit
+1607150710179	Copy file
+1607152564733	Delete element
+1607152954581	Delete element
+1607154635672	Rename resource '노인커뮤니케이션.jpeg'
+1607154645653	Rename resource '10.jpeg'
+1607157356327	Rename resource '10.jpg'
+1607177073301	Rename resource 'consulting.jsp'
+1607177125158	Copy file
+=======
+<<<<<<< HEAD
+1607167853885	Delete element
+1607168106766	Delete element
+=======
 1606809394483	Copy file
 1606809785361	Delete element
 1606814553568	Move file
@@ -45,3 +65,5 @@
 1607018061905	Rename resource 'apply_services_type.jsp'
 1607018068648	Rename resource 'apply_caregiver_detail.jsp'
 1607018427702	Rename resource 'walking_service_main.jsp'
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e

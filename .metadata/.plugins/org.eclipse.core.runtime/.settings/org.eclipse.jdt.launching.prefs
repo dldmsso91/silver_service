@@ -1,3 +1,11 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1607053926008" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1607053926008" name\="jre1.8.0_271" path\="C\:\\Program Files\\Java\\jre1.8.0_271"/>\r\n</vmType>\r\n</vmSettings>\r\n
+=======
+<<<<<<< HEAD
+org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1607059975933" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1607059975933" name\="jre1.8.0_91" path\="C\:\\Program Files\\Java\\jre1.8.0_91"/>\r\n</vmType>\r\n</vmSettings>\r\n
+=======
 org.eclipse.jdt.launching.PREF_DEFAULT_ENVIRONMENTS_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<defaultEnvironments>\r\n<defaultEnvironment environmentId\="JavaSE-1.8" vmId\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1603673848329"/>\r\n</defaultEnvironments>\r\n
 org.eclipse.jdt.launching.PREF_VM_XML=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<vmSettings defaultVM\="57,org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType13,1603673848329" defaultVMConnector\="">\r\n<vmType id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType">\r\n<vm id\="1603673848329" name\="jre1.8.0_91" path\="C\:\\Program Files\\Java\\jre1.8.0_91"/>\r\n</vmType>\r\n</vmSettings>\r\n
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
