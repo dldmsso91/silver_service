@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
+		<item key="sortItemState" value="false"/>
+	</section>
+	<section name="GitCommitMessageComponent">
+		<list key="D:\2020.12.28_수료생_이은내\team_project\final_project\.git">
+			<item value="false"/>
+			<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+			<item value="2020-12-05 이은내"/>
+			<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+			<item value="2ccc7c8ead9199a1cb2b18ac59c01ff9dbe01d47"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
+	</section>
+</section>
