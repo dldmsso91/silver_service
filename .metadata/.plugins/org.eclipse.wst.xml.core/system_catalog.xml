@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
   <public publicId="-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN" uri="jar:file:/C:/Users/82106/Desktop/02_sts-4.3.1.RELEASE/plugins/org.eclipse.jst.jsf.facelet.core_1.4.2.v201902121810.jar!/dtd/facelet-taglib_1_0.dtd" webURL="facelet-taglib_1_0.dtd"/>
   <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/C:/Users/82106/Desktop/02_sts-4.3.1.RELEASE/plugins/org.eclipse.m2e.model.edit_1.12.0.20190628-1134.jar!/xsd/maven-v4_0_0.xsd"/>
   <system systemId="http://maven.apache.org/xsd/maven-4.0.0.xsd" uri="jar:file:/C:/Users/82106/Desktop/02_sts-4.3.1.RELEASE/plugins/org.eclipse.m2e.model.edit_1.12.0.20190628-1134.jar!/xsd/maven-v4_0_0.xsd"/>
@@ -42,6 +45,9 @@
   <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/C:/Users/82106/Desktop/02_sts-4.3.1.RELEASE/plugins/org.springsource.ide.eclipse.commons.ui_3.9.10.201906242213-CI-B472.jar!/dtd/log4j-1.2.dtd" webURL="https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
   <public publicId="-//Sun Microsystems, Inc.//DTD Facelet Taglib 1.0//EN" uri="jar:file:/D:/2020.12.28_수료생_이은내/프로그램/NAVERCloud/sts-4.3.1.RELEASE/plugins/org.eclipse.jst.jsf.facelet.core_1.4.2.v201902121810.jar!/dtd/facelet-taglib_1_0.dtd" webURL="facelet-taglib_1_0.dtd"/>
   <system systemId="http://maven.apache.org/maven-v4_0_0.xsd" uri="jar:file:/D:/2020.12.28_수료생_이은내/프로그램/NAVERCloud/sts-4.3.1.RELEASE/plugins/org.eclipse.m2e.model.edit_1.12.0.20190628-1134.jar!/xsd/maven-v4_0_0.xsd"/>
@@ -122,5 +128,8 @@
   <public publicId="-//LOG4J//DTD LOG4J//EN" uri="jar:file:/D:/eunnae/program/spring-tool-suite-4-4.7.0.RELEASE-e4.16.0-win32.win32.x86_64.self-extracting/sts-4.7.0.RELEASE/plugins/org.springsource.ide.eclipse.commons.ui_3.9.13.202006180733-RELEASE.jar!/dtd/log4j-1.2.dtd" webURL="https://logging.apache.org/log4j/1.2/apidocs/org/apache/log4j/xml/doc-files/log4j.dtd"/>
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 </catalog>

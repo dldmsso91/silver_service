@@ -3,6 +3,9 @@
 >>>>>>>=a3b66c9d4e85767a3f205a500f66196c970b61ed
 eclipse.preferences.version=1
 <<<<<<< HEAD
+locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/apache-tomcat-9.0.38
+=======
+<<<<<<< HEAD
 locationorg.eclipse.jst.server.tomcat.runtime.90=D\:/bigdata/service/apache-tomcat-9.0.37
 =======
 <<<<<<< HEAD
@@ -14,4 +17,7 @@ locationorg.eclipse.jst.server.tomcat.runtime.90=D\:/bigdata/service/apache-tomc
 locationorg.eclipse.jst.server.tomcat.runtime.90=D\:/eunnae/program/apache-tomcat-9.0.38
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5

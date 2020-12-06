@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 	<section name="ImportExportAction">
 		<item key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID" value="org.eclipse.ui.wizards.import.ExternalProject"/>
 		<list key="ImportExportPage.STORE_EXPANDED_IMPORT_CATEGORIES">
@@ -15,6 +18,9 @@
 	</section>
 =======
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 	<section name="WorkbenchPreferenceDialogSettings">
 		<item key="DIALOG_X_ORIGIN" value="651"/>
@@ -27,8 +33,12 @@
 		</list>
 	</section>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 	<section name="org.eclipse.ui.internal.QuickAccess">
@@ -42,8 +52,11 @@
 		</list>
 		<list key="textArray">
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
+=======
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 		</list>
 	</section>
 	<section name="NewWizardAction">
@@ -58,6 +71,9 @@
 			<item value="org.eclipse.ui.Basic"/>
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 		</list>
 	</section>

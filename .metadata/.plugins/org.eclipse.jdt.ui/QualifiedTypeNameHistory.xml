@@ -6,6 +6,9 @@
 <<<<<<< HEAD
 <qualifiedTypeNameHistroy/>
 =======
+<<<<<<< HEAD
+<qualifiedTypeNameHistroy/>
+=======
 <qualifiedTypeNameHistroy>
 <fullyQualifiedTypeName name="org.springframework.context.annotation.Conditional"/>
 <fullyQualifiedTypeName name="org.springframework.stereotype.Repository"/>
@@ -30,4 +33,7 @@
 </qualifiedTypeNameHistroy>
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5

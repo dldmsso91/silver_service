@@ -5,6 +5,12 @@
 		<item key="height" value="400"/>
 	</section>
 <<<<<<< HEAD
+	<section name="org.eclipse.ltk.ui.refactoring.settings">
+		<item key="moveWizard.updateQualifiedNames" value="false"/>
+		<item key="patterns" value="*"/>
+	</section>
+=======
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 	<section name="org.eclipse.ltk.ui.refactoring.settings">
@@ -24,5 +30,8 @@
 	</section>
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+<<<<<<< HEAD
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 </section>
