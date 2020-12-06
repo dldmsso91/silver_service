@@ -38,15 +38,6 @@
     text-align: right !important;
     width: 1047px;
 }
-.loginInfo {
-    background-color: rgb(140 130 131 / 70%);
-    border-radius: 20px;
-    color: white;
-    width: auto;
-    height: auto;
-    text-align: center;    
-    text-align: -webkit-center;
-}
 </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -151,7 +142,8 @@
         <div class="row">
           <div class="col-lg-6 align-self-center">
 		 <div class="back">
-		        <form class="loginInfo" method="post" action="../pro/LoginPro.jsp" onsubmit="return checkValue()" >		                   
+		        <form name="loginInfo" method="post" action="../pro/LoginPro.jsp" onsubmit="return checkValue()">
+		            <br><br>            
 		            <table>
 		                <h1>·Î±×ÀÎ</h1>
 		                <tr>
