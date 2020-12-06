@@ -1,0 +1,43 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+    <script type="text/javascript">
+
+    $(function(){
+	    $('#delete').click(function(){
+	    	var result = confirm('정말 삭제하시겠습니까?'); 
+
+	    	if(result){ 
+
+		    	location.replace('index.do');
+		    	alert("삭제되었습니다");
+		    	} 
+
+		    else{  }
+
+		    });
+        });
+
+    </script>
+
+
+</head>
+<body>
+<span id="button">
+  <button>button1</button>
+  <button>button2</button>
+  <button>button3</button>
+</span>
+</body>
+</html>

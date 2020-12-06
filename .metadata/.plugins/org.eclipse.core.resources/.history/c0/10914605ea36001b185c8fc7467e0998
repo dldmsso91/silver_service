@@ -1,0 +1,55 @@
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<title>Insert title here</title>
+
+  
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+
+    <script type="text/javascript">
+
+    $(function(){
+
+// 	alert("test");
+// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
+		$(".inner_test").hide();
+
+		$(".test").on("click" , function(){ 
+			
+			$(".inner_test").show();
+			
+			$(".test").on("click" , function(){
+				$(".inner_test").hide();
+			});
+		});
+});
+
+    </script>
+
+</head>
+<body>
+<div class="all">
+	<div class="test" style="background: aqua;height: 51vh;">
+	내가 바로 테스트이다.
+		<div class="inner_test"  style="background: red;">
+		내가 바로 이너이다.
+		
+		</div>
+	
+	
+	</div>
+</div>
+
+
+
+
+</body>
+</html>

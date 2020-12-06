@@ -3633,3 +3633,13 @@ Caused by: java.io.FileNotFoundException: C:\PRJ\CTeam\.metadata\.plugins\org.ec
 2020-12-06 17:59:15,447 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\main\resources
 2020-12-06 17:59:15,449 [Worker-91: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-12-06 17:59:15,449 [Worker-91: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\test\resources
+2020-12-06 18:02:30,368 [Worker-95: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: spring_django_1026:spring_django_1026:0.0.1-SNAPSHOT @ C:\PRJ\CTeam\cteam\pom.xml.
+2020-12-06 18:02:32,318 [Worker-95: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 18:02:32,320 [Worker-95: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\main\resources
+2020-12-06 18:02:32,322 [Worker-95: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 18:02:32,324 [Worker-95: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\test\resources
+2020-12-06 18:02:32,329 [Worker-95: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Changed resources require a complete clean of filtered resources of cteam
+2020-12-06 18:02:32,329 [Worker-95: Building workspace] INFO  o.e.m.w.i.f.ResourceFilteringBuildParticipant - Executing resource filtering for cteam
+2020-12-06 18:02:32,362 [Worker-95: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 18:02:54,350 [Worker-98: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 18:02:54,353 [Worker-98: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\main\resources

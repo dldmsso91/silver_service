@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 1607068909066	Delete element
 1607068915263	Rename resource 'index_scm.jsp'
 1607068923111	Rename resource 'index_en.jsp'
@@ -12,3 +13,57 @@
 1607157356327	Rename resource '10.jpg'
 1607177073301	Rename resource 'consulting.jsp'
 1607177125158	Copy file
+=======
+<<<<<<< HEAD
+1607167853885	Delete element
+1607168106766	Delete element
+=======
+1606809394483	Copy file
+1606809785361	Delete element
+1606814553568	Move file
+1606815565995	Delete element
+1606826337052	Delete element
+1606826371682	Delete element
+1606835096516	Delete element
+1606835129905	Rename resource 'NewFile.jsp'
+1606879296054	Rename resource 'my_page.jsp'
+1606879499457	Rename resource 'my_page_level of satisfaction.jsp'
+1606892407412	Copy file
+1606892417024	Rename resource 'index2.jsp'
+1606898953965	Copy file
+1606898982425	Rename resource 'level_of_satisfaction.jsp'
+1606918760249	Delete elements
+1606918763421	Delete element
+1606918767141	Delete elements
+1606918770566	Delete elements
+1606922269471	Copy file
+1606923637701	Copy file
+1606923923283	Copy file
+1606925228664	Copy file
+1606925884973	Delete element
+1606928446248	Delete element
+1606958121286	Delete element
+1607017844751	Delete element
+1607017858953	Delete element
+1607017870103	Delete element
+1607017883439	Rename resource 'level_of_satisfaction_customer.jsp'
+1607017891765	Rename resource 'level_of_satisfaction_giver.jsp'
+1607017898911	Rename resource 'index.jsp'
+1607017929339	Rename resource 'succesed_apply_service.jsp'
+1607017936091	Rename resource 'succesed_apply_giver.jsp'
+1607017953835	Rename resource 'resume_giver.jsp'
+1607017964949	Rename resource 'recommend_service.jsp'
+1607017974523	Rename resource 'mypage_service.jsp'
+1607017980435	Rename resource 'my_service.jsp'
+1607017987027	Rename resource 'my_resume.jsp'
+1607017994729	Rename resource 'my_resume_update.jsp'
+1607018001152	Rename resource 'my_giver_resume_detail.jsp'
+1607018013394	Rename resource 'life_service_main.jsp'
+1607018030629	Rename resource 'giver_resume_detail.jsp'
+1607018043731	Rename resource 'caregiver_service_main.jsp'
+1607018051890	Rename resource 'apply_services.jsp'
+1607018061905	Rename resource 'apply_services_type.jsp'
+1607018068648	Rename resource 'apply_caregiver_detail.jsp'
+1607018427702	Rename resource 'walking_service_main.jsp'
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e

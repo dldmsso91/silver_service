@@ -1,2 +1,10 @@
 eclipse.preferences.version=1
+<<<<<<< HEAD
 locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/apache-tomcat-9.0.38
+=======
+<<<<<<< HEAD
+locationorg.eclipse.jst.server.tomcat.runtime.90=D\:/bigdata/service/apache-tomcat-9.0.37
+=======
+locationorg.eclipse.jst.server.tomcat.runtime.90=D\:/eunnae/program/apache-tomcat-9.0.38
+>>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
+>>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
