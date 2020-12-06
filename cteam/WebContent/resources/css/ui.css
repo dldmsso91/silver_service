@@ -7,7 +7,7 @@
 .gnb .selected{background-color: #e8eced;margin: 10px 0px 0px 10px;}
 
 .mapBox{width:100%; height: 100%;}
-.mapBox_info{width:60%; height: 100%;float: left; overflow: hidden; display: block;}
+.mapBox_info{width:75%; height: 100%;float: right; overflow: hidden; display: block;}
 
 .leftBox{position:fixed; display:block; left:80px; width:226px; background-color: #e8eced;}
 
