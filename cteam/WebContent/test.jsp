@@ -129,16 +129,10 @@
 
     </header>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/main
 <!-- Header End -->
-<<<<<<< HEAD
-=======
 
 
->>>>>>> refs/remotes/origin/main
     <!-- MAIN -->
 
 
@@ -147,11 +141,26 @@
       <div class="container">
         <div class="row">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">노인지원센터</h1>
-            <p class="lead text-white mb-5">지금 회원가입 하시고 혜택을 누리세요!</p>
-             <p><a href="list_scm.do" class="btn btn-primary">공지사항</a></p>
-            <p><a href="list2_scm.do" class="btn btn-primary">새소식</a></p>
-            <p><a href="ServiceCenter_scm.do" class="btn btn-primary">고객센터</a></p>
+		 <div class="back">
+		        <form name="loginInfo" method="post" action="../pro/LoginPro.jsp" onsubmit="return checkValue()">
+		            <br><br>            
+		            <table>
+		                <h1>로그인</h1>
+		                <tr>
+		                    <td>아이디</td>
+		                    <td><input type="text" name="id" maxlength="50"></td>
+		                </tr>
+		                <tr>
+		                    <td>비밀번호</td>
+		                    <td><input type="password" name="password" maxlength="50"></td>
+		                </tr>
+		            </table>
+		            <br>
+		             <p><a href="mypage_scm.do" class="btn btn-primary">로그인</a>
+		            	<a href="hoewon_scm.do" class="btn btn-primary">회원가입</a>
+		        	</p>
+		        </form>
+			</div>
           </div>
         </div>
       </div>  
