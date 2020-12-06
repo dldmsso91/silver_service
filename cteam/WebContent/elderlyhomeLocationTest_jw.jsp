@@ -154,7 +154,7 @@
 
     <div class="site-section">
       <div class="container">
-        <h1 style="margin-bottom: 50px; text-align: center;">커뮤니티 서비스</h1>
+        <h1 style="margin-bottom: 50px; text-align: center;">요양시설 정보</h1>
         <div class="row justify-content-between">
         <div class="col-lg-7">
           <div class="section-heading">
@@ -162,129 +162,88 @@
           </div>
         </div>
         <div class="col-lg-5">
-
-          <div class="d-block custom-media algin-items-stretch">
             	
-			<div id="chatbox">
-  <div id="friendslist">
-      <div id="topmenu">
-          <span class="friends"></span>
-            <span class="chats"></span>
-            <span class="history"></span>
-        </div>
-        
-        <div id="friends">
-          <div class="friend">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-                <p>
-                  <strong>챗휴먼</strong>
-                  <span>chathuman@gmail.com</span>
-                </p>
-                <div class="status available"></div>
-            </div>
-            
-            <div class="friend">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-                <p>
-                  <strong>고장내는 기계</strong>
-                  <span>errormachine@gmail.com</span>
-                </p>
-                <div class="status away"></div>
-            </div>
-            
-            <div class="friend">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg" />
-                <p>
-                  <strong>지옥에서 온 악마</strong>
-                  <span>devilfromhell@gmail.com</span>
-                </p>
-                <div class="status inactive"></div>
-            </div>
-            
-            <div class="friend">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg" />
-                <p>
-                  <strong>금붕어</strong>
-                  <span>forgetperthreesecond@gmail.com</span>
-                </p>
-                <div class="status inactive"></div>
-            </div>
-            
-            
-            
-            <div id="search">
-              <input type="text" id="searchfield" value="Search contacts..." />
-            </div>
-            
-        </div>                
-        
-    </div>  
-    
-    <div id="chatview" class="p1">      
-        <div id="profile">
+			<section class="panel no-b">
+                  <div class="panel-heading no-b">
+                    <h5>추천 요양시설 목록</h5>
+                  </div>
 
-            <div id="close">
-                <div class="cy"></div>
-                <div class="cx"></div>
-            </div>
-            
-            <p>Miro Badev</p>
-            <span>miro@badev@gmail.com</span>
-        </div>
-        <div id="chat-messages">
-          <label>Thursday 02</label>
-            
-            <div class="message">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-                <div class="bubble">
-                  	못한다 못한다
-                    <div class="corner"></div>
-                    <span>3 min</span>
-                </div>
-            </div>
-            
-            <div class="message right">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-                <div class="bubble">
-                  	말만 들었지	
-                    <div class="corner"></div>
-                    <span>1 min</span>
-                </div>
-            </div>
-            
-            <div class="message">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-                <div class="bubble">
-                  	이정도로
-                    <div class="corner"></div>
-                    <span>Now</span>
-                </div>
-            </div>
-            
-            <div class="message right">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-                <div class="bubble">
-                  	못할지는
-                    <div class="corner"></div>
-                    <span>1 min</span>
-                </div>
-            </div>
-            
-            <div class="message">
-              <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-                <div class="bubble">
-                  	상상도 못했다!
-                    <div class="corner"></div>
-                    <span>Now</span>
-                </div>
-            </div>
+                  <div class="panel-body">
+
+                    <table class="table no-m">
+                      <thead>
+                        <tr>
+                          <th>시설명</th>
+                          <th>주소</th>
+                          <th>운영주체</th>
+                          <th>만족도</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>종암요양원</td>
+                          <td>서울특별시 성북구 종암로9길 56(종암동)</td>
+                          <td>개인</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">100% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>정진요양원</td>
+                          <td>서울특별시 성북구 서경로 110(정릉동)</td>
+                          <td>개인</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">80% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>정릉노인요양원</td>
+                          <td>서울특별시 성북구 정릉로12길 69(정릉동)</td>
+                          <td>개인</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">60% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>백마요양원</td>
+                          <td>서울특별시 성북구 종암로18길 14(종암동)</td>
+                          <td>개인</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">40% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
             
         </div>
       
-        <div id="sendmessage">
-          <input type="text" value="Send message..." />
-            <button id="send"></button>
-        </div>
     
     </div>        
 </div>
@@ -294,9 +253,6 @@
             
           </div>
         </div>
-      </div>
-      </div>
-    </div>
 
  
 
@@ -425,8 +381,8 @@
   <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
-        center: new kakao.maps.LatLng(37.4781144,126.8784167), // 지도의 중심좌표
-        level: 3 // 지도의 확대 레벨
+        center: new kakao.maps.LatLng(37.604397,127.0229984), // 지도의 중심좌표
+        level: 5 // 지도의 확대 레벨
     };
 
 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
@@ -434,20 +390,20 @@
 	// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 	var positions = [
 	{
-		content: '<div>고장내는 기계</div>', 
-	    latlng: new kakao.maps.LatLng(37.478673,126.8786544)
+		content: '<div>백마요양원</div>', 
+	    latlng: new kakao.maps.LatLng(37.59779187,127.0344106)
 	},
 	{
-		content: '<div>지옥에서온 악마</div>', 
-	    latlng: new kakao.maps.LatLng(37.4804014,126.883129)
+		content: '<div>종암요양원</div>', 
+	    latlng: new kakao.maps.LatLng(37.5965778, 127.0327749)
 	},
 	{
-		content: '<div>금붕어</div>',
-	    latlng: new kakao.maps.LatLng(37.4781922,126.8753113)
+		content: '<div>정진요양원</div>',
+	    latlng: new kakao.maps.LatLng(37.61270211, 127.0133692)
 	},
 	{
-		content: '<div>챗휴먼</div>',
-	    latlng: new kakao.maps.LatLng(37.4786133,126.8784542)
+		content: '<div>정릉노인요양원</div>',
+	    latlng: new kakao.maps.LatLng(37.60587334, 127.0025413)
 	}
 	];
 	
@@ -483,7 +439,7 @@
 	        infowindow.close();
 	    };
 	}
- </script>
+  </script>
 
 
 

@@ -288,8 +288,8 @@
           <!-- inner content wrapper -->
           <div class="wrapper">
             
-
-              <div class="wrapper no-p">
+			
+              <div class="panel-body">
                   <div class="panel-heading no-b">
                     <h2><i class="fa fa-group"></i>회원위치 검색</h2>
                   </div>
@@ -297,7 +297,7 @@
                     <input type="text" placeholder="회원이름 입력">
                     <input type="button" value="검색">
                   </div>
-                    <div id="map" style="width:100%;height:1000px;"></div>
+                    <div id="map" style="width:100%;height:700px;"></div>
               </div>
             
            </div>

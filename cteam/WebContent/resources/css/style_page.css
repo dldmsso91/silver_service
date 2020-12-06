@@ -960,11 +960,11 @@ figure figcaption {
   background:#fff;
   border-radius:6px;
   overflow:hidden;
-  height:800px;
+  height:600px;
   position:absolute;
   top:0px;
   left:50%;
-  margin-left:-155px;
+  margin-left:-300px;
 }
 
 #friendslist{
@@ -972,7 +972,7 @@ figure figcaption {
   top:0;
   left:0;
   width:400px;
-  height:800px;
+  height:600px;
 }
 #topmenu{
   height:100px;
@@ -1000,9 +1000,9 @@ figure figcaption {
   cursor:pointer;
 }
 .friend img{
-  width:40px;
+  width:35px;
   border-radius:50%;
-  margin:5px;
+  margin:3px;
   float:left;
 }
 .floatingImg{
@@ -1063,7 +1063,7 @@ figure figcaption {
 }
 #chatview{
   width:400px;
-  height:800px;
+  height:600px;
   position:absolute;
   top:0;
   left:0; 
@@ -1115,7 +1115,7 @@ figure figcaption {
   opacity:0;
   margin-top:30px;
   width:400px;
-  height:800px;
+  height:600px;
   overflow-y:scroll;  
   overflow-x:hidden;
   padding-right: 20px;
@@ -1324,4 +1324,152 @@ div.message.right .corner{
 #chatview, #sendmessage { 
 overflow:hidden; 
 border-radius:6px; 
+}
+
+
+
+
+.panel {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-bottom: 15px;
+}
+.panel-heading {
+  border-color: #eef0f8;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+}
+.panel-heading.gray {
+  background: #fcfcfc;
+}
+.panel-heading.gradient {
+  background: #fcfcfc;
+  background: -moz-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+  background: -webkit-linear-gradient(top, #fcfcfc 0%, #f5f5f5 100%);
+  background: linear-gradient(to bottom, #fcfcfc 0%, #f5f5f5 100%);
+}
+.panel-footer {
+  border-top: 1px solid #eef0f8;
+  background-color: #fcfcfc;
+}
+.panel-group .panel {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+}
+.panel-default {
+  border-color: #dcdff0;
+}
+.panel-default > .panel-heading {
+  color: #59595a;
+  background-color: #eaecf6;
+  border-color: #dcdff0;
+}
+.panel-default > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #dcdff0;
+}
+.panel-default > .panel-heading a {
+  color: #59595a;
+}
+.panel-default > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #dcdff0;
+}
+.panel-primary {
+  border-color: #1582dc;
+}
+.panel-primary > .panel-heading {
+  color: #ffffff;
+  background-color: #1582dc;
+  border-color: #1582dc;
+}
+.panel-primary > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #1582dc;
+}
+.panel-primary > .panel-heading a {
+  color: #ffffff;
+}
+.panel-primary > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #1582dc;
+}
+.panel-success {
+  border-color: #15db81;
+}
+.panel-success > .panel-heading {
+  color: #ffffff;
+  background-color: #15db81;
+  border-color: #15db81;
+}
+.panel-success > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #15db81;
+}
+.panel-success > .panel-heading a {
+  color: #ffffff;
+}
+.panel-success > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #15db81;
+}
+.panel-warning {
+  border-color: #daac16;
+}
+.panel-warning > .panel-heading {
+  color: #ffffff;
+  background-color: #daac16;
+  border-color: #daac16;
+}
+.panel-warning > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #daac16;
+}
+.panel-warning > .panel-heading a {
+  color: #ffffff;
+}
+.panel-warning > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #daac16;
+}
+.panel-danger {
+  border-color: #da3e16;
+}
+.panel-danger > .panel-heading {
+  color: #ffffff;
+  background-color: #da3e16;
+  border-color: #da3e16;
+}
+.panel-danger > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #da3e16;
+}
+.panel-danger > .panel-heading a {
+  color: #ffffff;
+}
+.panel-danger > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #da3e16;
+}
+.panel-info {
+  border-color: #15acdc;
+}
+.panel-info > .panel-heading {
+  color: #ffffff;
+  background-color: #15acdc;
+  border-color: #15acdc;
+}
+.panel-info > .panel-heading + .panel-collapse .panel-body {
+  border-top-color: #15acdc;
+}
+.panel-info > .panel-heading a {
+  color: #ffffff;
+}
+.panel-info > .panel-footer + .panel-collapse .panel-body {
+  border-bottom-color: #15acdc;
+}
+.heading-controls {
+  float: right;
+  display: inline-block;
+}
+.heading-controls a {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  padding: 5px;
+  font-size: 11px;
 }

@@ -13,11 +13,13 @@
 	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
 	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
 	
-	
-
-
-
-
+	  
+  
+  
+  
+  
+  
+  
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -35,16 +37,18 @@
   <link rel="stylesheet" href="resources/css/aos.css">
 
   <link rel="stylesheet" href="resources/css/style_page.css">
+
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
   
- 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
-	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
 
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
 
 
   <div id="overlayer"></div>
@@ -69,7 +73,7 @@
     
 <!-- Header Start --> 
    
-    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -87,8 +91,14 @@
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
+                    <li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_nursing_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
                 <li class="has-children">
@@ -130,6 +140,7 @@
 
 <!-- Header End -->
 
+
     <!-- MAIN -->
 
 
@@ -138,70 +149,153 @@
 
     </div>
 
-	<h2 align="center">요양시설 정보</h2>
-	
-	<div id="map" style="width:100%;height:800px;"></div>
 
+
+
+    <div class="site-section">
+      <div class="container">
+        <h1 style="margin-bottom: 50px; text-align: center;">요양시설 정보</h1>
+        <div class="row justify-content-between">
+        <div class="col-lg-7">
+          <div class="section-heading">
+            <div id="map" style="width:100%;height:600px;"></div>
+          </div>
+        </div>
+        <div class="col-lg-5">
+            	
+			<section class="panel no-b">
+                  <div class="panel-heading no-b">
+                    <h5>추천 요양시설 목록</h5>
+                  </div>
+
+                  <div class="panel-body">
+
+                    <table class="table no-m">
+                      <thead>
+                        <tr>
+                          <th>시설명</th>
+                          <th>주소</th>
+                          <th>전화번호</th>
+                          <th>만족도</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>종암요양원</td>
+                          <td>서울특별시 성북구 종암로9길 56(종암동)</td>
+                          <td>02-921-1009</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+                                <span class="sr-only">100% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>정진요양원</td>
+                          <td>서울특별시 성북구 서경로 110(정릉동)</td>
+                          <td>02-943-4272</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
+                                <span class="sr-only">80% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>정릉노인요양원</td>
+                          <td>서울특별시 성북구 정릉로12길 69(정릉동)</td>
+                          <td>02-911-7782</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
+                                <span class="sr-only">60% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                        <tr>
+                          <td>
+                            <span class="pd-l-sm"></span>백마요양원</td>
+                          <td>서울특별시 성북구 종암로18길 14(종암동)</td>
+                          <td>02-943-6090</td>
+                          <td>
+                            <div class="progress progress-sm no-m">
+                              <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+                                <span class="sr-only">40% Complete (success)</span>
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+
+                      </tbody>
+                    </table>
+                  </div>
+                </section>
+            
+        </div>
+      
+    
+    </div>        
+</div>
+    
+
+            
+            
+          </div>
+        </div>
 
  
+
+
     <div class="feature-v1">
       <div class="d-md-flex align-items-center">
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/help.png" alt="Image" class="img-fluid">
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Independent Living For Senior Couples</h3>
-            <a href="#" class="small">Learn More</a>
+            <span class="subheading"><h5>도우미 서비스</h5></span>
+            <h3 class="heading">편안한 생활과 전문적인 손길이 필요하신가요?</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/community.png" alt="Image" class="img-fluid">
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
-            <a href="#" class="small">Learn More</a>
+            <span class="subheading"><h5>커뮤니티 서비스</h5></span>
+            <h3 class="heading">내 친구가 어디에있지? 지금 찾아보세요!</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
         <div class="d-flex pagination-item h-100">
           <span class="icon-wrap">
-            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
+            <img src="resources/images/bus.png" alt="Image" class="img-fluid">
+<!--             <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid"> -->
           </span>
           <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Senior Home Patient Care Services</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
-              
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-              <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">Learn More</a></p>
-            </div>
+            <span class="subheading"><h5>교통 서비스</h5></span>
+            <h3 class="heading">복잡한 교통안내! 더이상 어려워 마세요~</h3>
+            <a href="#" class="small">여기를 눌러주세요</a>
           </div>
         </div>
       </div>
     </div>
 
     
+
+
 
 
     <div class="site-footer bg-light">
@@ -268,6 +362,7 @@
 
 
 
+
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>
   <script src="resources/js/bootstrap.min.js"></script>
@@ -280,13 +375,10 @@
   <script src="resources/js/jquery.fancybox.min.js"></script>
   <script src="resources/js/jquery.sticky.js"></script>
   <script src="resources/js/isotope.pkgd.min.js"></script>
-
-
   <script src="resources/js/main.js"></script>
-
-
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
-<script>
+  
+  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
+  <script>
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
     mapOption = { 
         center: new kakao.maps.LatLng(37.604397,127.0229984), // 지도의 중심좌표
@@ -347,6 +439,10 @@
 	        infowindow.close();
 	    };
 	}
-</script>
+  </script>
+
+
+
 </body>
+
 </html>

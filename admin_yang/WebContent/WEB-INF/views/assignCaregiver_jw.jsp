@@ -289,7 +289,7 @@
           <div class="wrapper">
             
 
-              <div class="wrapper no-p">
+              <div class="panel-body">
                   <div class="panel-heading no-b">
                     <h2><i class="fa fa-group"></i> 간병인 배정</h2>
                   </div>
@@ -325,7 +325,9 @@
                       <label for="exampleInputEmail1">특이사항 : </label>
                       <div class="panel panel-default">
                         
-                        <textarea id="console" style="min-height: 200px" class="form-control no-resize no-b" autocomplete="off"></textarea>
+                        <textarea id="console" style="min-height: 200px" class="form-control no-resize no-b" autocomplete="off">
+치매, 거동 제한됨
+                        </textarea>
                       </div>                  
                     </form>
                   </div>
@@ -343,7 +345,7 @@
       </section>
       <!-- /main content -->
       <!-- chat panel -->
-      <aside class="sidebar-700 offscreen-right">
+      <aside class="sidebar-500 offscreen-right">
         <div class="content-wrap">
           <div class="wrapper">
             <div class="slimscroll" data-height="auto" data-size="6px" data-distance="0">

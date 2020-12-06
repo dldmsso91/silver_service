@@ -121,13 +121,7 @@
 
     </header>
 
-<<<<<<< HEAD
-=======
-
 <!-- Header End -->
-
-
->>>>>>> 286e570d7ef4ea53b774095abd8eee74827c87bd
     <!-- MAIN -->
 
 
