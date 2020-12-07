@@ -21,7 +21,7 @@
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/jquery-ui.css">
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
-  <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="resources/css/owl.theme.defaucustomer_service_apply_yj.jsplt.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
 
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
@@ -82,7 +82,13 @@ width: 35%;
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
                 <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
@@ -138,6 +144,12 @@ width: 35%;
             </div>
           </div>
               <div class="service-text">
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/cteam/WEB-INF/views/walking_service_main_en.jsp
+                <h3>외출 도우미</h3>
+                <p>혼자 외출하는게 부담스러우신가요? 가까운 거리를 함께 산책도하고, 장거리도 함께하는 외출 도우미서비스를 만나보세요! </p>
+            	<p><a href="customer_service_apply_yj.do" class="btn btn-primary">서비스 신청하기</a></p>               
+            	<p><a href="guide_Life_apply_yj.do" class="btn btn-primary">도우미 지원하기</a></p>               
+=======
                 <h3>고객센터</h3>
                 <p>
                      도움이 필요하세요?
@@ -160,6 +172,7 @@ width: 35%;
 				  
 				</form>
 				<button>검색</button>             
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503:.metadata/.plugins/org.eclipse.core.resources/.history/4/608c7d190337001b142af54efc26339c
               </div>
         </div>
       </div>
@@ -212,10 +225,16 @@ width: 35%;
             <div class="section-heading">
               <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
               
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/cteam/WEB-INF/views/walking_service_main_en.jsp
+              <p class="text-white" style="width: 85%;">고객의 품격에 걸맞은 격조높은 일상생활을 위한 '도우미 서비스'를 제공합니다. Elderly의 특별한 고객이 되어, 오직 '나'만을 위해 선출된 맞춤 서비스를 받아보시기 바랍니다. </p>
+              <p class="text-white mb-5"><strong class="h3">&ldquo;지금 신청하세요!&rdquo;</strong></p>
+              <p><a href="customer_service_apply_yj.do" class="btn btn-white">서비스 신청</a></p>
+=======
               <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
               <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
               <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
               <p><a href="#" class="btn btn-white">Learn More</a></p>
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503:.metadata/.plugins/org.eclipse.core.resources/.history/4/608c7d190337001b142af54efc26339c
             </div>
           </div>
         </div>

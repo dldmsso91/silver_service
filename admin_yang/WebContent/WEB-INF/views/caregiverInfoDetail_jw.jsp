@@ -286,12 +286,12 @@
 
           <!-- inner content wrapper -->
           <div class="wrapper">
+          	<div class="panel">
+              <div class="panel-body">
             <div class="mb25">
               <h2 class="no-m"><i class="fa fa-gear"></i> 간병인 정보 수정</h2>
-            </div>     
+            </div>
 
-            <div class="panel">
-              <div class="panel-body">
                 <div class="row">
                   <div class="page-interface"><img src="resources/images/AlphaWine.jpg">
                     <div class="row">
@@ -323,7 +323,7 @@
                       <label for="exampleInputEmail1">특이사항</label>
                       <div class="panel panel-default">
                         
-                        <textarea id="console" style="min-height: 200px" class="form-control no-resize no-b" autocomplete="off"></textarea>
+                        <textarea id="console" style="min-height: 100px" class="form-control no-resize no-b" autocomplete="off"></textarea>
                       </div>                  
                       <button type="submit" class="btn btn-default">수정</button>
                     </form>

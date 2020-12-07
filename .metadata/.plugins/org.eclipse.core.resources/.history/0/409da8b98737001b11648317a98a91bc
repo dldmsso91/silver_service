@@ -88,11 +88,19 @@
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/cteam/WEB-INF/views/succesed_apply_giver_en.jsp
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply.do">간병인도우미 지원하기</a></li>
+=======
 					 <li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
                         <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503:.metadata/.plugins/org.eclipse.core.resources/.history/0/409da8b98737001b11648317a98a91bc
                       </ul>
                       </li>
                   </ul>

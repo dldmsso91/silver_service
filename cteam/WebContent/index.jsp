@@ -114,7 +114,7 @@
                   </ul>
                 </li>
                 <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
-                <li><a href="contact.do" class="nav-link">Contact</a></li>
+                <li><a href="mypage_customer_en.do" class="nav-link">mypage</a></li>
 				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>로그인</li>
               	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>회원가입</li>
               </ul>

@@ -9,4 +9,10 @@
 	</section>
 	<section name="JavaElementSearchActions">
 	</section>
+<<<<<<< HEAD
+=======
+	<section name="BuildPathsPropertyPage">
+		<item key="pageIndex" value="3"/>
+	</section>
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 </section>

@@ -72,11 +72,6 @@
 
     </div>
   </div>
-  <script type="text/javascript">
-    var el = document.getElementById("year"),
-      year = (new Date().getFullYear());
-    el.innerHTML = year;
-  </script>
 </body>
 
 </html>

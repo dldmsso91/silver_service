@@ -99,7 +99,9 @@
 		var inner_item4 = $(".inner_item4")
 
 		
-		inner_item.children().hide()
+		inner_item.children().hide();
+		
+		inner_item1.show();
 
 		$(".item1").click(function () { 		
 			inner_item1.toggle(function(){
@@ -197,6 +199,11 @@ margin: 0 auto;
 }
 
 
+.resume_contents {
+    width: 70%;
+    margin: 0 auto;
+}
+
 .resume_table{
 	width: 45%;
     margin: 0 auto;
@@ -230,6 +237,12 @@ margin: 0 auto;
     width: 20%;
 
 }
+<<<<<<< HEAD
+=======
+
+
+
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 </style>
 
 
@@ -344,12 +357,16 @@ margin: 0 auto;
 			
 			
 			
-			
+			<div class="resume_contents">
 			
 					
 			<div class="resume_table">
 				
+<<<<<<< HEAD
 				<div class="item1" style="background: #f9f3ec;">
+=======
+				<div class="item1" style="background: #e4d8cb;">
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 				<img src="resources/images/info.png" alt="My Image" >
 				<br>기본 정보
 				</div>
@@ -515,11 +532,12 @@ margin: 0 auto;
 			</div>
 <!-- 			-----------------------------------------------------------inner_item4		 -->
 			</div>	
+			</div>
+	    </div>
 		
 				<div class="button_div">
          			<p><a href="succesed_apply_service_en.do" class="btn btn-primary" style="margin-top: 30px;">선택하기</a></p>						
 				</div>
-	    </div>
     </div>
 </div>
 

@@ -915,8 +915,8 @@ h6,
 }
 /* Sidebar sizes */
 @media screen and (min-width: 768px) {
-  .sidebar-700 {
-    width: 700px;
+  .sidebar-500 {
+    width: 500px;
   }
   .sidebar-300 {
     width: 300px;

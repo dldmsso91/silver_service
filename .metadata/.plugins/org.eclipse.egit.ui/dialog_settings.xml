@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
-<<<<<<< HEAD
 	<list key="CommitDialog.authorValues">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 		<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
@@ -29,12 +29,20 @@
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 =======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
+		<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+	</list>
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
 		<item key="HORIZONTAL_SASH_FORM_WEIGHT" value="200,200"/>
 		<item key="STAGING_SASH_FORM_WEIGHT" value="200,200"/>
 		<item key="sortItemState" value="false"/>
 	</section>
 	<section name="GitCommitMessageComponent">
+<<<<<<< HEAD
 		<list key="D:\2020.12.28_수료생_이은내\team_project\final_project\.git">
 			<item value="false"/>
 			<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
@@ -73,6 +81,8 @@
 		<list key="D:\eunnae\work\final_Team\workspace\.git">
 			<item value="empty"/>
 		</list>
+=======
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 	</section>
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
@@ -81,12 +91,12 @@
 		<item key="DIALOG_WIDTH" value="666"/>
 		<item key="DIALOG_HEIGHT" value="458"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
->>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
 		<list key="sashWeights">
 			<item value="600"/>
 			<item value="400"/>
 		</list>
 	</section>
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
@@ -131,4 +141,6 @@
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 =======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 </section>

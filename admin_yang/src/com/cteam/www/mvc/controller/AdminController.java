@@ -16,10 +16,10 @@ public class AdminController {
 		return "index_jw";
 	}
 	
-	@GetMapping(value="/default.do")
+	@GetMapping(value="/login.do")
 	public String home(Model m) {
 	
-		return "default_jw";
+		return "login_jw";
 	}
 	
 	@GetMapping(value="/memberInfo.do")

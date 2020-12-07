@@ -1,13 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value=""/>
+		<item key="selection" value="inner_item1"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+<<<<<<< HEAD
+			<item value="inner_item1"/>
+=======
 <<<<<<< HEAD
 			<item value="test"/>
 			<item value=""/>
@@ -35,6 +38,7 @@
 		<item key="DIALOG_HEIGHT" value="442"/>
 		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|10.5|0|WINDOWS|1|-14|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 =======
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503
 			<item value="style=&quot;"/>
 			<item value="nav-link"/>
 			<item value="form"/>
@@ -49,7 +53,6 @@
 			<item value=".slide-item"/>
 			<item value="col-6"/>
 			<item value=".row"/>
-			<item value="slide-item"/>
 		</list>
 		<list key="replacehistory">
 			<item value="td"/>
