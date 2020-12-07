@@ -359,7 +359,7 @@ margin: 0 auto;
 					
 			<div class="resume_table">
 				
-				<div class="item1" style="background: #f9f3ec;">
+				<div class="item1" style="background: #e4d8cb;">
 				<img src="resources/images/info.png" alt="My Image" >
 				<br>기본 정보
 				</div>

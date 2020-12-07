@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @Controller
-public class TestController {
+public class LenController {
 
    
    @GetMapping(value="/blog.do")
@@ -133,6 +133,10 @@ public class TestController {
 	@GetMapping(value="/level_of_satisfaction_customer_en.do")
 	public String level_of_satisfaction_customer_en(Model m) {
 		return "level_of_satisfaction_customer_en";
+	}
+	@GetMapping(value="/mypage_customer_en.do")
+	public String mypage_customer_en(Model m) {
+		return "mypage_customer_en";
 	}
 	
 	
