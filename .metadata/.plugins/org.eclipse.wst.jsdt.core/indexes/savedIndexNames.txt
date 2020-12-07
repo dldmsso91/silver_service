@@ -1,45 +1,7 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 INDEX VERSION 1.4+D:\2020.12.28_수료생_이은내\team_project\final_project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-4065121679.index
-3036878137.index
-822129417.index
-3025738346.index
-3873300127.index
-2213395736.index
 2285326502.index
-2856604219.index
-2294758581.index
-683708782.index
-4213938854.index
 3614833603.index
-3740966274.index
-4055375281.index
-3484402494.index
+4213938854.index
 2678839667.index
-=======
-INDEX VERSION 1.4+C:\PRJ\CTeam\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-104153221.index
-3460001482.index
-2660719694.index
+3873300127.index
 4055375281.index
-=======
-INDEX VERSION 1.4+C:\PRJ\CTeam\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-104153221.index
-3460001482.index
-2660719694.index
-4055375281.index
->>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
-2285326502.index
-480319562.index
-1351066865.index
-1397265880.index
-301883682.index
-2285326502.index
-3874294546.index
-3688417720.index
-2074284619.index
-<<<<<<< HEAD
->>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
-=======
->>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5

@@ -1,6 +1,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2020-12-04 14:32:42,236 [Worker-2: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2020-12-04 14:32:58,549 [Worker-5: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: spring_django_1026:spring_django_1026:0.0.1-SNAPSHOT @ D:\2020.12.28_수료생_이은내\team_project\final_project\cteam\pom.xml.
 2020-12-04 14:32:59,721 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
@@ -8618,6 +8619,8 @@
 =======
 =======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 2020-12-04 12:48:42,501 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2020-12-04 12:49:45,940 [Worker-4: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: spring_django_1026:spring_django_1026:0.0.1-SNAPSHOT @ C:\PRJ\CTeam\cteam\pom.xml.
 2020-12-04 12:49:45,940 [Worker-3: Building workspace] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: spring_django_1026:spring_django_1026:0.0.1-SNAPSHOT @ C:\PRJ\CTeam\cteam\pom.xml.
@@ -12622,6 +12625,18 @@ Caused by: java.io.FileNotFoundException: C:\PRJ\CTeam\.metadata\.plugins\org.ec
 2020-12-06 20:33:19,762 [Worker-161: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-12-06 20:33:19,763 [Worker-161: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory C:\PRJ\CTeam\cteam\src\test\resources
 <<<<<<< HEAD
+<<<<<<< HEAD
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
 =======
 >>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+=======
+>>>>>>> d7d56e243ea3a68d5562c56be11c2923db9f47c5
+2020-12-06 21:06:08,531 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-12-06 21:06:11,732 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 21:06:11,733 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\2020.12.28_수료생_이은내\team_project\final_project\cteam\src\main\resources
+2020-12-06 21:06:11,735 [Worker-5: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 21:06:11,736 [Worker-5: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\2020.12.28_수료생_이은내\team_project\final_project\cteam\src\test\resources
+2020-12-06 21:07:10,704 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 21:07:10,705 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\2020.12.28_수료생_이은내\team_project\final_project\cteam\src\main\resources
+2020-12-06 21:07:10,706 [Worker-4: Building workspace] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-06 21:07:10,706 [Worker-4: Building workspace] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\2020.12.28_수료생_이은내\team_project\final_project\cteam\src\test\resources
