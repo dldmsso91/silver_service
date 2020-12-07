@@ -538,7 +538,11 @@
   <!-- this to work you will need to uncomment the .shtml mime type         -->
   <!-- definition towards the bottom of this file.                          -->
   <!-- The contentType init param allows you to apply SSI processing to JSP -->
+<<<<<<< HEAD
+  <!-- pages, javascript, or any other content you wish.  This filter       -->
+=======
   <!-- pages, JavaScript, or any other content you wish.  This filter       -->
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
   <!-- supports the following initialization parameters (default values are -->
   <!-- in square brackets):                                                 -->
   <!--                                                                      -->

@@ -237,9 +237,12 @@ margin: 0 auto;
     width: 20%;
 
 }
+<<<<<<< HEAD
+=======
 
 
 
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 </style>
 
 
@@ -359,7 +362,11 @@ margin: 0 auto;
 					
 			<div class="resume_table">
 				
+<<<<<<< HEAD
+				<div class="item1" style="background: #f9f3ec;">
+=======
 				<div class="item1" style="background: #e4d8cb;">
+>>>>>>> 3399b59165db35b5d2feeac8715d5f784ffdd651
 				<img src="resources/images/info.png" alt="My Image" >
 				<br>기본 정보
 				</div>
