@@ -124,13 +124,10 @@
                 </li>
                 <li><a href="bus_service.do" class="nav-link">К┘╦Л∙╫Л·░ Й╣░М├╣Л═∙КЁ╢</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
-<<<<<<< HEAD
-				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>╥н╠вюн</li>
-              	<li><a href="hoewon_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>х╦©Ь╟║ют</li>
-=======
+
 				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>К║°Й╥╦Л²╦</li>
               	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>М ▄Л⌡░Й╟─Л·┘</li>
->>>>>>> b958ec3347d4ed79171dbc2c4fd402b790f21ee4
+
               </ul>
             </nav>
           </div>
@@ -170,8 +167,8 @@
 		            </table>
 		            <br>
 <<<<<<< HEAD
-		             <p><a href="mypage_customer_en.do" class="btn btn-primary">╥н╠вюн</a>
-		            	<a href="hoewon_scm.do" class="btn btn-primary">х╦©Ь╟║ют</a>
+		             <p><a href="mypage_customer_en.do" class="btn btn-primary">О©╫н╠О©╫О©╫О©╫</a>
+		            	<a href="hoewon_scm.do" class="btn btn-primary">х╦О©╫О©╫О©╫О©╫О©╫О©╫</a>
 =======
 		             <p><a href="mypage_scm.do" class="btn btn-primary">К║°Й╥╦Л²╦</a>
 		            	<a href="hoewon_scm.do" class="btn btn-primary">М ▄Л⌡░Й╟─Л·┘</a>
