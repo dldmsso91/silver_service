@@ -1,7 +1,12 @@
 =\=\=\=\=\=\=
 <<<<<<<=HEAD
+<<<<<<< HEAD
+>>>>>>>=845dd0380fa5e5349ebf0bf365c37175d902258e
+content_assist_number_of_computers=26
+=======
 >>>>>>>=d7d56e243ea3a68d5562c56be11c2923db9f47c5
 content_assist_number_of_computers=27
+>>>>>>> b958ec3347d4ed79171dbc2c4fd402b790f21ee4
 eclipse.preferences.version=1
 useAnnotationsPrefPage=true
 useQuickDiffPrefPage=true

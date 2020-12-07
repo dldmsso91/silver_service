@@ -1,12 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%-- <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %> --%>
-<%-- <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%> --%>
-<html>
-	<head>
-<meta charset="utf-8">
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
+<!doctype html>
+<html lang="en">
+<head>
+  <title>Elderly &mdash; Website Template by Colorlib</title>
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+	
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+	<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">	
+	
+	  
+  
+  
+  
+  
+  
+  
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
 
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
@@ -23,19 +36,98 @@
 
   <link rel="stylesheet" href="resources/css/aos.css">
 
-  <link rel="stylesheet" href="resources/css/style.css">
-			
-		<!-- í•©ì³ì§€ê³  ìµœì†Œí™”ëœ ìµœì‹  CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<!-- ë¶€ê°€ì ì¸ í…Œë§ˆ -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	 
-	 	<title>ê²Œì‹œíŒ</title>
-	</head>
-	
-	  <div class="site-wrap">
+  <link rel="stylesheet" href="resources/css/style_page.css">
+
+  <link rel="stylesheet" href="resources/css/care_service_en.css">
+  
+<script src="https://code.jquery.com/jquery-3.4.1.js"   
+	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
+	crossorigin="anonymous">
+</script>
+
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+	<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+
+
+<script>
+$(document).ready(function(){
+	$('.bxslider').bxSlider({
+	  auto: true,
+	  autoControls: true,
+	  stopAutoOnClick: true,
+	  pager: true,
+	  minSlides: 6,
+	  maxSlides: 2,
+	  slideWidth: 800,
+	  slideMargin: 20,
+	  touchEnabled : (navigator.maxTouchPoints > 0)
+	});
+    $('#star_grade a').click(function(){
+        $(this).parent().children("a").removeClass("on");  /* º°Á¡ÀÇ on Å¬·¡½º ÀüºÎ Á¦°Å */ 
+        $(this).addClass("on").prevAll("a").addClass("on"); /* Å¬¸¯ÇÑ º°°ú, ±× ¾Õ ±îÁö º°Á¡¿¡ on Å¬·¡½º Ãß°¡ */
+        return false;
+    });
+    
+	$('.service').hover(function() {
+			$(this).find("h3").css("color", "#dc8c8c");
+		}, function(){
+			$(this).find("h3").css("color", "#565656");
+		});
+});   
+
+
+</script> 
+
+<style>
+
+
+.col-lg-3 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 25%;
+    flex: 0 0 21%;
+    max-width: 30%;
+    padding: 2%;
+}
+.service .service-inner p {
+    font-size: 19px;
+    color: #848484;
+}
+
+.service .service-inner h3 {
+    font-size: 30px;
+    color: #565656;
+    
+    }
+    
+.img-fluid {
+
+    border-radius: 145px;
+}    
+
+.service .service-inner {
+    border: 0px solid rgba(0, 0, 0, 0.05);
+    border-top: none;
+    padding: 10px;
+    text-align: center;
+}
+</style>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
+
+
+  <div id="overlayer"></div>
+  <div class="loader">
+    <div class="spinner-border text-primary" role="status">
+      <span class="sr-only">Loading...</span>
+    </div>
+  </div>
+
+
+  <div class="site-wrap">
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -45,8 +137,11 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-	
-	 <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+
+    
+<!-- Header Start --> 
+   
+   <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
@@ -57,41 +152,47 @@
 
           <div class="col-12 col-md-10 d-none d-xl-block">
             <nav class="site-navigation position-relative text-right" role="navigation">
-				  <p><a href="login_scm.do" class="btn btn-primary">ë¡œê·¸ì¸</a>
-			 	 <a href="hoewon_scm.do" class="btn btn-primary">íšŒì›ê°€ì…</a>
-			  </p>
+
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services_en.do" class="nav-link">ë„ìš°ë¯¸ ì„œë¹„ìŠ¤</a>
+                  <a href="apply_services_en.do" class="nav-link">µµ¿ì¹Ì ¼­ºñ½º</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services_en.do" class="nav-link">ì„œë¹„ìŠ¤ ì†Œê°œ</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">ì„œë¹„ìŠ¤ ì‹ ì²­í•˜ê¸°</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">ë„ìš°ë¯¸ ì§€ì›í•˜ê¸°</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">¼­ºñ½º ¼Ò°³</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">¼­ºñ½º ½ÅÃ»ÇÏ±â</a></li> 
+                    <li class="has-children">
+                    <a href="#">µµ¿ì¹Ì Áö¿øÇÏ±â</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_nursing_apply_yj.do">»ıÈ°µµ¿ì¹Ì Áö¿øÇÏ±â</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">°£º´ÀÎµµ¿ì¹Ì Áö¿øÇÏ±â</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
-
-            <li class="has-children">
-                  <a href="#" class="nav-link">ì»¤ë®¤ë‹ˆí‹° ì„œë¹„ìŠ¤</a>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">À½¼ºÀÎ½Ä ¼­ºñ½º</a>
                   <ul class="dropdown">
-                    <li><a href="communityService.do" class="nav-link">ì¹œêµ¬ìœ„ì¹˜ ê²€ìƒ‰</a></li>
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">¼­ºñ½º ¼Ò°³</a></li>
+                  </ul>
+                </li>
+
+				<li class="has-children">
+                  <a href="#" class="nav-link">Ä¿¹Â´ÏÆ¼ ¼­ºñ½º</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService.do" class="nav-link">Ä£±¸À§Ä¡ °Ë»ö</a></li>
                     <li class="has-children">
-                      <a href="#">ì»¤ë®¤ë‹ˆí‹° ê³µê°„ ì •ë³´</a>
+                      <a href="#">Ä¿¹Â´ÏÆ¼ °ø°£ Á¤º¸</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation.do">ì˜ë£Œë³µì§€ì‹œì„¤</a></li>
-                        <li><a href="silverhallLocation.do">ì¬ê°€ë…¸ì¸ë³µì§€ì‹œì„¤</a></li>
-                        <li><a href="elderlyhomeLocation.do">ìš”ì–‘ì‹œì„¤</a></li>
+                        <li><a href="medicalLocation.do">ÀÇ·áº¹Áö½Ã¼³</a></li>
+                        <li><a href="silverhallLocation.do">Àç°¡³ëÀÎº¹Áö½Ã¼³</a></li>
+                        <li><a href="elderlyhomeLocation.do">¿ä¾ç½Ã¼³</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">³ë¾àÀÚ ±³ÅëÁ¤º¸</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
 
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-facebook"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-twitter"></span></a></li>
-                <li class="social"><a href="#contact-section" class="nav-link"><span class="icon-linkedin"></span></a></li>
               </ul>
             </nav>
           </div>
@@ -103,21 +204,34 @@
       </div>
 
     </header>
-    </header>
+
+
+<!-- Header End -->
+
+
+    <!-- MAIN -->
+
+
+
+    <div id="test" class="slide-item overlay">
+
+    </div>
+
 
 		<div class="container">
-			<header>
-				<h1></h1>
-			</header>
+
 			<hr />
 			 
-	
-			
+<%-- 			<div>
+				<%@include file="nav.jsp" %>
+			</div>
+			 --%>
+			 <center><h2>°øÁö»çÇ×</h2></center>
 			<section id="container">
-				<form role="form" method="post">
+				<form role="form" method="get">
 					<table class="table table-hover">
 						<thead>
-							<tr><th>ë²ˆí˜¸</th><th>ì œëª©</th><th>ì‘ì„±ì</th><th>ë“±ë¡ì¼</th></tr>
+							<tr><th>¹øÈ£</th><th>Á¦¸ñ</th><th>ÀÛ¼ºÀÚ</th><th>µî·ÏÀÏ</th></tr>
 						</thead>
 						
 						<c:forEach items="${list}" var = "list">
@@ -136,10 +250,10 @@
 						<div class="col-xs-2 col-sm-2">
 							<select name="searchType" class="form-control">
 								<option value="n"<c:out value="${scri.searchType == null ? 'selected' : ''}"/>>-----</option>
-								<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>ì œëª©</option>
-								<option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>ë‚´ìš©</option>
-								<option value="w"<c:out value="${scri.searchType eq 'w' ? 'selected' : ''}"/>>ì‘ì„±ì</option>
-								<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : ''}"/>>ì œëª©+ë‚´ìš©</option>
+								<option value="t"<c:out value="${scri.searchType eq 't' ? 'selected' : ''}"/>>Á¦¸ñ</option>
+								<option value="c"<c:out value="${scri.searchType eq 'c' ? 'selected' : ''}"/>>³»¿ë</option>
+								<option value="w"<c:out value="${scri.searchType eq 'w' ? 'selected' : ''}"/>>ÀÛ¼ºÀÚ</option>
+								<option value="tc"<c:out value="${scri.searchType eq 'tc' ? 'selected' : ''}"/>>Á¦¸ñ+³»¿ë</option>
 							</select>
 						</div>
 						 
@@ -147,7 +261,7 @@
 							<div class="input-group">
 								<input type="text" name="keyword" id="keywordInput" value="${scri.keyword}" class="form-control"/>
 								<span class="input-group-btn">
-									<button id="searchBtn" type="button" class="btn btn-default">ê²€ìƒ‰</button> 	
+									<button id="searchBtn" type="button" class="btn btn-default">°Ë»ö</button> 	
 								</span>
 							</div>
 						</div>
@@ -163,7 +277,7 @@
 					<div class="col-md-offset-3">
 						<ul class="pagination">
 							<c:if test="${pageMaker.prev}">
-								<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">ì´ì „</a></li>
+								<li><a href="list${pageMaker.makeSearch(pageMaker.startPage - 1)}">ÀÌÀü</a></li>
 							</c:if> 
 							
 							<c:forEach begin="${pageMaker.startPage}" end="${pageMaker.endPage}" var="idx">
@@ -172,16 +286,100 @@
 							</c:forEach>
 							
 							<c:if test="${pageMaker.next && pageMaker.endPage > 0}">
-								<li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">ë‹¤ìŒ</a></li>
+								<li><a href="list${pageMaker.makeSearch(pageMaker.endPage + 1)}">´ÙÀ½</a></li>
 							</c:if> 
 						</ul>
 					</div>
-				
 				</form>
 			</section>
-		</div>
-	
-	
-	</body>
-	
+		</div>    
+    </div>
+<div class="site-footer bg-light">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-4">
+          <h2 class="footer-heading mb-4">About</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
+          <div class="my-5 social">
+            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+          </div>
+        </div>
+        <div class="col-lg-8">
+          <div class="row">
+            <div class="col-lg-4">
+              <h2 class="footer-heading mb-4">Quick Links</h2>
+              <ul class="list-unstyled">
+                <li><a href="#">Amazing Atmosphere</a></li>
+                <li><a href="#">Caring Staff</a></li>
+                <li><a href="#">FAQs</a></li>
+                <li><a href="#">About Us</a></li>
+                <li><a href="#">Contact Us</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h2 class="footer-heading mb-4">Helpful Link</h2>
+              <ul class="list-unstyled">
+                <li><a href="#">Hospice Care</a></li>
+                <li><a href="#">Excellent Cuisine</a></li>
+                <li><a href="#">Privacy</a></li>
+                <li><a href="#">Terms</a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4">
+              <h2 class="footer-heading mb-4">Resources</h2>
+              <ul class="list-unstyled">
+                <li><a href="#">Health Care</a></li>
+                <li><a href="#">Elderly Care</a></li>
+                <li><a href="#">Care with Love</a></li>
+                <li><a href="#">Quality Care</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row text-center">
+        <div class="col-md-12">
+          <div class="border-top pt-5">
+            <p class="copyright"><small>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+              Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
+              <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script src="resources/js/jquery-3.3.1.min.js"></script>
+<script src="resources/js/jquery-ui.js"></script>
+<script src="resources/js/popper.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/owl.carousel.min.js"></script>
+<script src="resources/js/jquery.countdown.min.js"></script>
+<script src="resources/js/jquery.easing.1.3.js"></script>
+<script src="resources/js/aos.js"></script>
+<script src="resources/js/jquery.waypoints.min.js"></script>
+<script src="resources/js/jquery.animateNumber.min.js"></script>
+<script src="resources/js/jquery.fancybox.min.js"></script>
+<script src="resources/js/jquery.sticky.js"></script>
+<script src="resources/js/isotope.pkgd.min.js"></script>
+
+
+<script src="resources/js/main.js"></script>
+
+
+
+</body>
 </html>
+
+
+
+
+

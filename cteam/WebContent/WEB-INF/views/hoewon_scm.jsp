@@ -1,8 +1,8 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <html>
-	<head>
+   <head>
 <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
 
@@ -14,52 +14,278 @@
   <link rel="stylesheet" href="resources/css/owl.carousel.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
   <link rel="stylesheet" href="resources/css/owl.theme.default.min.css">
+
   <link rel="stylesheet" href="resources/css/jquery.fancybox.min.css">
+
   <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
+
   <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
+
   <link rel="stylesheet" href="resources/css/aos.css">
+  <script src="//code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="stylesheet" href="resources/css/style.css">
-  <link href="themes/1/js-image-slider.css" rel="stylesheet" type="text/css" /> 
-  <script src="themes/1/js-image-slider.js" type="text/javascript"></script> 
-  <link href="generic.css" rel="stylesheet" type="text/css" />
- <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+<script>
+$(document).ready(function() {
+  slide();
+});
+
+
+// 슬라이드 
+function slide() {
+  var wid = 0;
+  var now_num = 0;
+  var slide_length = 0;
+  var auto = null;
+  var $dotli = $('.dot>li');
+  var $panel = $('.panel');
+  var $panelLi = $panel.children('li');
+
+  // 변수 초기화
+  function init() {
+    wid = $('.slide').width();
+    now_num = $('.dot>li.on').index();
+    slide_length = $dotli.length;
+  }
+
+  // 이벤트 묶음
+  function slideEvent() {
+
+    // 슬라이드 하단 dot버튼 클릭했을때
+    $dotli.click(function() {
+      now_num = $(this).index();
+      slideMove();
+    });
+
+    // 이후 버튼 클릭했을때
+    $('.next').click(function() {
+      nextChkPlay();
+    });
+
+    // 이전 버튼 클릭했을때
+    $('.prev').click(function() {
+      prevChkPlay();
+    });
+
+    // 오토플레이
+    autoPlay();
+
+    // 오토플레이 멈춤
+    autoPlayStop();
+
+    // 오토플레이 재시작
+    autoPlayRestart();
+
+    // 화면크기 재설정 되었을때
+    resize();
+  }
+
+  // 자동실행 멈춤
+  function autoPlayStop() {
+    $panelLi.mouseenter(function() {
+      clearInterval(auto);
+    });
+  }
+
+
+  // 자동실행 멈췄다가 재실행
+  function autoPlayRestart() {
+    $panelLi.mouseleave(function() {
+      auto = setInterval(function() {
+        nextChkPlay();
+      }, 3000);
+    });
+  }
+
+  // 이전 버튼 클릭시 조건 검사후 슬라이드 무브
+  function prevChkPlay() {
+    if (now_num == 0) {
+      now_num = slide_length - 1;
+    } else {
+      now_num--;
+    }
+    slideMove();
+  }
+
+  // 이후 버튼 클릭시 조건 검사후 슬라이드 무브
+  function nextChkPlay() {
+    if (now_num == slide_length - 1) {
+      now_num = 0;
+    } else {
+      now_num++;
+    }
+    slideMove();
+  }
+
+  // 슬라이드 무브
+  function slideMove() {
+    $panel.stop().animate({
+      'margin-left': -wid * now_num
+    });
+    $dotli.removeClass('on');
+    $dotli.eq(now_num).addClass('on');
+  }
+
+  // 화면크기 조정시 화면 재설정
+  function resize() {
+    $(window).resize(function() {
+      init();
+      $panel.css({
+        'margin-left': -wid * now_num
+      });
+    });
+  }
+  init();
+  slideEvent();
+}
+</script>
 
 
 <style>
+#wrap{
+background-image: URL('resources/images/img_1_sq.jpg'); 
+width: 450px;
+margin: auto;
+margin-top: 150px;
+}
+#space {
+    height: 300px;
+    width: 74%;
+    margin-top: 117px;
+}
+.back{
+background-image: URL('resources/images/img_1_sq.jpg'); 
+margin: auto;
+width:450%;
+height;
+}
+.login_div {
+    background: rgb(120 130 110 / 75%);
+    border-radius: -10px;
+    height: 35vh;
+    width: 100%;
+    text-align: center;
+    color: aliceblue;
+}
+.login_table{
 
-     #wrap{
-            width:530px;
-            margin-left:auto; 
-            margin-right:auto;
-            ;
-        }
-        
-        table{
-          
-        }
-        td{
-            border:1px solid skyblue
-        }
-        
-        #title{
-            background-color:skyblue
-        }
+    margin: 0 auto;
+}
+.login_table tr td{
+   color: aliceblue;
+    padding: 10;;
 
+}
+.login_p{
+    margin-top: 40px;
+    margin-bottom: 1rem;
 
-</style>		
-		<!-- 합쳐지고 최소화된 최신 CSS -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-		<!-- 부가적인 테마 -->
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
-		
-		<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-	 
-	 	<title>게시판</title>
-	</head>
-	
-	  <div class="site-wrap">
+}
+
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+ul,
+ol,
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  vertical-align: top;
+  border: none;
+}
+
+.slide {
+  position: relative;
+  padding-top: 50px;
+  overflow: hidden;
+}
+
+.panel {
+  width: 400%;
+}
+
+.panel:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.panel>li {
+  width: 25%;
+  height: 200px;
+  float: left;
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  font-size: 41px;
+  position: relative;
+}
+
+.panel>li:nth-of-type(1) {
+
+}
+
+.panel>li:nth-of-type(2) {
+
+}
+
+.panel>li:nth-of-type(3) {
+
+}
+
+.dot:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+.dot {
+  position: absolute;
+  left: 50%;
+  bottom: 10%;
+  transform: translateX(-50%);
+}
+
+.dot>li {
+  float: left;
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  background-color: #fff;
+  margin-left: 10px;
+  margin-right: 10px;
+  text-indent: -9999px;
+  cursor: pointer;
+}
+
+.dot>li.on {
+  background-color: #342f2f;
+}
+.col-lg-6 {
+    -webkit-box-flex: 0;
+    -ms-flex: 0 0 50%;
+    flex: 48 35 50%;
+    max-width: auto;
+    max-height: 150px;
+}
+</style>   
+
+    
+       <title>회원가입</title>
+   </head>
+   
+   
+   
+   
+   <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300" >
+   
+     <div class="wrap">
 
     <div class="site-mobile-menu site-navbar-target">
       <div class="site-mobile-menu-header">
@@ -69,14 +295,14 @@
       </div>
       <div class="site-mobile-menu-body"></div>
     </div>
-	
-	 <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
+   
+    <header class="site-navbar light js-sticky-header site-navbar-target" role="banner">
 
       <div class="container">
         <div class="row align-items-center">
 
           <div class="col-6 col-xl-2">
-            <div class="mb-0 site-logo"><a href="index_scm.do" class="mb-0">공지사항<span class="text-primary">.</span> </a></div>
+            <div class="mb-0 site-logo"><a href="index.do" class="mb-0">정부노인지원<span class="text-primary">.</span> </a></div>
           </div>
 
           <div class="col-12 col-md-10 d-none d-xl-block">
@@ -84,16 +310,28 @@
 
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
 
-            <li><a href="index.do" class="active nav-link">Home</a></li>
+               
+                <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
-                    <li><a href="apply_caregiver_detail_en.do" class="nav-link">도우미 지원하기</a></li>
+                <li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
+                      </ul>
+                      </li>
                   </ul>
                 </li>
-                <li><a href="testimonial.do" class="nav-link">Testimonials</a></li>
+                <li class="has-children">
+                  <a href="voice_service_intro_dy.do" class="nav-link">음성인식 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">서비스 소개</a></li>
+                  </ul>
+                </li>
 
             <li class="has-children">
                   <a href="#" class="nav-link">커뮤니티 서비스</a>
@@ -109,184 +347,68 @@
                     </li>
                   </ul>
                 </li>
-                <li><a href="about.do" class="nav-link">About</a></li>
+                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
-
               </ul>
             </nav>
-          </div>
-          <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-white"></span></a></div>
-
+           </div> 
+   <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a href="#" class="site-menu-toggle js-menu-toggle float-right"><span class="icon-menu h3 text-white"></span></a></div>
         </div>
       </div>
-
+      
     </header>
-    <div id="slider"> 
-    <!-- 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
-    <div id="wrap">
-        <br><br>
-        <b><font size="6" color="gray">회원가입</font></b>
-        <br><br><br>
-        
-        <form>
-            <table>
-                <tr>
-                    <td id="title">아이디</td>
-                    <td>
-                        <input type="text" name="id" maxlength="20">
-                        <input type="button" value="중복확인" >    
-                    </td>
-                </tr>
-                        
-                <tr>
-                    <td id="title">비밀번호</td>
-                    <td>
-                        <input type="password" name="password" maxlength="15">
-                    </td>
-                </tr>
-                
-                <tr>
-                    <td id="title">비밀번호 확인</td>
-                    <td>
-                        <input type="password" name="password" maxlength="15">
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td id="title">이름</td>
-                    <td>
-                        <input type="text" name="name" maxlength="40">
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td id="title">성별</td>
-                    <td>
-                        <input type="radio" name="gender" value="남" checked>남
-                        <input type="radio" name="gender" value="여" checked>여
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td id="title">생일</td>
-                    <td>
-                        <input type="text" name="birth_yy" maxlength="4" placeholder="년(4자)" size="6" >
-                        <select name="birth_mm">
-                            <option value="">월</option>
-                            <option value="01" >1</option>
-                            <option value="02" >2</option>
-                            <option value="03" >3</option>
-                            <option value="04" >4</option>
-                            <option value="05" >5</option>
-                            <option value="06" >6</option>
-                            <option value="07" >7</option>
-                            <option value="08" >8</option>
-                            <option value="09" >9</option>
-                            <option value="10" >10</option>
-                            <option value="11" >11</option>
-                            <option value="12" >12</option>
-                        </select>
-                        <input type="text" name="birth_dd" maxlength="2" placeholder="일" size="4" >
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td id="title">이메일</td>
-                    <td>
-                        <input type="text" name="email_1" maxlength="30">@
-                        <select name="email_2">
-                            <option>naver.com</option>
-                            <option>daum.net</option>
-                            <option>gmail.com</option>
-                            <option>nate.com</option>                        
-                        </select>
-                    </td>
-                </tr>
-                    
-                <tr>
-                    <td id="title">휴대전화</td>
-                    <td>
-                        <input type="text" name="phone" />
-                    </td>
-                </tr>
-                <tr>
-                    <td id="title">주소</td>
-                    <td>
-                        <input type="text" size="50" name="address"/>
-                    </td>
-                </tr>
-            </table>
-            <br>
-            <input type="submit" value="가입"/>  <input type="button" value="취소">
-        </form>
-    </div>
-
-
-
-     </div>
-
-
-  <div class="feature-v1">
-      <div class="d-md-flex align-items-center">
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Independent Living For Senior Couples</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Senior Home Patient Care Services</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-    <div class="site-section bg-primary">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-            <img src="resources/images/about.png" alt="Image" class="img-fluid">
-          </div>
-          <div class="col-md-6 col-lg-5 ml-auto">
-            <div class="section-heading">
-              <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
-              
-              <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-              <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-              <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-              <p><a href="#" class="btn btn-white">Learn More</a></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
     
 
+    <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-6 align-self-center">
+          <div class="login_div">
+           <table class="login_table">
+      <h3>회원가입</h3>
+<div class="slide">
+    <ul class="panel">       
+       <li>이름을입력하세요.<input type="text" name="name"></li>
+       <li>아이디를입력하세요.<input type="text" name="id"> </li>
+       <li>비밀번호를입력하세요.<input type="password" name="pwd"></li>
+       <li>성별선택바랍니다. 
+       <select name="sex">
+          <option value="">성별선택</option>
+          <option value="">남자</option>
+          <option value="">여자</option>
+       </select></li>
+      <li>휴대전화를 입력하세요.
+      <select name="Phone">
+          <option value="">-선택-</option>
+          <option value="">010</option>
+         <option value="">011</option>
+         <option value="">014</option>
+         <option value="">016</option>
+      </select></li>
+      <li>주소를입력하세요.<input type="text" name="addr"></li>
+   </ul>
+   <ul class="dot">
+       <li class="on">이름</li>
+       <li>아이디</li>
+       <li>비밀번호</li>
+       <li>성별</li>
+       <li>전화번호</li>
+       <li>1</li>
+       <li>1</li>
+       <li>1</li>
+       
+    </ul>     
+       </div> 
+           </table>
+           </div>            
+          </div>
+        </div>
+      </div>  
+    </div>
+  </div>
+</div>
 
-    <div class="site-footer bg-light">
+<div class="site-footer bg-light">
       <div class="container">
         <div class="row">
           <div class="col-lg-4">
@@ -347,24 +469,5 @@
         </div>
       </div>
     </div>
-
-
-
-  <script src="resources/js/jquery-ui.js"></script>
-  <script src="resources/js/popper.min.js"></script>
-  <script src="resources/js/bootstrap.min.js"></script>
-  <script src="resources/js/owl.carousel.min.js"></script>
-  <script src="resources/js/jquery.countdown.min.js"></script>
-  <script src="resources/js/jquery.easing.1.3.js"></script>
-  <script src="resources/js/jquery.waypoints.min.js"></script>
-  <script src="resources/js/jquery.animateNumber.min.js"></script>
-  <script src="resources/js/jquery.fancybox.min.js"></script>
-  <script src="resources/js/jquery.sticky.js"></script>
-  <script src="resources/js/isotope.pkgd.min.js"></script>
-
-
-  <script src="resources/js/main.js"></script>
-  
-</body>
+    </body>
 </html>
-

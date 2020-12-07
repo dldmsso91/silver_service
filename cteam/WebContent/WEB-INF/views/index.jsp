@@ -114,9 +114,9 @@
                   </ul>
                 </li>
                 <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
-                <li><a href="contact.do" class="nav-link">Contact</a></li>
+                <li><a href="mypage_customer_en.do" class="nav-link">mypage</a></li>
 				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>로그인</li>
-              	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>회원가입</li>
+              	<li><a href="hoewon_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>회원가입</li>
               </ul>
             </nav>
           </div>
@@ -129,18 +129,14 @@
 
     </header>
 
-<<<<<<< HEAD
 
 <!-- Header End -->
-
 
 
     <!-- MAIN -->
 
 
 
-=======
->>>>>>> 775f14341e7e77dfb831edf99f48684ce03ae6a9
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
