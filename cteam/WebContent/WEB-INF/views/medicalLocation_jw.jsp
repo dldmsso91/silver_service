@@ -165,7 +165,7 @@
             	
 			<section class="panel no-b">
                   <div class="panel-heading no-b">
-                    <h5>추천 요양시설 목록</h5>
+                    <h5>추천 의료복지시설 목록</h5>
                   </div>
 
                   <div class="panel-body">

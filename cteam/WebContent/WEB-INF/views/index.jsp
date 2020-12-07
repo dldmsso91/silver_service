@@ -129,6 +129,7 @@
 
     </header>
 
+<<<<<<< HEAD
 
 <!-- Header End -->
 
@@ -138,6 +139,8 @@
 
 
 
+=======
+>>>>>>> 775f14341e7e77dfb831edf99f48684ce03ae6a9
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
