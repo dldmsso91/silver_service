@@ -129,20 +129,6 @@
 
     </header>
 
-<<<<<<< HEAD
-=======
-
->>>>>>> refs/remotes/origin/main
-<!-- Header End -->
-<<<<<<< HEAD
-=======
-
-
->>>>>>> refs/remotes/origin/main
-    <!-- MAIN -->
-
-
-
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
