@@ -120,6 +120,15 @@
 			<item value="org.eclipse.jdt.ui.java"/>
 		</list>
 	</section>
+<<<<<<< HEAD
+	<section name="SmartImportWizard">
+		<item key="SmartImportRootWizardPage.STORE_HIDE_ALREADY_OPEN" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_CLOSE_IMPORTED" value="false"/>
+		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
+		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
+	</section>
+=======
 >>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503
 </section>

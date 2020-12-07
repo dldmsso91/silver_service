@@ -168,11 +168,19 @@ $(document).ready(function(){
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/cteam/WEB-INF/views/caregiver_service_main_en.jsp
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li>
+ 					<li class="has-children">
+                    <a href="#">도우미 지원하기</a>
+                      <ul class="dropdown">
+                        <li><a href="guide_Life_apply_yj.do">생활도우미 지원하기</a></li>
+=======
                     <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
                     <li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_nursing_apply_yj.do">생활도우미 지원하기</a></li>
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503:.metadata/.plugins/org.eclipse.core.resources/.history/95/e0ad49f7df36001b185c8fc7467e0998
                         <li><a href="guide_nursing_apply_yj.do">간병인도우미 지원하기</a></li>
                       </ul>
                       </li>
@@ -262,11 +270,21 @@ $(document).ready(function(){
           </div>
         </div>
       </div>
+<<<<<<< HEAD:.metadata/.plugins/org.eclipse.wst.server.core/tmp0/wtpwebapps/cteam/WEB-INF/views/caregiver_service_main_en.jsp
+      	<div class="apply_button">
+  	     	<p>
+        		<a href="customer_service_apply_yj.do" class="btn btn-primary" id="apply_button">서비스 신청하기</a>               
+    	    	<a href="guide_nursing_apply_yj.do" class="btn btn-primary" id="apply_button">간병인 지원하기</a>
+	       	</p>               
+	    </div>
+	</div>
+=======
     </div>
 
  
 
 
+>>>>>>> 46fdde8fb55ec18058a6fe23681475da25f0f503:.metadata/.plugins/org.eclipse.core.resources/.history/95/e0ad49f7df36001b185c8fc7467e0998
     <div class="feature-v1">
       <div class="d-md-flex align-items-center">
         <div class="d-flex pagination-item h-100">

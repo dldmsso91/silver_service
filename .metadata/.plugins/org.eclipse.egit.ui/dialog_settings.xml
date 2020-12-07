@@ -26,9 +26,11 @@
 	</section>
 =======
 	<list key="CommitDialog.authorValues">
+		<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
 		<item value="TeamC &lt;dldmsso91@naver.com&gt;"/>
 	</list>
 	<list key="CommitDialog.committerValues">
+		<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
 		<item value="TeamC &lt;dldmsso91@naver.com&gt;"/>
 >>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
 	</list>

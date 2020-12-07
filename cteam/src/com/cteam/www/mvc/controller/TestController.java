@@ -123,6 +123,12 @@ public class TestController {
 	public String my_resume_en(Model m) {
 		return "my_resume_en";
 	}
+
+	
+	@GetMapping(value="/mypage_my_giver_resume_detail_en.do")
+	public String mypage_my_giver_resume_detail_en(Model m) {
+		return "mypage_my_giver_resume_detail_en";
+	}
 	
 	
 	
