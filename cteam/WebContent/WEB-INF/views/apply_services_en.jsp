@@ -166,7 +166,7 @@
 
 
 
-    <div class="slide-item overlay" style="background-image: url('resources/images/silver_service6.jpg')">
+    <div class="slide-item overlay" style="background-image: url('resources/images/silver_service8.jpg')">
       <div class="container">
         <div class="row justify-content-center text-center">
         <div class="service_box">
