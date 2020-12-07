@@ -12,6 +12,15 @@
 		<item key="sortItemState" value="false"/>
 	</section>
 	<section name="GitCommitMessageComponent">
+		<list key="D:\eunnae\work\final_Team\workspace\.git">
+			<item value="false"/>
+			<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+			<item value="&quot;2020-12-07-21:08_len&quot;"/>
+			<item value="dldmsso91 &lt;dldmsso91@naver.com&gt;"/>
+			<item value="a321c0b504c690a23af66906d0b5bae76c12ffba"/>
+			<item value="0"/>
+			<item value="false"/>
+		</list>
 	</section>
 	<section name="org.eclipse.egit.ui.internal.push.PushResultDialog.dialogBounds">
 		<item key="DIALOG_X_ORIGIN" value="635"/>
@@ -23,5 +32,12 @@
 			<item value="600"/>
 			<item value="400"/>
 		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.pull.PullResultDialog.dialogBounds">
+		<item key="DIALOG_X_ORIGIN" value="701"/>
+		<item key="DIALOG_Y_ORIGIN" value="262"/>
+		<item key="DIALOG_WIDTH" value="535"/>
+		<item key="DIALOG_HEIGHT" value="400"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
 	</section>
 </section>
