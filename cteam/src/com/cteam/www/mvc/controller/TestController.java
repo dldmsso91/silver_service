@@ -129,6 +129,11 @@ public class TestController {
 	public String mypage_my_giver_resume_detail_en(Model m) {
 		return "mypage_my_giver_resume_detail_en";
 	}
+
+	@GetMapping(value="/level_of_satisfaction_customer_en.do")
+	public String level_of_satisfaction_customer_en(Model m) {
+		return "level_of_satisfaction_customer_en";
+	}
 	
 	
 	

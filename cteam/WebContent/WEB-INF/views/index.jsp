@@ -129,16 +129,11 @@
 
     </header>
 
-<<<<<<< HEAD
-=======
 
->>>>>>> refs/remotes/origin/main
 <!-- Header End -->
-<<<<<<< HEAD
-=======
 
 
->>>>>>> refs/remotes/origin/main
+
     <!-- MAIN -->
 
 

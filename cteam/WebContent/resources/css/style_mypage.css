@@ -20,7 +20,9 @@
 
 
 
-#left_contents{padding:3%;}
+#left_contents{padding:3%;
+    background: gainsboro;
+}
 #right_contents{padding:3%;}
 
 

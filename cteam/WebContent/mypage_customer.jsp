@@ -99,6 +99,13 @@ $(document).ready(function(){
 	});	
 
 
+   	$('.level_of_satisfaction_customer_en').click(function(){
+    	
+		$('.rightPage').attr("src", 'level_of_satisfaction_customer_en.do');  
+
+	});	
+
+
 
 
 
@@ -250,7 +257,7 @@ $(document).ready(function(){
 								<li class=""><a href="#">서비스 이용내역</a></li>
 								<li class="my_giver_resume_detail"><a href="#">내 도우미 정보</a></li>
 								<li class=""><a href="#">출퇴근 기록부</a></li>
-								<li class=""><a href="#">오늘의 서비스 만족도</a></li>
+								<li class="level_of_satisfaction_customer_en"><a href="#">오늘의 서비스 만족도</a></li>
 							</ul>
 						</section>
 					</div>
