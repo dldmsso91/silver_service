@@ -10,12 +10,19 @@
 	<section name="JavaElementSearchActions">
 	</section>
 	<section name="BuildPathsPropertyPage">
-		<item key="pageIndex" value="3"/>
+		<item key="pageIndex" value="2"/>
 	</section>
+<<<<<<< HEAD
+=======
+	<section name="ClasspathContainerSelectionPage">
+		<item key="index" value="5"/>
+	</section>
+>>>>>>> a26bbb38beeb55b5b70831d7200f5a4a7d6ae7b8
 	<section name="completion_proposal_size">
 	</section>
 	<section name="quick_assist_proposal_size">
 	</section>
+<<<<<<< HEAD
 	<section name="ClasspathContainerSelectionPage">
 		<item key="index" value="3"/>
 	</section>
@@ -30,4 +37,16 @@
 		<item key="updateQualifiedNames" value="false"/>
 		<item key="patterns" value="*"/>
 	</section>
+=======
+<<<<<<< HEAD
+	<section name="org.eclipse.jdt.internal.ui.wizards.buildpaths.NewVariableEntryDialog">
+		<item key="DIALOG_X_ORIGIN" value="178"/>
+		<item key="DIALOG_Y_ORIGIN" value="13"/>
+		<item key="DIALOG_WIDTH" value="577"/>
+		<item key="DIALOG_HEIGHT" value="398"/>
+		<item key="DIALOG_FONT_NAME" value="1|맑은 고딕|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|맑은 고딕"/>
+	</section>
+=======
+>>>>>>> 8e9669b609a441c820a9b3be29e516de5461eef5
+>>>>>>> a26bbb38beeb55b5b70831d7200f5a4a7d6ae7b8
 </section>

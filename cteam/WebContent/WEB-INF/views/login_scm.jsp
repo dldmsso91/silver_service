@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!doctype html>
 <html lang="en">
 <head>
@@ -88,44 +88,46 @@
               <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                 <li><a href="index.do" class="active nav-link">Home</a></li>
                 <li class="has-children">
-                  <a href="apply_services_en.do" class="nav-link">µµ¿ì¹Ì ¼­ºñ½º</a>
+                  <a href="apply_services_en.do" class="nav-link">ë„ìš°ë¯¸ ì„œë¹„ìŠ¤</a>
                   <ul class="dropdown">
-                    <li><a href="apply_services_en.do" class="nav-link">¼­ºñ½º ¼Ò°³</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">¼­ºñ½º ½ÅÃ»ÇÏ±â</a></li>
+                    <li><a href="apply_services_en.do" class="nav-link">ì„œë¹„ìŠ¤ ì†Œê°œ</a></li>
+                    <li><a href="apply_services_type_en.do" class="nav-link">ì„œë¹„ìŠ¤ ì‹ ì²­í•˜ê¸°</a></li>
 					 <li class="has-children">
-                    <a href="#">µµ¿ì¹Ì Áö¿øÇÏ±â</a>
+                    <a href="#">ë„ìš°ë¯¸ ì§€ì›í•˜ê¸°</a>
                       <ul class="dropdown">
-                        <li><a href="guide_Life_apply_yj.do">»ýÈ°µµ¿ì¹Ì Áö¿øÇÏ±â</a></li>
-                        <li><a href="guide_nursing_apply_yj.do">°£º´ÀÎµµ¿ì¹Ì Áö¿øÇÏ±â</a></li>
+                        <li><a href="guide_Life_apply_yj.do">ìƒí™œë„ìš°ë¯¸ ì§€ì›í•˜ê¸°</a></li>
+                        <li><a href="guide_nursing_apply_yj.do">ê°„ë³‘ì¸ë„ìš°ë¯¸ ì§€ì›í•˜ê¸°</a></li>
                       </ul>
                       </li>
                   </ul>
                 </li>
                 <li class="has-children">
-                  <a href="voice_service_intro_dy.do" class="nav-link">À½¼ºÀÎ½Ä ¼­ºñ½º</a>
+                  <a href="voice_service_intro_dy.do" class="nav-link">ìŒì„±ì¸ì‹ ì„œë¹„ìŠ¤</a>
                   <ul class="dropdown">
-                    <li><a href="voice_service_intro_dy.do" class="nav-link">¼­ºñ½º ¼Ò°³</a></li>
+                    <li><a href="voice_service_intro_dy.do" class="nav-link">ì„œë¹„ìŠ¤ ì†Œê°œ</a></li>
                   </ul>
                 </li>
 
             <li class="has-children">
-                  <a href="#" class="nav-link">Ä¿¹Â´ÏÆ¼ ¼­ºñ½º</a>
+                  <a href="#" class="nav-link">ì»¤ë®¤ë‹ˆí‹° ì„œë¹„ìŠ¤</a>
                   <ul class="dropdown">
-                    <li><a href="communityService.do" class="nav-link">Ä£±¸À§Ä¡ °Ë»ö</a></li>
+                    <li><a href="communityService.do" class="nav-link">ì¹œêµ¬ìœ„ì¹˜ ê²€ìƒ‰</a></li>
                     <li class="has-children">
-                      <a href="#">Ä¿¹Â´ÏÆ¼ °ø°£ Á¤º¸</a>
+                      <a href="#">ì»¤ë®¤ë‹ˆí‹° ê³µê°„ ì •ë³´</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation.do">ÀÇ·áº¹Áö½Ã¼³</a></li>
-                        <li><a href="silverhallLocation.do">Àç°¡³ëÀÎº¹Áö½Ã¼³</a></li>
-                        <li><a href="elderlyhomeLocation.do">¿ä¾ç½Ã¼³</a></li>
+                        <li><a href="medicalLocation.do">ì˜ë£Œë³µì§€ì‹œì„¤</a></li>
+                        <li><a href="silverhallLocation.do">ìž¬ê°€ë…¸ì¸ë³µì§€ì‹œì„¤</a></li>
+                        <li><a href="elderlyhomeLocation.do">ìš”ì–‘ì‹œì„¤</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
-                <li><a href="bus_service.do" class="nav-link">³ë¾àÀÚ ±³ÅëÁ¤º¸</a></li>
+                <li><a href="bus_service.do" class="nav-link">ë…¸ì•½ìž êµí†µì •ë³´</a></li>
                 <li><a href="contact.do" class="nav-link">Contact</a></li>
-				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>·Î±×ÀÎ</li>
-              	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>È¸¿ø°¡ÀÔ</li>
+
+				<li><a href="login_scm.do" class="login_img" ><img src="resources/images/login.png"></a>ë¡œê·¸ì¸</li>
+              	<li><a href="login_scm.do" class="login_img" ><img src="resources/images/sign_up.png"></a>íšŒì›ê°€ìž…</li>
+
               </ul>
             </nav>
           </div>
@@ -153,19 +155,24 @@
 		 <div class="back">
 		        <form class="loginInfo" method="post" action="../pro/LoginPro.jsp" onsubmit="return checkValue()" >		                   
 		            <table>
-		                <h1>·Î±×ÀÎ</h1>
+		                <h1>ë¡œê·¸ì¸</h1>
 		                <tr>
-		                    <td>¾ÆÀÌµð</td>
+		                    <td>ì•„ì´ë””</td>
 		                    <td><input type="text" name="id" maxlength="50"></td>
 		                </tr>
 		                <tr>
-		                    <td>ºñ¹Ð¹øÈ£</td>
+		                    <td>ë¹„ë°€ë²ˆí˜¸</td>
 		                    <td><input type="password" name="password" maxlength="50"></td>
 		                </tr>
 		            </table>
 		            <br>
-		             <p><a href="mypage_scm.do" class="btn btn-primary">·Î±×ÀÎ</a>
-		            	<a href="hoewon_scm.do" class="btn btn-primary">È¸¿ø°¡ÀÔ</a>
+<<<<<<< HEAD
+		             <p><a href="mypage_customer_en.do" class="btn btn-primary">ï¿½Î±ï¿½ï¿½ï¿½</a>
+		            	<a href="hoewon_scm.do" class="btn btn-primary">È¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</a>
+=======
+		             <p><a href="mypage_scm.do" class="btn btn-primary">ë¡œê·¸ì¸</a>
+		            	<a href="hoewon_scm.do" class="btn btn-primary">íšŒì›ê°€ìž…</a>
+>>>>>>> b958ec3347d4ed79171dbc2c4fd402b790f21ee4
 		        	</p>
 		        </form>
 			</div>
