@@ -1,3 +1,12 @@
+<<<<<<< HEAD
+INDEX VERSION 1.4+D:\2020.12.28_수료생_이은내\team_project\final_project\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
+2213395736.index
+3873300127.index
+3614833603.index
+4055375281.index
+2678839667.index
+4213938854.index
+=======
 INDEX VERSION 1.4+C:\CTeam\PRJ\TeamC\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
 2357081942.index
 2504104175.index
@@ -10,4 +19,8 @@ INDEX VERSION 1.4+C:\CTeam\PRJ\TeamC\.metadata\.plugins\org.eclipse.wst.jsdt.cor
 2015009495.index
 3028500398.index
 931203117.index
+<<<<<<< HEAD
 1625047407.index
+=======
+>>>>>>> 22de292123ad2444cc17cf6504c6e40bbd1fdb33
+>>>>>>> 8e9669b609a441c820a9b3be29e516de5461eef5

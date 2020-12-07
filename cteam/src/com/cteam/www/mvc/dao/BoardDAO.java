@@ -17,7 +17,6 @@ public class BoardDAO {
    
    public List<BoardVO> getBoardList(){
       
-      //
-      return ss.selectList("board.list"); //mapper�� ���� ���� �;��Ѵ�. mapper �� namespace�� id
+      return ss.selectList("board.list"); 
    }
 }
