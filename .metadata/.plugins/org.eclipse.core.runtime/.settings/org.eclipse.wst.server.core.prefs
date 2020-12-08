@@ -1,11 +1,3 @@
 eclipse.preferences.version=1
 module-start-timeout=300000
-<<<<<<< HEAD
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v9.0" location\="C\:/apache-tomcat-9.0.38" name\="Apache Tomcat v9.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.90" timestamp\="0" vm-install-id\="1607053926008" vm-install-type-id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType"/>\r\n</runtimes>\r\n
-=======
-<<<<<<< HEAD
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v9.0" location\="D\:/bigdata/service/apache-tomcat-9.0.37" name\="Apache Tomcat v9.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.90" timestamp\="0"/>\r\n</runtimes>\r\n
-=======
-runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="VMware tc Server Developer Edition (Runtime) v4.1" id-set\="true" location\="D\:/2020.12.28_\uC218\uB8CC\uC0DD_\uC774\uC740\uB0B4/\uD504\uB85C\uADF8\uB7A8/sts-bundle/pivotal-tc-server" name\="VMware tc Server Developer Edition (Runtime) v4.1" runtime-type-id\="com.vmware.server.tc.runtime.90" timestamp\="0"/>\r\n  <runtime id\="Apache Tomcat v9.0" location\="D\:/eunnae/program/apache-tomcat-9.0.38" name\="Apache Tomcat v9.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.90" timestamp\="0"/>\r\n</runtimes>\r\n
->>>>>>> a3b66c9d4e85767a3f205a500f66196c970b61ed
->>>>>>> 845dd0380fa5e5349ebf0bf365c37175d902258e
+runtimes=<?xml version\="1.0" encoding\="UTF-8" standalone\="no"?>\r\n<runtimes>\r\n  <runtime id\="Apache Tomcat v9.0" location\="C\:/apache-tomcat-9.0.38" name\="Apache Tomcat v9.0" runtime-type-id\="org.eclipse.jst.server.tomcat.runtime.90" timestamp\="0" vm-install-id\="1607318309330" vm-install-type-id\="org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType"/>\r\n</runtimes>\r\n
