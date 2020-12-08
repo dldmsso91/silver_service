@@ -114,6 +114,12 @@ $(document).ready(function(){
     padding: 10px;
     text-align: center;
 }
+.container_text_box{
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 5%;
+}
 </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -159,7 +165,9 @@ $(document).ready(function(){
                   <a href="apply_services_en.do" class="nav-link">도우미 서비스</a>
                   <ul class="dropdown">
                     <li><a href="apply_services_en.do" class="nav-link">서비스 소개</a></li>
-                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a></li> 
+                    <li><a href="apply_services_type_en.do" class="nav-link">서비스 신청하기</a>
+                    
+                    </li> 
                     <li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
@@ -222,7 +230,8 @@ $(document).ready(function(){
 
     <div class="site-section">
       <div class="container">
-        <h1 style="margin-bottom: 50px; text-align: center;">원하시는 서비스를 선택해 주세요!</h1>
+        <h1 style="margin-bottom: 50px; text-align: center;">당신만을 위한 Private service!</h1>
+        <p class="container_text_box">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
         <div class="row">
           <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
             <div class="service">
