@@ -24,6 +24,7 @@
   <link rel="stylesheet" href="resources/css/aos.css">
   <script src="//code.jquery.com/jquery-3.3.1.js"></script>
   <link rel="stylesheet" href="resources/css/style.css">
+<<<<<<< HEAD
 <script>
 $(document).ready(function() {
   slide();
@@ -138,8 +139,23 @@ function slide() {
   slideEvent();
 }
 </script>
+=======
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ 
+<!-- 부가적인 테마 -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap-theme.min.css">
+ 
+<!-- 합쳐지고 최소화된 최신 자바스크립트 -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+<script>
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
 
+</script>
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
 <style>
 #wrap{
 background-image: URL('resources/images/img_1_sq.jpg'); 
@@ -152,6 +168,7 @@ margin-top: 150px;
     width: 74%;
     margin-top: 117px;
 }
+<<<<<<< HEAD
 .back{
 background-image: URL('resources/images/img_1_sq.jpg'); 
 margin: auto;
@@ -162,6 +179,12 @@ height;
     background: rgb(120 130 110 / 75%);
     border-radius: -10px;
     height: 35vh;
+=======
+.login_div {
+    background: rgb(120 130 110 / 75%);
+    border-radius: -10px;
+    height: 75vh;
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
     width: 100%;
     text-align: center;
     color: aliceblue;
@@ -172,7 +195,11 @@ height;
 }
 .login_table tr td{
    color: aliceblue;
+<<<<<<< HEAD
     padding: 10;;
+=======
+   padding: 10;;
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
 
 }
 .login_p{
@@ -181,6 +208,7 @@ height;
 
 }
 
+<<<<<<< HEAD
 * {
   margin: 0px;
   padding: 0px;
@@ -274,6 +302,9 @@ img {
     max-width: auto;
     max-height: 150px;
 }
+=======
+
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
 </style>   
 
     
@@ -360,6 +391,7 @@ img {
     
 
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
+<<<<<<< HEAD
       <div class="container">
         <div class="row">
           <div class="col-lg-6 align-self-center">
@@ -409,65 +441,97 @@ img {
 </div>
 
 <div class="site-footer bg-light">
+=======
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
       <div class="container">
         <div class="row">
-          <div class="col-lg-4">
-            <h2 class="footer-heading mb-4">About</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi cumque tenetur inventore veniam, hic vel ipsa necessitatibus ducimus architecto fugiat!</p>
-            <div class="my-5 social">
-              <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-              <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-            </div>
-          </div>
-          <div class="col-lg-8">
-            <div class="row">
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Quick Links</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Amazing Atmosphere</a></li>
-                  <li><a href="#">Caring Staff</a></li>
-                  <li><a href="#">FAQs</a></li>
-                  <li><a href="#">About Us</a></li>
-                  <li><a href="#">Contact Us</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Helpful Link</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Hospice Care</a></li>
-                  <li><a href="#">Excellent Cuisine</a></li>
-                  <li><a href="#">Privacy</a></li>
-                  <li><a href="#">Terms</a></li>
-                </ul>
-              </div>
-              <div class="col-lg-4">
-                <h2 class="footer-heading mb-4">Resources</h2>
-                <ul class="list-unstyled">
-                  <li><a href="#">Health Care</a></li>
-                  <li><a href="#">Elderly Care</a></li>
-                  <li><a href="#">Care with Love</a></li>
-                  <li><a href="#">Quality Care</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="row text-center">
-          <div class="col-md-12">
-            <div class="border-top pt-5">
-              <p class="copyright"><small>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="icon-heart text-danger" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank" >Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small></p>
+          <div class="col-lg-6 align-self-center">
+          <div class="login_div">
+           <table class="login_table">
+   <div class="container">
+    <div class="row">
+    <div class="col-sm-12 text-center" >
+    <div class="col-sm-3"></div>
+     
+    <div class="col-sm-6">
 
-              </div>
-            </div>
-
-          </div>
-        </div>
-      </div>
+    <form action="MemberJoinProc.jsp" method="post">
+        <table class="table table-boardered">
+            <h2>회원가입</h2>
+            <tr>
+                <th>아이디</th>
+                <td><input type="text" class="form-control" name="id" placeholder=""></td>        
+            </tr>
+            <tr>
+                <th>패스워드</th>
+                <td><input type="password" class="form-control" name="pass1" placeholder=""></td>      
+            </tr>
+             
+            <tr>
+                <th>패스워드확인</th>
+                <td><input type="password" class="form-control" name="pass2"></td>        
+            </tr>
+            <tr>
+                <th>이름</th>
+                <td><input type="text" class="form-control" name="name" placeholder="이름을 입력하세요."></td>        
+            </tr>
+            <tr>
+                <th>이메일</th>
+                <td><input type="email" class="form-control" name="email"></td>       
+            </tr>
+             
+            <tr>
+                <th>전화번호</th>
+                <td><input type="tel" class="form-control" name="tel"></td>       
+            </tr>
+             
+            <tr>
+                <th>성별</th>
+                <td>
+                <input type="radio"  name="sex" value="남">남자 &nbsp;&nbsp;
+                <input type="radio"  name="sex" value="여">여자 &nbsp;&nbsp;
+                </td>     
+            </tr> 
+            <tr>
+			   <th> 주소 </th>
+			   <td>
+			    <input type = "text"/>
+			    <input type = "button" value = "주소찾기"/>
+			   </td>
+			  </tr>
+			  <tr>
+			   <th> 상세주소 </th>
+			   <td>
+			    <input type = "text"/>
+			   </td>
+  					</tr>                         
+            <tr>
+                <td colspan="2"><center>
+                <input type="submit" class="btn btn-primary" value=완료>
+                <input type="reset" class="btn btn-danger" value="취소">
+                </td></center>
+             
+            </tr>
+             
+             
+        </table>
+    </form>
     </div>
+     
+    </div>
+    </div>
+</div>
+           
+           </table>
+           </div>            
+          </div>
+        </div>
+      </div>  
+    </div>
+<<<<<<< HEAD
+=======
+  </div>
+
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
     </body>
 </html>

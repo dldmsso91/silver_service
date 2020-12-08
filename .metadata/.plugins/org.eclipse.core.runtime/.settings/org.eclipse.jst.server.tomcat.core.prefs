@@ -2,4 +2,8 @@
 <<<<<<<=HEAD
 >>>>>>>=b958ec3347d4ed79171dbc2c4fd402b790f21ee4
 eclipse.preferences.version=1
+<<<<<<< HEAD
 locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/apache-tomcat-9.0.37
+=======
+locationorg.eclipse.jst.server.tomcat.runtime.90=C\:/apache-tomcat-9.0.38
+>>>>>>> 14e2ca62decd1d776c1babade812541762ffebea
