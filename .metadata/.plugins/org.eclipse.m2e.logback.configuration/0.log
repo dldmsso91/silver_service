@@ -14067,3 +14067,18 @@ Caused by: java.io.FileNotFoundException: C:\PRJ\CTeam\.metadata\.plugins\org.ec
 2020-12-08 11:42:04,163 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\main\resources
 2020-12-08 11:42:04,164 [Worker-17: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
 2020-12-08 11:42:04,171 [Worker-17: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\test\resources
+2020-12-08 11:50:05,486 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2020-12-08 11:50:11,185 [Worker-0: Updating Maven Dependencies] INFO  o.e.m.c.i.l.LifecycleMappingFactory - Using org.maven.ide.eclipse.wtp.WarLifecycleMapping lifecycle mapping for MavenProject: spring_django_1026:spring_django_1026:0.0.1-SNAPSHOT @ D:\eunnae\work\final_Team\workspace\cteam\pom.xml.
+2020-12-08 11:50:14,797 [Worker-15: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 11:50:14,819 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\main\resources
+2020-12-08 11:50:14,821 [Worker-15: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 11:50:14,829 [Worker-15: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\test\resources
+2020-12-08 12:22:57,429 [Worker-14: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 12:22:57,464 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\main\resources
+2020-12-08 12:22:57,465 [Worker-14: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 12:22:57,472 [Worker-14: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\test\resources
+2020-12-08 12:23:04,013 [Worker-18: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 12:23:04,022 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\main\resources
+2020-12-08 12:23:04,023 [Worker-18: Building] WARN  o.e.m.c.i.embedder.EclipseLogger - Using platform encoding (MS949 actually) to copy filtered resources, i.e. build is platform dependent!
+2020-12-08 12:23:04,031 [Worker-18: Building] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory D:\eunnae\work\final_Team\workspace\cteam\src\test\resources
+2020-12-08 16:21:47,647 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
