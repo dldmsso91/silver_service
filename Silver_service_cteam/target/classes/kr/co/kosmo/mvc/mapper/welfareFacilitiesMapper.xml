@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="commu">
+<select id="welfareFacilityDetail" parameterType="facInfo" resultType="facInfo">
+<![CDATA[
+select * from welfarefacilities where FACILITYNO = #{facilityNo}
+]]>		
+</select>
+
+<select id="getMedicalList"  resultType="facInfo">
+<![CDATA[
+select * from
+(select wel.*, rownum "RNUM" from
+(select * from welfarefacilities where typeName = '노인의료복지시설' order by servicescore desc)wel)
+where RNUM <=5
+]]>
+</select>
+
+<select id="getElderlyhomeList" resultType="facInfo">
+<![CDATA[
+select * from
+(select wel.*, rownum "RNUM" from
+(select * from welfarefacilities where typeName = '노인여가복지시설' order by servicescore desc)wel)
+where RNUM <=5
+]]>
+</select>
+
+<select id="getSilverhallList"  resultType="facInfo">
+<![CDATA[
+select * from
+(select wel.*, rownum "RNUM" from
+(select * from welfarefacilities where typeName = '노인여가복지시설' or typeName = '재가노인복지시설' order by servicescore desc)wel)
+where RNUM <=5
+]]>
+</select>
+</mapper>  
