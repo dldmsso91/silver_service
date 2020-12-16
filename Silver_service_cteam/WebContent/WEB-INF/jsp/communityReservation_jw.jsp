@@ -121,7 +121,7 @@
 											<ul class="dropdown">
 												<li><a href="medicalLocation">의료복지시설</a></li>
 												<li><a href="silverhallLocation">재가노인복지시설</a></li>
-												<li><a href="elderlyhomeLocation">요양시설</a></li>
+												<li><a href="elderlyhomeLocation">여가복지시설</a></li>
 											</ul></li>
 									</ul></li>
 								<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>

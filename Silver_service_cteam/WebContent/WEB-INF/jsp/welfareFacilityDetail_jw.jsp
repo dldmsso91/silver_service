@@ -105,7 +105,7 @@
 											<ul class="dropdown">
 												<li><a href="medicalLocation.do">의료복지시설</a></li>
 												<li><a href="silverhallLocation.do">재가노인복지시설</a></li>
-												<li><a href="elderlyhomeLocation.do">요양시설</a></li>
+												<li><a href="elderlyhomeLocation.do">여가복지시설</a></li>
 											</ul></li>
 									</ul></li>
 								<li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
@@ -185,7 +185,7 @@
 
 				<div class="button_div">
 					<p>
-						<a href="communityReservation?facilityNo=${facilityNo}" class="btn btn-primary">예약</a>
+						<a href="#" class="btn btn-primary">예약</a>
 					</p>
 					<p>
 						<a href="#" class="btn btn-primary" id="delete">길찾기</a>
