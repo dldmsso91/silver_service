@@ -4,7 +4,18 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-	<typeAlias type="kr.co.kosmo.mvc.dto.Member_AOP_DTO" alias="maop"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO" alias="facInfo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.MedicaldetailDTO" alias="medicalDetail"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.SilverhalldetailDTO" alias="silverDetail"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.MemberDTO" alias="member"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.BoardVO" alias="bvo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.SearchCriteria" alias="scvo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.ReplyVO" alias="rvo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.MemberVO" alias="mvo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.GiverVO" alias="giver"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CareerVO" alias="career"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO" alias="satisfaction"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.LicenseVO" alias="license"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO" alias="hope_business_area"/>
 </typeAliases>
 </configuration>

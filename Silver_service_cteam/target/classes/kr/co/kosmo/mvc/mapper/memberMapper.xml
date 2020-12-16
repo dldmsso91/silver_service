@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="memberMapper">
+	<!-- 회원가입 -->
+<!-- 	CREATE TABLE U_MEMBER(
+     U_NO NUMBER NOT NULL PRIMARY KEY
+    ,U_ID VARCHAR2(50) UNIQUE NOT NULL 
+    ,U_PASSWORD VARCHAR2(50) NOT NULL
+    ,U_NAME VARCHAR2(50) NOT NULL
+    ,U_BIRTH VARCHAR2(20) NOT NULL  
+    ,U_GENDER VARCHAR2(10) NOT NULL
+    ,U_PHONE VARCHAR2(50)
+    ,U_EMAIL VARCHAR2(100) NOT NULL
+    ,U_ADDR VARCHAR2(200) NOT NULL
+    ,U_REDATE DATE DEFAULT SYSDATE
+); -->
+	<insert id="register" parameterType="mvo">
+	    INSERT INTO U_MEMBER
+	                  VALUES(U_MEMBER_SEQ.NEXTVAL ,	                  											                		   
+									                 		   
+	                 		    #{u_id}
+	                 		   , #{u_password}
+	                 		   , #{u_name}
+	                 		   , #{u_birth}
+	                 		   , #{u_birth2}                 	
+	                 		   , #{u_phone}
+	                 		   , #{u_email}
+	                 		   , #{u_addr}
+	                 		   , #{u_addr1}
+	                 		   , #{u_addr2}                 
+	           				  ,sysdate
+	           				  )
+    </insert>
+        <!-- 로그인 -->
+	<select id="login" resultType="mvo">
+		SELECT U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
+		  FROM U_MEMBER
+		 WHERE U_ID = #{u_id}
+		   AND U_PASSWORD = #{u_password}   
+	</select>
+ 
+<!--  	  회원 조회
+		<select id="readmember" parameterType="mvo" resultType="mvo">
+		SELECT	u_id
+			  , u_password
+			  , u_name
+			  , u_birth
+			  , u_email
+			  , u_addr			  
+		 FROM U_MEMBER
+		 WHERE U_ID = #{u_id}
+	</select> -->
+ 
+ 
+
+
+ <!-- 회원정보 수정 -->
+	<update id="memberUpdate">
+		UPDATE U_MEMBER SET 
+		U_PASSWORD = #{u_password}
+		,U_NAME  =  #{u_name}
+ 	    ,U_BIRTH =  #{u_birth} 
+ 	    ,U_BIRTH2 = #{u_birth2}
+		,U_PHONE =  #{u_phone}
+		,U_EMAIL =  #{u_email}
+		,U_ADDR  =   #{u_addr}	
+		,U_ADDR1  =   #{u_addr1}	
+        ,U_ADDR2  =   #{u_addr2}				 
+		WHERE U_ID = #{u_id}
+	</update>  
+</mapper>

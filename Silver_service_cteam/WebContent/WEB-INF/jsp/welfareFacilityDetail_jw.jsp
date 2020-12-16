@@ -1,7 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
-<html lang="en">
+<html lang="ko">
 <head>
 <title>Elderly &mdash; Website Template by Colorlib</title>
 <meta charset="utf-8">
@@ -130,36 +132,60 @@
 				<table class="ui celled table">
 					<tr>
 						<td>시설분류</td>
-						<td>${facinfo.typeName}</td>
+						<td>${facInfo.typeName}</td>
 					</tr>
 					<tr>
 						<td>시설명</td>
-						<td>${facinfo.facilityName}</td>
+						<td>${facInfo.facilityName}</td>
 					</tr>
 					<tr>
 						<td>소재지</td>
-						<td>${facinfo.cityloc}</td>
+						<td>${facInfo.cityloc}</td>
 					</tr>
 					<tr>
 						<td>주소</td>
-						<td>${facinfo.address}</td>
+						<td>${facInfo.address}</td>
 					</tr>
 					<tr>
 						<td>전화번호</td>
-						<td>${facinfo.telnumber}</td>
+						<td>${facInfo.telnumber}</td>
 					</tr>
 					<tr>
 						<td>만족도 점수</td>
-						<td>${facinfo.serviceScore}</td>
+						<td>${facInfo.serviceScore}</td>
 					</tr>
+					<c:choose>
+						<c:when test="${facInfo.typeName==\"노인의료복지시설\"}">
+							<tr>
+								<td>정원</td>
+								<td>${facInfo.medicalDetail[0].peopleLimit}</td>
+							</tr>
+						</c:when>
+					</c:choose>
+					<c:choose>
+						<c:when test="${facInfo.typeName==\"노인의료복지시설\"}">
+							<tr>
+								<td>현재원</td>
+								<td>${facInfo.medicalDetail[0].peopleNumber}</td>
+							</tr>
+						</c:when>
+					</c:choose>
+					<c:choose>
+						<c:when test="${facInfo.typeName==\"재가노인복지시설\"}">
+							<tr>
+								<td>제공 서비스</td>
+								<td>${facInfo.silverhallDetail[0].serviceType}</td>
+							</tr>
+						</c:when>
+					</c:choose>
 				</table>
-				
+
 				<div id="map" class="map" style="width: 55%; height: 400px;"></div>
 
 
 				<div class="button_div">
 					<p>
-						<a href="#" class="btn btn-primary">예약</a>
+						<a href="communityReservation?facilityNo=${facilityNo}" class="btn btn-primary">예약</a>
 					</p>
 					<p>
 						<a href="#" class="btn btn-primary" id="delete">길찾기</a>
@@ -191,7 +217,7 @@
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
-			center : new kakao.maps.LatLng(${facinfo.latitude}, ${facinfo.longitude}), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude}), // 지도의 중심좌표
 			level : 5
 		// 지도의 확대 레벨
 		};
@@ -200,8 +226,8 @@
 
 		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
 		var positions = [ {
-			content : '<div>${facinfo.facilityName}</div>',
-			latlng : new kakao.maps.LatLng(${facinfo.latitude}, ${facinfo.longitude})
+			content : '<div>${facInfo.facilityName}</div>',
+			latlng : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude})
 		} ];
 
 		for (var i = 0; i < positions.length; i++) {

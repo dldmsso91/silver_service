@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="giverMapper">
+
+
+
+  <!-- ResultMap -->
+<!-- 현재 giver에 join되어있음. -->
+<resultMap type="giver" id="giver">
+	<result column="apply_giver_no" property="apply_giver_no"/>
+	<result column="u_no" property="u_no"/>   
+	<result column="giver_type" property="giver_type"/>
+	<result column="hope_business_place" property="hope_business_place"/>
+	<result column="hope_salary" property="hope_salary"/>
+	<result column="smoking" property="smoking"/>
+	<result column="school" property="school"/>
+	<result column="major" property="major"/>
+	<result column="penalty" property="penalty"/>
+	<result column="apply_giver_redate" property="apply_giver_redate"/>
+	<association property="memberVO" column="u_no" javaType="mvo">
+		<id property="u_no" column="u_no"/>
+		<result property="u_id" column="u_id"/>
+		<result property="u_name" column="u_name"/>
+		<result property="u_birth" column="u_birth"/>
+		<result property="u_phone" column="u_phone"/>
+		<result property="u_email" column="u_email"/>
+		<result property="u_addr" column="u_addr"/>
+		<result property="u_redate" column="u_redate"/>
+	</association>
+	<collection property="licenseVO" ofType="license">
+		<id column="license_no" property="license_no"/>
+		<result column="license_name" property="license_name"/>	
+		<result column="license_Institute" property="license_Institute"/>	
+		<result column="license_Redate" property="license_Redate"/>	
+	</collection>		
+	<collection property="careerVO" ofType="career">
+		<id column="career_no" property="career_no"/>
+		<result column="career_name" property="career_name"/>	
+		<result column="work_Period" property="work_Period"/>	
+		<result column="role" property="role"/>	
+	</collection>		
+	<collection property="giver_satisfactionVO" ofType="satisfaction">
+		<id column="giver_satisfaction_no" property="giver_satisfaction_no"/>
+		<result column="customer_satisfaction_score" property="customer_satisfaction_score"/>	
+		<result column="customer_satisfaction_complain" property="customer_satisfaction_complain"/>	
+		<result column="giver_Satisfaction_redate" property="giver_Satisfaction_redate"/>	
+	</collection>		
+	<collection property="hope_business_areaVO" ofType="hope_business_area">
+		<id column="hope_business_area_no" property="hope_business_area_no"/>
+		<result column="hope_business_city" property="hope_business_city"/>	
+		<result column="hope_business_town" property="hope_business_town"/>	
+	</collection>		
+</resultMap>
+
+	<select id="selectGiverByNo" parameterType="giver" resultMap="giver">
+	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.Work_Period,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
+        
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate,
+        
+        s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
+        
+ 	FROM U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
+	WHERE u.u_no=0
+	</select>	
+
+
+
+<!-- delete문 -->
+   <delete id="deleteGiver"  parameterType="giver">
+      DELETE FROM giver
+      WHERE Giver_no = 22
+   </delete>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</mapper>

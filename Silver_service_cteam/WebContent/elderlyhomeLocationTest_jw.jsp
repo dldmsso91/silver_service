@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!doctype html>
 <html lang="ko">
 <head>
@@ -134,7 +134,7 @@
 											<ul class="dropdown">
 												<li><a href="medicalLocation">의료복지시설</a></li>
 												<li><a href="silverhallLocation">재가노인복지시설</a></li>
-												<li><a href="elderlyhomeLocation">요양시설</a></li>
+												<li><a href="elderlyhomeLocation">여가복지시설</a></li>
 											</ul></li>
 									</ul></li>
 								<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
@@ -171,7 +171,7 @@
 
 		<div class="site-section">
 			<div class="container">
-				<h1 style="margin-bottom: 50px; text-align: center;">여가복지시설 정보</h1>
+				<h1 style="margin-bottom: 50px; text-align: center;">의료복지시설 정보</h1>
 				<div class="row justify-content-between">
 					<div class="col-lg-7">
 						<div class="section-heading">
@@ -182,7 +182,7 @@
 
 						<section class="panel no-b">
 							<div class="panel-heading no-b">
-								<h5>추천 여가복지시설 목록</h5>
+								<h5>추천 의료복지시설 목록</h5>
 							</div>
 
 							<div class="panel-body">
@@ -193,26 +193,29 @@
 											<th>시설명</th>
 											<th>주소</th>
 											<th>전화번호</th>
-											<th>만족도</th>
+											<th nowrap>만족도</th>
 										</tr>
 									</thead>
 									<tbody>
-										<c:forEach items="${elderlyhomeList }" var="elderlyhome">
+										<c:forEach items="${medicalList }" var="medical">
 											<tr>
-												<td><span class="pd-l-sm"></span>${elderlyhome.facilityName}</td>
-												<td>${elderlyhome.address}</td>
-												<td>${elderlyhome.telnumber}</td>
+												<td nowrap><a
+													href="welfareFacilityDetail?facilityNo=${medical.facilityNo}">${medical.facilityName}</a></td>
+												<td>${medical.address}</td>
+												<td nowrap>${medical.telnumber}</td>
 												<td>
 													<div class="progress progress-sm no-m">
 														<div class="progress-bar progress-bar-success"
 															role="progressbar" aria-valuenow="100" aria-valuemin="0"
-															aria-valuemax="100" style="width:${elderlyhome.serviceScore}%">
-															<!-- <span class="sr-only">100% Complete (success)</span> -->
+															aria-valuemax="100"
+															style="width: ${medical.serviceScore}%">
+															<span class="sr-only">100% Complete (success)</span>
 														</div>
 													</div>
 												</td>
 											</tr>
 										</c:forEach>
+
 									</tbody>
 								</table>
 							</div>
@@ -328,8 +331,7 @@
 							<small> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 								Copyright &copy;<script>
 									document.write(new Date().getFullYear());
-								</script>
-								All rights reserved | This template is made with <i
+								</script> All rights reserved | This template is made with <i
 								class="icon-heart text-danger" aria-hidden="true"></i> by <a
 								href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small>
 						</p>
@@ -358,80 +360,67 @@
 	<script src="resources/js/isotope.pkgd.min.js"></script>
 	<script src="resources/js/main.js"></script>
 
+
 	<script type="text/javascript"
 		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 		mapOption = {
-			center : new kakao.maps.LatLng(37.604397, 127.0229984), // 지도의 중심좌표
-			level : 5
-		// 지도의 확대 레벨
+			center : new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+			level : 10
+		// 지도의 확대 레벨 
 		};
 
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
 
-		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-		var positions = [ {
-			content : '<div>백마요양원</div>',
-			latlng : new kakao.maps.LatLng(37.59779187, 127.0344106)
-		}, {
-			content : '<div>종암요양원</div>',
-			latlng : new kakao.maps.LatLng(37.5965778, 127.0327749)
-		}, {
-			content : '<div>정진요양원</div>',
-			latlng : new kakao.maps.LatLng(37.61270211, 127.0133692)
-		}, {
-			content : '<div>정릉노인요양원</div>',
-			latlng : new kakao.maps.LatLng(37.60587334, 127.0025413)
-		} ]; 
-		
-		/* var positions = []
-		for (var item in ${elderlyhomeList}){
-				alert(item);
-				positions.append({content : '<div>${item.facilityName}</div>',latlng : new kakao.maps.LatLng(${item.latitude}, ${item.longitude})})
-			} */
-			
+		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
+		if (navigator.geolocation) {
 
-		for (var i = 0; i < positions.length; i++) {
+			// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+			navigator.geolocation.getCurrentPosition(function(position) {
+
+				var lat = position.coords.latitude, // 위도
+				lon = position.coords.longitude; // 경도
+
+				var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+				message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+
+				// 마커와 인포윈도우를 표시합니다
+				displayMarker(locPosition, message);
+
+			});
+
+		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+
+			var locPosition = new kakao.maps.LatLng(33.450701, 126.570667), message = 'geolocation을 사용할수 없어요..'
+
+			displayMarker(locPosition, message);
+		}
+
+		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
+		function displayMarker(locPosition, message) {
+
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
-				map : map, // 마커를 표시할 지도
-				position : positions[i].latlng
-			// 마커의 위치
+				map : map,
+				position : locPosition
 			});
 
-			// 마커에 표시할 인포윈도우를 생성합니다 
+			var iwContent = message, // 인포윈도우에 표시할 내용
+			iwRemoveable = true;
+
+			// 인포윈도우를 생성합니다
 			var infowindow = new kakao.maps.InfoWindow({
-				content : positions[i].content
-			// 인포윈도우에 표시할 내용
+				content : iwContent,
+				removable : iwRemoveable
 			});
 
-			// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-			// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-			// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-			kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(
-					map, marker, infowindow));
-			kakao.maps.event.addListener(marker, 'mouseout',
-					makeOutListener(infowindow));
-		}
+			// 인포윈도우를 마커위에 표시합니다 
+			infowindow.open(map, marker);
 
-		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-		function makeOverListener(map, marker, infowindow) {
-			return function() {
-				infowindow.open(map, marker);
-			};
-		}
-
-		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-		function makeOutListener(infowindow) {
-			return function() {
-				infowindow.close();
-			};
+			// 지도 중심좌표를 접속위치로 변경합니다
+			map.setCenter(locPosition);
 		}
 	</script>
-
-
-
 </body>
-
 </html>
