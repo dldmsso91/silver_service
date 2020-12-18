@@ -31,8 +31,33 @@
 		]]>
 	</select>
 
+<!-- 	<resultMap type="facInfo" id="facInfo"> -->
+<!-- 		<id property="facilityNo" column="facilityNo" javaType="int" /> -->
+<!-- 		<result property="facilityName" column="facilityName" /> -->
+<!-- 		<result property="typeName" column="typeName" /> -->
+<!-- 		<result property="cityloc" column="cityloc" /> -->
+<!-- 		<result property="address" column="address" /> -->
+<!-- 		<result property="telnumber" column="telnumber" /> -->
+<!-- 		<result property="serviceScore" column="serviceScore" /> -->
+<!-- 		<result property="latitude" column="latitude" /> -->
+<!-- 		<result property="longitude" column="longitude" /> -->
+<!-- 		<collection property="medicalDetail" javaType="java.util.List" -->
+<!-- 			resultMap="medicalDetail" ofType="medicalDetail" /> -->
+<!-- 		<collection property="silverhallDetail" javaType="java.util.List" -->
+<!-- 			resultMap="silverhallDetail" ofType="silverDetail" /> -->
+<!-- 	</resultMap> -->
+<!-- 	<resultMap type="medicalDetail" id="medicalDetail"> -->
+<!-- 		<result property="facilityNo" column="facilityNo" javaType="int" /> -->
+<!-- 		<result property="peopleLimit" column="peopleLimit"/> -->
+<!-- 		<result property="peopleNumber" column="peopleNumber"/> -->
+<!-- 	</resultMap> -->
+<!-- 	<resultMap type="silverDetail" id="silverhallDetail"> -->
+<!-- 		<result property="facilityNo" column="facilityNo" javaType="int" /> -->
+<!-- 		<result property="serviceType" column="serviceType"/> -->
+<!-- 	</resultMap> -->
+	
 	<resultMap type="facInfo" id="facInfo">
-		<id property="facilityNo" column="facilityNo" javaType="int" />
+		<id property="facilityNo" column="facilityNo"/>
 		<result property="facilityName" column="facilityName" />
 		<result property="typeName" column="typeName" />
 		<result property="cityloc" column="cityloc" />
@@ -41,21 +66,16 @@
 		<result property="serviceScore" column="serviceScore" />
 		<result property="latitude" column="latitude" />
 		<result property="longitude" column="longitude" />
-		<collection property="medicalDetail" javaType="java.util.List"
-			resultMap="medicalDetail" ofType="medicalDetail" />
-		<collection property="silverhallDetail" javaType="java.util.List"
-			resultMap="silverhallDetail" ofType="silverDetail" />
-	</resultMap>
-	<resultMap type="medicalDetail" id="medicalDetail">
-		<id property="facilityNo" column="facilityNo" javaType="int" />
+	<association property="medicalDetail" column="facilityNo" javaType="medicalDetail">
+		<result property="facilityNo" column="facilityNo"/>
 		<result property="peopleLimit" column="peopleLimit"/>
 		<result property="peopleNumber" column="peopleNumber"/>
-	</resultMap>
-	<resultMap type="silverDetail" id="silverhallDetail">
-		<id property="facilityNo" column="facilityNo" javaType="int" />
+	</association>
+	<association property="silverhallDetail" column="facilityNo" javaType="silverDetail">
+		<result property="facilityNo" column="facilityNo"/>
 		<result property="serviceType" column="serviceType"/>
+	</association>
 	</resultMap>
-
 	<select id="facInfo" resultMap="facInfo">
 		select
 		w.facilityNo, w.facilityName, w.typeName,w.cityloc,w.address,w.telnumber,w.serviceScore,w.latitude,w.longitude,m.peopleLimit, m.peopleNumber, s.servicetype
@@ -64,12 +84,16 @@
 		and w.facilityNo = m.facilityNo(+) and w.facilityNo = s.facilityNo(+)
 	</select>
 	
-	<select id="Reservationmember" resultType="member">
-		select mNo,mId,mName,mBirth,mGender,mPhone,mEmail,mAddr from member where mNo = 1
+	<select id="reservationmember" resultType="mvo">
+		select u_no,u_id,u_name
+		,'19'||to_date(u_birth,'yy-mm-dd') "u_birth"
+		,decode(subStr(u_birth2,1,1),'1','남성','3','남성','여성') "u_gender"
+        ,ceil(to_number(sysdate-to_date('19'||to_date(u_birth,'yy-mm-dd')))/365) "u_age"
+		,u_phone,u_email,u_addr1||' '||u_addr2 "u_addr" from U_MEMBER where u_no = 1
 	</select>
 	
-	<select id="welfareFacilities" resultType="facInfo">
-		select * from welfareFacilities where FACILITYNO = 6
+	<select id="welfareFacility" resultType="facInfo" parameterType="facInfo">
+		select facilityNo,typeName,facilityName,address,telnumber from welfareFacilities where facilityNo = #{facilityNo}
 	</select>
 
 </mapper>  

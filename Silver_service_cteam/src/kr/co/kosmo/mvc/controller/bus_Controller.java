@@ -1,11 +1,23 @@
 package kr.co.kosmo.mvc.controller;
 
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
+
+import kr.co.kosmo.mvc.buscommon.CommandMap;
+import kr.co.kosmo.mvc.busxml.BusStopParser;
+import kr.co.kosmo.mvc.service.SWBusService;
 
 @Controller
 public class bus_Controller {
 	
+	@Autowired		//@Resource
+	private SWBusService swBusServ;
 	
 	@RequestMapping(value = "/bus_info")
 	public String bus_info() {
@@ -19,4 +31,37 @@ public class bus_Controller {
 	public String bus_service() {
 		return "bus_service_sw";
 	}
+	
+	@Autowired		//@Resource
+	private BusStopParser busStopParser;
+	
+
+    @RequestMapping(value="/main")
+    public ModelAndView nodeFind(CommandMap commandMap) throws Exception{
+         
+        ModelAndView mv = new ModelAndView("node_find");
+        mv.addObject("nodeid",commandMap.get("nodeid"));
+        mv.addObject("nodename",commandMap.get("nodename"));
+        mv.addObject("lat",commandMap.get("lat"));
+        mv.addObject("lng",commandMap.get("lng"));
+         
+        return mv;
+    }
+    //정류장 정보 
+	//@ResponseBody :서버에서 클라이언트로 응답 데이터를 전송하기 위해서 자바 객체를 HTTP 응답 본문의 객체로 변환하여 클라이언트로 전송시키는 역활
+	//ajax사용할때 사용하며 jsonView를 써준다.
+	@RequestMapping(value="/nodeList")
+	public @ResponseBody ModelAndView busList(@RequestBody Map<String,Object> map) throws Exception{
+	    map.put("list", swBusServ.nodeList(map));
+	    return new ModelAndView("jsonView", map);
+	}
+	
+	
+	//실시간 버스정보
+	@RequestMapping(value="/nodeRealTime")
+	 public @ResponseBody ModelAndView nodeRealTime(@RequestBody Map<String,Object> map) throws Exception{
+	  map.put("list", busStopParser.apiParserNodeRealTime(map));
+	 
+	  return new ModelAndView("jsonView", map);
+	 }
 }

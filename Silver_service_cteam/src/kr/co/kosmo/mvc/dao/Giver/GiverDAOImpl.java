@@ -6,9 +6,8 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
-import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
+
 
 import java.util.List;
 
@@ -20,16 +19,16 @@ public class GiverDAOImpl implements GiverDAO {
 	
 	
 	@Override
-	   public List<GiverVO> selectGiverByNo_list() throws Exception {
-	      System.out.println("===> sqlSession selectGiverByNo()_DAO È£Ãâ");
+	   public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception {
+	      System.out.println("===> sqlSession selectGiverByNo()_DAO í˜¸ì¶œ");
 
-	      return sqlSession.selectList("giverMapper.selectGiverByNo");
+	      return sqlSession.selectList("giverMapper.selectGiverByNo",vo);
 	   }
 
 	
 	@Override
 	public void deleteGiver(GiverVO vo) throws Exception {
-		System.out.println("===> sqlSession deleteGiver()_DAO È£Ãâ");
+		System.out.println("===> sqlSession deleteGiver()_DAO í˜¸ì¶œ");
 		sqlSession.delete("giverMapper.deleteGiver",vo);
 	}
 

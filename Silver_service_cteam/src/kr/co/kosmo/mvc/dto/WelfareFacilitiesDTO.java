@@ -18,22 +18,36 @@ public class WelfareFacilitiesDTO {
 	String typeName, facilityName, cityloc;
 	String address, telnumber, latitude, longitude;
 	int serviceScore;
-	private List<MedicaldetailDTO> medicalDetail;
-	private List<SilverhalldetailDTO> silverhallDetail;
+//	private List<MedicaldetailDTO> medicalDetail;
+//	private List<SilverhalldetailDTO> silverhallDetail;
+	private MedicaldetailDTO medicalDetail;
+	private SilverhalldetailDTO silverhallDetail;
 	
 	
-	public List<SilverhalldetailDTO> getSilverhallDetail() {
-		return silverhallDetail;
-	}
-	public void setSilverhallDetail(List<SilverhalldetailDTO> silverhallDetail) {
-		this.silverhallDetail = silverhallDetail;
-	}
-	public List<MedicaldetailDTO> getMedicalDetail() {
+	public MedicaldetailDTO getMedicalDetail() {
 		return medicalDetail;
 	}
-	public void setMedicalDetail(List<MedicaldetailDTO> medicalDetail) {
+	public void setMedicalDetail(MedicaldetailDTO medicalDetail) {
 		this.medicalDetail = medicalDetail;
 	}
+	public SilverhalldetailDTO getSilverhallDetail() {
+		return silverhallDetail;
+	}
+	public void setSilverhallDetail(SilverhalldetailDTO silverhallDetail) {
+		this.silverhallDetail = silverhallDetail;
+	}
+	//	public List<SilverhalldetailDTO> getSilverhallDetail() {
+//		return silverhallDetail;
+//	}
+//	public void setSilverhallDetail(List<SilverhalldetailDTO> silverhallDetail) {
+//		this.silverhallDetail = silverhallDetail;
+//	}
+//	public List<MedicaldetailDTO> getMedicalDetail() {
+//		return medicalDetail;
+//	}
+//	public void setMedicalDetail(List<MedicaldetailDTO> medicalDetail) {
+//		this.medicalDetail = medicalDetail;
+//	}
 	public int getFacilityNo() {
 		return facilityNo;
 	}

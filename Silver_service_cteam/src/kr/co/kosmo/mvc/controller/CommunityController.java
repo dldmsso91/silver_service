@@ -18,40 +18,40 @@ public class CommunityController {
 	
 	@RequestMapping(value="/communityService")
 	public String communityService() {
-		return "communityService_jw";
+		return "community/communityService_jw";
 	}
 	
 	@RequestMapping(value="/medicalLocation")
 	public String medicalLocation(WelfareFacilitiesDTO vo, Model model) {
 		model.addAttribute("medicalList", communityService.getMedicalList());
-		return "medicalLocation_jw";
+		return "community/medicalLocation_jw";
 	}
 	
 	@RequestMapping(value="/silverhallLocation")
 	public String silverhallLocation(WelfareFacilitiesDTO vo, Model model) {
 		model.addAttribute("silverhallList", communityService.getSilverhallList());
-		return "silverhallLocation_jw";
+		return "community/silverhallLocation_jw";
 	}
 	
 	@RequestMapping(value="/elderlyhomeLocation")
 	public String elderlyhomeLocation(WelfareFacilitiesDTO vo, Model model) {
 		model.addAttribute("elderlyhomeList", communityService.getElderlyhomeList());
-		return "elderlyhomeLocation_jw";
+		return "community/elderlyhomeLocation_jw";
 	}
 	
 	@RequestMapping(value="/welfareFacilityDetail")
-	public String welfareFacilityDetail(WelfareFacilitiesDTO vo, Model model, HttpServletRequest request) {
-		int facilityNo = Integer.parseInt(request.getParameter("facilityNo"));
+	public String welfareFacilityDetail(WelfareFacilitiesDTO vo, Model model) {
 		model.addAttribute("facInfo", communityService.getFacilityInfo(vo));
-		model.addAttribute("facilityNo", facilityNo);
-		return "welfareFacilityDetail_jw";
+		return "community/welfareFacilityDetail_jw";
 	}
 	
 	@RequestMapping(value="/communityReservation")
-	public String communityReservation(WelfareFacilitiesDTO vo, Model model) {
-		model.addAttribute("WelfareFacilities", communityService.getWelfareFacilities(vo));
+	public String communityReservation(WelfareFacilitiesDTO vo, Model model, HttpServletRequest request) {
+//		int facilityNo = Integer.parseInt(request.getParameter("facilityNo"));
+//		System.out.println(facilityNo);
+		model.addAttribute("WelfareFacilities", communityService.getWelfareFacility(vo));
 		model.addAttribute("Reservationmember", communityService.getReservationmember());
-		return "communityReservation_jw";
+		return "community/communityReservation_jw";
 	}
 	
 }

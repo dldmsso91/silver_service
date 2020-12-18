@@ -1,6 +1,5 @@
 package kr.co.kosmo.mvc.dto.Giver;
 
-import java.util.List;
 
 import kr.co.kosmo.mvc.dto.MemberVO;
 
@@ -27,7 +26,27 @@ public class GiverVO {
 		private LicenseVO licenseVO;
 		private Hope_Business_AreaVO hope_business_areaVO;
 		
-		//기존 멤버변수
+		
+		
+		
+		
+		
+		//constructor
+		
+		public GiverVO() {
+			super();
+		}
+
+		public GiverVO(int u_no) {
+			super();
+			this.u_no = u_no;
+		}
+		
+		
+		
+		
+		
+		//method
 		
 		public int getGiver_no() {
 			return giver_no;
@@ -90,12 +109,12 @@ public class GiverVO {
 			this.apply_giver_redate = apply_giver_redate;
 		}
 
+
 		
 		
 		
 		
-		
-		//		class변수
+
 		public MemberVO getMemberVO() {
 			return memberVO;
 		}

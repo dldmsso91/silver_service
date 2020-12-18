@@ -27,22 +27,31 @@
 <script type="text/javascript">
 	$(function() {
 
-		var inner_item = $(".noLine")
-
-		/*  inner_item.children().hide();
-
-		inner_item1.show(); */
-
+		
+		 var inner_item = $(".noLine")
+		var inner_box = $("#mapBox")
 		
 		$(".bus1").click(function() {
-			inner_item.toggle(function() {
-				inner_item.addClass('hide');
-			}, function() {
+			inner_item.toggleClass(function() {
+				inner_box.attr('class','mapBox_info');
 				inner_item.addClass('show');
+				
+			}, function() {
+				
+				inner_item.addClass('show');
+				inner_box.attr('class','mapBox');
+				
 			});
 		});
 
+		
+	
+
+	
+
+		
 	});
+
 </script>
 </head>
 <body>
@@ -88,35 +97,17 @@
 				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
 					value="11(노곡종점-직지사)" style="width: 150px; height: 30px;">
 			</div>
-			&nbsp;&nbsp;
-			<div class="bus2">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
-					value="11(김천시청-직지사)" style="width: 150px; height: 30px;">
-			</div>
-			&nbsp;&nbsp;
-			<div class="bus3">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
-					value="11(중상-직지사)" style="width: 150px; height: 30px;">
-			</div>
-			&nbsp;&nbsp;
-			<div class="bus4">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
-					value="11(지경-직지사)" style="width: 150px; height: 30px;">
-			</div>
-			&nbsp;&nbsp;
-			<div class="bus5">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
-					value="11(직지사-김천시외버스터미널)" style="width: 150px; height: 30px;">
-			</div>
-		</div>
+			
 
-
+			<!-- 85% -->
 		<div id="bodyBox" calss="bodyBox">
-			<!--  -->
-			<div id="mapBox" class="mapBox_info"></div>
+			<div id="mapBox" class="mapBox"></div>
 			<div id="infoBox">
 				<table id="routeTable" class="routeTable" border="1"></table>
 			</div>
+
+
+
 		
 
 		<div id="noLine" class="noLine">
@@ -350,6 +341,13 @@
 			$("#about_info").addClass("selected");
 
 			fn_clickSetting();
+
+			 function fn_clickOverlay(){
+	             
+		            var obj = $(".markerSelected");
+		           
+		            comSubmit.submit();
+		        }
 		</script>
 </body>
 </html>

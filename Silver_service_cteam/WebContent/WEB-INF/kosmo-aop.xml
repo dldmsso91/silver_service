@@ -9,29 +9,69 @@
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
-<context:component-scan base-package="kr.co.kosmo.mvc"/>
-<mvc:annotation-driven />
-<mvc:resources location="/resources/" mapping="/resources/**" />
-<!-- JNDI 설정  -->
-<bean id="dataSource" class="org.springframework.jndi.JndiObjectFactoryBean">
-	<property name="jndiName" value="java:comp/env/jdbc/mykosmo"/>
-</bean>
-<!-- MyBatis 설정 -->
-<bean id="factoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-<property name="dataSource" ref="dataSource"/>
-<property name="configLocation" value="classpath:kr/co/kosmo/mvc/config/config.xml"/>
-<property name="mapperLocations" value="classpath*:kr/co/kosmo/mvc/mapper/*.xml"/>
-</bean>
-<bean id="ss" class="org.mybatis.spring.SqlSessionTemplate">
-	<constructor-arg ref="factoryBean"/>
-</bean>
-<!-- viewResolver 설정  -->
-<bean id="viewResolver"
+	<context:component-scan
+		base-package="kr.co.kosmo.mvc" />
+	<mvc:annotation-driven />
+	<mvc:resources location="/resources/"
+		mapping="/resources/**" />
+	<!-- JNDI 설정 -->
+	<bean id="dataSource"
+		class="org.springframework.jndi.JndiObjectFactoryBean">
+		<property name="jndiName" value="java:comp/env/jdbc/mykosmo" />
+	</bean>
+	<!-- MyBatis 설정 -->
+	<bean id="factoryBean"
+		class="org.mybatis.spring.SqlSessionFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="configLocation"
+			value="classpath:kr/co/kosmo/mvc/config/config.xml" />
+		<property name="mapperLocations"
+			value="classpath*:kr/co/kosmo/mvc/mapper/*.xml" />
+	</bean>
+	<bean id="ss" class="org.mybatis.spring.SqlSessionTemplate">
+		<constructor-arg ref="factoryBean" />
+	</bean>
+	<!-- viewResolver 설정 -->
+	<bean id="viewResolver"
 		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
 		<property name="prefix" value="/WEB-INF/jsp/" />
 		<property name="suffix" value=".jsp" />
-</bean>
-<!-- fileUploadViewResolver -->
-<bean id="multipartResolver" 
-	class="org.springframework.web.multipart.commons.CommonsMultipartResolver"/>
+	</bean>
+	<!-- fileUploadViewResolver -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver" />
+	<!--추가한것 -->
+
+	<!-- MappingJacksonJsonView 설정 -->
+	<bean
+		class="org.springframework.web.servlet.view.BeanNameViewResolver"
+		p:order="0" />
+	<bean
+		class="org.springframework.web.servlet.view.json.MappingJackson2JsonView"
+		id="jsonView">
+		<property name="contentType" value="application/json" />
+	</bean>
+
+	<bean
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver"
+		p:order="1"
+		p:viewClass="org.springframework.web.servlet.view.JstlView"
+		p:prefix="/WEB-INF/jsp/" p:suffix=".jsp">
+	</bean>
+
+	<!-- Tiles 설정 -->
+	<bean id="tilesViewResolver"
+		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.tiles3.TilesView" />
+		<property name="order" value="0" />
+	</bean>
+	<bean id="tilesConfigurer"
+		class="org.springframework.web.servlet.view.tiles3.TilesConfigurer">
+		<property name="definitions">
+			<list>
+				<value>/WEB-INF/tiles/tiles-definitions.xml</value>
+			</list>
+		</property>
+	</bean>
 </beans>

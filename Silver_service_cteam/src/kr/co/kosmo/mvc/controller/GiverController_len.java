@@ -4,16 +4,12 @@ package kr.co.kosmo.mvc.controller;
 
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import kr.co.kosmo.mvc.dto.MemberVO;
-import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
-import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
 import kr.co.kosmo.mvc.service.Giver.GiverService;
 
 
@@ -114,26 +110,47 @@ public class GiverController_len {
 	public String level_of_satisfaction_customer_en() {
 		return "giver/len/level_of_satisfaction_customer_en";
 	}
-	@RequestMapping(value="/mypage_customer_en")
-	public String mypage_customer_en() {
-		return "giver/len/mypage_customer_en";
-	}	
+
+
 	
 	
 	
 	
-	//----------------------Join Å×ÀÌºí ÀüÃ¼ ¸®½ºÆ®--------------------------------	
+	
+	
+	
+
+	
+	
+	
+	//----------------------Join selectë¬¸--------------------------------	
 	@RequestMapping(value = "/giver_test_list")
-	public String giver_resultmap_list(Model model) throws Exception{
-		List<GiverVO> list = giver_service.selectGiverByNo_list();
+	public String selectGiverByNo_list(Model model,GiverVO vo) throws Exception{	
+
+		//í…ŒìŠ¤íŠ¸ ê°’
+		vo.setU_no(1);
+		
+		
+		
+		List<GiverVO> list = giver_service.selectGiverByNo_list(vo);
+		System.out.println("selectGiverByNo_list controllerí™•ì¸");
+		
+		//í™•ì¸ìš© ë°˜ë³µë¬¸
+		for (GiverVO a : list){			
+			System.out.println("selectGiverByNo_list controllerí™•ì¸2"+a.getApply_giver_redate());
+		};
+		
+
 		model.addAttribute("giver",list);
-		System.out.println("===> giver_resultmap_list()_Controller È£Ãâ");
 		return "test/list";
 	}	
 
 	
 	@RequestMapping("/giver_test_delte")
 	public String  deleteGiver(Model model,GiverVO vo ) throws Exception {
+		
+		vo.setU_no(1);
+		
 		giver_service.deleteGiver(vo);
 		return "test/succeed_del";
 	}

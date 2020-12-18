@@ -8,9 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
-import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
-import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
+
 
 
 
@@ -23,9 +22,9 @@ public class GiverServiceImple implements GiverService {
 
 
 	@Override
-	public List<GiverVO> selectGiverByNo_list() throws Exception {
-		System.out.println("===> selectGiverByNo()_Service È£Ãâ");
-		return giver_dao.selectGiverByNo_list();
+	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception {
+		System.out.println("===> selectGiverByNo()_Service í˜¸ì¶œ");
+		return giver_dao.selectGiverByNo_list(vo);
 	}
 
 	

@@ -3,7 +3,7 @@ package kr.co.kosmo.mvc.dao;
 import java.util.List;
 
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO;
-import kr.co.kosmo.mvc.dto.MemberDTO;
+import kr.co.kosmo.mvc.dto.MemberVO;
 
 public interface CommunityInter {
 	
@@ -16,7 +16,7 @@ public interface CommunityInter {
 	
 	public List<WelfareFacilitiesDTO> getSilverhallList();
 	
-	public WelfareFacilitiesDTO getWelfareFacilities(WelfareFacilitiesDTO vo);
+	public WelfareFacilitiesDTO getWelfareFacility(WelfareFacilitiesDTO vo);
 	
-	public MemberDTO getReservationmember();
+	public MemberVO getReservationmember();
 }

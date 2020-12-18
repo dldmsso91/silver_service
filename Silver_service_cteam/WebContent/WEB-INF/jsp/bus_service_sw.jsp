@@ -88,7 +88,7 @@
                       <ul class="dropdown">
                         <li><a href="medicalLocation">의료복지시설</a></li>
                         <li><a href="silverhallLocation">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation">여가복지시설</a></li>
+                        <li><a href="elderlyhomeLocation">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>

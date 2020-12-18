@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.kosmo.mvc.dao.CommunityInter;
-import kr.co.kosmo.mvc.dto.MemberDTO;
+import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO;
 
 @Service("communityService")
@@ -36,12 +36,12 @@ public class CommunityService implements CommunityServiceInter{
 	}
 	
 	@Override
-	public WelfareFacilitiesDTO getWelfareFacilities(WelfareFacilitiesDTO vo) {
-		return commnunityDao.getWelfareFacilities(vo);
+	public WelfareFacilitiesDTO getWelfareFacility(WelfareFacilitiesDTO vo) {
+		return commnunityDao.getWelfareFacility(vo);
 	}
 	
 	@Override
-	public MemberDTO getReservationmember() {
+	public MemberVO getReservationmember() {
 		return commnunityDao.getReservationmember();
 	}
 	

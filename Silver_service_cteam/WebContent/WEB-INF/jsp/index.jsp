@@ -1,22 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!doctype html>
 <html lang="en">
 <head>
-  <title>Elderly &mdash; Website Template by Colorlib</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
-
-  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
-   
+   <title>Elderly &mdash; Website Template by Colorlib</title>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">    
+   <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">   
+   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+	<link rel="icon" href="/favicon.ico" type="image/x-icon">
    <link rel="preconnect" href="https://fonts.gstatic.com">
-   <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
-   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">   
-   
-
-
-
-
+   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">      
   <link rel="stylesheet" href="resources/fonts/icomoon/style.css">
   <link rel="stylesheet" href="resources/css/bootstrap.min.css">
   <link rel="stylesheet" href="resources/css/jquery-ui.css">
@@ -27,7 +25,7 @@
   <link rel="stylesheet" href="resources/css/bootstrap-datepicker.css">
   <link rel="stylesheet" href="resources/fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="resources/css/aos.css">
-  <link rel="stylesheet" href="resources/css/style.css">
+
 <style>
 .login_img img {
     vertical-align: middle;
@@ -40,6 +38,27 @@
 }
 </style>
 </head>
+  <link rel="stylesheet" href="resources/css/style.css">
+<script type="text/javascript">
+$(document).ready(function(){
+		$("#logoutBtn").on("click", function(){
+			location.href="login";
+		
+		})
+		$("#registerBtn").on("click", function(){
+			location.href="register";
+		})
+		
+		
+		
+		$("#memberUpdateBtn").on("click", function(){
+			location.href="memberUpdateView";
+		})
+		
+	})
+	
+	
+	</script>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
 
@@ -83,7 +102,7 @@
                   <ul class="dropdown">
                     <li><a href="apply_services_en" class="nav-link">서비스 소개</a></li>
                     <li><a href="apply_services_type_en" class="nav-link">서비스 신청하기</a></li>
-					 <li class="has-children">
+                <li class="has-children">
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply_yj">생활도우미 지원하기</a></li>
@@ -108,16 +127,30 @@
                       <ul class="dropdown">
                         <li><a href="medicalLocation">의료복지시설</a></li>
                         <li><a href="silverhallLocation">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation">여가복지시설</a></li>
+                        <li><a href="elderlyhomeLocation">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
-                <li><a href="mypage_customer_en" class="nav-link">mypage</a></li>
-				<li><a href="login_scm" class="login_img" ><img src="resources/images/login.png"></a>로그인</li>
-              	<li><a href="hoewon_scm" class="login_img" ><img src="resources/images/sign_up.png"></a>회원가입</li>
+            <c:if test="${member == null}">
+            <li><a href="login_scm" class="login_img" id="login"><img src="resources/images/login.png"></a>로그인</li>
+                 <li><a href="register" class="login_img"><img src="resources/images/sign_up.png"></a>회원가입</li>
+			</c:if>
+			<c:if test="${member != null}">
+				<div>
+				<p>${member.u_id}님 안녕하세요.</p>
+				<button id="memberUpdateBtn" type="button" class="btn btn-primary">회원정보</button>
+				<input type="button" value="로그아웃" id="logoutBtn"  class="btn btn-primary">
+				</div>
+				</c:if>
+
               </ul>
+         
+             <c:if test="${msg == false}">
+			<p style="color: red;">로그인 실패! 아이디와 비밀번호 확인해주세요.</p>
+			</c:if>
+			
             </nav>
           </div>
 
@@ -143,372 +176,13 @@
           <div class="col-lg-6 align-self-center">
             <h1 class="heading mb-3">노인지원센터</h1>
             <p class="lead text-white mb-5">지금 회원가입 하시고 혜택을 누리세요!</p>
-             <p><a href="list_scm" class="btn btn-primary">공지사항</a></p>
+             <p><a href="list" class="btn btn-primary">공지사항</a></p>
             <p><a href="list2_scm" class="btn btn-primary">새소식</a></p>
             <p><a href="ServiceCenter_scm" class="btn btn-primary">고객센터</a></p>
           </div>
         </div>
       </div>  
     </div>
-
-
-    <div class="feature-v1">
-      <div class="d-lg-flex align-items-center w-100">
-        <div class="d-flex pagination-item  h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/001-elderly.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Independent Living For Senior Couples</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/002-elderly-1.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">We Are Helping the Senior Elderly People</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-        <div class="d-flex pagination-item h-100">
-          <span class="icon-wrap">
-            <img src="resources/images/svg/svg/003-rocking-chair.svg" alt="Image" class="img-fluid">
-          </span>
-          <div>
-            <span class="subheading">Try Our Services</span>
-            <h3 class="heading">Senior Home Patient Care Services</h3>
-            <a href="#" class="small">Learn More</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-
-    <div class="site-section">
-      <div class="container">
-        <div class="row">
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_4_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_1_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_2_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-            <div class="service">
-              <a href="#" class="d-block"><img src="resources/images/img_3_sq.jpg" alt="Image" class="img-fluid"></a>
-              <div class="service-inner">
-                <h3>Special Care</h3>
-                <p>Lorem ipsum dolor sit amet elit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="site-section bg-primary count-numbers">
-      <div class="container">
-        <div class="row">
-         <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <div class="counter-wrap text-center">
-            <strong class="counter d-block"><span class="number" data-number="5890"></span></strong>
-            <span>Rooms Available</span>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <div class="counter-wrap text-center">
-            <strong class="counter d-block"><span class="number" data-number="530"></span></strong>
-            <span>Nurse Staff</span>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <div class="counter-wrap text-center">
-            <strong class="counter d-block"><span class="number" data-number="4029"></span></strong>
-            <span>Senior Living</span>
-          </div>
-        </div>
-        <div class="col-6 col-sm-6 col-md-6 col-lg-3 mb-4 mb-lg-0">
-          <div class="counter-wrap text-center">
-            <strong class="counter d-block"><span class="number" data-number="7020"></span></strong>
-            <span>Happy People</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-section">
-    <div class="container">
-      <div class="row justify-content-between">
-        <div class="col-lg-7">
-          <div class="section-heading">
-            <h2 class="heading mb-3">Senior Care Center is for Your Family</h2>
-            <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore perspiciatis deleniti, maiores quia aliquam, odit iure aspernatur voluptate delectus ipsa.</p>
-
-            <div class="row">
-              <div class="col-lg-6">
-                <img src="resources/images/img_3.jpg" alt="Image" class="img-fluid">
-              </div>
-              <div class="col-lg-6">
-                <ul class="list-unstyled ul-check primary">
-                  <li>Consectetur adipisicing elit</li>
-                  <li>Voluptate delectus ipsa</li>
-                  <li>Maiores quia aliquam</li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col-lg-5">
-
-          <div class="d-block custom-media algin-items-stretch">
-            <div class="text text-center">
-              <h3>You can live here with love</h3>
-            </div>
-            <div class="img-bg" style="background-image: url('images/img_2.jpg')"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="cover overlay" style="background-image: url('images/slider-2.jpg')">
-    <div class="container">
-      <div class="row ">
-        <div class="col-lg-7 mx-auto text-center align-self-center">
-          <h1 class="mb-5 heading">Our Goal is to Make Your Life Better</h1>
-          <div class="row">
-            <div class="col-lg-4">
-              <div class="feature">
-                <span class="img-wrap">
-                  <img src="resources/images/svg/svg/006-elderly-3.svg" alt="Image" class="img-fluid">
-                </span>
-                <h3>Expert Nursing Staff</h3>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="feature">
-                <span class="img-wrap">
-                  <img src="resources/images/svg/svg/005-elderly-2.svg" alt="Image" class="img-fluid">
-                </span>
-                <h3>Expert Nursing Staff</h3>
-              </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="feature">
-                <span class="img-wrap">
-                  <img src="resources/images/svg/svg/004-nurse.svg" alt="Image" class="img-fluid">
-                </span>
-                <h3>Expert Nursing Staff</h3>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-  <div class="site-section bg-light">
-    <div class="container">
-      <div class="row">
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-          <div class="testimonial text-center">
-            <img src="resources/images/person_1.jpg" alt="Image" class="img-fluid">
-            <blockquote>
-              <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-              <cite class="author">Elizabeth Anderson, Senior</cite>
-            </blockquote>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-          <div class="testimonial text-center">
-            <img src="resources/images/person_1.jpg" alt="Image" class="img-fluid">
-            <blockquote>
-              <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-              <cite class="author">Elizabeth Anderson, Senior</cite>
-            </blockquote>
-          </div>
-        </div>
-        <div class="col-12 col-sm-6 col-md-6 col-lg-4 mb-5 mb-lg-0">
-          <div class="testimonial text-center">
-            <img src="resources/images/person_1.jpg" alt="Image" class="img-fluid">
-            <blockquote>
-              <p class="quote">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo repellendus nihil qui iure animi maxime consequuntur aliquid sed tempore, amet!</p>
-              <cite class="author">Elizabeth Anderson, Senior</cite>
-            </blockquote>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-section">
-    <div class="container">
-      <div class="row mb-5 justify-content-center">
-        <div class="col-7 text-center">
-          <div class="heading">
-            <h2 class="text-black">Other Opportunities</h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, culpa.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-lg-6 mb-4">
-          <div class="d-block d-flex custom-media algin-items-stretch">
-            <div class="text text-left">
-              <h3>You can live here with love</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
-              <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
-            </div>
-            <div class="img-bg" style="background-image: url('images/img_2.jpg')"></div>
-          </div>
-        </div>
-        <div class="col-lg-6 mb-4">
-          <div class="d-block d-flex custom-media algin-items-stretch">
-            <div class="text text-left">
-              <h3>You can live here with love</h3>
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quae, commodi.</p>
-              <p><a href="#" class="btn btn-outline-white">Learn More</a></p>
-            </div>
-            <div class="img-bg" style="background-image: url('images/img_3.jpg')"></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="site-section bg-primary">
-    <div class="container">
-      <div class="row">
-        <div class="col-md-6 col-lg-6 mb-5 mb-md-0">
-          <img src="resources/images/about.png" alt="Image" class="img-fluid">
-        </div>
-        <div class="col-md-6 col-lg-5 ml-auto">
-          <div class="section-heading">
-            <h2 class="heading mb-3 text-white">Senior &amp; Elder Home Care Center</h2>
-
-            <p class="text-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Similique amet nostrum facere hic! Inventore cumque ipsam eum, sit sequi illum.</p>
-            <p class="mb-4 text-white">Optio ex ullam eveniet magnam molestiae laborum, dignissimos dolorum ipsam minus, ipsum vel illo aut molestias suscipit voluptatem hic voluptatibus!</p>
-            <p class="text-white mb-5"><strong class="h3">&ldquo;We care for elderly people&rdquo;</strong></p>
-            <p><a href="#" class="btn btn-white">Learn More</a></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-
-
-  <div class="site-section">
-    <div class="container">
-      <div class="row mb-5 justify-content-center">
-        <div class="col-7 text-center">
-          <div class="heading">
-            <h2 class="text-black">News &amp; Updates</h2>
-          </div>
-          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi, culpa.</p>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4">
-          <div class="blog-entry">
-            <a href="#" class="d-block">
-              <img src="resources/images/img_1.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-              <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-              <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-            </div>
-            <h2><a href="#">We're Providing the Quality Care</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-entry">
-            <a href="#" class="d-block">
-              <img src="resources/images/img_2.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-              <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-              <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-            </div>
-            <h2><a href="#">We're Providing the Quality Care</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-          </div>
-        </div>
-        <div class="col-md-4">
-          <div class="blog-entry">
-            <a href="#" class="d-block">
-              <img src="resources/images/img_3.jpg" alt="Image" class="img-fluid">
-            </a>
-            <div class="post-meta d-flex justify-content-center">
-              <span>
-                <span class="icon-calendar"></span>
-                <span>23 Jul</span>
-              </span>
-              <span>
-                <span class="icon-user"></span>
-                <span>Admin</span>
-              </span>
-              <span>
-                <span class="icon-comment"></span>
-                <span>2 Comments</span>
-              </span>
-            </div>
-            <h2><a href="#">We're Providing the Quality Care</a></h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. At, laudantium.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="site-footer bg-light">
     <div class="container">
       <div class="row">

@@ -4,9 +4,9 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="giverMapper">
 
+ 
 
-
-  <!-- ResultMap -->
+<!--   ResultMap -->
 <!-- 현재 giver에 join되어있음. -->
 <resultMap type="giver" id="giver">
 	<result column="apply_giver_no" property="apply_giver_no"/>
@@ -69,7 +69,7 @@
         s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
         
  	FROM U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
-	WHERE u.u_no=0
+	WHERE g.u_no= #{u_no}
 	</select>	
 
 
@@ -77,19 +77,8 @@
 <!-- delete문 -->
    <delete id="deleteGiver"  parameterType="giver">
       DELETE FROM giver
-      WHERE Giver_no = 22
+      WHERE Giver_no = #{giver_no}
    </delete>
-
-
-
-
-
-
-
-
-
-
-
 
 
 

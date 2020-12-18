@@ -6,7 +6,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.kosmo.mvc.dto.MemberDTO;
+import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO;
 @Repository
 public class CommunityDao implements CommunityInter{
@@ -35,13 +35,13 @@ public class CommunityDao implements CommunityInter{
 	}
 	
 	@Override
-	public WelfareFacilitiesDTO getWelfareFacilities(WelfareFacilitiesDTO vo) {
-		return ss.selectOne("commu.welfareFacilities");
+	public WelfareFacilitiesDTO getWelfareFacility(WelfareFacilitiesDTO vo) {
+		return ss.selectOne("commu.welfareFacility", vo);
 	}
 	
 	@Override
-	public MemberDTO getReservationmember() {
-		return ss.selectOne("commu.Reservationmember");
+	public MemberVO getReservationmember() {
+		return ss.selectOne("commu.reservationmember");
 	}
 	
 }
