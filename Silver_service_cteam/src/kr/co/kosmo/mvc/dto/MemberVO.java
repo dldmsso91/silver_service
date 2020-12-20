@@ -67,7 +67,6 @@ public class MemberVO {
 		return u_birth2;
 	}
 
-
 	public void setU_birth2(String u_birth2) {
 		this.u_birth2 = u_birth2;
 	}

@@ -94,9 +94,9 @@ width: 35%;
                     <li class="has-children">
                       <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation">노인의료복지시설</a></li>
+                        <li><a href="medicalLocation">의료복지시설</a></li>
                         <li><a href="silverhallLocation">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
+                        <li><a href="elderlyhomeLocation">요양시설</a></li>
                       </ul>
                     </li>
                   </ul>

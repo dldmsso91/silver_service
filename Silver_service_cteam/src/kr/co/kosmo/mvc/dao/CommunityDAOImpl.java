@@ -7,41 +7,47 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.kosmo.mvc.dto.MemberVO;
-import kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO;
+import kr.co.kosmo.mvc.dto.ReservationInfoVO;
+import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 @Repository
-public class CommunityDao implements CommunityInter{
+public class CommunityDAOImpl implements CommunityDAO{
 	// �ڵ� �� ���� 
 	@Autowired
 	private SqlSessionTemplate ss;
 	
 	@Override
-	public WelfareFacilitiesDTO getFacilityInfo(WelfareFacilitiesDTO vo) {
+	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo) {
 		return ss.selectOne("commu.facInfo", vo);
 	}
 	
 	@Override
-	public List<WelfareFacilitiesDTO> getMedicalList() {
+	public List<WelfareFacilitiesVO> getMedicalList() {
 		return ss.selectList("commu.getMedicalList");
 	}
 	
 	@Override
-	public List<WelfareFacilitiesDTO> getElderlyhomeList() {
+	public List<WelfareFacilitiesVO> getElderlyhomeList() {
 		return ss.selectList("commu.getElderlyhomeList");
 	}
 	
 	@Override
-	public List<WelfareFacilitiesDTO> getSilverhallList() {
+	public List<WelfareFacilitiesVO> getSilverhallList() {
 		return ss.selectList("commu.getSilverhallList");
 	}
 	
 	@Override
-	public WelfareFacilitiesDTO getWelfareFacility(WelfareFacilitiesDTO vo) {
+	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo) {
 		return ss.selectOne("commu.welfareFacility", vo);
 	}
 	
 	@Override
-	public MemberVO getReservationmember() {
-		return ss.selectOne("commu.reservationmember");
+	public MemberVO getReservationmember(int u_no) {
+		return ss.selectOne("commu.reservationmember", u_no);
+	}
+	
+	@Override
+	public void insertReservationInfo(ReservationInfoVO vo){
+		ss.insert("commu.insertReservationInfo", vo);
 	}
 	
 }

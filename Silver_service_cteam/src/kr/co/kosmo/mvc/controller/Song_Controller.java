@@ -29,17 +29,14 @@ public class Song_Controller {
 	public String index() {
 		return "index";
 	}
-
-
-	
 	
 	@RequestMapping(value="/list2_scm")
 	public String list2_scm() {
 	      return "list2_scm";
 	}
-	@RequestMapping(value="/login_scm")
+	@RequestMapping(value="/login")
 	public String login_scm() {
-	      return "login_scm";
+	      return "login";
 	}
 	@RequestMapping(value="/ServiceCenter_scm")
 	public String ServiceCenter_scm() {
@@ -56,10 +53,6 @@ public class Song_Controller {
 		return "giver/len/mypage_customer_en";
 	}	
 		
-	@RequestMapping(value="/hoewon_scm")
-	public String hoewon_scm() {
-	      return "hoewon_scm";
-	}
-	   
+
 
 }

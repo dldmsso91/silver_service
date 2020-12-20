@@ -23,13 +23,13 @@ public class MemberDTO {
 	private String mPhone;
 	private String mEmail;
 	private String mAddr;
-	private List<WelfareFacilitiesDTO> welfareFacilitiesDTO;
+	private List<WelfareFacilitiesVO> welfareFacilitiesDTO;
 	
 	
-	public List<WelfareFacilitiesDTO> getWelfareFacilitiesDTO() {
+	public List<WelfareFacilitiesVO> getWelfareFacilitiesDTO() {
 		return welfareFacilitiesDTO;
 	}
-	public void setWelfareFacilitiesDTO(List<WelfareFacilitiesDTO> welfareFacilitiesDTO) {
+	public void setWelfareFacilitiesDTO(List<WelfareFacilitiesVO> welfareFacilitiesDTO) {
 		this.welfareFacilitiesDTO = welfareFacilitiesDTO;
 	}
 	public int getmNo() {

@@ -1,8 +1,5 @@
 package kr.co.kosmo.mvc.controller;
 
-
-
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -16,6 +13,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import kr.co.kosmo.mvc.dto.BoardVO;
@@ -24,71 +22,87 @@ import kr.co.kosmo.mvc.dto.ReplyVO;
 import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.service.MemberService;
 
-
-
 @Controller
 /* @RequestMapping("/member/") */
 public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-	
+
 	@Autowired
 	MemberService service;
-	
-	// 회원가입 get
+
+	// �쉶�썝媛��엯 get
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void getRegister() throws Exception {
 		logger.info("get register");
 	}
-	
+
+	// 아이디 중복 체크
+	@ResponseBody
+	@RequestMapping(value = "/idChk", method = RequestMethod.POST)
+	public int idChk(MemberVO vo) throws Exception {
+		int result = service.idChk(vo);
+		return result;
+	}
+
 	// 회원가입 post
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
 		logger.info("post register");
-		
-		service.register(vo);
-		
+		int result = service.idChk(vo);
+		try {
+			if (result == 1) {
+				return "register";
+			} else if (result == 0) {
+				service.register(vo);
+			}
+			// 요기에서~ 입력된 아이디가 존재한다면 -> 다시 회원가입 페이지로 돌아가기
+			// 존재하지 않는다면 -> register
+		} catch (Exception e) {
+			throw new RuntimeException();
+		}
 		return "redirect:/";
 	}
-	// 로그인
-	@RequestMapping(value = "login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
+
+	// 濡쒓렇�씤
+	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
 		logger.info("post login");
-		
+
 		HttpSession session = req.getSession();
 		MemberVO login = service.login(vo);
-		
-		if(login == null) {
+
+		if (login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-		}else {
+		} else {
 			session.setAttribute("member", login);
+			session.setAttribute("u_no", login.getU_no());
 		}
-		
+
 		return "redirect:/";
 	}
+
 	// 로그아웃
-	@RequestMapping(value = "logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) throws Exception{
-		
+	@RequestMapping(value = "/logout", method = RequestMethod.GET)
+	public String logout(HttpSession session) throws Exception {
+
 		session.invalidate();
-		
-		return "redirect:/login";
+
+		return "redirect:/";
 	}
-	
-	
 
 	/*
-	 * // 회원상세정보조회(실패)
+	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶(�떎�뙣)
 	 * 
 	 * @RequestMapping(value="/memberView") public String memberView(String u_id
 	 * ,Model model) { model.addAllAttributes("dto",memberService.viewMember(u_id));
-	 * logger.info("클릭한아이디 :" +u_id); return "memberView"; }
+	 * logger.info("�겢由��븳�븘�씠�뵒 :" +u_id); return "memberView"; }
 	 * 
 	 */
-	
+
 	/*
-	 * // 회원상세정보조회
+	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶
 	 * 
 	 * @RequestMapping(value = "/readmember" , method = RequestMethod.GET) public
 	 * String readmember(MemberVO memberVO ,@ModelAttribute("scri") SearchCriteria
@@ -98,22 +112,21 @@ public class MemberController {
 	 * 
 	 * return "readmember"; }
 	 */
-	
-	
-	// 회원정보수정
-	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
-	public String registerUpdateView() throws Exception{
-		
+
+	// �쉶�썝�젙蹂댁닔�젙
+	@RequestMapping(value = "/memberUpdateView", method = RequestMethod.GET)
+	public String registerUpdateView() throws Exception {
+
 		return "memberUpdateView";
 	}
-                                                                                                                                      
-	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
-	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
-		
+
+	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
+	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception {
+
 		service.memberUpdate(vo);
-		
+
 		session.invalidate();
-		
-		return "redirect:login";
+
+		return "redirect:/";
 	}
 }

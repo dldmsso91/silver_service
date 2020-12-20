@@ -4,9 +4,10 @@
   "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
 <typeAliases>
-	<typeAlias type="kr.co.kosmo.mvc.dto.WelfareFacilitiesDTO" alias="facInfo"/>
-	<typeAlias type="kr.co.kosmo.mvc.dto.MedicaldetailDTO" alias="medicalDetail"/>
-	<typeAlias type="kr.co.kosmo.mvc.dto.SilverhalldetailDTO" alias="silverDetail"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.WelfareFacilitiesVO" alias="facInfo"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.MedicaldetailVO" alias="medicalDetail"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.SilverhalldetailVO" alias="silverDetail"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.ReservationInfoVO" alias="res"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.BoardVO" alias="bvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.SearchCriteria" alias="scvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.ReplyVO" alias="rvo"/>

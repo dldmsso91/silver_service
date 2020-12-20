@@ -13,27 +13,27 @@ latitude varchar2(40),
 longitude varchar2(40),
 serviceScore number(5)
  */
-public class WelfareFacilitiesDTO {
+public class WelfareFacilitiesVO {
 	int facilityNo;
 	String typeName, facilityName, cityloc;
 	String address, telnumber, latitude, longitude;
 	int serviceScore;
 //	private List<MedicaldetailDTO> medicalDetail;
 //	private List<SilverhalldetailDTO> silverhallDetail;
-	private MedicaldetailDTO medicalDetail;
-	private SilverhalldetailDTO silverhallDetail;
+	private MedicaldetailVO medicalDetail;
+	private SilverhalldetailVO silverhallDetail;
 	
 	
-	public MedicaldetailDTO getMedicalDetail() {
+	public MedicaldetailVO getMedicalDetail() {
 		return medicalDetail;
 	}
-	public void setMedicalDetail(MedicaldetailDTO medicalDetail) {
+	public void setMedicalDetail(MedicaldetailVO medicalDetail) {
 		this.medicalDetail = medicalDetail;
 	}
-	public SilverhalldetailDTO getSilverhallDetail() {
+	public SilverhalldetailVO getSilverhallDetail() {
 		return silverhallDetail;
 	}
-	public void setSilverhallDetail(SilverhalldetailDTO silverhallDetail) {
+	public void setSilverhallDetail(SilverhalldetailVO silverhallDetail) {
 		this.silverhallDetail = silverhallDetail;
 	}
 	//	public List<SilverhalldetailDTO> getSilverhallDetail() {

@@ -7,7 +7,7 @@ peopleLimit number(10),
 peopleNumber number(10),
 foreign key(faciltyNO) references welfareFacilities(facilityNo)
  */
-public class MedicaldetailDTO {
+public class MedicaldetailVO {
 	private int facilityNo;
 	private int peopleLimit;
 	private int peopleNumber;

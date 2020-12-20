@@ -84,16 +84,21 @@
 		and w.facilityNo = m.facilityNo(+) and w.facilityNo = s.facilityNo(+)
 	</select>
 	
-	<select id="reservationmember" resultType="mvo">
+	<select id="reservationmember" resultType="mvo" parameterType="int">
 		select u_no,u_id,u_name
 		,'19'||to_date(u_birth,'yy-mm-dd') "u_birth"
 		,decode(subStr(u_birth2,1,1),'1','남성','3','남성','여성') "u_gender"
-        ,ceil(to_number(sysdate-to_date('19'||to_date(u_birth,'yy-mm-dd')))/365) "u_age"
-		,u_phone,u_email,u_addr1||' '||u_addr2 "u_addr" from U_MEMBER where u_no = 1
+        ,floor(to_number(sysdate-to_date('19'||to_date(u_birth,'yy-mm-dd')))/365) "u_age"
+		,u_phone,u_email,u_addr1||' '||u_addr2 "u_addr" from U_MEMBER where u_no = #{u_no}
 	</select>
 	
 	<select id="welfareFacility" resultType="facInfo" parameterType="facInfo">
 		select facilityNo,typeName,facilityName,address,telnumber from welfareFacilities where facilityNo = #{facilityNo}
 	</select>
+	
+	<insert id="insertReservationInfo" parameterType="res">
+		insert into reservationInfo VALUES((select nvl(max(resNo),0)+1 from reservationInfo),#{facilityNO}
+		,#{facilityName},#{u_no},#{userName},#{userAge},to_date(#{resDate},'yyyy-mm-dd'),#{resTime})
+	</insert>
 
 </mapper>  

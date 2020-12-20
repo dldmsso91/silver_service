@@ -6,7 +6,7 @@ serviceType varchar2(20),
 NightService varchar2(10),
 foreign key(faciltyNO) references welfareFacilities(facilityNo)
  */
-public class SilverhalldetailDTO {
+public class SilverhalldetailVO {
 	private int facilityNo;
 	private String serviceType;
 	

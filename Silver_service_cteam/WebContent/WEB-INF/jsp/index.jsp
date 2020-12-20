@@ -42,7 +42,7 @@
 <script type="text/javascript">
 $(document).ready(function(){
 		$("#logoutBtn").on("click", function(){
-			location.href="login";
+			location.href="";
 		
 		})
 		$("#registerBtn").on("click", function(){
@@ -125,23 +125,24 @@ $(document).ready(function(){
                     <li class="has-children">
                       <a href="#">커뮤니티 공간 정보</a>
                       <ul class="dropdown">
-                        <li><a href="medicalLocation">의료복지시설</a></li>
+                        <li><a href="medicalLocation">노인의료복지시설</a></li>
                         <li><a href="silverhallLocation">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation">요양시설</a></li>
+                        <li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
                       </ul>
                     </li>
                   </ul>
                 </li>
                 <li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
             <c:if test="${member == null}">
-            <li><a href="login_scm" class="login_img" id="login"><img src="resources/images/login.png"></a>로그인</li>
+            <li><a href="login" class="login_img" id="login"><img src="resources/images/login.png"></a>로그인</li>
                  <li><a href="register" class="login_img"><img src="resources/images/sign_up.png"></a>회원가입</li>
 			</c:if>
 			<c:if test="${member != null}">
 				<div>
 				<p>${member.u_id}님 안녕하세요.</p>
 				<button id="memberUpdateBtn" type="button" class="btn btn-primary">회원정보</button>
-				<input type="button" value="로그아웃" id="logoutBtn"  class="btn btn-primary">
+				<c:if test="${member != null}"><a href="logout" class="btn btn-primary">로그아웃</a></c:if>
+				<!-- <input type="button" value="로그아웃" id="logoutBtn"  class="btn btn-primary"> -->
 				</div>
 				</c:if>
 

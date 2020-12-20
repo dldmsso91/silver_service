@@ -1,12 +1,12 @@
-package kr.co.kosmo.mvc.service;
+package kr.co.kosmo.mvc.dao;
 
 import java.util.List;
-import java.util.Map;
 
-import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
+import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 
-public interface CommunityService {
+public interface CommunityDAO {
 	
 	
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo);
@@ -19,8 +19,7 @@ public interface CommunityService {
 	
 	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo);
 	
-	public Map<String, Object> getReservationmember(int u_no,WelfareFacilitiesVO vo);
+	public MemberVO getReservationmember(int u_no);
 	
 	public void insertReservationInfo(ReservationInfoVO vo);
-
 }

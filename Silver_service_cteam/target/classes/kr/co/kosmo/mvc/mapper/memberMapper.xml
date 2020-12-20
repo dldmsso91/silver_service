@@ -35,7 +35,7 @@
     </insert>
         <!-- 로그인 -->
 	<select id="login" resultType="mvo">
-		SELECT U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
+		SELECT U_NO, U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
 		  FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
 		   AND U_PASSWORD = #{u_password}   
