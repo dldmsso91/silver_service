@@ -20,6 +20,14 @@ public class CommunityController {
 	@Autowired
 	CommunityService communityService;
 	
+	@RequestMapping(value="/myReservation")
+	public String myReservation(ReservationInfoVO vo, Model model, HttpSession session) {
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		vo.setU_no(u_no);
+		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		return "myReservation_jw";
+	}
+	
 	@RequestMapping(value="/communityService")
 	public String communityService() {
 		return "community/communityService_jw";
@@ -51,7 +59,13 @@ public class CommunityController {
 	
 	@RequestMapping(value="/communityReservation")
 	public String communityReservation(WelfareFacilitiesVO vo, Model model, HttpSession session) {
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int u_no = 0;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
 		Map<String, Object> map = new HashMap<String, Object>();
 		map = communityService.getReservationmember(u_no,vo);
 		model.addAttribute("Reservationmember", map.get("member"));
@@ -60,9 +74,12 @@ public class CommunityController {
 	}
 	
 	@RequestMapping(value="/reservationInsert")
-	public String reservationInsert(ReservationInfoVO vo) {
+	public String reservationInsert(ReservationInfoVO vo, Model model, HttpSession session) {
 		communityService.insertReservationInfo(vo);
-		return "community/myReservation_jw";
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		vo.setU_no(u_no);
+		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		return "myReservation_jw";
 	}
 	
 }

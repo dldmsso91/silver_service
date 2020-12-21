@@ -98,7 +98,35 @@
 	
 	<insert id="insertReservationInfo" parameterType="res">
 		insert into reservationInfo VALUES((select nvl(max(resNo),0)+1 from reservationInfo),#{facilityNO}
-		,#{facilityName},#{u_no},#{userName},#{userAge},to_date(#{resDate},'yyyy-mm-dd'),#{resTime})
+		,#{facilityName},#{u_no},#{userName},#{userAge},to_date(#{resDate},'yyyy-mm-dd'),#{resTime}, #{visitPurpose})
 	</insert>
+	
+	<resultMap type="res" id="res">
+		<id property="resNo" column="resNo"/>
+		<result property="facilityNO" column="facilityNO" />
+		<result property="facilityName" column="facilityName" />
+		<result property="u_no" column="u_no" />
+		<result property="userName" column="userName" />
+		<result property="userAge" column="userAge" />
+		<result property="resDate" column="resDate" />
+		<result property="resTime" column="resTime" />
+		<result property="visitPurpose" column="visitPurpose" />
+	<association property="welfareFacilitiesVO" column="facilityNo" javaType="facInfo">
+		<id property="facilityNo" column="facilityNo"/>
+		<result property="typeName" column="typeName"/>
+		<result property="address" column="address"/>
+		<result property="telnumber" column="telnumber"/>
+	</association>
+	<association property="memberVO" column="u_no" javaType="mvo">
+		<result property="u_no" column="u_no"/>
+	</association>
+	</resultMap>
+	<select id="getMyReservation" resultMap="res">
+		select
+		w.typeName, r.facilityName, w.address, w.telnumber, userName,
+		to_char(r.resDate,'yyyy-mm-dd') "resDate", r.resTime, r.visitPurpose
+		from reservationInfo r, welfareFacilities w, U_MEMBER u
+		where r.u_no = #{u_no} and r.u_no = u.u_no and r.facilityNO = w.facilityNo
+	</select>
 
 </mapper>  

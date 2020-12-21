@@ -21,6 +21,7 @@ public interface CommunityService {
 	
 	public Map<String, Object> getReservationmember(int u_no,WelfareFacilitiesVO vo);
 	
-	public void insertReservationInfo(ReservationInfoVO vo);
-
+	public List<ReservationInfoVO> insertReservationInfo(ReservationInfoVO vo);
+	
+	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
 }

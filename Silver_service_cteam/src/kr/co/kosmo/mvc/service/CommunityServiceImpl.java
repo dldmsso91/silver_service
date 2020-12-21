@@ -51,8 +51,14 @@ public class CommunityServiceImpl implements CommunityService{
 	}
 	
 	@Override
-	public void insertReservationInfo(ReservationInfoVO vo) {
+	public List<ReservationInfoVO> insertReservationInfo(ReservationInfoVO vo) {
 		commnunityDao.insertReservationInfo(vo);
+		return commnunityDao.getMyReservation(vo);
+	}
+	
+	@Override
+	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo){
+		return commnunityDao.getMyReservation(vo);
 	}
 	
 }

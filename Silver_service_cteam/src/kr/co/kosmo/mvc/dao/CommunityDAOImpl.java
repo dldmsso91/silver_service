@@ -50,4 +50,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 		ss.insert("commu.insertReservationInfo", vo);
 	}
 	
+	@Override
+	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo){
+		return ss.selectList("commu.getMyReservation", vo);
+	}
+	
 }

@@ -22,4 +22,6 @@ public interface CommunityDAO {
 	public MemberVO getReservationmember(int u_no);
 	
 	public void insertReservationInfo(ReservationInfoVO vo);
+	
+	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
 }
