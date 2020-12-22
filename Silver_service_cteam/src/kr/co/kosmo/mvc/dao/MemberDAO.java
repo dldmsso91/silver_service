@@ -4,13 +4,14 @@ import kr.co.kosmo.mvc.dto.MemberVO;
 
 public interface MemberDAO {
 	
-	// �쉶�썝媛��엯
+	// 회원가입
 	public void register(MemberVO vo) throws Exception;
-	// 濡쒓렇�씤
+	// 로그인
 	public MemberVO login(MemberVO vo) throws Exception;
-	// �쉶�썝�젙蹂� �닔�젙
+	// 회원정보 수정
 	public void memberUpdate(MemberVO vo)throws Exception;
 	// 아이디 중복체크
 	public int idChk(MemberVO vo) throws Exception;
-
+	// 회원 탈퇴
+	public void memberDelete(MemberVO vo)throws Exception;
 }

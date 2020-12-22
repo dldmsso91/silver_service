@@ -1,0 +1,99 @@
+
+/* --------------------------------------기본 select */
+select * from giver;
+select * from Hope_Business_Area;
+select * from career;
+select * from license;
+select * from Giver_Satisfaction;
+
+/*-------------------------Member와 giver관련 테이블 join select문*/
+
+/* --------------------------------------2중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate
+
+ from U_MEMBER u,  giver g
+ where u.u_no=g.giver_no;
+
+
+/* --------------------------------------3중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
+        
+ from U_MEMBER u, career c, giver g
+ where u.u_no=g.giver_no;
+
+
+/* --------------------------------------4중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
+        
+ from U_MEMBER u, career c, giver g,Hope_Business_Area h
+ WHERE u.u_no=g.giver_no;
+
+
+
+
+
+/* --------------------------------------5중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO,licenseVO)*/
+
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
+        
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate
+        
+ from U_MEMBER u, career c, giver g,Hope_Business_Area h,license l
+ WHERE u.u_no=g.giver_no;
+
+/* --------------------------------------6중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO,licenseVO)*/
+
+	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
+        
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate,
+        
+        s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
+        
+ 	FROM U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
+	WHERE u.u_no=g.giver_no;
+
+
+
+/* ----------------------고객 주소와 도우미 희망근무지역 연결  추천 시 사용할 예정 *******************(MemberVO, giverVO,Hope_Business_AreaVO)*/
+
+
+Select *       
+from U_MEMBER u,giver g,Hope_Business_Area h
+
+WHERE   h.Hope_Business_city = u.u_addr
+        and h.Hope_Business_city =(select u_addr from u_member u, customer c where c.u_no=u.u_no and c.customer_no=1) 
+        and g.giver_type=(select giver_type from customer where customer_no=1) 
+        and u.u_no = g.u_no

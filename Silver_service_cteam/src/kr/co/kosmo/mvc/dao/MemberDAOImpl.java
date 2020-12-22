@@ -39,4 +39,14 @@ public class MemberDAOImpl implements MemberDAO {
 		int result = sql.selectOne("memberMapper.idChk", vo);
 		return result;
 	}
+   	// 업데이트와 마찬가지로 흐름은 같습니다.
+	@Override
+	public void memberDelete(MemberVO vo) throws Exception {
+		// MemberVO에 담긴 값들을 보내줍니다.
+		// 그럼 xml에서 memberMapper.memberDelete에 보시면
+		//  #{userId}, #{userPass}에 파라미터값이 매칭이 되겠지요.
+		sql.delete("memberMapper.memberDelete", vo);
+		
+	}
 }
+

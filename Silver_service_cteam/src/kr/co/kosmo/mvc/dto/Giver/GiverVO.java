@@ -1,6 +1,10 @@
 package kr.co.kosmo.mvc.dto.Giver;
 
 
+
+
+import java.util.List;
+
 import kr.co.kosmo.mvc.dto.MemberVO;
 
 public class GiverVO {
@@ -10,6 +14,8 @@ public class GiverVO {
 		private String giver_type;
 		private String hope_business_place;
 		private int hope_salary;
+		private String hope_worktime_start;
+		private String hope_worktime_end;
 		private String smoking;
 		private String school;
 		private String major;
@@ -18,13 +24,14 @@ public class GiverVO {
 		
 		
 		private MemberVO memberVO;
+		private CustomerVO customerVO;
 		
 		
 		
-		private CareerVO careerVO;
-		private Giver_SatisfactionVO giver_satisfactionVO;
-		private LicenseVO licenseVO;
-		private Hope_Business_AreaVO hope_business_areaVO;
+		private List<CareerVO> careerVO;
+		private List<Giver_SatisfactionVO> giver_satisfactionVO;
+		private List<LicenseVO> licenseVO;
+		private List<Hope_Business_AreaVO> hope_business_areaVO;
 		
 		
 		
@@ -40,6 +47,10 @@ public class GiverVO {
 		public GiverVO(int u_no) {
 			super();
 			this.u_no = u_no;
+		}
+		public GiverVO(int u_no,int giver_no) {
+			this.u_no = u_no;
+			this.giver_no = giver_no;
 		}
 		
 		
@@ -108,12 +119,27 @@ public class GiverVO {
 		public void setApply_giver_redate(String apply_giver_redate) {
 			this.apply_giver_redate = apply_giver_redate;
 		}
+		public String getHope_worktime_start() {
+			return hope_worktime_start;
+		}
 
+		public void setHope_worktime_start(String hope_worktime_start) {
+			this.hope_worktime_start = hope_worktime_start;
+		}
 
+		public String getHope_worktime_end() {
+			return hope_worktime_end;
+		}
+
+		public void setHope_worktime_end(String hope_worktime_end) {
+			this.hope_worktime_end = hope_worktime_end;
+		}
 		
 		
 		
 		
+		
+		//Class variable method
 
 		public MemberVO getMemberVO() {
 			return memberVO;
@@ -121,28 +147,49 @@ public class GiverVO {
 		public void setMemberVO(MemberVO memberVO) {
 			this.memberVO = memberVO;
 		}
-		public CareerVO getCareerVO() {
-			return careerVO;
+	
+		
+		public CustomerVO getCustomerVO() {
+			return customerVO;
 		}
-		public void setCareerVO(CareerVO careerVO) {
-			this.careerVO = careerVO;
+
+		public void setCustomerVO(CustomerVO customerVO) {
+			this.customerVO = customerVO;
 		}
-		public Giver_SatisfactionVO getGiver_satisfactionVO() {
-			return giver_satisfactionVO;
-		}
-		public void setGiver_satisfactionVO(Giver_SatisfactionVO giver_satisfactionVO) {
-			this.giver_satisfactionVO = giver_satisfactionVO;
-		}
-		public LicenseVO getLicenseVO() {
+
+		
+		
+		
+		
+		public List<LicenseVO> getLicenseVO() {
 			return licenseVO;
 		}
-		public void setLicenseVO(LicenseVO licenseVO) {
+
+		public void setLicenseVO(List<LicenseVO> licenseVO) {
 			this.licenseVO = licenseVO;
 		}
-		public Hope_Business_AreaVO getHope_business_areaVO() {
+
+		public List<CareerVO> getCareerVO() {
+			return careerVO;
+		}
+
+		public void setCareerVO(List<CareerVO> careerVO) {
+			this.careerVO = careerVO;
+		}
+
+		public List<Giver_SatisfactionVO> getGiver_satisfactionVO() {
+			return giver_satisfactionVO;
+		}
+
+		public void setGiver_satisfactionVO(List<Giver_SatisfactionVO> giver_satisfactionVO) {
+			this.giver_satisfactionVO = giver_satisfactionVO;
+		}
+
+		public List<Hope_Business_AreaVO> getHope_business_areaVO() {
 			return hope_business_areaVO;
 		}
-		public void setHope_business_areaVO(Hope_Business_AreaVO hope_business_areaVO) {
+
+		public void setHope_business_areaVO(List<Hope_Business_AreaVO> hope_business_areaVO) {
 			this.hope_business_areaVO = hope_business_areaVO;
 		}
 		

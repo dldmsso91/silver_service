@@ -5,6 +5,6 @@
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/target/generated-sources/annotations"/>
         <property name="java-output-path" value="/Silver_service_cteam/build/classes"/>
-        <property name="context-root" value="Silver_service_cteam"/>
+        <property name="context-root" value="Silver_service"/>
     </wb-module>
 </project-modules>

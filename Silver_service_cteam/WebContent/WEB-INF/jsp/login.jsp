@@ -167,7 +167,7 @@
         <div class="row">
           <div class="col-lg-6 align-self-center">
        <div class="back">
-              <form class="loginInfo" method="post" action="login" onsubmit="return checkValue()" name="userInfo"  id="login">                         
+             <form class="loginInfo" method="post" action="login" onsubmit="return checkValue()" name="userInfo"  id="login">                         
                   
                   <table>
                       <h1>로그인</h1>
@@ -179,11 +179,19 @@
                           <td>비밀번호</td>
                           <td><input type="password" name="u_password" id="u_password" maxlength="50"></td>
                       </tr>
+                   
+            
+                  	
                   </table>
+                  
                   <br>
+                  <div class="back">
+					<a target="" id="idinquiry" href="">아이디 찾기</a><span class="bar" aria-hidden="true">|</span> <a target="_blank" id="pwinquiry" href="">비밀번호 찾기</a>
+				</div>
                   	<div>
                    <p>
-                   <button type="submit" id="submit"class="btn btn-primary" class="checkValue">로그인</button>
+         <!--           <td><input type="button" name="#" id="#" value="아이디/비밀번호 찾기"  class="btn btn-primary"/></td> -->
+                   <button type="submit" id="submit"class="btn btn-primary" class="checkValue" onclick="">로그인</button>
                        <a  href="register" class="btn btn-primary">회원가입</a>
                    </p>
             <c:if test="${msg == false}">

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>    
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script
@@ -19,11 +20,24 @@
 			slideMargin : 20,
 			touchEnabled : (navigator.maxTouchPoints > 0)
 		});
-		$('#star_grade a').click(function() {
-			$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-			$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-			return false;
-		});
+		
+		
+		var satisfaction_score = $('#satisfaction_score')
+		var	customer_satisfaction_score=$('#customer_satisfaction_score')
+		var	star_onoff=$('.off')
+		
+
+		if(customer_satisfaction_score=satisfaction_score){
+			
+			star_onoff.replace("off","on")
+		};
+		
+		
+// 		$('#star_grade a').click(function() {
+// 			$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
+// 			$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+// 			return false;
+// 		});
 
 	});
 </script>
@@ -165,14 +179,15 @@ h3 {
 
 <div id="test" class="slide-item overlay"></div>
 
-<h2>이은내님의 조건에 맞는 도우미들입니다</h2>
+<h2>이은내님을 위한 도우미들입니다</h2>
 
-<form>
+<form action="giver_resume_detail_en" method='post'>
 	<div class='bxslider_area'>
 		<ul class="bxslider">
+<c:forEach items="${recommend}" var="r">
 			<li><img src="resources/images/1.jpg" alt="Image"
 				class="img-fluid" />
-				<h3>이문자</h3>
+				<h3>${r.memberVO.u_name}</h3>
 				<hr>
 				<h5>간병 서비스 이력</h5>
 				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
@@ -209,226 +224,18 @@ h3 {
 				</div>
 				<hr>
 				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
-			<li><img src="resources/images/2.jpg" alt="Image"
-				class="img-fluid" />
-				<h3>이요롱</h3>
-				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/5.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
-			<li><img src="resources/images/1.jpg" alt="Image"
-				class="img-fluid" />
-				<h3>김애용</h3>
-				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/4.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
-			<li><img src="resources/images/1.jpg" alt="Image"
-				class="img-fluid" />
-				<h3>이문자</h3>
-				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/4.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
-			<li><img src="resources/images/2.jpg" alt="Image"
-				class="img-fluid" />
-				<h3>이요롱</h3>
-				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/5.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
-			<li><img src="resources/images/1.jpg" alt="Image"
-				class="img-fluid" />
-				<h3>김애용</h3>
-				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/4.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<p id="star_grade">
-					<a href="#">★</a> <a href="#">★</a> <a href="#">★</a> <a href="#">★</a>
-					<a href="#">★</a>
-				</p> <a href="giver_resume_detail_en" class="btn btn-primary">상세보기</a></li>
+				<c:forEach items="${r.giver_satisfactionVO}" var="s">						
+					<input type="hidden" id="satisfaction_score" value="${s.customer_satisfaction_score}">				
+					<p id="star_grade">
+					<a>★</a>
+					<a>★</a>
+					<a>★</a>
+					<a>★</a>	
+					<a>★</a>	
+				</c:forEach>
+					<br/>
+					<button type="submit" class="btn btn-primary" id="detail" value="선택하기">선택하기</button></li>
+</c:forEach>
 		</ul>
 	</div>
 </form>

@@ -1,0 +1,46 @@
+/*버스도착정보*/
+Create Table Node_Route  (
+Nodeid Varchar2(100) Not Null,
+Nodename Varchar2(100) Not Null,
+Routeid  Varchar2(100) Not Null,
+Routeno  Varchar2(100) Not Null,
+Primary Key(Nodeid,Routeid)
+);
+
+
+/*정류장 정보조회*/
+Create Table Node_Info(
+Nodeid Varchar2(100) ,
+Nodeno Varchar2(100) ,
+Nodename Varchar2(100) ,
+Gpslati NUMBER ,
+Gpslong NUMBER ,
+Primary Key(Nodeid)
+);
+
+/*노선 정보조회*/
+Create Table Route_Info(
+Routeid Varchar2(100) ,
+Routeno Varchar2(100) NOT NULL,
+Startnodenm Varchar2(100)  NOT NULL,    
+Endnodenm Varchar2(100) NOT NULL,      
+Startvehicletime Varchar2(60), 
+Endvehicletime Varchar2(60), 
+Primary Key(Routeid)
+)
+
+/*정류장 순서*/
+Create Table Route_Order(
+   Routeid Varchar2(100) NOT NULL , 
+  Nodeord number NOT NULL,
+   Nodename Varchar2(100),
+   Nodeid Varchar2(100)  NOT NULL,
+  Primary Key(Nodeid,Nodeord)
+);
+
+select * from Node_Info /*정류장 정보조회*/
+select * from Node_Route /*버스도착정보*/
+select * from Route_Info /*노선 정보조회 */
+select * from Route_Order /*정류장 순서*/
+
+commit;

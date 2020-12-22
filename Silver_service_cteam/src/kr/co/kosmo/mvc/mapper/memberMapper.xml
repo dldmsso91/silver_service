@@ -35,7 +35,7 @@
     </insert>
         <!-- 로그인 -->
 	<select id="login" resultType="mvo">
-		SELECT U_NO, U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
+		SELECT U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
 		  FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
 		   AND U_PASSWORD = #{u_password}   
@@ -52,8 +52,11 @@
 		 FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
 	</select> -->
- 
- 
+ <!-- 아이디 중복체크 -->
+ <select id="idChk" resultType="int">
+	SELECT COUNT(*) FROM U_MEMBER
+	WHERE U_ID = #{u_id}
+</select>
 
 
  <!-- 회원정보 수정 -->
@@ -70,4 +73,23 @@
         ,U_ADDR2  =   #{u_addr2}				 
 		WHERE U_ID = #{u_id}
 	</update>  
+	
+	<!-- 회원탈퇴 -->
+<delete id="memberDelete">
+	DELETE FROM U_MEMBER
+	WHERE 
+	  	 U_ID = #{u_id}
+	  AND U_PASSWORD = #{u_password} 
+	  AND U_NAME =  #{u_name}
+	  AND U_BIRTH = #{u_birth} 
+	  AND U_BIRTH2 =#{u_birth2}
+	  AND U_PHONE =#{u_phone} 
+	  AND U_EMAIL =#{u_email} 
+	  AND U_ADDR =#{u_addr}
+	  AND U_ADDR1 =#{u_addr1} 
+	  AND U_ADDR2 =#{u_addr2} 
+	     
+	  	  	  	   
+</delete>	
+	
 </mapper>

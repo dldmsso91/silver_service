@@ -5,7 +5,8 @@ public class CareerVO {
 	private int career_no;
 	private int giver_no;
 	private String career_name;
-	private String work_Period;
+	private String work_period_start;
+	private String work_period_end;
 	private String role;
 	
 	
@@ -27,11 +28,18 @@ public class CareerVO {
 	public void setCareer_name(String career_name) {
 		this.career_name = career_name;
 	}
-	public String getWork_Period() {
-		return work_Period;
+
+	public String getWork_period_start() {
+		return work_period_start;
 	}
-	public void setWork_Period(String work_Period) {
-		work_Period = work_Period;
+	public void setWork_period_start(String work_period_start) {
+		this.work_period_start = work_period_start;
+	}
+	public String getWork_period_end() {
+		return work_period_end;
+	}
+	public void setWork_period_end(String work_period_end) {
+		this.work_period_end = work_period_end;
 	}
 	public String getRole() {
 		return role;

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="newboardMapper">
+   <!-- 새소식 글 작성 -->
+   <insert id="newinsert" parameterType="nbvo">
+	   INSERT INTO NEW_BOARD(    NBNO 
+	   					      , NTITLE 
+	   					      , NCONTENT 
+	   					      , NWRITER  )	                 
+VALUES(    NEW_BOARD_SEQ.NEXTVAL , #{ntitle} , #{ncontent} , #{nwriter}  )
+   
+   </insert>
+  	<select id="list" resultType="nbvo">
+		SELECT   NBNO
+			   , NTITLE
+			   , NWRITER
+			   , NREGDATE
+		  FROM NEW_BOARD
+		  ORDER BY NBNO DESC
+	</select> 
+	<select id="read" parameterType="int" resultType="nbvo">
+		SELECT	NBNO
+			  , NTITLE
+			  , NCONTENT
+			  , NWRITER
+			  , NREGDATE
+		 FROM NEW_BOARD
+		 WHERE NBNO = #{nbno}
+	</select> 
+	    <update id="update" parameterType="nbvo">
+			UPDATE NEW_BOARD
+		   SET NTITLE    =   #{ntitle},
+		   	   NCONTENT  =   #{ncontent}
+		 WHERE NBNO = #{nbno} 
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM NEW_BOARD
+		 WHERE NBNO = #{nbno}
+	</delete>
+	  
+</mapper>

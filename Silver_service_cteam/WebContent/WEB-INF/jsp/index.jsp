@@ -174,11 +174,11 @@ $(document).ready(function(){
     <div class="slide-item overlay" style="background-image: url('resources/images/slider-1.jpg')">
       <div class="container">
         <div class="row">
-          <div class="col-lg-6 align-self-center">
+           <div class="col-lg-6 align-self-center">
             <h1 class="heading mb-3">노인지원센터</h1>
             <p class="lead text-white mb-5">지금 회원가입 하시고 혜택을 누리세요!</p>
              <p><a href="list" class="btn btn-primary">공지사항</a></p>
-            <p><a href="list2_scm" class="btn btn-primary">새소식</a></p>
+            <p><a href="newboard/new_list" class="btn btn-primary">새소식</a></p>
             <p><a href="ServiceCenter_scm" class="btn btn-primary">고객센터</a></p>
           </div>
         </div>

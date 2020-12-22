@@ -20,15 +20,14 @@ public class Song_Controller {
 	}
 	
 	
-	@RequestMapping(value="/list_scm")
-	public String list_scm() {
-	      return "list_scm";
-	}
-	
+
 	@RequestMapping(value="/index")
 	public String index() {
 		return "index";
 	}
+
+
+	
 	
 	@RequestMapping(value="/list2_scm")
 	public String list2_scm() {

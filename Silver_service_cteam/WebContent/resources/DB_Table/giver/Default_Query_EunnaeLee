@@ -1,0 +1,114 @@
+
+
+/* --------------------------------------도우미 지원자 테이블 */
+INSERT INTO giver VALUES (1,1,'간병','상관없음',3000,'2015-10-10','2020-12-12','비흡연','경기대','체육과',0,sysdate);
+INSERT INTO giver VALUES (2,2,'간병','집',3000,'2015-10-10','2020-12-12','흡연','대전대','간병과',0,sysdate);
+
+/*INSERT INTO giver VALUES (giver_seq.nextval,1,'간병','상관없음',3000,'2015-10-10','2020-12-12','비흡연','경기대','체육과',0,sysdate); */
+
+select * from giver;
+UPDATE giver SET giver_no = 1 where giver_no=2;
+DELETE FROM giver WHERE giver_no = 3;
+
+commit;
+/* --------------------------------------도우미 희망근무지역 테이블 */
+
+INSERT INTO Hope_Business_Area VALUES (1,1,'대전시','문창동');
+INSERT INTO Hope_Business_Area VALUES (2,1,'경기도','평택시');
+INSERT INTO Hope_Business_Area VALUES (Hope_Business_Area_seq.nextval,1,'서울시','마포구');
+
+
+select * from Hope_Business_Area;
+
+UPDATE Hope_Business_Area SET Hope_Business_Area_no = 1 where Hope_Business_Area_no=2;
+DELETE FROM Hope_Business_Area WHERE Hope_Business_Area_no = 3;
+
+commit;
+
+/* --------------------------------------도우미 자격증 테이블 */
+
+INSERT INTO license VALUES (1,1,'요양보호사','대한민국',sysdate);
+INSERT INTO license VALUES (license_seq.nextval,1,'성인심리치료','대한민국',sysdate);
+INSERT INTO license VALUES (license_seq.nextval,1,'미용자격증','대한민국',sysdate);
+
+select * from license;
+
+UPDATE license SET license_no = 4 where license_no=3;
+DELETE FROM license WHERE license_no = 4;
+
+commit;
+/* --------------------------------------도우미 경력 테이블 */
+INSERT INTO career VALUES (1,1,'케어스','2015-10-10','2020-12-12','요양사');
+INSERT INTO career VALUES (2,1,'굿닥터','2015-10-10','2020-12-12','간호사');
+INSERT INTO career VALUES (3,1,'조은간병','2015-10-10','2020-12-12','간병사');
+INSERT INTO career VALUES (career_seq.nextval,1,'케어스','2015-10-10','2020-12-12','요양사');
+
+select * from career;
+
+UPDATE career SET career_no = 1 where career_no=3;
+DELETE FROM career WHERE career_no = 1;
+
+commit;
+
+
+
+ /* --------------------------------------서비스 신청자 테이블 */
+ /*giver_no가 있는 상태*/
+INSERT INTO Customer values (Customer_seq.nextval,1,1,'간병','암','먼지','거동가능','2020-09-12','2020-12-12','병원',5000,'12:00','18:00',0,sysdate);
+ /*giver_no가 없는 상태*/
+INSERT INTO Customer (Customer_NO,U_NO,giver_type,my_condition,my_allergy,can_walk,Hope_start_Date,Hope_finish_Date,Hope_Service_Place,Hope_Salary,Hope_start_Servicetime,Hope_end_Servicetime,penalty,Apply_Customer_redate) 
+values (Customer_seq.nextval,2,'간병','재활','비염','거동불가','2020-09-12','2020-12-12','집',5000,'12:00','18:00',0,sysdate);
+
+select * from Customer;
+
+UPDATE Customer SET Customer_NO = 2 where Customer_NO=3;
+DELETE FROM Customer WHERE Customer_NO = 4;
+
+commit;
+/* ----------------------------------신청자 리스트 테이블 */
+
+INSERT INTO apply_to_giver values (apply_to_giver_seq.nextval,1,1,sysdate);
+
+
+select * from apply_to_giver;
+
+UPDATE apply_to_giver SET apply_to_giver_no = 1 where apply_to_giver_no=2;
+DELETE FROM apply_to_giver WHERE apply_to_giver_no = 4;
+
+commit;
+
+/* --------------------------------------서비스 후기 테이블 */
+
+INSERT INTO Hugi VALUES (Hugi_seq.nextval,1,1,5,'정말 친절하고 좋았습니다.',sysdate);
+
+select * from hugi;
+
+UPDATE hugi SET hugi_no = 1 where hugi_no=3;
+DELETE FROM hugi WHERE hugi_no = 4;
+
+commit;
+/* --------------------------------------도우미 일일 만족도 테이블 */
+
+INSERT INTO Giver_Satisfaction VALUES (1,1,1,'침을뱉었습니다.',sysdate);
+INSERT INTO Giver_Satisfaction VALUES (Giver_Satisfaction_seq.nextval,1,1,'침을뱉었습니다.',sysdate);
+
+select * from Giver_Satisfaction;
+
+UPDATE Giver_Satisfaction SET Giver_Satisfaction_no = 1 where Giver_Satisfaction_no=3;
+DELETE FROM Giver_Satisfaction WHERE Giver_Satisfaction_no = 4;
+
+commit;
+
+
+/* ----------------------------------다중 인설트 참고용  */
+
+INSERT ALL 
+    INTO Hope_Business_Area VALUES (Hope_Business_Area_seq.nextval,2,'대전시','문창동')   
+    INTO career VALUES (career_seq.nextval,2,'케어스','2015-10-10','2020-12-12','요양사')
+    INTO license VALUES (license_seq.nextval,2,'미용자격증','대한민국',sysdate)
+    INTO Giver_Satisfaction VALUES (Giver_Satisfaction_seq.nextval,3,1,'침을뱉었습니다.',sysdate)  
+SELECT * FROM dual;
+
+
+
+

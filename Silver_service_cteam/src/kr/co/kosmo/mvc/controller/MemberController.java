@@ -1,5 +1,8 @@
 package kr.co.kosmo.mvc.controller;
 
+
+
+
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -22,75 +25,75 @@ import kr.co.kosmo.mvc.dto.ReplyVO;
 import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.service.MemberService;
 
+
+
 @Controller
 /* @RequestMapping("/member/") */
 public class MemberController {
 
 	private static final Logger logger = LoggerFactory.getLogger(MemberController.class);
-
+	
 	@Autowired
 	MemberService service;
-
+	
 	// �쉶�썝媛��엯 get
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void getRegister() throws Exception {
 		logger.info("get register");
 	}
-
 	// 아이디 중복 체크
 	@ResponseBody
-	@RequestMapping(value = "/idChk", method = RequestMethod.POST)
+	@RequestMapping(value="/idChk", method = RequestMethod.POST)
 	public int idChk(MemberVO vo) throws Exception {
 		int result = service.idChk(vo);
 		return result;
 	}
-
+	
 	// 회원가입 post
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
 		logger.info("post register");
 		int result = service.idChk(vo);
 		try {
-			if (result == 1) {
+			if(result == 1) {
 				return "register";
-			} else if (result == 0) {
+			}else if(result == 0) {
 				service.register(vo);
 			}
-			// 요기에서~ 입력된 아이디가 존재한다면 -> 다시 회원가입 페이지로 돌아가기
+			// 요기에서~ 입력된 아이디가 존재한다면 -> 다시 회원가입 페이지로 돌아가기 
 			// 존재하지 않는다면 -> register
 		} catch (Exception e) {
 			throw new RuntimeException();
 		}
-		return "redirect:/";
+		return "redirect:/register";
 	}
-
-	// 濡쒓렇�씤
+	// 로그인
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
-	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception {
+	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
-
+		
 		HttpSession session = req.getSession();
 		MemberVO login = service.login(vo);
-
-		if (login == null) {
+		
+		if(login == null) {
 			session.setAttribute("member", null);
 			rttr.addFlashAttribute("msg", false);
-		} else {
+		}else {
 			session.setAttribute("member", login);
-			session.setAttribute("u_no", login.getU_no());
 		}
-
+		
 		return "redirect:/";
 	}
-
-	// 로그아웃
+	//로그아웃
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
-	public String logout(HttpSession session) throws Exception {
-
+	public String logout(HttpSession session) throws Exception{
+		
 		session.invalidate();
-
+		
 		return "redirect:/";
 	}
+	
+	
 
 	/*
 	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶(�떎�뙣)
@@ -100,7 +103,7 @@ public class MemberController {
 	 * logger.info("�겢由��븳�븘�씠�뵒 :" +u_id); return "memberView"; }
 	 * 
 	 */
-
+	
 	/*
 	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶
 	 * 
@@ -112,21 +115,48 @@ public class MemberController {
 	 * 
 	 * return "readmember"; }
 	 */
-
+	
+	
 	// �쉶�썝�젙蹂댁닔�젙
-	@RequestMapping(value = "/memberUpdateView", method = RequestMethod.GET)
-	public String registerUpdateView() throws Exception {
-
+	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
+	public String registerUpdateView() throws Exception{
+		
 		return "memberUpdateView";
 	}
-
-	@RequestMapping(value = "/memberUpdate", method = RequestMethod.POST)
-	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception {
-
+                                                                                                                                      
+	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
+	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
+		
 		service.memberUpdate(vo);
-
+		
 		session.invalidate();
-
+		
 		return "redirect:/";
 	}
-}
+	// 회원 탈퇴 get
+		@RequestMapping(value="memberDeleteView", method = RequestMethod.GET)
+		public String memberDeleteView() throws Exception{
+			return "memberDeleteView";
+		}
+		
+		
+		// 회원 탈퇴 post
+			@RequestMapping(value="memberDelete", method = RequestMethod.POST)
+			public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
+				
+				// 세션에 있는 member를 가져와 member변수에 넣어줍니다.
+				MemberVO member = (MemberVO) session.getAttribute("member");
+				// 세션에있는 비밀번호
+				String sessionPass = member.getU_password();
+				// vo로 들어오는 비밀번호
+				String voPass = vo.getU_password();
+				
+				if(!(sessionPass.equals(voPass))) {
+					rttr.addFlashAttribute("msg", false);
+					return "redirect:memberDeleteView";
+				}
+				service.memberDelete(vo);
+				session.invalidate();
+				return "redirect:/";
+			}
+	}

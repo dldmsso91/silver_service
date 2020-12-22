@@ -103,9 +103,9 @@ $(document).ready(function(){
 		$('.rightPage').attr("src", 'level_of_satisfaction_customer_en');  
 
 	});	
-});   
-<script type="text/javascript">
-$(document).ready(function(){
+   
+
+
 	// 취소
 	$(".cencle").on("click", function(){
 		
@@ -127,14 +127,9 @@ $(document).ready(function(){
 	});
 
 
-	var u_birth = $("#u_birth").split(',');
-	for ( var in u_birth){
-		
-	}
-	
 
 
-})
+});
 </script>
 
 
@@ -242,7 +237,7 @@ $(document).ready(function(){
 
 
 
-			<div class="container">
+				<div class="container">
 				<div class="row">
 					<div id="left_contents" class="3u">
 						<section>
@@ -255,9 +250,9 @@ $(document).ready(function(){
 								<h3>내 정보관리</h3>
 							</header>
 							<ul class="default alt">
-								<li class=""><a href="#">회원정보 수정</a></li>
-								<li class=""><a href="#">고객센터</a></li>
-								<li class=""><a href="#">회원탈퇴</a></li>
+								<li class=""><a href="memberUpdateView">회원정보 수정</a></li>
+								<li class=""><a href="ServiceCenter_scm">고객센터</a></li>
+								<li class=""><a href="memberDeleteView">회원탈퇴</a></li>
 							</ul>
 						</section>
 						<section>
@@ -272,15 +267,6 @@ $(document).ready(function(){
 								<li class="level_of_satisfaction_customer_en"><a href="#">오늘의 서비스 만족도</a></li>
 							</ul>
 						</section>
-						<section>
-						<header>
-							<h3>복지시설 이용 정보</h3>
-						</header>
-						<ul class="default alt">
-							<li class=""><a href="myReservation">예약 확인하기</a></li>
-							<li class=""><a href="#">이용후기 작성</a></li>
-						</ul>
-					</section>
 					</div>
 				
 				
@@ -305,14 +291,14 @@ $(document).ready(function(){
             </tr> 
             <tr>
                 <th>이름</th>
-                <td><input type="text" class="form-control"  name="u_name"  value="${member.u_name}"  ></td>        
+                <td><input type="text" class="form-control"  name="u_name"  value="${member.u_name}"   readonly="readonly"></td>        
             	</tr>
                     <tr>
                     <th>주민번호</th>
                     <td>
-                        <input type="text"  name="u_birth" id="u_birth"   size="8"  value= "${member.u_birth}"  >
+                        <input type="text"  name="u_birth" id="u_birth"   size="8"  value= "${member.u_birth}" readonly="readonly" >
                         -
-                        <input type="password"  name="u_birth2"   size="10" value= "${member.u_birth}" >
+                        <input type="password"  name="u_birth2"   size="10" value= "${member.u_birth}" readonly="readonly" >
                     </td>
                 </tr>  
             <tr>

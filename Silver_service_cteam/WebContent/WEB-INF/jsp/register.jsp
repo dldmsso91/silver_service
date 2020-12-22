@@ -206,17 +206,17 @@ margin-top: 150px;
      
     <div class="col-sm-6">
 
-    <form action="register" method="post">
+     <form action="register" method="post">
         <table class="table tabl e-boardered">
             <h2>회원가입</h2>
             <tr>
                 <th>아이디</th>
-                <td><input type="text" class="form-control" id="u_id"name="u_id" placeholder=""></td>        
-               <td><button class="btn btn-primary" onclick="registerCheckFunction();" type="button" >중복제크</button></td>
+                <td><input type="text" class="form-control" id="u_id"name="u_id" placeholder="4~12자의 영문 대소문자와 숫자로만 입력"></td>        
+               <td><button class="idChk" type="button" id="idChk" onclick="fn_idChk();" value="N" class="btn btn-primary">중복확인</button></td>
             </tr>
             <tr>
                 <th>비밀번호</th>
-                <td><input type="password" class="form-control" id="u_password" name="u_password" placeholder=""></td>      
+                <td><input type="password" class="form-control" id="u_password" name="u_password" placeholder="4~12자의 영문 대소문자와 숫자로만 입력"></td>      
             </tr>
               
             <tr>
@@ -230,9 +230,9 @@ margin-top: 150px;
                     <tr>
                     <th>주민번호</th>
                     <td>
-                        <input type="text" id="u_birth" name="u_birth"  placeholder="6자리" size="8" >
+                        <input type="text" id="u_birth" name="u_birth"  placeholder="6자리" size="12" maxlength="6">
                         -
-                        <input type="password"  id="u_birth2" name="u_birth2"  placeholder="7자리" size="8">
+                        <input type="password"  id="u_birth2" name="u_birth2"  placeholder="7자리" size="12" maxlength="7" onblur="aaa()">
                     </td>
                 </tr>  
             <tr>
@@ -243,29 +243,26 @@ margin-top: 150px;
                 <th>이메일</th>
                 <td><input type="email" class="form-control" name="u_email" id="u_email"></td>       
             </tr>					
-                        <tr>
-            <th> 우편번호</th>
-            <td>
-             <input type = "text" name="u_addr" id="u_addr"/>
-             <input type = "button" value = "주소찾기"/>
-            </td>
-           </tr>
-            <tr>
-            <th> 주소 </th>
-            <td>
-             <input type = "text" name="u_addr1" id="u_addr1"/>
-            </td>
-           </tr>
-           <tr>
-            <th> 상세주소 </th>
-            <td>
-             <input type = "text" name="u_addr2" id="u_addr2"/>
-            </td>
-                 </tr>                         
+		<tr>
+		<th>우편번호</th>
+		<td><input type="text" id="sample6_postcode" placeholder="우편번호" name="u_addr">
+		<input type="button" onclick="sample6_execDaumPostcode()" value="주소찾기">
+		</td>
+		<tr>
+		<th>주소</th>
+		<td><input type="text" id="sample6_address" placeholder="주소" name="u_addr1"></td>
+		</tr>
+			<tr>
+			<th>상세주소</th>
+		<td><input type="text" id="sample6_detailAddress" placeholder="상세주소" name="u_addr2">		
+		<input type="text" id="sample6_extraAddress" placeholder="참고항목"></td>
+			</tr>
+
+           
             <tr>
                 <td colspan="2"><center>
-                <button  type="submit" id="submit" class="btn btn-primary" value=회원가입>회원가입</button>
-                 <input type="button" value="취소" onclick="goLoginForm()" class="btn btn-primary" >
+                <button  type="submit" id="submit" class="btn btn-primary" value=회원가입 onclick="validate();">회원가입</button>
+               	<button class="cencle btn btn-danger" type="button" onclick="goLoginForm()" >취소</button>
 
                 </td></center>
              

@@ -1,53 +1,108 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>        
 
 
 
 
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
-	google.charts.setOnLoadCallback(drawChart);
+	<script type="text/javascript">
+		$(document).ready(function(){
+			
+		    $('#delete').click(function(){
+		    	var result = confirm('정말 삭제하시겠습니까?'); 
 
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([ [ 'Year', 'Sales' ],
-				[ '외향성', 1000 ], [ '호감성', 1170 ], [ '성실성', 660 ],
-				[ '정서적 불안정성', 1030 ], [ '경험에 대한 개방성', 1030 ], ]);
+		    	if(result){ 
 
-		var options = {
-			title : '직업 흥미 유형별 점수_워크넷',
-			curveType : 'function',
-			legend : 'none'
-		};
+			    	location.replace('index');
+			    	alert("삭제되었습니다");
+			    	} 
 
-		var chart = new google.visualization.LineChart(document
-				.getElementById('curve_chart'));
+			    else{  }
 
-		chart.draw(data, options);
-	}
-</script>
+			    });			
+			
+			
+			var birth2 = $('.u_birth2').val()
+			
 
-<script type="text/javascript">
-	$(function() {
-		$('#delete').click(function() {
-			var result = confirm('정말 삭제하시겠습니까?');
 
-			if (result) {
+            var birth3 = birth2.slice(0,1);
+            var gender = $('#gender');
+            if(birth3 == '1' || birth3 == '3')
+            	gender.text('남자');
+            else if(birth3 == '2' || birth3 == '4')
+            	gender.text('여자');
+						
+	            
+            
+            
 
-				location.replace('index');
-				alert("삭제되었습니다");
-			}
+				var birth1 = $('.u_birth').val();
+				var age=0;
+             
 
-			else {
-			}
+                  var yy=birth1.substr(0,2);    //생년
+                  var mm=birth1.substr(2,2);    //생월
+                  var dd=birth1.substr(4,2);    //생일
 
+	            
+			      //생년 계산(80세 이전까지 적용하므로 첫자가 0~2이 아니면 1900년대/ 아니면 2000년대)
+					today=new Date();
+                  
+					var i=birth1.substr(0,1);
+					
+					cc=(i>2) ? '19':'20';
+					
+					var birthyear=cc+yy;
+					var m=today.getMonth()+1-6; 
+					
+					m=(m<0)?m+12:m; 
+					
+					var d=today.getDate();
+					var age=today.getFullYear()-birthyear;
+					
+					
+			  		var age_val = $('#age');
+						if (mm>m) {age++;
+						age_val.text(age);	
+						
+						}
+						else if (mm==m){
+							if (dd<=d){
+							age_val.text(age);	
+								
+								
+							}
+							else if(dd>d){	age++;
+							age_val.text(age);	
+							
+							}
+						}
+			
+			
+			genRowspan("first");
 		});
-	});
-</script>
+
+		function genRowspan(className){
+			$("." + className).each(function() {
+				var rows = $("." + className + ":contains('" + $(this).text() + "')");
+				if (rows.length > 1) {
+					rows.eq(0).attr("rowspan", rows.length);
+					rows.not(":eq(0)").remove();
+				}
+			});
+		}
+		
+		
+		
+		
+
+		
+		
+		
+	</script>
 
 
 
@@ -82,8 +137,8 @@
 	margin-right: 1%;
 }
 
-.button_div a {
-	
+.btn {
+	padding: 10px 25px;
 }
 
 .button_div p {
@@ -110,123 +165,135 @@
 <div id="test" class="slide-item overlay"></div>
 
 
-<form action="POST" class='wirtehugi'>
-	<div class="layer">
+<form method="post" name="form" id='form'>	
+    <div class="layer" >
 
-		<div class="layer_inner">
-			<h1>도우미 이력서 열람</h1>
+          <div class="layer_inner">
+			<h1>내 이력서 열람</h1>
 			<div class="My_Image">
-				<img src="resources/images/1.jpg" alt="My Image">
+			<img src="resources/images/1.jpg" alt="My Image">		
 			</div>
-			<table class="ui celled table">
-				<tr>
-					<td rowspan="5">기본정보</td>
-				</tr>
+				<table class="ui celled table">
+				<tr><td rowspan="11">기본정보</td></tr>
 				<tr>
 					<td>이름</td>
-					<td>이문자</td>
+					<td colspan='2'>${Default[0].memberVO.u_name}</td>
 				</tr>
 				<tr>
 					<td>나이</td>
-					<td>43세</td>
+						<td colspan='2'>
+							<input type='hidden' class='u_birth' name='u_birth' value='${Default[0].memberVO.u_birth}'>
+							<input type='hidden' class='u_birth2' name='u_birth' value='${Default[0].memberVO.u_birth2}'>
+							<span id="age"></span>
+    					</td>
 				</tr>
 				<tr>
-					<td>성별</td>
-					<td>여자</td>
+					<td>핸드폰번호</td>
+						<td colspan='2'>
+							${Default[0].memberVO.u_phone}
+    					</td>
 				</tr>
 				<tr>
-					<td>주소</td>
-					<td>서울특별시 강서구 하늘길 77(방화동 886)</td>
+					<td>E-mail</td>
+						<td colspan='2'>
+							${Default[0].memberVO.u_email}
+    					</td>
 				</tr>
 				<tr>
-					<td rowspan="7">추가정보</td>
+					<td> 성별 </td>
+					<td colspan='2'> 
+						<span id="gender"></span>
+     				</td>
+   				</tr>				
+      				<tr>
+      					<td>주소</td>
+      					<td colspan='2'>
+      					${Default[0].memberVO.u_addr}
+      					${Default[0].memberVO.u_addr1}
+      					${Default[0].memberVO.u_addr2}</td>
+      				</tr>
+			<tr>
+				<td>흡연여부</td>
+				<td colspan='2'>
+					${Default[0].smoking}
+				</td>
+			</tr>
+			<tr>
+				<td>학력</td>
+				<td colspan='2'>
+					${Default[0].school}
+				</td>
+			</tr>
+			<tr>
+				<td>전공</td>
+				<td colspan='2'>
+					${Default[0].major}
+				</td>
+			</tr>
+			<tr>
+				<td>희망근무시간</td>
+				<td colspan='2'>
+					${Default[0].hope_worktime_start}~
+					${Default[0].hope_worktime_end}
+				</td>
+			</tr>			
+
+	<c:forEach items="${Area}" var="g">
+		<c:forEach items="${g.hope_business_areaVO}" var="a">
+				<tr>  				
+					<td class="first">희망근무지역</td>
+					<td >희망근무지역 : </td>
+					<td colspan='2'>${a.hope_business_city}${a.hope_business_town}</td>
 				</tr>
-				<tr>
-					<td class="td01">출퇴근형<br>희망근무지역
-					</td>
-					<td><span class="tit01">1지망 : 서울 / 마포구 전체 <input
-							type="text" name="area2_search_text" id="area2_search_text"
-							class="inbor1" value="" style="width: 70px; display: none">
-					</span> <br> <span class="tit01">2지망 : 서울 / 마포구 전체 </span> <br>
-						<span class="tit01">3지망 : 서울 / 마포구 전체 </span>
-						<div style="margin: 10px 0 5px 30px; display: none"
-							id="all_area_view">
-							<label><input type="checkbox" value="1" name="all_area">
-								<span id="all_area_name"></span>지역전체 <span
-								style="color: #FF0000">(희망근무지역 1,2,3지망 위주로 채용자에게 알림이
-									나갑니다.)</span></label>
-						</div></td>
-				<tr>
-					<td>경력</td>
-					<td>10년</td>
+			</c:forEach>
+		</c:forEach>	
+		
+		
+	
+
+		<tr>
+			<th></th>
+			<th>자격증 명</th>
+			<th>발급기관</th>
+			<th>발급일</th>
+		</tr>
+		
+	<c:forEach items="${License}" var="g">
+		<c:forEach items="${g.licenseVO}" var="l">
+				<tr>  				
+					<td class="first">자격증</td>
+					<td>${l.license_name}</td> 
+					<td>${l.license_Institute}</td>
+					<td>${l.license_Redate}</td>
 				</tr>
-				<tr>
-					<td>근무시간</td>
-					<td>오전 9:00 ~ 오후 11:00 까지 가능</td>
+			</c:forEach>
+		</c:forEach>	
+		
+		
+		<tr>
+			<th></th>
+			<th>회사 명</th>
+			<th>근무 기간</th>
+			<th>맡은 역할</th>
+		</tr>		
+	<c:forEach items="${Career}" var="g">   
+		<c:forEach items="${g.careerVO}" var="c">
+				<tr>  				
+					<td class="first">경력사항</td>
+					<td>${c.career_name}</td> 
+					<td>${c.work_period_start}~${c.work_period_end}</td>
+					<td>${c.role}</td>
 				</tr>
-				<tr>
-					<td>희망급여</td>
-					<td>시간제</td>
-				</tr>
-				<tr>
-					<td>자격증</td>
-					<td>유</td>
-				</tr>
-				<tr>
-					<td>간단 자기소개</td>
-					<td>안녕하세요 오랜 경력으로 최선을 다하겠습니다! 믿고 맡겨주세요!</td>
-				</tr>
-				<tr>
-					<td rowspan="1">성격 진단검사</td>
-					<td colspan="2">
-						<div id="curve_chart" style="width: 900px; height: 500px"></div>
-						<table class="sub_table" style="border: 1px solid #dee2e6;">
-							<tr>
-								<th>외향성</th>
-								<th>호감성</th>
-								<th>성실성</th>
-								<th>정서적 불안정성</th>
-								<th>경험에 대한 개방성</th>
-							</tr>
-							<tr>
-								<td>55</td>
-								<td>66</td>
-								<td>77</td>
-								<td>88</td>
-								<td>99</td>
-							</tr>
-						</table>
-					</td>
-				</tr>
-				<tr>
-					<td rowspan="7">경력사항</td>
-				</tr>
-				<tr>
-					<td class="td01">좋은간병</td>
-					<td>2010~2020년</td>
-				</tr>
-				<tr>
-					<td class="td01">좋은간병</td>
-					<td>2010~2020년</td>
-				</tr>
-				<tr>
-					<td class="td01">좋은간병</td>
-					<td>2010~2020년</td>
-				</tr>
+			</c:forEach>
+		</c:forEach>			
 			</table>
-			<div class="button_div">
-				<p>
-					<a href="my_resume_update_en" class="btn btn-primary">수정</a>
-				</p>
-				<p>
-					<a href="#" class="btn btn-primary" id="delete">삭제</a>
-				</p>
-				<!-- 			       	<input name="write" type="submit" value="작성하기"> -->
-				<!-- 	               	<input name="cancel"type="reset" value="취소하기"> -->
-			</div>
-		</div>
-	</div>
-</form>
+				<div class="button_div">			
+				<button type="submit" class="btn btn-primary" id="update" value="상품삭제" onclick="javascript: form.action='my_resume_update_en';">이력서 수정</button>
+				<button type="submit" class="btn btn-primary" id="delete" value="상품수정" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>
+				</div>
+		    </div>
+	    </div>
+    </form>
 
 
 

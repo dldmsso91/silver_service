@@ -9,11 +9,14 @@
 <!--   ResultMap -->
 <!-- 현재 giver에 join되어있음. -->
 <resultMap type="giver" id="giver">
+	<id property="giver_no" column="giver_no"/>
 	<result column="apply_giver_no" property="apply_giver_no"/>
 	<result column="u_no" property="u_no"/>   
 	<result column="giver_type" property="giver_type"/>
 	<result column="hope_business_place" property="hope_business_place"/>
 	<result column="hope_salary" property="hope_salary"/>
+	<result column="hope_worktime_start" property="hope_worktime_start"/>
+	<result column="hope_worktime_end" property="hope_worktime_end"/>
 	<result column="smoking" property="smoking"/>
 	<result column="school" property="school"/>
 	<result column="major" property="major"/>
@@ -24,43 +27,69 @@
 		<result property="u_id" column="u_id"/>
 		<result property="u_name" column="u_name"/>
 		<result property="u_birth" column="u_birth"/>
+		<result property="u_birth2" column="u_birth2"/>
 		<result property="u_phone" column="u_phone"/>
 		<result property="u_email" column="u_email"/>
 		<result property="u_addr" column="u_addr"/>
+		<result property="u_addr1" column="u_addr1"/>
+		<result property="u_addr2" column="u_addr2"/>
 		<result property="u_redate" column="u_redate"/>
 	</association>
-	<collection property="licenseVO" ofType="license">
-		<id column="license_no" property="license_no"/>
+	<association property="customerVO" column="customer_no" javaType="customer">
+	<id property="customer_no" column="customer_no"/>
+      <result column="u_no" property="u_no"/>   
+      <result column="giver_no" property="giver_no"/>
+      <result column="giver_type" property="giver_type"/>
+      <result column="my_condition" property="my_condition"/>
+      <result column="my_allergy" property="my_allergy"/>
+      <result column="can_walk" property="can_walk"/>
+      <result column="hope_start_date" property="hope_start_date"/>
+      <result column="hope_finish_date" property="hope_finish_date"/>
+      <result column="hope_Service_place" property="hope_Service_place"/>
+      <result column="hope_salary" property="hope_salary"/>
+      <result column="hope_start_servicetime" property="hope_start_servicetime"/>
+      <result column="hope_end_servicetime" property="hope_end_servicetime"/>
+      <result column="penalty" property="penalty"/>
+      <result column="apply_customer_redate" property="apply_customer_redate"/>
+	</association>
+	<collection property="licenseVO" ofType="license" >
+		<id column="giver_no" property="giver_no"/>
 		<result column="license_name" property="license_name"/>	
 		<result column="license_Institute" property="license_Institute"/>	
 		<result column="license_Redate" property="license_Redate"/>	
 	</collection>		
 	<collection property="careerVO" ofType="career">
-		<id column="career_no" property="career_no"/>
+		<id column="giver_no" property="giver_no"/>
 		<result column="career_name" property="career_name"/>	
-		<result column="work_Period" property="work_Period"/>	
+		<result column="work_period_start" property="work_period_start"/>	
+		<result column="work_period_end" property="work_period_end"/>	
 		<result column="role" property="role"/>	
 	</collection>		
 	<collection property="giver_satisfactionVO" ofType="satisfaction">
-		<id column="giver_satisfaction_no" property="giver_satisfaction_no"/>
+		<id column="giver_no" property="giver_no"/>
 		<result column="customer_satisfaction_score" property="customer_satisfaction_score"/>	
 		<result column="customer_satisfaction_complain" property="customer_satisfaction_complain"/>	
 		<result column="giver_Satisfaction_redate" property="giver_Satisfaction_redate"/>	
 	</collection>		
 	<collection property="hope_business_areaVO" ofType="hope_business_area">
-		<id column="hope_business_area_no" property="hope_business_area_no"/>
+		<id column="giver_no" property="giver_no"/>
 		<result column="hope_business_city" property="hope_business_city"/>	
 		<result column="hope_business_town" property="hope_business_town"/>	
 	</collection>		
 </resultMap>
 
+
+
+
+
+<!-- 	전체 조회문-->
 	<select id="selectGiverByNo" parameterType="giver" resultMap="giver">
-	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
 		
-		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
-		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
+		g.hope_worktime_end,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redate, 
 		
-        c.career_no,c.career_name,c.Work_Period,c.role,
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role,
         
         h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
         
@@ -69,17 +98,145 @@
         s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
         
  	FROM U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
-	WHERE g.u_no= #{u_no}
+	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
 	</select>	
 
 
+<!-- 	기본정보 조회문 -->
+	<select id="selectDefault_info" parameterType="giver" resultMap="giver">
+  	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.hope_worktime_start,
+		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate
+ 	FROM U_MEMBER u,giver g
+	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
+	</select>	
+	
+	
 
-<!-- delete문 -->
-   <delete id="deleteGiver"  parameterType="giver">
-      DELETE FROM giver
-      WHERE Giver_no = #{giver_no}
-   </delete>
+<!-- 	경력 조회문 -->
+	<select id="select_Career_info" parameterType="giver" resultMap="giver">
+	SELECT 
+        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
 
+ 	FROM U_MEMBER u, career c, giver g
+	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
+ 	</select>   
+ 	
+ 	
+<!-- 	자격증 조회문 -->
+	<select id="select_license_info" parameterType="giver" resultMap="giver">        
+ 	SELECT 
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate
+
+ 	FROM U_MEMBER u,license l, giver g
+	WHERE  u.u_no=g.giver_no and g.u_no= #{u_no}
+ 	</select>       
+             
+        
+<!-- 	희망근무지역 조회문 -->
+ 	<select id="select_Hope_Business_Area_info" parameterType="giver" resultMap="giver">       
+  	SELECT 
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
+
+ 	FROM U_MEMBER u,Hope_Business_Area h, giver g
+	WHERE  u.u_no=g.giver_no and g.u_no= #{u_no}  
+  	</select>
+
+  
+<!-- 고객의 지역에 따른 추천 도우미 조회문 --> 
+ 	<select id="recommend_giver" parameterType="giver" resultMap="giver">  
+	Select *       
+	from U_MEMBER u,giver g,Hope_Business_Area h, Giver_Satisfaction s
+	
+	WHERE   h.Hope_Business_city = u.u_addr
+	        and h.Hope_Business_city =(select u_addr from u_member u, customer c where c.u_no=u.u_no and c.customer_no=1) 
+	        and g.giver_type=(select giver_type from customer where customer_no=1) 
+	        and u.u_no = g.u_no
+	</select> 
+  
+<!-- 	일일 만족도 조회문 -->
+ 	<select id="select_Giver_Satisfaction_info" parameterType="giver" resultMap="giver">         
+  	SELECT 
+        s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
+
+ 	FROM U_MEMBER u,Giver_Satisfaction s, giver g
+	WHERE g.giver_no= #{giver_no} and u.u_no=#{u_no}
+ 	</select> 
+
+
+<!-- 일일만족도 insert문 -->
+   <insert id="insert" parameterType="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO">        
+      INSERT INTO Giver_Satisfaction
+      VALUES(GIVER_SATISFACTION_SEQ.nextval,1,#{customer_satisfaction_score},#{customer_satisfaction_complain},sysdate)
+   </insert>
+   
+<!-- 지원 삭제 delete문 -->
+<delete id="deleteGiver" parameterType="giver">DELETE FROM giver WHERE Giver_no = #{giver_no} </delete>   
+
+
+
+
+
+<!-- 동윤 지원자 정보 insert 부분 -->
+
+<insert id="insert_giverinfo" parameterType="giver">
+INSERT INTO 
+giver VALUES(giver_seq.nextval,5,#{giver_type},#{hope_business_place},#{hope_salary},#{smoking},#{school},#{major},0,sysdate,#{hope_worktime_start},#{hope_worktime_end}) 
+</insert>
+
+<insert id="insert_hope_area" parameterType="hope_business_area">
+INSERT INTO Hope_Business_Area VALUES(Area_seq ,giver_seq.currval,#{hope_business_city},#{hope_business_town}) 
+</insert>
+
+<insert id="insert_career" parameterType="career">
+INSERT INTO career VALUES(career_seq.nextval,giver_seq.currval,#{career_name},#{role},#{work_start_period},#{work_end_period}) 
+</insert>
+
+<insert id="insert_license" parameterType="license">
+INSERT INTO license VALUES(license_seq.nextval,giver_seq.currval,#{license_name},#{license_institute},#{license_redate}) 
+</insert>
+
+
+
+
+
+
+
+<!-- 용진  update문 시작 -->
+<!-- 기본정보 업데이트문 -->
+<update id="updateDefault_info" parameterType="giver">
+update (SELECTu.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,g.giver_no,g.giver_type,
+g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redateFROM U_MEMBER u,giver g
+WHERE g.u_no = u.u_no and g.giver_no = #{giver_no})setgiver_type = #{giver_type},
+hope_business_place = #{hope_business_place},hope_salary = #{hope_salary},smoking = #{smoking},
+school = #{school},major = #{major},penalty = #{penalty},apply_giver_redate = sysdate 
+</update>
+
+<!-- 자격증 업데이트문 -->
+<update id="update_license_info" parameterType="giver">
+update licenseset license_name = #{license_name},license_Institute = #{license_Institute},license_Redate = #{license_Redate}
+where giver_no=#{giver_no} 
+</update>
+
+
+<!-- 경력 업데이트문 -->
+<update id="update_Career_info" parameterType="giver">
+update ( SELECTc.career_no,c.career_name,c.Work_Period,c.roleFROM U_MEMBER u, career c, giver g
+WHERE u.u_no = g.u_no and g.giver_no = c.giver_no and g.giver_no= #{giver_no})setcareer_name = #{career_name},work_Period = #{work_Period},role = #{role} 
+</update>
+
+<!-- 희망근무지역 업데이트문 -->
+<update id="update_Hope_Business_Area_info" parameterType="giver"> 
+update hope_business_area set hope_business_city = #{hope_business_city} ,hope_business_town = #{hope_business_town}
+where giver_no = #{giver_no} </update>
+
+<!-- 일일 만족도 업데이트문 -->
+<update id="update_Giver_Satisfaction_info" parameterType="giver"> 
+update Giver_Satisfaction set customer_satisfaction_score = #{customer_satisfaction_score}, 
+customer_satisfaction_complain = #{customer_satisfaction_complain}, giver_satisfaction_redate = sysdate 
+where giver_no = #{giver_no} 
+</update>
 
 
 

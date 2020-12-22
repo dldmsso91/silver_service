@@ -165,6 +165,7 @@ width: 35%;
       </div>
     </div>
 
+
     <div class="feature-v1">
       <div class="d-md-flex align-items-center">
         <div class="d-flex pagination-item h-100">
