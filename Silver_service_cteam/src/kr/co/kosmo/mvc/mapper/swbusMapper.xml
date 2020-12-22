@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="swbus">
+ <select id="selectNodeList" parameterType="HashMap" resultType="HashMap">
+  <![CDATA[
+   SELECT
+    NODEID,
+    NODENO,
+    NODENAME,
+    GPSLATI AS LAT,
+    GPSLONG AS LNG
+   FROM
+    NODE_INFO
+   WHERE
+    GPSLATI > (#{LAT}-0.002) AND GPSLATI < (#{LAT}+0.002) AND GPSLONG > (#{LNG}-0.002) AND GPSLONG < (#{LNG}+0.002) 
+  ]]>
+ </select>
+</mapper>

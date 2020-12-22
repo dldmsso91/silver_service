@@ -1,0 +1,136 @@
+
+
+
+/* --------------------------------------개별 insert문 */
+
+INSERT INTO giver VALUES (giver_seq.nextval,0,'간병','병원',5000,'비흡연','간호대학','간호학과',0,sysdate);
+
+INSERT INTO Hope_Business_Area VALUES (Hope_Business_Area_seq.nextval,1,'서울특별시','마포구');
+
+INSERT INTO career VALUES (career_seq.nextval,1,'조은간병','1년','간호사');
+
+INSERT INTO license VALUES (license_seq.nextval,1,'간호조무사','대한민국',sysdate);
+
+INSERT INTO Giver_Satisfaction VALUES (Giver_Satisfaction_seq.nextval,1,1,'때렸습니다',sysdate);
+
+
+
+/* -------------------------------------다중 테이블 insert문 Apply시 사용할 예정 */
+INSERT ALL 
+    INTO giver VALUES (giver_seq.nextval,0,'간병','병원',5000,'비흡연','간호대학','간호학과',0,sysdate)
+    INTO Hope_Business_Area VALUES (Hope_Business_Area_seq.nextval,1,'서울특별시','마포구')   
+    INTO career VALUES (career_seq.nextval,1,'조은간병','1년','간호사')
+    INTO license VALUES (license_seq.nextval,1,'간호조무사','대한민국',sysdate)
+    INTO Giver_Satisfaction VALUES (Giver_Satisfaction_seq.nextval,1,1,'때렸습니다',sysdate)    
+SELECT * FROM dual;
+
+
+
+/* --------------------------------------개별 select문 */
+select * from giver;
+select * from Hope_Business_Area;
+select * from career;
+select * from license;
+select * from Giver_Satisfaction;
+
+/* --------------------------------------2중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate 
+
+ from U_MEMBER u,  giver g
+ where u.u_no=2;
+
+
+
+/* --------------------------------------3중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.Work_Period,c.role
+        
+ from U_MEMBER u, career c, giver g
+ where u.u_no=2;
+
+
+
+/* --------------------------------------4중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.Work_Period,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
+        
+ from U_MEMBER u, career c, giver g,Hope_Business_Area h
+ WHERE u.u_no=2;
+
+
+
+
+
+/* --------------------------------------5중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO,licenseVO)*/
+
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.Work_Period,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
+        
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate
+        
+ from U_MEMBER u, career c, giver g,Hope_Business_Area h,license l
+ WHERE u.u_no=2;
+
+
+
+/* --------------------------------------6중 select문 조회 시 사용할 예정 *******************(MemberVO, giverVO,careerVO,Hope_Business_AreaVO,licenseVO,Giver_SatisfactionVO)*/
+
+Select u.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,
+		
+		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,
+		g.School,g.Major,g.penalty,g.apply_giver_redate, 
+		
+        c.career_no,c.career_name,c.Work_Period,c.role,
+        
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
+        
+        l.license_no,l.license_name,l.License_Institute,l.License_Redate,
+        
+        s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
+        
+ from U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
+ WHERE u.u_no=2;
+
+
+
+
+
+/* --------------------------------------giver delete문 */
+DELETE FROM giver WHERE Giver_no = 7;
+
+
+/* --------------------------------------giver update문 */
+UPDATE giver SET School = '간병대학' WHERE giver_no=2;  
+
+
+/* --------------------------------------giver Join update문 */
+
+
+지금 못 하겠음. ㅇㅇ 나중에 해야지 
+
+
+
+
