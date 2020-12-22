@@ -200,7 +200,7 @@
 
 				<div class="9u" id="right_contents">
 				<h2>예약 확인하기</h2>
-					<form action="memberUpdate" method="post">
+					<form action="reservationDelete" method="post">
 						<table class="table tabl e-boardered">
 						<thead>
 							<tr>
@@ -225,19 +225,15 @@
 								<td nowrap>${myReservation.userName}</td>
 								<td nowrap>${myReservation.resDate} ${myReservation.resTime}</td>
 								<td nowrap>${myReservation.visitPurpose}</td>
-								<td nowrap></td>
-								<td nowrap></td>
+								<td nowrap><a href="UpdateReservationForm?resNo=${myReservation.resNo}">
+								<input type="button" value="수정"></a></td>
+								<td nowrap><input type="hidden" name="resNo" value="${myReservation.resNo}">
+								<input type="submit" value="삭제"></td>
 							</tr>
 							</c:forEach>
 						</tbody>
 						</table>
 					</form>
-					<iframe class="rightPage" src="" width="100%" height="100%"
-						frameBorder="0"> </iframe>
-
-
-
-
 
 				</div>
 			</div>

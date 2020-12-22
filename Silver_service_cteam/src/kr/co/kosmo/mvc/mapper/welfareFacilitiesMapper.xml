@@ -30,31 +30,6 @@
 		where RNUM <=5
 		]]>
 	</select>
-
-<!-- 	<resultMap type="facInfo" id="facInfo"> -->
-<!-- 		<id property="facilityNo" column="facilityNo" javaType="int" /> -->
-<!-- 		<result property="facilityName" column="facilityName" /> -->
-<!-- 		<result property="typeName" column="typeName" /> -->
-<!-- 		<result property="cityloc" column="cityloc" /> -->
-<!-- 		<result property="address" column="address" /> -->
-<!-- 		<result property="telnumber" column="telnumber" /> -->
-<!-- 		<result property="serviceScore" column="serviceScore" /> -->
-<!-- 		<result property="latitude" column="latitude" /> -->
-<!-- 		<result property="longitude" column="longitude" /> -->
-<!-- 		<collection property="medicalDetail" javaType="java.util.List" -->
-<!-- 			resultMap="medicalDetail" ofType="medicalDetail" /> -->
-<!-- 		<collection property="silverhallDetail" javaType="java.util.List" -->
-<!-- 			resultMap="silverhallDetail" ofType="silverDetail" /> -->
-<!-- 	</resultMap> -->
-<!-- 	<resultMap type="medicalDetail" id="medicalDetail"> -->
-<!-- 		<result property="facilityNo" column="facilityNo" javaType="int" /> -->
-<!-- 		<result property="peopleLimit" column="peopleLimit"/> -->
-<!-- 		<result property="peopleNumber" column="peopleNumber"/> -->
-<!-- 	</resultMap> -->
-<!-- 	<resultMap type="silverDetail" id="silverhallDetail"> -->
-<!-- 		<result property="facilityNo" column="facilityNo" javaType="int" /> -->
-<!-- 		<result property="serviceType" column="serviceType"/> -->
-<!-- 	</resultMap> -->
 	
 	<resultMap type="facInfo" id="facInfo">
 		<id property="facilityNo" column="facilityNo"/>
@@ -88,7 +63,7 @@
 		select u_no,u_id,u_name
 		,'19'||to_date(u_birth,'yy-mm-dd') "u_birth"
 		,decode(subStr(u_birth2,1,1),'1','남성','3','남성','여성') "u_gender"
-        ,floor(to_number(sysdate-to_date('19'||to_date(u_birth,'yy-mm-dd')))/365) "u_age"
+        ,floor(to_number(sysdate-to_date(decode(substr(u_birth2,1,1),'1','19','2','19','20')||to_date(u_birth,'yy-mm-dd')))/365) "u_age"
 		,u_phone,u_email,u_addr1||' '||u_addr2 "u_addr" from U_MEMBER where u_no = #{u_no}
 	</select>
 	
@@ -100,6 +75,14 @@
 		insert into reservationInfo VALUES((select nvl(max(resNo),0)+1 from reservationInfo),#{facilityNO}
 		,#{facilityName},#{u_no},#{userName},#{userAge},to_date(#{resDate},'yyyy-mm-dd'),#{resTime}, #{visitPurpose})
 	</insert>
+	
+	<update id="updateReservation" parameterType="res">
+		update reservationInfo set resDate= to_date(#{resDate},'yyyy-mm-dd'), resTime = #{resTime}  where resNO = #{resNo}
+	</update>
+	
+	<delete id="reservationDelete" parameterType="res">
+		delete reservationInfo where resNo = #{resNo}
+	</delete>
 	
 	<resultMap type="res" id="res">
 		<id property="resNo" column="resNo"/>
@@ -119,14 +102,34 @@
 	</association>
 	<association property="memberVO" column="u_no" javaType="mvo">
 		<result property="u_no" column="u_no"/>
+		<result property="u_addr" column="u_addr"/>
+		<result property="u_addr1" column="u_addr1"/>
+		<result property="u_addr1" column="u_addr1"/>
+		<result property="u_addr2" column="u_addr2"/>
+		<result property="u_phone" column="u_phone"/>
+		<result property="u_birth" column="u_birth"/>
+		<result property="u_birth2" column="u_birth2"/>
+		<result property="u_age" column="u_age"/>
+		<result property="u_gender" column="u_gender"/>
 	</association>
 	</resultMap>
 	<select id="getMyReservation" resultMap="res">
 		select
-		w.typeName, r.facilityName, w.address, w.telnumber, userName,
+		r.resNO, w.typeName, r.facilityName, w.address, w.telnumber, r.userName,
 		to_char(r.resDate,'yyyy-mm-dd') "resDate", r.resTime, r.visitPurpose
 		from reservationInfo r, welfareFacilities w, U_MEMBER u
 		where r.u_no = #{u_no} and r.u_no = u.u_no and r.facilityNO = w.facilityNo
 	</select>
+	
+	<select id="getMyReservationDetail" resultMap="res">
+		select
+		r.resNo, r.facilityName, r.facilityNO, w.typeName, w.address, w.telnumber, r.userName,
+		decode(substr(u_birth2,1,1),'1','19','2','19','20')||to_date(u.u_birth,'yy-mm-dd') "u_birth",
+		floor(to_number(sysdate-to_date(decode(substr(u_birth2,1,1),'1','19','2','19','20')||to_date(u.u_birth,'yy-mm-dd')))/365) "u_age",
+		u.u_addr1||' '||u.u_addr2 "u_addr", u_phone, decode(subStr(u.u_birth2,1,1),'1','남성','3','남성','여성') "u_gender", r.u_no 
+		from reservationInfo r, welfareFacilities w, U_MEMBER u
+		where r.resNo = #{resNo} and r.facilityNO = w.facilityNO and r.u_no = u.u_no
+	</select>
+	
 
 </mapper>  

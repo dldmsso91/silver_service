@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import kr.co.kosmo.mvc.dao.CommunityDAO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 import kr.co.kosmo.mvc.service.CommunityService;
@@ -20,9 +21,18 @@ public class CommunityController {
 	@Autowired
 	CommunityService communityService;
 	
+	@Autowired
+	CommunityDAO communityDAO;
+	
 	@RequestMapping(value="/myReservation")
 	public String myReservation(ReservationInfoVO vo, Model model, HttpSession session) {
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int u_no;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
 		vo.setU_no(u_no);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
 		return "myReservation_jw";
@@ -59,7 +69,7 @@ public class CommunityController {
 	
 	@RequestMapping(value="/communityReservation")
 	public String communityReservation(WelfareFacilitiesVO vo, Model model, HttpSession session) {
-		int u_no = 0;
+		int u_no;
 		if(session.getAttribute("u_no")==null) {
 			return "login";
 		}
@@ -75,9 +85,61 @@ public class CommunityController {
 	
 	@RequestMapping(value="/reservationInsert")
 	public String reservationInsert(ReservationInfoVO vo, Model model, HttpSession session) {
-		communityService.insertReservationInfo(vo);
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int u_no;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
 		vo.setU_no(u_no);
+		communityService.insertReservationInfo(vo);
+		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		return "myReservation_jw";
+	}
+	
+	
+	@RequestMapping(value="/UpdateReservationForm")
+	public String UpdateReservationForm(ReservationInfoVO vo, Model model, HttpSession session) {
+		int u_no;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
+		vo.setU_no(u_no);
+		model.addAttribute("myReservation", communityService.updateReservationForm(vo));
+		return "community/UpdateReservationForm_jw";
+	}
+	
+	@RequestMapping(value="/updateReservation")
+	public String updateReservation(ReservationInfoVO vo, Model model, HttpSession session) {
+		int u_no;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
+		vo.setU_no(u_no);
+		communityDAO.updateReservation(vo);
+		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		return "myReservation_jw";
+	}
+	
+	@RequestMapping(value="/reservationDelete")
+	public String reservationDelete(ReservationInfoVO vo, Model model, HttpSession session) {
+		int u_no;
+		if(session.getAttribute("u_no")==null) {
+			return "login";
+		}
+		else {
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		}
+		vo.setU_no(u_no);
+		System.out.println(vo.getResNo());
+		communityDAO.reservationDelete(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
 		return "myReservation_jw";
 	}

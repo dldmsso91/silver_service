@@ -12,7 +12,7 @@ public class MemberVO {
 	private String u_phone;
 	private String u_email;
 	private String u_addr;
-	private String u_addr1;	
+	private String u_addr1;
 	private String u_addr2;
 	private Date   u_redate;
 	private String u_gender;

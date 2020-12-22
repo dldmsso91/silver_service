@@ -61,4 +61,8 @@ public class CommunityServiceImpl implements CommunityService{
 		return commnunityDao.getMyReservation(vo);
 	}
 	
+	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo) {
+		return commnunityDao.updateReservationForm(vo);
+	}
+	
 }

@@ -24,4 +24,6 @@ public interface CommunityService {
 	public List<ReservationInfoVO> insertReservationInfo(ReservationInfoVO vo);
 	
 	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
+	
+	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo);
 }

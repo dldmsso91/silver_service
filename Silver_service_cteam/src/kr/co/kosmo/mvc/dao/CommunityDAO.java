@@ -24,4 +24,11 @@ public interface CommunityDAO {
 	public void insertReservationInfo(ReservationInfoVO vo);
 	
 	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
+	
+	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo);
+	
+	public void updateReservation(ReservationInfoVO vo);
+	
+	public void reservationDelete(ReservationInfoVO vo);
+	
 }

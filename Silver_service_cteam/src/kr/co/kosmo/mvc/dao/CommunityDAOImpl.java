@@ -55,4 +55,19 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return ss.selectList("commu.getMyReservation", vo);
 	}
 	
+	@Override
+	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo) {
+		return ss.selectOne("commu.getMyReservationDetail", vo);
+	}
+	
+	@Override
+	public void updateReservation(ReservationInfoVO vo) {
+		ss.update("commu.updateReservation", vo);
+	}
+	
+	@Override
+	public void reservationDelete(ReservationInfoVO vo) {
+		ss.delete("commu.reservationDelete", vo);
+	}
+	
 }
