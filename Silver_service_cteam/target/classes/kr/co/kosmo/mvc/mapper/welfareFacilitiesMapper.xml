@@ -6,27 +6,27 @@
 
 	<select id="getMedicalList" resultType="facInfo">
 		<![CDATA[
-		select * from
-		(select wel.*, rownum "RNUM" from
-		(select * from welfarefacilities where typeName = '노인의료복지시설' order by servicescore desc)wel)
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
+		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
+		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설' order by servicescore desc)wel)
 		where RNUM <=5
 		]]>
 	</select>
 
 	<select id="getElderlyhomeList" resultType="facInfo">
 		<![CDATA[
-		select * from
-		(select wel.*, rownum "RNUM" from
-		(select * from welfarefacilities where typeName = '노인여가복지시설' order by servicescore desc)wel)
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
+		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
+		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인여가복지시설' order by servicescore desc)wel)
 		where RNUM <=5
 		]]>
 	</select>
 
 	<select id="getSilverhallList" resultType="facInfo">
 		<![CDATA[
-		select * from
-		(select wel.*, rownum "RNUM" from
-		(select * from welfarefacilities where typeName = '재가노인복지시설' order by servicescore desc)wel)
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
+		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
+		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '재가노인복지시설' order by servicescore desc)wel)
 		where RNUM <=5
 		]]>
 	</select>

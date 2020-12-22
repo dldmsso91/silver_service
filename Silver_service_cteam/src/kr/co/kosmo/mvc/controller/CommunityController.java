@@ -110,7 +110,7 @@ public class CommunityController {
 		}
 		vo.setU_no(u_no);
 		model.addAttribute("myReservation", communityService.updateReservationForm(vo));
-		return "community/UpdateReservationForm_jw";
+		return "community/updateReservationForm_jw";
 	}
 	
 	@RequestMapping(value="/updateReservation")
@@ -138,7 +138,6 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		System.out.println(vo.getResNo());
 		communityDAO.reservationDelete(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
 		return "myReservation_jw";
