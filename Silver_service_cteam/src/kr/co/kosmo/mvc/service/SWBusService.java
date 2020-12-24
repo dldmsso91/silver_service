@@ -4,20 +4,28 @@ import java.util.*;
 
 import org.springframework.stereotype.Service;
 
-
 @Service()
 public interface SWBusService {
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	Integer regNodeInfo(Map<String, Object> map) throws Exception;
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	Integer regNodeToRoute() throws Exception;
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	Integer regRouteToOrder(Map<String, Object> map) throws Exception;
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	Integer regRouteInfo(Map<String, Object> map) throws Exception;
 
-	//ì •ë¥˜ì¥ ì •ë³´
+	//Á¤·ùÀå Á¤º¸
 	List<Map<String,Object>> nodeList(Map<String, Object> map) throws Exception;
 	
-
+	
+	
+	
+	//³ë¼±Á¤º¸ 
+	Map<String,Object> routeInfo(Map<String, Object> map) throws Exception;
+	
+	
+	
+	
+	List<Map<String,Object>> routeList(Map<String, Object> map) throws Exception;
 }

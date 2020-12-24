@@ -155,8 +155,8 @@
 	from U_MEMBER u,giver g,Hope_Business_Area h, Giver_Satisfaction s
 	
 	WHERE   h.Hope_Business_city = u.u_addr
-	        and h.Hope_Business_city =(select u_addr from u_member u, customer c where c.u_no=u.u_no and c.customer_no=1) 
-	        and g.giver_type=(select giver_type from customer where customer_no=1) 
+	        and h.Hope_Business_city =(select u_addr from u_member u, customer c where c.u_no=u.u_no and c.customer_no=#{Customer_no}) 
+	        and g.giver_type=(select giver_type from customer where customer_no=#{Customer_no}) 
 	        and u.u_no = g.u_no
 	</select> 
   

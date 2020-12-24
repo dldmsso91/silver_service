@@ -6,8 +6,9 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
-import kr.co.kosmo.mvc.dto.CustomerVO;
+
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
@@ -22,12 +23,12 @@ public class CustomerDAOImpl implements CustomerDAO {
    private SqlSession sqlSession;
 
    
- //-------------------- µ¿À± -------------------------------------------------------------   
-// µµ¿ì¹Ì ±âº»Á¤º¸ ÀÔ·Â   
+ //-------------------- ï¿½ï¿½ï¿½ï¿½ -------------------------------------------------------------   
+// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½   
    
    @Override
    public int insertCustomer(CustomerVO Cvo) throws Exception{
-	   System.out.println("===> sqlSession insertCustomer()_DAO È£Ãâ");
+	   System.out.println("===> sqlSession insertCustomer()_DAO È£ï¿½ï¿½");
 	   return sqlSession.insert("customerMapper.insert_customer", Cvo);
    }
    

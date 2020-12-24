@@ -10,8 +10,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
-import kr.co.kosmo.mvc.dto.CustomerVO;
+
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
 import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
@@ -46,6 +47,8 @@ public class Moon_Jeon_Controller {
 	   
 	@RequestMapping(value="/customer_service_apply_yj")
 	   public String customer_service_apply_yj() {
+		
+
 	      return "customer_service_apply_yj";
 	      }
 	   
@@ -153,9 +156,10 @@ public class Moon_Jeon_Controller {
 		}
 		
 		@PostMapping("customer_apply")
-		public String insertCustomer( CustomerVO Cvo) throws Exception {
+		public String insertCustomer( CustomerVO Cvo,HttpSession session) throws Exception {
 			customerservice.insertCustomer(Cvo);
-			
+			session.setAttribute("customer_no", Cvo.getCustomer_no()); 
+
 			return "giver/len/recommend_service_en";
 		}
 		

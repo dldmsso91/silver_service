@@ -175,11 +175,12 @@ h3 {
 
 <div id="test" class="slide-item overlay"></div>
 
-<h2>이은내님을 위한 도우미들입니다</h2>
-${customer_no}
+<h2>${member.u_name}${Customer_no}님을 위한 도우미들입니다</h2>
+
 <form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
 		<ul class="bxslider">
+
 <c:forEach items="${recommend}" var="r">
 	<input name="giver_no" type="hidden" value="${r.u_no}" />
 			<li><img src="resources/images/1.jpg" alt="Image"

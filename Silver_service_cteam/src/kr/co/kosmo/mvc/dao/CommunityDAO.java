@@ -37,4 +37,6 @@ public interface CommunityDAO {
 	
 	public void reservationDelete(ReservationInfoVO vo);
 	
+	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo);
+	
 }

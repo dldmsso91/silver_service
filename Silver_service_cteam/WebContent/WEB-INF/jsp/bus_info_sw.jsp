@@ -12,64 +12,36 @@
 <!-- jQuery -->
 <script
 	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-<script src="<c:url value='/resources/js/common.js'/>" charset="utf-8"></script>
-<!-- Daum Map API -->
+
+<!-- kakao Map API -->
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=269a72416406e08431df9d8c16aa3a48"></script>
 
-<title>노선 정보</title>
-<script src="https://code.jquery.com/jquery-3.4.1.js"   
-	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   
-	crossorigin="anonymous">
-	
+<title>아직 안됨</title>
+<script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
 </script>
 
-<script type="text/javascript">
-	$(function() {
-
-		
-		 var inner_item = $(".noLine")
-		var inner_box = $("#mapBox")
-		
-		$(".bus1").click(function() {
-			inner_item.toggleClass(function() {
-				inner_box.attr('class','mapBox_info');
-				inner_item.addClass('show');
-				
-			}, function() {
-				
-				inner_item.addClass('show');
-				inner_box.attr('class','mapBox');
-				
-			});
-		});
-
-		
-	
-
-	
-
-		
-	});
-
-</script>
 </head>
 <body>
 	<!-- 버스 매뉴 -->
 	<div id="gnb" class="gnb">
 		<ul>
-			<li class="gnb_menu" id="node_find"><a class=""
-				href="<c:url value='/bus_main'/>"> <img
-					src="resources/images/node_icon.png" alt="" class="gnb_icon">
-					정류소 찾기
+			<li class="gnb_menu" id="bus_main"><a class=""
+				href="<c:url value='/bus_main'/>"> 
+				<img src="resources/images/node_icon.png" alt="" class="gnb_icon">
+					정류장 찾기
 			</a></li>
 
-			<li class="gnb_menu" id="about_info"><a class=""
+			<li class="gnb_menu" id="bus_info"><a class=""
 				href="<c:url value='/bus_info'/>"> <img
 					src="resources/images/bus_icon.png" alt="" class="gnb_icon">
 					버스 노선
 			</a></li>
-
+ 			<li class="gnb_menu" id="bus_admin"><a class=""
+				href="<c:url value='/bus_admin'/>"> <img
+					src="resources/images/bus_icon.png" alt="" class="gnb_icon">
+					버스 데이터 저장(임시)
+			</a></li> 
 			<li class="gnb_menu" id="home"><a class=""
 				href="<c:url value='/index'/>"> <img
 					src="resources/images/home.png" alt="" class="gnb_icon"> 매인화면
@@ -82,272 +54,153 @@
 
 	<!--                 -->
 
-	<div id="body">
-		<div id="searchMenu" class="leftBox">
-			<div id="searchBox" class="leftBox">
-				<p class="margin0">
-					버스 번호 <input type="text" id="routeno"
-						style="width: 100px; height: 30px;">
-				</p>
-				<a href="#" id="sc_btn" class="btn">찾기</a>
-			</div>
-		</div>
-		<div id="resultBox" class="leftBox">
-			<div class="bus1">
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" id="lng"
-					value="11(노곡종점-직지사)" style="width: 150px; height: 30px;">
-			</div>
-			
+<div id="body" >
+        <div id="searchMenu" class="leftBox">
+            <div id="searchBox" class="leftBox" >
+                <p class="margin0">버스 번호    <input type="text" value="5" id="routeno" style="width:100px; height:30px;"></p>
+                <a  href="#this" id="sc_btn" class="btn" >찾기</a>
+            </div>
+        </div>
+        <div id="resultBox" class="leftBox">
+             
+        </div>
+         
+        <div id="bodyBox">
+            <div id="mapBox" class="mapBox_info">
+            </div>
+            <div id="infoBox">
+                <table id="routeTable" class="routeTable" border="1">
+                </table>
+            </div>
+        </div>
+    </div>
+    
+<script src="<c:url value='/resources/js/common.js'/>" charset="utf-8"></script>
+<form id="commonForm" name="commonForm"></form>
+<script src="<c:url value='resources/js/map.js'/>" charset="utf-8"></script>
+		
+		<script type="text/javascript">
+        if(gfn_isNull($("#routeno").attr("value"))==false){
+            fn_clickSearchButton();
+            fn_clickRoute("${routeid}");
+        }
+         
+        $("#bus_info").addClass("selected");
+ 
+        $("document").ready(function(){
+            $("#sc_btn").on("click",function(e){
+                e.preventDefault();
+                fn_clickSearchButton();
+            })
+            $("#routeno").keyup(function(e){
+                if(e.keyCode==13){//엔터키 처리
+                    fn_clickSearchButton();
+                }
+            })
+        });
+ 
+        function fn_clickSearchButton(){
+            $("#bodyBox").removeClass("none");
+ 
+            $("#resultBox").children().remove();
+            
+            $.ajax({
+            	url: "routeList",
+            	type:"POST",
+                dataType:"json",
+                contentType:"application/json",
+                data:JSON.stringify({ROUTENO:$("#routeno").val()}),
+                success:function(result){
+                    for(var i=0; i<result["list"].length;i++){
+                        var map = result["list"][i];
+                        var str = "<a href='#this' routeid='"+map["ROUTEID"]+"' name='route"+i+"' id='route"+i+"' class='result sc_node_result'>"+map["ROUTENO"]+"<span class='routeSpan'>("+map["STARTNODENM"]+"~"+map["ENDNODENM"]+")</span></a>";
+                        $("#resultBox").append(str);
+                    }
+ 
+                    $("a[name^=route]").on("click",function(e){
+                        e.preventDefault();
+                        fn_clickRoute($(this).attr("routeid"));
+                       
+                        });
+                    $("a[name^=route]").trigger("click");
 
-			<!-- 85% -->
-		<div id="bodyBox" calss="bodyBox">
-			<div id="mapBox" class="mapBox"></div>
-			<div id="infoBox">
-				<table id="routeTable" class="routeTable" border="1"></table>
-			</div>
+                },
+                error:function(request,status,error){
+                	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
+                    alert("노선 정보를 찾을 수 없습니다.");
+                }
+            })
+        }
+ 
+        function fn_clickRoute(obj){
+            $("#routeTable").children().remove();
+            $("#routeTable").siblings().remove();
+            //마커들을 지워줍니다.
+            setMarkers(null);
+             
+            //라인 배열을 비워줍니다.
+            linePath=[];
 
+            $.ajax({
+                dataType:"json",
+                type:"POST",
+                contentType:"application/json",
+                data:JSON.stringify({ROUTEID: obj }),
+                url:"routeInfo",
+                success:function(result){
+                    var map=result["map"];
+                    if(map["STARTVEHICLETIME"]==null){
+                        map["STARTVEHICLETIME"]="xxxx";
+                        map["ENDVEHICLETIME"]="xxxx";
+                    }
+                    var str = "<tbody><tr><th>노선번호</th><td colspan='3'>"+map["ROUTENO"]
+
+                     +"</td></tr><tr><th>기점</th><td class='nodename'>"
+                     +map["STARTNODENM"]+"</td>"
+
+                     +"<th>첫차시간</th><td class='vehicletime'>"
+                     +map["STARTVEHICLETIME"][0]+map["STARTVEHICLETIME"][1]+":"+
+                     map["STARTVEHICLETIME"][2]+map["STARTVEHICLETIME"][3]+
+
+                    "</td></tr><tr><th>종점</th><td class='nodename'>"+map["ENDNODENM"]+
+
+                    "</td><th>막차시간</th><td class='vehicletime'>"+map["ENDVEHICLETIME"][0]+
+                    map["ENDVEHICLETIME"][1]+":"+map["ENDVEHICLETIME"][2]+map["ENDVEHICLETIME"][3]+
+                    "</td></tr></tbody>";
+
+                    $("#routeTable").before("<p>노선 정보(아직 데이터가 안들어가 고정되어있음)</p>");
+               
+                    $("#routeTable").append(str);
+                    $("#routeTable").after("<hr/><p>노선 경로</p>");
+                     
+                    <!-- 노선 처리 해야되는 부분 (진행 중)-->
+
+
+                    <!-- 노선 처리 해야되는 부분 end -->
+                },
+                error:function(){
+                    alert("노선 불러올 수 없습니다.");
+                }
+            })
+        }
+ 
+         
+        function fn_clickOverlay(){
+             
+            var obj = $(".markerSelected");
+            var comSubmit = new ComSubmit();
+            comSubmit.addParam("nodeid",obj.attr("nodeid"));
+            comSubmit.addParam("lat",obj.attr("lat"));
+            comSubmit.addParam("lng",obj.attr("lng"));
+            comSubmit.addParam("nodename",obj.html());
+            comSubmit.setUrl("<c:url value='/bus_main_sw'/>");
+            comSubmit.submit();
+        }
+ 
+    </script>
 
 
 		
-
-		<div id="noLine" class="noLine">
-
-			<div id="busno">
-				<strong class="title type_bus1"> <span class="icon">
-				</span>노곡11
-				</strong>
-			</div>
-			<div class="scroll_area ng-star-inserted">
-				<div class="scroll_inner">
-					<div class="scroll_box">
-						<ul class="">
-
-							<span>운행지역</span>
-							<div class="info_value region">
-								<span class="value">김천</span> <span class="value waypoint">
-									<span class="txt_waypoint">노곡종점</span> <span
-									class="txt_waypoint"> <span class="icon_waypoint">↔</span>직지사
-								</span>
-								</span>
-
-							</div>
-							<!---->
-							<span class="info_key">운행시간</span>
-							<div class="info_value">
-								<ul class="list_schedule">
-									<span class="tit_value">첫차</span> 20:47
-									</span>
-									<span class="value"> <span class="tit_value">막차</span>
-										20:47
-									</span>
-
-									<!---->
-									<!---->
-								</ul>
-								<!---->
-							</div>
-							<!---->
-							<span class="info_key">배차간격</span>
-							<div class="info_value">
-								<span class="value ng-star-inserted"> <span
-									class="tit_value">매일</span> <!----> 1회<!----> <!---->
-								</span>
-								<!---->
-							</div>
-							<!---->
-							<!---->
-						</ul>
-
-
-						<!---->
-						<div>
-							<div class="ng-star-inserted">
-								<div class="btn_area">
-									<div class="btn_box ng-star-inserted">
-										<button type="button" class="btn btn_favorite_transport">
-											<span class="btn_text">즐겨찾기</span>
-										</button>
-
-										<div class="current_box ng-star-inserted">
-											<span class="current_text"> <!----> <!----> 운행 정보 없음 <!---->
-												<!----> <!----> <!----> <!----> <!----> <!----> <!----> <span
-												class="middot ng-star-inserted">·</span> <span
-												class="standard_text ng-star-inserted">오후 03:37 기준</span> <!---->
-												<!----> <!----></span>
-
-											<!---->
-										</div>
-										<!---->
-									</div>
-									<!---->
-								</div>
-								<!---->
-							</div>
-							<div class="route_area">
-								<h3 class="blind">직지사 방면</h3>
-								<ul class="list_route type_bus1">
-
-									<!---->
-									<a href="" class="link_route"><span class="icon_route">회차</span><strong
-										class="route_name"><span
-											class="icon_start ng-star-inserted">기점</span> <!----> <!---->
-											노곡종점 </strong>
-										<div _ class="route_box">
-											<span class="route_id">15-503</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span _class="icon_route">회차</span><strong
-										class="route_name"> <!----> <!----> 연명
-									</strong>
-
-										<div class="route_box">
-											<span class="route_id">15-099</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span _ class="icon_route">회차</span><strong
-										class="route_name"> <!----> <!----> 입석
-									</strong>
-										<div class="route_box">
-											<span _ class="route_id">15-229</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span _ class="icon_route">회차</span><strong
-										class="route_name"> <!----> <!----> 봉곡입구
-									</strong>
-										<div class="route_box">
-											<span _ class="route_id">15-589</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span class="icon_route">회차</span><strong
-										class="route_name"> <!----> <!----> 월곡1리(밤실)
-									</strong>
-										<div class="route_box">
-											<span class="route_id">15-172</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span class="icon_route">회차</span><strong
-										class="route_name"> <!----> <!----> 용시입구(용수골)
-									</strong>
-										<div class="route_box">
-											<span _ class="route_id">15-144</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a href="" class="link_route"><span class="icon_route">회차</span><strong
-										_ class="route_name"> <!----> <!----> 못골
-									</strong>
-										<div _class="route_box">
-											<span _ class="route_id">14-815</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a _ href="" class="link_route"><span class="icon_route">회차</span><strong
-										_ class="route_name"> <!----> <!----> 남곡
-									</strong>
-										<div class="route_box">
-											<span _ class="route_id">14-673</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-
-									<!---->
-									<a _ href="" class="link_route selected"><span
-										class="icon_route">회차</span><strong _ class="route_name">
-											<!----> <!----> 덕곡주공아파트
-									</strong>
-										<div class="route_box">
-											<span class="route_id">14-753</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-									<div>&nbsp;&nbsp;&nbsp;l</div>
-									<!---->
-
-									<!---->
-									<a href="" class="link_route"><span class="icon_route">회차</span><strong
-										_class="route_name"> <!----> <!----> 무실삼거리
-									</strong>
-										<div class="route_box">
-											<span _ class="route_id">14-825</span>
-											<!---->
-										</div> <!----></a>
-									<!---->
-
-									<!---->
-
-
-								</ul>
-							</div>
-
-						</div>
-
-					</div>
-				</div>
-
-			</div>
-		</div>
-</div>
-
-
-<!-- ======================================================================================= -->
-		<script src="<c:url value='resources/js/map.js'/>" charset="utf-8"></script>
-		<script type="text/javascript">
-			
-		</script>
-		<script type="text/javascript">
-			$("#about_info").addClass("selected");
-
-			fn_clickSetting();
-
-			 function fn_clickOverlay(){
-	             
-		            var obj = $(".markerSelected");
-		           
-		            comSubmit.submit();
-		        }
-		</script>
+		
 </body>
 </html>

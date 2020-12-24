@@ -4,12 +4,14 @@ package kr.co.kosmo.mvc.dao;
 
 import java.util.List;
 
-import kr.co.kosmo.mvc.dto.CustomerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
+
+
 
 
 public interface CustomerDAO {
 
-   //Customer ±âº»Á¤º¸ ÀÔ·Â
+   //Customer ï¿½âº»ï¿½ï¿½ï¿½ï¿½ ï¿½Ô·ï¿½
    public int insertCustomer(CustomerVO Cvo) throws Exception;
    
    

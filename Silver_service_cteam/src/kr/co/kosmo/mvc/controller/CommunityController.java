@@ -1,6 +1,7 @@
 package kr.co.kosmo.mvc.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpSession;
@@ -74,6 +75,10 @@ public class CommunityController {
 	public String welfareFacilityDetail(WelfareFacilitiesVO vo, Model model) {
 		model.addAttribute("facInfo", communityService.getFacilityInfo(vo));
 		return "community/welfareFacilityDetail_jw";
+	}
+	
+	@RequestMapping(value="/test")
+	public void test() {
 	}
 	
 	@RequestMapping(value="/communityReservation")
@@ -150,6 +155,11 @@ public class CommunityController {
 		communityDAO.reservationDelete(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
 		return "myReservation_jw";
+	}
+	
+	@RequestMapping(value="/getMedicalListAjax")
+	public List<WelfareFacilitiesVO> getMedicalList(WelfareFacilitiesVO vo) {
+		return communityService.getMedicalListAjax(vo);
 	}
 	
 }

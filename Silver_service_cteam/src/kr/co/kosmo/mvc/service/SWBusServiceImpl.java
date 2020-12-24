@@ -15,7 +15,7 @@ public class SWBusServiceImpl implements SWBusService {
 
 
 
-	// @Resource ì–´ë…¸í…Œì´ì…˜: ë¹ˆì˜ ì´ë¦„ì„ ì´ìš©í•´ì„œ ì£¼ì…í•  ê°ì²´ë¥¼ ê²€ìƒ‰í•´ì¤€ë‹¤.
+	//@Resource: ºóÀÇ ÀÌ¸§À» ÀÌ¿ëÇØ¼­ ÁÖÀÔÇÒ °´Ã¼¸¦ °Ë»öÇØÁØ´Ù.
 	@Resource(name = "swBusDAO")
 	private SWBusDAO swBusDAO;
 
@@ -32,23 +32,23 @@ public class SWBusServiceImpl implements SWBusService {
 	private NodeInfo nodeInfo;
 
 
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	@Override
 	public Integer regNodeToRoute() throws Exception {
 		List<Map<String, Object>> list = nodeToRoute.insertInfo();
-		//Iterator :Set, List, Mapì˜ ì •ë³´ë¥¼ ì–»ì–´ ì–´ë–¤ ì»¬ë™ì…˜ì´ë¼ë„ ë™ì¼í•œ ë°©ì‹ìœ¼ë¡œ ì ‘ê·¼ì´ ê°€ëŠ¥í•˜ì—¬ ê·¸ ì•ˆì— ìˆëŠ” í•­ëª©ë“¤ì— ì ‘ê·¼í•  ìˆ˜ ìˆëŠ” ë°©ë²•ì„ ì œê³µ (ë‹¤í˜•ì„±)
+		//Iterator :Set, List, MapÀÇ Á¤º¸¸¦ ¾ò¾î ¾î¶² ÄÃ·¢¼ÇÀÌ¶óµµ µ¿ÀÏÇÑ ¹æ½ÄÀ¸·Î Á¢±ÙÀÌ °¡´ÉÇÏ¿© ±× ¾È¿¡ ÀÖ´Â Ç×¸ñµé¿¡ Á¢±ÙÇÒ ¼ö ÀÖ´Â ¹æ¹ıÀ» Á¦°ø (´ÙÇü¼º)
 		Iterator<Map<String, Object>> iterator = list.iterator();
 		Map<String, Object> map = null;
-		while (iterator.hasNext()) {//hasNext() : ì½ì–´ì˜¬ ìš”ì†Œê°€ ë‚¨ì•„ìˆëŠ”ì§€ í™•ì¸í•˜ëŠ” ë©”ì†Œë“œ
-			map = iterator.next();//next() : ë‹¤ìŒ ë°ì´í„°ë¥¼ ë°˜í™˜í•œë‹¤.
+		while (iterator.hasNext()) {//hasNext() : ÀĞ¾î¿Ã ¿ä¼Ò°¡ ³²¾ÆÀÖ´ÂÁö È®ÀÎÇÏ´Â ¸Ş¼Òµå
+			map = iterator.next();//next() : ´ÙÀ½ µ¥ÀÌÅÍ¸¦ ¹İÈ¯ÇÑ´Ù.
 			swBusDAO.insertNodeRouteInfo(map);
 		}
 
-		return Integer.valueOf(list.size());//valueOf:ë¬¸ìì—´ì— ëŒ€í•œ ì›ì‹œë°ì´í„°í˜•(primitive value)ì„ ë¦¬í„´
+		return Integer.valueOf(list.size());//valueOf:¹®ÀÚ¿­¿¡ ´ëÇÑ ¿ø½Ãµ¥ÀÌÅÍÇü(primitive value)À» ¸®ÅÏ
 	}
 
 
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	@Override
 	public Integer regRouteToOrder(Map<String, Object> map) throws Exception {
 		List<Map<String, Object>> list = routeToOrder.insertInfo(map);
@@ -63,7 +63,7 @@ public class SWBusServiceImpl implements SWBusService {
 	}
 
 
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	@Override
 	public Integer regRouteInfo(Map<String, Object> map) throws Exception {
 		List<Map<String, Object>> list = routeInfo.insertInfo(map);
@@ -76,7 +76,7 @@ public class SWBusServiceImpl implements SWBusService {
 		return Integer.valueOf(list.size());
 	}
 
-	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
 	@Override
 	public Integer regNodeInfo(Map<String, Object> map) throws Exception {
 		List<Map<String, Object>> list = nodeInfo.insertInfo(map);
@@ -89,11 +89,30 @@ public class SWBusServiceImpl implements SWBusService {
 		return Integer.valueOf(list.size());
 	}
 
-	//ì •ë¥˜ì¥ ì •ë³´
+	//Á¤·ùÀå Á¤º¸
 	public List<Map<String, Object>> nodeList(Map<String, Object> map) throws Exception {
-	//System.out.println("ServiceImpl->ì •ë¥˜ì¥ì •ë³´");
+	//System.out.println("ServiceImpl->Á¤·ùÀåÁ¤º¸");
 		return swBusDAO.selectNodeList(map);
 	}
 	
 
+	
+	
+	//³ë¼±Á¤º¸
+	@Override
+	public Map<String, Object> routeInfo(Map<String, Object> map) throws Exception {
+	    Map<String,Object> temp = new HashMap<String,Object>();
+	    temp.put("info",swBusDAO.selectRouteId(map));
+	    temp.put("path",swBusDAO.selectRoutePath(map));
+	    System.out.println("ServiceImpl->³ë¼±Á¤º¸");    
+	    System.out.println(map);    
+	      
+	    return temp;
+	}
+	
+	//
+	public List<Map<String, Object>> routeList(Map<String, Object> map) throws Exception {
+		//System.out.println("ServiceImpl->Á¤º¸");
+			return swBusDAO.selectRouteList(map);
+		}
 }

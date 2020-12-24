@@ -335,6 +335,8 @@ margin: 0 auto;
 
 
 <form method="post" action="giver_apply">
+<input type="hidden" name="u_no" value="${member.u_no}"/>   
+<input type="hidden" name="giver_type" value="간병도우미"/>   
     <div class="layer" >
 
           <div class="layer_inner">
@@ -344,8 +346,6 @@ margin: 0 auto;
          </div>
            <table class="ui celled table" name="inform_table" style="  width: 1200px;margin: auto; border=1">
 
-  			<input type="hidden" name="u_no" value="${member.u_no}"/>   
-            <input type="hidden" name="giver_type" value="간병도우미"/>   
 
             <tr><td rowspan="7">기본정보</td></tr>
               <tr>         

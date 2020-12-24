@@ -14,15 +14,15 @@ foreign key(U_NO) references U_MEMBER(U_NO)
  */
 
 public class ReservationInfoVO {
-	int resNo;
-	int facilityNO;
-	String facilityName;
-	int u_no;
-	String userName;
-	int userAge;
-	String resDate;
-	String resTime;
-	String visitPurpose;
+	private int resNo;
+	private int facilityNO;
+	private String facilityName;
+	private int u_no;
+	private String userName;
+	private int userAge;
+	private String resDate;
+	private String resTime;
+	private String visitPurpose;
 	
 	WelfareFacilitiesVO welfareFacilitiesVO;
 	MemberVO memberVO;

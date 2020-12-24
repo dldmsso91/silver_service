@@ -9,8 +9,9 @@ import org.springframework.stereotype.Service;
 
 import kr.co.kosmo.mvc.dao.CustomerDAO;
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
-import kr.co.kosmo.mvc.dto.CustomerVO;
+
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
@@ -25,18 +26,18 @@ public class CustomerImple implements CustomerService {
    private CustomerDAO Customer_dao;
 
    
-   //------------------------------------------ µ¿À± Áö¿øÀÚ insert ----------------------------
+   //------------------------------------------ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ insert ----------------------------
    @Override
    public void insertCustomer( CustomerVO Cvo ) throws Exception{   
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getGiver_type"+Cvo.getGiver_type());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getMy_condition"+Cvo.getMy_condition());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getMy_allergy"+Cvo.getMy_allergy());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getCan_walk"+Cvo.getCan_walk());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getHope_start_date"+Cvo.getHope_start_date());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getHope_finish_date"+Cvo.getHope_finish_date());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getHope_start_servicetime"+Cvo.getHope_start_servicetime());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getHope_end_servicetime"+Cvo.getHope_end_servicetime());
-	   System.out.println("===> sqlSession insertTEST()_Service È£Ãâ Cvo getHope_service_place"+Cvo.getHope_service_place());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getGiver_type"+Cvo.getGiver_type());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getMy_condition"+Cvo.getMy_condition());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getMy_allergy"+Cvo.getMy_allergy());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getCan_walk"+Cvo.getCan_walk());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getHope_start_date"+Cvo.getHope_start_date());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getHope_finish_date"+Cvo.getHope_finish_date());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getHope_start_servicetime"+Cvo.getHope_start_servicetime());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getHope_end_servicetime"+Cvo.getHope_end_servicetime());
+	   System.out.println("===> sqlSession insertTEST()_Service È£ï¿½ï¿½ Cvo getHope_service_place"+Cvo.getHope_service_place());
 
 	   Customer_dao.insertCustomer(Cvo);
 

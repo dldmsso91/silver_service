@@ -1,6 +1,6 @@
 package kr.co.kosmo.mvc.service;
 
-import kr.co.kosmo.mvc.dto.CustomerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 
 public interface CustomerService {
 

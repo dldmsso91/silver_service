@@ -26,5 +26,7 @@ public interface CommunityService {
 	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
 	
 	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo);
+
+	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo);
 	
 }

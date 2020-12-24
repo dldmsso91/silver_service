@@ -75,7 +75,7 @@
 			</div>
 		</div>
 		<div class="apply_button">
-			<p>
+			<p><%-- 추후에는 컨트롤러로 부터 로그인한 세션정보를 불러와서 넘기거나 로그인을 하지 않았다면, 즉 세션이 없다면 로그인 폼 갔다가 와야함. --%>
 				<a href="customer_service_apply_yj" class="btn btn-primary"
 					id="apply_button">서비스 신청하기</a> <a href="guide_nursing_apply_yj"
 					class="btn btn-primary" id="apply_button">간병인 지원하기</a>

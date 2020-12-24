@@ -6,13 +6,13 @@
 
 
 <form method="post" action="my_resume_en">
+<input type="hidden" name="giver_no" value="${giver_no}"/>   
 <div class="slide-item overlay"
 	style="background-image: url('resources/images/promise2.jpg')">
 	<div class="container">
 		<div class="row justify-content-center text-center">
 			<div class="col-lg-6 align-self-center">
 				<h1 class="heading mb-3">${member.u_name}님 도우미 지원이 완료되었습니다.</h1>
-					<input type="hidden" name="giver_no" value="${giver_no}"/>   
 				<p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다.</p>
 				<p><input type="submit" value="지원내역 확인하기" class="btn btn-primary"></p>   
 			</div>

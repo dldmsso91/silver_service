@@ -61,7 +61,6 @@
 						</table>
 					</div>
 				</section>
-				<input type='hidden' id='xxx' value='${medicalList }'>
 			</div>
 
 			
@@ -88,15 +87,16 @@
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 <script>
 
-		
-		
-
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
 			center : new kakao.maps.LatLng(37.5935973, 127.02629), // 지도의 중심좌표
 			level : 6
 		// 지도의 확대 레벨
 		};
+		
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		
 
 		var positions = new Array();
 		<c:forEach items="${medicalList}" var="medical">
@@ -105,27 +105,6 @@
 					latlng : new kakao.maps.LatLng("${medical.latitude}", "${medical.longitude}")});
 		</c:forEach>
 		
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-// 		var positions = [ {
-// 			content : '<div>${medicalList[0].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${medicalList[0].latitude}, ${medicalList[0].longitude})
-// 		}, {
-// 			content : '<div>${medicalList[1].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${medicalList[1].latitude}, ${medicalList[1].longitude})
-// 		}, {
-// 			content : '<div>${medicalList[2].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${medicalList[2].latitude}, ${medicalList[2].longitude})
-// 		}, {
-// 			content : '<div>${medicalList[3].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${medicalList[3].latitude}, ${medicalList[3].longitude})
-// 		}, {
-// 			content : '<div>${medicalList[4].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${medicalList[4].latitude}, ${medicalList[4].longitude})
-// 		} ];
-
-
 		for (var i = 0; i < positions.length; i++) {
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
@@ -211,7 +190,45 @@
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		}
+
+		var bounds = map.getBounds();
+		var swLatLng = bounds.getSouthWest();
+		var swLat = swLatLng.getLat();
+		var swLng = swLatLng.getLng();
+		var neLatLng = bounds.getNorthEast();
+		var neLat = neLatLng.getLat();
+		var neLng = neLatLng.getLng();
+
+// 		alert(swLat);
+// 		alert(swLng);
+// 		alert(neLat);
+// 		alert(neLng);
 		
+		
+// 		$(function(){	
+// 			$('#map').click(function(){
+// 		        $.ajax({
+// 		        	type:'post',
+// 		        	url : 'getMedicalList',
+// 		        	data : "swLat="+swLat+"swLng="+swLng+"neLat"+neLat+"neLng"+neLng,
+// 		        	contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
+// 		        	success : function(resultData){
+// 		        		positions = new Array();
+// 		        		for(var item in resultData){
+// 		        			positions.push({
+// 		    					content : '<div>${medical.facilityName}</div>',
+// 		    					latlng : new kakao.maps.LatLng("${medical.latitude}", "${medical.longitude}")});
+// 							alert(item.getLongitude())
+// 				        }
+// 		        	},
+// 		        	error : function(err){
+// 		        		alert(err);
+// 		        	}
+// 		        });
+		       
+// 			})
+// 		})
+			
 	</script>
 </body>
 </html>

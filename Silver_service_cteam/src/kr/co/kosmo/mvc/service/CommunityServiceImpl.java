@@ -79,4 +79,9 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDao.updateReservationForm(vo);
 	}
 	
+	@Override
+	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo){
+		return communityDao.getMedicalListAjax(vo);
+	}
+	
 }

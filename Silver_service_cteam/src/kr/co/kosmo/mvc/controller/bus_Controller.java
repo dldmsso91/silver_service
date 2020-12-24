@@ -23,24 +23,22 @@ public class bus_Controller {
 	@Autowired		//@Resource
 	private BusStopParser busStopParser;
 	
-	@RequestMapping(value = "/bus_info")
-	public String bus_info() {
-		return "bus_info_sw";
+	//»èÁ¦ 
+	@RequestMapping(value = "/bus_admin")
+	public String bus_Admin() {
+		return "bus_admin_sw";
 	}
-	@RequestMapping(value = "/bus_main")
-	public String bus_main() {
-		return "bus_main_sw";
-	}
+	
 	@RequestMapping(value = "/bus_service")
 	public String bus_service() {
 		return "bus_service_sw";
 	}
 	
-		//ë°ì´í„°ë² ì´ìŠ¤ ë°ì´í„° ì‚½ì…ì„ ìœ„í•œ ì»¨íŠ¸ë¡¤ëŸ¬
-    @RequestMapping(value="/bus_admin")
-    public ModelAndView nodeFind(CommandMap commandMap) throws Exception{
+	
+    @RequestMapping(value="/bus_main")
+    public ModelAndView bus_main(CommandMap commandMap) throws Exception{
          
-        ModelAndView mv = new ModelAndView("bus_admin_sw");
+        ModelAndView mv = new ModelAndView("bus_main_sw");
         mv.addObject("nodeid",commandMap.get("nodeid"));
         mv.addObject("nodename",commandMap.get("nodename"));
         mv.addObject("lat",commandMap.get("lat"));
@@ -49,8 +47,8 @@ public class bus_Controller {
         return mv;
     }
     
-	//sizeì˜ ê²½ìš° ëª‡ ê°œì˜ ì •ë³´ê°€ íŒŒì‹± ë˜ì—ˆëŠ” ì§€ë¥¼ í™•ì¸í•˜ê¸° ìœ„í•¨
-    //ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+	//sizeÀÇ °æ¿ì ¸î °³ÀÇ Á¤º¸°¡ ÆÄ½Ì µÇ¾ú´Â Áö¸¦ È®ÀÎÇÏ±â À§ÇÔ
+    //³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
   	@RequestMapping(value = "/regNodeInfo")
   	public ModelAndView regNodeInfo(CommandMap commandMap) throws Exception {
 
@@ -61,7 +59,7 @@ public class bus_Controller {
   	} 
 
   	
-  	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
   	@RequestMapping(value = "/regNodeToRoute")
   	public ModelAndView regNodeToRoute() throws Exception {
   		ModelAndView mv = new ModelAndView("regSuc");
@@ -71,7 +69,7 @@ public class bus_Controller {
   	}
 
   	
-  	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
   	@RequestMapping(value = "/regRouteInfo")
   	public ModelAndView regRouteInfo(CommandMap commandMap) throws Exception {
 
@@ -82,7 +80,7 @@ public class bus_Controller {
   	}
   	
   	
-  	//ë‚˜ì¤‘ì— ì‚­ì œí•  ì˜ˆì •
+  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
   	@RequestMapping(value = "/regRouteToOrder")
   	public ModelAndView regRouteToOrder(CommandMap commandMap) throws Exception {
 
@@ -92,9 +90,9 @@ public class bus_Controller {
   		return mv;
   	}
   	
-    //ì •ë¥˜ì¥ ì •ë³´ 
-	//@ResponseBody :ì„œë²„ì—ì„œ í´ë¼ì´ì–¸íŠ¸ë¡œ ì‘ë‹µ ë°ì´í„°ë¥¼ ì „ì†¡í•˜ê¸° ìœ„í•´ì„œ ìë°” ê°ì²´ë¥¼ HTTP ì‘ë‹µ ë³¸ë¬¸ì˜ ê°ì²´ë¡œ ë³€í™˜í•˜ì—¬ í´ë¼ì´ì–¸íŠ¸ë¡œ ì „ì†¡ì‹œí‚¤ëŠ” ì—­í™œ
-	//ajaxì‚¬ìš©í• ë•Œ ì‚¬ìš©í•˜ë©° jsonViewë¥¼ ì¨ì¤€ë‹¤.
+    //Á¤·ùÀå Á¤º¸ 
+	//@ResponseBody :¼­¹ö¿¡¼­ Å¬¶óÀÌ¾ğÆ®·Î ÀÀ´ä µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ±â À§ÇØ¼­ ÀÚ¹Ù °´Ã¼¸¦ HTTP ÀÀ´ä º»¹®ÀÇ °´Ã¼·Î º¯È¯ÇÏ¿© Å¬¶óÀÌ¾ğÆ®·Î Àü¼Û½ÃÅ°´Â ¿ªÈ°
+	//ajax»ç¿ëÇÒ¶§ »ç¿ëÇÏ¸ç jsonView¸¦ ½áÁØ´Ù.
 	@RequestMapping(value="/nodeList")
 	public @ResponseBody ModelAndView busList(@RequestBody Map<String,Object> map) throws Exception{
 	    map.put("list", swBusServ.nodeList(map));
@@ -102,13 +100,48 @@ public class bus_Controller {
 	}
 	
 	
-	//ì‹¤ì‹œê°„ ë²„ìŠ¤ì •ë³´
+	//½Ç½Ã°£ ¹ö½ºÁ¤º¸
 	@RequestMapping(value="/nodeRealTime")
 	 public @ResponseBody ModelAndView nodeRealTime(@RequestBody Map<String,Object> map) throws Exception{
 	  map.put("list", busStopParser.apiParserNodeRealTime(map));
-	 
+	
 	  return new ModelAndView("jsonView", map);
 	 }
 
 
+	
+	
+	//³ë¼± Á¤º¸ 
+	@RequestMapping(value="/bus_info")
+	public ModelAndView bus_Info(CommandMap commandMap) throws Exception{
+	     
+	    ModelAndView mv = new ModelAndView("bus_info_sw");
+	     
+	    mv.addObject("routeno",commandMap.get("routeno"));
+	    mv.addObject("routeid",commandMap.get("routeid"));
+	     
+	    return mv;
+	}
+	
+	 //³ë¼± °æ·Î Á¤º¸ ÆäÀÌÁö
+	@RequestMapping(value="/routeInfo")
+	public @ResponseBody ModelAndView routeInfo(@RequestBody Map<String,Object> map) throws Exception{
+	    Map<String,Object> temp = swBusServ.routeInfo(map);
+	    map.put("map", temp.get("info"));
+	    map.put("path", temp.get("path"));
+	     
+	    return new ModelAndView("jsonView",map);
+	}
+	
+	
+	//
+	@RequestMapping(value="/routeList")
+	public @ResponseBody ModelAndView routeList(@RequestBody Map<String,Object> map) throws Exception{
+	    map.put("list", swBusServ.routeList(map));
+	    return new ModelAndView("jsonView", map);
+	}
+	
+	
+
+	
 }

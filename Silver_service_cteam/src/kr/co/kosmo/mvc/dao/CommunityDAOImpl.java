@@ -85,4 +85,9 @@ public class CommunityDAOImpl implements CommunityDAO{
 		ss.delete("commu.reservationDelete", vo);
 	}
 	
+	@Override
+	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo) {
+		return ss.selectList("commu.getMedicalListAjax", vo);
+	}
+	
 }

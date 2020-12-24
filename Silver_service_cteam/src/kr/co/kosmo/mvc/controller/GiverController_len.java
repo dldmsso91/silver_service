@@ -20,6 +20,7 @@ import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
 import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
@@ -103,11 +104,12 @@ public class GiverController_len {
 	}  
 
 	@RequestMapping(value="/recommend_service_en")
-	public String recommend_service_en(Model model,GiverVO vo,int customer_no) throws Exception{
-
-		model.addAttribute("customer_no",customer_no);
+	public String recommend_service_en(Model model,GiverVO vo,int customer_no,CustomerVO Cvo) throws Exception{
+		System.out.println(vo.getU_no());
 		List<GiverVO> recommend = giver_service.recommend_giver(vo);			
 			
+		Cvo.setCustomer_no(customer_no);
+		model.addAttribute("Customer_no",customer_no);
 		model.addAttribute("recommend",recommend);	
 		System.out.println("Recommend Controller");		
 

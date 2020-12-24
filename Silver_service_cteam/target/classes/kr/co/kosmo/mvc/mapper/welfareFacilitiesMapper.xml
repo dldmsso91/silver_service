@@ -16,6 +16,11 @@
 	<select id="getMedicalList" resultType="facInfo">
 		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설'
 	</select>
+	
+	<select id="getMedicalListAjax" parameterType="facInfo" resultType="facInfo">
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설' 
+		and latitude between #{swLat} and #{neLat} and longitude between #{swLng} and #{neLng}
+	</select>
 
 	<select id="getElderlyhomerecommend" resultType="facInfo">
 		<![CDATA[
