@@ -36,7 +36,6 @@ peopleNumber number(10),
 foreign key(facilityNo) references welfareFacilities(facilityNo)
 );
 
-
 create table silverhalldetail(
 facilityNo number(10),
 serviceType varchar2(20),

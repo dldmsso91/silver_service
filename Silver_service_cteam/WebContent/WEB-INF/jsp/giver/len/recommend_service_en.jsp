@@ -20,25 +20,6 @@
 			slideMargin : 20,
 			touchEnabled : (navigator.maxTouchPoints > 0)
 		});
-		
-		
-		var satisfaction_score = $('#satisfaction_score')
-		var	customer_satisfaction_score=$('#customer_satisfaction_score')
-		var	star_onoff=$('.off')
-		
-
-		if(customer_satisfaction_score=satisfaction_score){
-			
-			star_onoff.replace("off","on")
-		};
-		
-		
-// 		$('#star_grade a').click(function() {
-// 			$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-// 			$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-// 			return false;
-// 		});
-
 	});
 </script>
 
@@ -143,21 +124,36 @@ h3 {
 	font-weight: bold;
 }
 
-.starR {
-	background:
-		url('http://miuu227.godohosting.com/images/icon/ico_review.png')
-		no-repeat right 0;
-	background-size: auto 100%;
-	width: 30px;
-	height: 30px;
-	display: inline-block;
-	text-indent: -9999px;
-	cursor: pointer;
+
+.stars-container {
+  position: relative;
+  display: inline-block;
+  color: transparent;
 }
 
-.starR.on {
-	background-position: 0 0;
+.stars-container:before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  color: lightgray;
 }
+
+.stars-container:after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  content: '★★★★★';
+  color: gold;
+  overflow: hidden;
+}
+
+.stars-0:after { width: 0%; }
+.stars-1:after { width: 20%; }
+.stars-2:after { width: 40%; }
+.stars-3:after { width: 60%; }
+.stars-4:after { width: 80%; }
+.stars-5:after { width: 100; }
 
 .bx-wrapper {
 	-webkit-box-shadow: 0 0 5px #ccc0;
@@ -181,13 +177,14 @@ h3 {
 
 <h2>이은내님을 위한 도우미들입니다</h2>
 
-<form action="giver_resume_detail_en" method='post'>
+<form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
 		<ul class="bxslider">
 <c:forEach items="${recommend}" var="r">
+	<input name="giver_no" type="hidden" value="${r.u_no}" />
 			<li><img src="resources/images/1.jpg" alt="Image"
 				class="img-fluid" />
-				<h3>${r.memberVO.u_name}</h3>
+				<h3>${r.memberVO.u_name}${r.u_no}</h3>
 				<hr>
 				<h5>간병 서비스 이력</h5>
 				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
@@ -226,15 +223,12 @@ h3 {
 				<h5>도우미에 대한 평가</h5>
 				<c:forEach items="${r.giver_satisfactionVO}" var="s">						
 					<input type="hidden" id="satisfaction_score" value="${s.customer_satisfaction_score}">				
-					<p id="star_grade">
-					<a>★</a>
-					<a>★</a>
-					<a>★</a>
-					<a>★</a>	
-					<a>★</a>	
+					<div><span class="stars-container stars-${s.customer_satisfaction_score}">★★★★★</span></div>	
 				</c:forEach>
 					<br/>
-					<button type="submit" class="btn btn-primary" id="detail" value="선택하기">선택하기</button></li>
+				
+									
+				<button type="submit" class="btn btn-primary" value="선택하기">선택하기</button></li>
 </c:forEach>
 		</ul>
 	</div>

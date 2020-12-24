@@ -8,6 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
 import kr.co.kosmo.mvc.service.Giver.GiverService;
@@ -35,8 +38,6 @@ public class GiverController_len {
 	public String apply_services_en() {
 		return "giver/len/apply_services_en";
 	}
-	
-	
 	@RequestMapping(value="/apply_services_type_en")
 	public String apply_services_type() {
 		return "giver/len/apply_services_type_en";
@@ -44,46 +45,23 @@ public class GiverController_len {
 	@RequestMapping(value="/caregiver_service_main_en")
 	public String caregiver_service_main() {
 		return "giver/len/caregiver_service_main_en";
-	}  
-	
-	
+	}  	
 	@RequestMapping(value="/walking_service_main_en")
 	public String walking_service_main() {
 		return "giver/len/walking_service_main_en";
 	}  
-	
-	
 	@RequestMapping(value="/life_service_main_en")
 	public String life_service_main_en() {
 		return "giver/len/life_service_main_en";
 	}  
-	
-	
 	@RequestMapping(value="/apply_caregiver_detail_en")
 	public String apply_caregiver_detail_en() {
 		return "giver/len/apply_caregiver_detail_en";
-	}  
-	
-	
-	
+	}  	
 	@RequestMapping(value="/resume_giver_en")
 	public String resume_giver_en() {
 		return "giver/len/resume_giver_en";
 	}  
-	
-	@RequestMapping(value="/giver_resume_detail_en")
-	public String giver_resume_detail_en() {
-		return "giver/len/giver_resume_detail_en";
-	}  
-	
-	@RequestMapping(value="/my_giver_resume_detail_en")
-	public String my_giver_resume_detail_en() {
-		return "giver/len/my_giver_resume_detail_en";
-	}  
-
-	
-	
-	
 	@RequestMapping(value="/my_service_en")
 	public String my_service_en() {
 		return "giver/len/my_service_en";
@@ -105,17 +83,12 @@ public class GiverController_len {
 	
 	@RequestMapping(value="/recommend_service_en")
 	public String recommend_service_en(Model model,GiverVO vo) throws Exception{
-		
+
 		List<GiverVO> recommend = giver_service.recommend_giver(vo);			
-	
-		model.addAttribute("recommend",recommend);
-		System.out.println("Recommend Controller");
-		
-		for(GiverVO a :recommend ) {
 			
-			System.out.println("Controller테스트중입니다."+a.getGiver_type());		
-		};
-		
+		model.addAttribute("recommend",recommend);	
+		System.out.println("Recommend Controller");		
+
 				
 
 		return "giver/len/recommend_service_en";
@@ -124,9 +97,36 @@ public class GiverController_len {
 	
 	
 	
+	@RequestMapping(value="/giver_resume_detail_en",method = {RequestMethod.GET,RequestMethod.POST})
+	public String giver_resume_detail_en(Model model,GiverVO vo,MemberVO mem,int giver_no) throws Exception{
+		
+		System.out.println("출력좀 되라"+giver_no);
+		vo.setGiver_no(giver_no);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = giver_service.selectGiver_list(vo);
+		
+		model.addAttribute("Default",map.get("Default"));
+		model.addAttribute("Career",map.get("Career"));
+		model.addAttribute("Area",map.get("Area"));
+		model.addAttribute("Satisfaction",map.get("Satisfaction"));
+		model.addAttribute("License",map.get("License"));
+				
+		
+		
+		
+		return "giver/len/giver_resume_detail_en";
+	}  
 	
 	
 	
+	@RequestMapping(value="/my_giver_resume_detail_en",method = {RequestMethod.GET,RequestMethod.POST})
+	public String my_giver_resume_detail_en(){
+
+
+		
+		return "giver/len/my_giver_resume_detail_en";
+	}  
 	
 	
 	
@@ -135,7 +135,7 @@ public class GiverController_len {
 		
 		//테스트 값
 		vo.setGiver_no(1);
-		vo.setU_no(1);
+
 		
 		
 		Map<String, Object> map = new HashMap<String, Object>();

@@ -8,10 +8,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
+import kr.co.kosmo.mvc.dto.CustomerVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
 import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
+import kr.co.kosmo.mvc.service.CustomerService;
 import kr.co.kosmo.mvc.service.Giver.GiverService;
 
 
@@ -21,77 +23,79 @@ public class Moon_Jeon_Controller {
 	
 	@Autowired
 	GiverService giverService;
+	
+	@Autowired
+	CustomerService customerservice;
 	   
 	@RequestMapping(value="/customer_hugi_detail_look_yj")
 	   public String customer_hugi_detail_look_yj() {
-	      return "yj/customer_hugi_detail_look_yj";
+	      return "customer_hugi_detail_look_yj";
 	      }
 	   
 	@RequestMapping(value="/customer_hugi_list_yj")
 	   public String customer_hugi_list_yj() {
-	      return "yj/customer_hugi_list_yj";
+	      return "customer_hugi_list_yj";
 	      }
 	   
 	@RequestMapping(value="/customer_hugi_write_yj")
 	   public String customer_hugi_write_yj() {
-	      return "yj/customer_hugi_write_yj";
+	      return "customer_hugi_write_yj";
 	      }
 	   
 	@RequestMapping(value="/customer_service_apply_yj")
 	   public String customer_service_apply_yj() {
-	      return "yj/customer_service_apply_yj";
+	      return "customer_service_apply_yj";
 	      }
 	   
 	@RequestMapping(value="/customer_service_check_yj")
 	   public String customer_service_check_yj() {
-	      return "yj/customer_service_check_yj";
+	      return "customer_service_check_yj";
 	      }
 	   
 	@RequestMapping(value="/customer_use_content._yj")
 	   public String customer_use_content() {
-	      return "yj/customer_use_content";
+	      return "customer_use_content";
 	      }
 	   
 	@RequestMapping(value="/guide_Life_apply_yj")
 	   public String guide_Life_apply_yj() {
-	      return "yj/guide_Life_apply_yj";
+	      return "guide_Life_apply_yj";
 	      }
 	   
 	@RequestMapping(value="/guide_my_page_yj")
 	   public String guide_my_page_yj() {
-	      return "yj/guide_my_page_yj";
+	      return "guide_my_page_yj";
 	      }
 	   
 	@RequestMapping(value="/guide_nursing_apply_yj")
 	   public String guide_nursing_apply_yj() {
-	      return "yj/guide_nursing_apply_yj";
+	      return "guide_nursing_apply_yj";
 	      }
 	   
 	@RequestMapping(value="/guide_worktime_yj")
 	   public String boaguide_worktime_yjrdList() {
-	      return "yj/guide_worktime_yj";
+	      return "guide_worktime_yj";
 	      }
 	
 	@RequestMapping(value="/guide_walk_apply_yj")
 	   public String guide_walk_apply_yj() {
-	      return "yj/guide_walk_apply_yj";
+	      return "guide_walk_apply_yj";
 	      }  
 	
 	
-		
-	   //----------------------ë‹¤ì¤‘ insertë¬¸   ë™ìœ¤ -------------------------------- DY
+	   //----------------------´ÙÁß insert¹®   µ¿À± -------------------------------- DY
 	/*
 	@Autowired
 	private GiverDAO giverdao;
-		// ë„ìš°ë¯¸ ì§€ì›ì ì²˜ë¦¬í•˜ê¸° giver_apply
+		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
 		@PostMapping("giver_apply")
-		// í¼ìœ¼ë¡œë¶€í„° ì „ë‹¬ë˜ëŠ” íŒŒë¼ë¯¸í„°ì´ë¦„ì´ Voê°ì²´ì˜ í”„ë¡œí¼í‹°ë‘ ê°™ì•„ì•¼í•œë‹¤.
-		// ë§Œì•½ ë‹¤ë¥´ë‹¤ë©´ ê°’ì´ ë§¤í•‘ë˜ì§€ ì•Šê³  ë””ë¹„ì— ì „ë‹¬ë˜ê¸° ë•Œë¬¸ì— nullì—ëŸ¬ê°€ ë°œìƒ.
+		// ÆûÀ¸·ÎºÎÅÍ Àü´ŞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
+		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µğºñ¿¡ Àü´ŞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ı.
 		public ModelAndView insertGiverAll(GiverVO Gvo) throws Exception {
 			ModelAndView mav = new ModelAndView();
 			int res = giverdao.insertGiver(Gvo);
 
-			if (res == 1) {// ë§ˆì´ë°”í‹°ìŠ¤ ì‘ì—…ì´ ì„±ê³µ
+			if (res == 1) {// ¸¶ÀÌ¹ÙÆ¼½º ÀÛ¾÷ÀÌ ¼º°ø
 				mav.setViewName("success");
 				//mav.addObject("giver_type", Gvo.getGiver_type());
 			} else {
@@ -102,30 +106,30 @@ public class Moon_Jeon_Controller {
 			return mav;
 		}
 		
-		// ì¶”ê°€ í•´ì„œ í•´ë³´ëŠ” êµ¬ê°„ ---------------------------------------------------
+		// Ãß°¡ ÇØ¼­ ÇØº¸´Â ±¸°£ ---------------------------------------------------
 
-		// ë„ìš°ë¯¸ ì§€ì›ì ì²˜ë¦¬í•˜ê¸° giver_apply
+		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
 		@PostMapping("giver_apply")
-		// í¼ìœ¼ë¡œë¶€í„° ì „ë‹¬ë˜ëŠ” íŒŒë¼ë¯¸í„°ì´ë¦„ì´ Voê°ì²´ì˜ í”„ë¡œí¼í‹°ë‘ ê°™ì•„ì•¼í•œë‹¤.
-		// ë§Œì•½ ë‹¤ë¥´ë‹¤ë©´ ê°’ì´ ë§¤í•‘ë˜ì§€ ì•Šê³  ë””ë¹„ì— ì „ë‹¬ë˜ê¸° ë•Œë¬¸ì— nullì—ëŸ¬ê°€ ë°œìƒ.
+		// ÆûÀ¸·ÎºÎÅÍ Àü´ŞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
+		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µğºñ¿¡ Àü´ŞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ı.
 		public void insertCareer(Model model,CareerVO Cvo) throws Exception {
 			int res = giverdao.insertCareer(Cvo);
 			System.out.println("career" + res);	
 		}
 		
-		// ë„ìš°ë¯¸ ì§€ì›ì ì²˜ë¦¬í•˜ê¸° giver_apply
+		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
 		@PostMapping("giver_apply")
-		// í¼ìœ¼ë¡œë¶€í„° ì „ë‹¬ë˜ëŠ” íŒŒë¼ë¯¸í„°ì´ë¦„ì´ Voê°ì²´ì˜ í”„ë¡œí¼í‹°ë‘ ê°™ì•„ì•¼í•œë‹¤.
-		// ë§Œì•½ ë‹¤ë¥´ë‹¤ë©´ ê°’ì´ ë§¤í•‘ë˜ì§€ ì•Šê³  ë””ë¹„ì— ì „ë‹¬ë˜ê¸° ë•Œë¬¸ì— nullì—ëŸ¬ê°€ ë°œìƒ.
+		// ÆûÀ¸·ÎºÎÅÍ Àü´ŞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
+		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µğºñ¿¡ Àü´ŞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ı.
 		public void insertLicense(Model model, LicenseVO Lvo) throws Exception {
 			int res = giverdao.insertLicense(Lvo);
 			System.out.println("license" + res);
 		}
 		
-		// ë„ìš°ë¯¸ ì§€ì›ì ì²˜ë¦¬í•˜ê¸° giver_apply
+		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
 		@PostMapping("giver_apply")
-		// í¼ìœ¼ë¡œë¶€í„° ì „ë‹¬ë˜ëŠ” íŒŒë¼ë¯¸í„°ì´ë¦„ì´ Voê°ì²´ì˜ í”„ë¡œí¼í‹°ë‘ ê°™ì•„ì•¼í•œë‹¤.
-		// ë§Œì•½ ë‹¤ë¥´ë‹¤ë©´ ê°’ì´ ë§¤í•‘ë˜ì§€ ì•Šê³  ë””ë¹„ì— ì „ë‹¬ë˜ê¸° ë•Œë¬¸ì— nullì—ëŸ¬ê°€ ë°œìƒ.
+		// ÆûÀ¸·ÎºÎÅÍ Àü´ŞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
+		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µğºñ¿¡ Àü´ŞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ı.
 		public void insertHopeBusinessArea(Hope_Business_AreaVO Hvo) throws Exception {
 			ModelAndView mav = new ModelAndView();
 			int res = giverdao.insertHopeBusinessArea(Hvo);
@@ -134,13 +138,19 @@ public class Moon_Jeon_Controller {
 		}
 		*/
 	
-	// --------------------------------------- ë‘˜ì˜¤ê±°ë©´ ë˜ëŠ” ë¶€ë¶„ -----------------------
+	// --------------------------------------- µÑ¿À°Å¸é µÇ´Â ºÎºĞ -----------------------
 		@PostMapping("giver_apply")
 		public String insertGiverAll( GiverVO Gvo, CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo) throws Exception{
 			giverService.insertGiverAll( Gvo, Cvo, Lvo, Hvo);
 			
-			return "success";
+			return "giver/len/succesed_apply_giver_en";
 		}
 		
+		@PostMapping("customer_apply")
+		public String insertCustomer( CustomerVO Cvo) throws Exception {
+			customerservice.insertCustomer(Cvo);
+			
+			return "giver/len/recommend_service_en";
+		}
 		
 }

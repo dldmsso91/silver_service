@@ -80,6 +80,7 @@ public class MemberController {
 			rttr.addFlashAttribute("msg", false);
 		}else {
 			session.setAttribute("member", login);
+			session.setAttribute("u_no", login.getU_no());
 		}
 		
 		return "redirect:/";

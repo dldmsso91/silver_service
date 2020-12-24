@@ -99,8 +99,8 @@ public class CommunityController {
 	}
 	
 	
-	@RequestMapping(value="/UpdateReservationForm")
-	public String UpdateReservationForm(ReservationInfoVO vo, Model model, HttpSession session) {
+	@RequestMapping(value="/updateReservationForm")
+	public String updateReservationForm(ReservationInfoVO vo, Model model, HttpSession session) {
 		int u_no;
 		if(session.getAttribute("u_no")==null) {
 			return "login";

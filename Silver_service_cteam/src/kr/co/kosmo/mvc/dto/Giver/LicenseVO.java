@@ -5,9 +5,8 @@ public class LicenseVO {
 	private int license_no;
 	private int giver_no;
 	private String license_name;
-	private String license_Institute;
-	private String license_Redate;
-	
+	private String license_institute;
+	private String license_redate;
 	
 	public int getLicense_no() {
 		return license_no;
@@ -27,19 +26,22 @@ public class LicenseVO {
 	public void setLicense_name(String license_name) {
 		this.license_name = license_name;
 	}
-	public String getLicense_Institute() {
-		return license_Institute;
+	public String getLicense_institute() {
+		return license_institute;
 	}
-	public void setLicense_Institute(String license_Institute) {
-		this.license_Institute = license_Institute;
+	public void setLicense_institute(String license_institute) {
+		this.license_institute = license_institute;
 	}
-	public String getLicense_Redate() {
-		return license_Redate;
+	public String getLicense_redate() {
+		return license_redate;
 	}
-	public void setLicense_Redate(String license_Redate) {
-		this.license_Redate = license_Redate;
+	public void setLicense_redate(String license_redate) {
+		this.license_redate = license_redate;
 	}
+
 	
+	
+
 	
 
 	

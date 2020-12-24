@@ -77,7 +77,7 @@
 	</insert>
 	
 	<update id="updateReservation" parameterType="res">
-		update reservationInfo set resDate= to_date(#{resDate},'yyyy-mm-dd'), resTime = #{resTime}  where resNO = #{resNo}
+		update reservationInfo set resDate= to_date(#{resDate},'yyyy-mm-dd'), resTime = #{resTime}, visitPurpose = #{visitPurpose}  where resNO = #{resNo}
 	</update>
 	
 	<delete id="reservationDelete" parameterType="res">
@@ -123,7 +123,7 @@
 	
 	<select id="getMyReservationDetail" resultMap="res">
 		select
-		r.resNo, r.facilityName, r.facilityNO, w.typeName, w.address, w.telnumber, r.userName,
+		r.resNo, r.facilityName, r.facilityNO, w.typeName, w.address, w.telnumber, r.userName, r.visitPurpose,
 		decode(substr(u_birth2,1,1),'1','19','2','19','20')||to_date(u.u_birth,'yy-mm-dd') "u_birth",
 		floor(to_number(sysdate-to_date(decode(substr(u_birth2,1,1),'1','19','2','19','20')||to_date(u.u_birth,'yy-mm-dd')))/365) "u_age",
 		u.u_addr1||' '||u.u_addr2 "u_addr", u_phone, decode(subStr(u.u_birth2,1,1),'1','남성','3','남성','여성') "u_gender", r.u_no 

@@ -14,12 +14,12 @@ public class GiverVO {
 		private String giver_type;
 		private String hope_business_place;
 		private int hope_salary;
-		private String hope_worktime_start;
-		private String hope_worktime_end;
 		private String smoking;
 		private String school;
 		private String major;
-		private int penalty;		
+		private int penalty;
+		private String hope_worktime_start;
+		private String hope_worktime_end;		
 		private String apply_giver_redate;
 		
 		

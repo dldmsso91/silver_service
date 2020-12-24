@@ -98,7 +98,7 @@
         s.Giver_Satisfaction_no,s.Customer_satisfaction_score,s.Customer_satisfaction_complain,s.Giver_Satisfaction_redate
         
  	FROM U_MEMBER u, career c, giver g,Hope_Business_Area h,license l,Giver_Satisfaction s
-	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
+	WHERE u.u_no=g.giver_no and g.giver_no= #{giver_no}
 	</select>	
 
 
@@ -109,7 +109,7 @@
 		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.hope_worktime_start,
 		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate
  	FROM U_MEMBER u,giver g
-	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
+	WHERE u.u_no=g.giver_no and g.giver_no= #{giver_no}
 	</select>	
 	
 	
@@ -120,7 +120,7 @@
         c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
 
  	FROM U_MEMBER u, career c, giver g
-	WHERE u.u_no=g.giver_no and g.u_no= #{u_no}
+	WHERE u.u_no=g.giver_no and g.giver_no= #{giver_no}
  	</select>   
  	
  	
@@ -130,7 +130,7 @@
         l.license_no,l.license_name,l.License_Institute,l.License_Redate
 
  	FROM U_MEMBER u,license l, giver g
-	WHERE  u.u_no=g.giver_no and g.u_no= #{u_no}
+	WHERE  u.u_no=g.giver_no and g.giver_no= #{giver_no}
  	</select>       
              
         
@@ -140,7 +140,7 @@
         h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
 
  	FROM U_MEMBER u,Hope_Business_Area h, giver g
-	WHERE  u.u_no=g.giver_no and g.u_no= #{u_no}  
+	WHERE  u.u_no=g.giver_no and g.giver_no= #{giver_no}  
   	</select>
 
   
@@ -166,16 +166,19 @@
 
 
 <!-- 일일만족도 insert문 -->
-   <insert id="insert" parameterType="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO">        
+   <insert id="insert_Satisfaction" parameterType="satisfaction">        
       INSERT INTO Giver_Satisfaction
       VALUES(GIVER_SATISFACTION_SEQ.nextval,1,#{customer_satisfaction_score},#{customer_satisfaction_complain},sysdate)
    </insert>
+   
+   
+   
    
 <!-- 지원 삭제 delete문 -->
 <delete id="deleteGiver" parameterType="giver">DELETE FROM giver WHERE Giver_no = #{giver_no} </delete>   
 
 
-
+   
 
 
 <!-- 동윤 지원자 정보 insert 부분 -->
@@ -190,7 +193,7 @@ INSERT INTO Hope_Business_Area VALUES(Area_seq ,giver_seq.currval,#{hope_busines
 </insert>
 
 <insert id="insert_career" parameterType="career">
-INSERT INTO career VALUES(career_seq.nextval,giver_seq.currval,#{career_name},#{role},#{work_start_period},#{work_end_period}) 
+INSERT INTO career VALUES(career_seq.nextval,giver_seq.currval,#{career_name},#{role},#{work_period_start},#{work_period_end}) 
 </insert>
 
 <insert id="insert_license" parameterType="license">

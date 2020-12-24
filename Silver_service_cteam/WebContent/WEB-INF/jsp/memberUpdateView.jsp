@@ -267,6 +267,14 @@ $(document).ready(function(){
 								<li class="level_of_satisfaction_customer_en"><a href="#">오늘의 서비스 만족도</a></li>
 							</ul>
 						</section>
+						<section>
+							<header>
+								<h3>복지시설 예약 정보</h3>
+							</header>
+							<ul class="default alt">
+								<li><a href="myReservation">예약 확인하기</a></li>
+							</ul>
+						</section>
 					</div>
 				
 				

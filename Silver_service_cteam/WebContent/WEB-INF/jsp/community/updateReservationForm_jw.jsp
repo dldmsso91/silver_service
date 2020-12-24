@@ -114,7 +114,7 @@
 				</tr>
 				<tr>
 					<td>방문 목적</td>
-					<td><textarea name="visitPurpose" cols=60 rows=3></textarea>
+					<td><textarea name="visitPurpose" cols=60 rows=3>${myReservation.visitPurpose}</textarea>
 					</td>
 				</tr>
 			</table>

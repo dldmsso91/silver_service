@@ -199,58 +199,58 @@ h3 {
 
 				<h3>오늘 업무는 어떠셨나요?</h3>
 
-				<div class="site-section">
-					<div class="container">
-						<div class="row">
-							<div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-								<div class="service">
-									<img src="resources/images/sad.png" alt="Image"
-										class="img-fluid" id="bed_img" style="border-radius: 100px;">
-									<div class="service-inner"></div>
-								</div>
-							</div>
-							<div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-								<div class="service">
-									<img src="resources/images/notbed.png" alt="Image"
-										class="img-fluid" id="notbed_img"
-										style="border-radius: 100px;">
-									<div class="service-inner"></div>
-								</div>
-							</div>
-							<div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
-								<div class="service">
-									<img src="resources/images/happy.png" alt="Image"
-										class="img-fluid" id="happy_img" style="border-radius: 100px;">
-									<div class="service-inner"></div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="question_box">
-					<h3 class="question_box_text">고객님의 소중한 선택으로 더 행복한 서비스를 만들어갑니다.</h3>
-					<div class="bed_select">
-						<h4>아쉬웠던 부분을 알려주세요</h4>
-						<select style="width: 100%; height: 5vh; font-size: 20px;">
-							<option></option>
-							<option>불친절 했습니다.</option>
-							<option>욕설을 하였습니다.</option>
-							<option>폭력이 있었습니다.</option>
-							<option>기타</option>
-						</select> <input type="button" class="button" value="등록하기">
-					</div>
-					<div class="notbed_select">
-						<h4>소중한 의견 감사합니다</h4>
-						<input type="button" class="button" value="등록하기">
-					</div>
-					<div class="happy_select">
-						<h4>행복한 하루 되세요</h4>
-						<input type="button" class="button" value="등록하기">
-					</div>
-				</div>
-			</div>
-		</div>
+		<form action="saveSatisfaction" method='post' enctype="multipart/form-data">	
+		    <div class="site-section">
+		      <div class="container">
+		        <div class="row">
+		          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+		            <div class="service">
+		              <img src="resources/images/sad_face.png" alt="Image" class="img-fluid" id="bed_img" style="border-radius: 100px;" >
+		              <div class="service-inner">
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+		            <div class="service">
+		              <img src="resources/images/straight face.png" alt="Image" class="img-fluid" id="notbed_img" style="border-radius: 100px;">
+		              <div class="service-inner">
+		              </div>
+		            </div>
+		          </div>
+		          <div class="col-6 col-sm-6 col-md-6 mb-4 mb-lg-0 col-lg-3">
+		            <div class="service">
+		              <img src="resources/images/happy_face.png" alt="Image" class="img-fluid" id="happy_img" style="border-radius: 100px;">
+		              <div class="service-inner">
+		              </div>
+		            </div>
+		          </div>
+		        </div>
+		      </div>
+		    </div>
+		 <div class="question_box">
+		    <h3 class="question_box_text">고객님의 소중한 선택으로 더 행복한 서비스를 만들어갑니다.</h3>
+		 	<div class="bed_select">
+		 		<h4>아쉬웠던 부분을 알려주세요</h4>
+		 		<input class="score" name="customer_satisfaction_score" type="hidden" value="1" /> 		
+		 		<select id="test" name="customer_satisfaction_complain" style="width: 100%; height: 5vh; font-size: 20px;">
+		 			<option value=""></option>
+		 			<option value="불친절 했습니다.">불친절 했습니다.</option>
+		 			<option value="욕설을 하였습니다.">욕설을 하였습니다.</option>
+		 			<option value="폭력이 있었습니다.">폭력이 있었습니다.</option>
+		 			<option value="기타">기타</option>
+		 		</select>
+				<input type="submit"  class="button"  value="등록하기">
+		 	</div>
+		 	<div class="notbed_select">
+		 		<h4>소중한 의견 감사합니다</h4> 	
+				<input type="submit"  class="button"  value="등록하기">
+		 	</div>
+		 	<div class="happy_select">
+		 		<h4>행복한 하루 되세요</h4> 	
+				<input type="submit"  class="button"  value="등록하기">
+		 	</div>
+		 </div>
+		</form>
 
 		<div class="site-footer bg-light">
 			<div class="container">

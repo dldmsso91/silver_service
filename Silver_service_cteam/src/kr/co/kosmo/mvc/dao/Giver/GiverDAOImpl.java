@@ -6,6 +6,7 @@ import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
@@ -25,21 +26,21 @@ public class GiverDAOImpl implements GiverDAO {
 	
 	@Override
 	public void deleteGiver(GiverVO Dvo) throws Exception {
-		System.out.println("===> sqlSession deleteGiver()_DAO 호출");
+		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
 		sqlSession.delete("giverMapper.deleteGiver",Dvo);
 	}	 
 	
 	@Override
 	public void insertSatisfaction(Giver_SatisfactionVO satisfactionVO) throws Exception {
-		System.out.println("===> sqlSession insertTEST()_DAO 호출"+satisfactionVO.getCustomer_satisfaction_complain());		
-		sqlSession.insert("giverMapper.insert", satisfactionVO);
+		System.out.println("===> sqlSession insertTEST()_DAO �샇異�"+satisfactionVO.getCustomer_satisfaction_complain());		
+		sqlSession.insert("giverMapper.insert_Satisfaction", satisfactionVO);
 	}
 			
 	
 	
 	@Override
 	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception {
-		System.out.println("===> sqlSession selectGiverByNo()_DAO 호출");
+		System.out.println("===> sqlSession selectGiverByNo()_DAO �샇異�");
 		
 		return sqlSession.selectList("giverMapper.selectGiverByNo",vo);
 	}
@@ -47,14 +48,14 @@ public class GiverDAOImpl implements GiverDAO {
 	
 	@Override
 	public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception {
-		System.out.println("===> sqlSession selectDefault_info()_DAO 호출");
+		System.out.println("===> sqlSession selectDefault_info()_DAO �샇異�");
 		
 		return sqlSession.selectList("giverMapper.selectDefault_info",vo);
 	}		
 	
 	@Override
 	public List<GiverVO> select_Career_info(GiverVO vo) throws Exception {
-		System.out.println("===> sqlSession select_Default_info()_DAO 호출");
+		System.out.println("===> sqlSession select_Default_info()_DAO �샇異�");
 		
 		return sqlSession.selectList("giverMapper.select_Career_info",vo);
 	}		
@@ -63,14 +64,14 @@ public class GiverDAOImpl implements GiverDAO {
 	
 	@Override
 	   public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception {
-	      System.out.println("===> sqlSession select_license_info()_DAO 호출");
+	      System.out.println("===> sqlSession select_license_info()_DAO �샇異�");
 
 	      return sqlSession.selectList("giverMapper.select_Hope_Business_Area_info",vo);
 	   }		
 		
 	@Override
 	   public List<GiverVO> select_Giver_Satisfaction_info(GiverVO vo) throws Exception {
-	      System.out.println("===> sqlSession select_license_info()_DAO 호출");
+	      System.out.println("===> sqlSession select_license_info()_DAO �샇異�");
 
 	      return sqlSession.selectList("giverMapper.select_Giver_Satisfaction_info",vo);
 	   }		
@@ -84,12 +85,11 @@ public class GiverDAOImpl implements GiverDAO {
 
 	@Override
 	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception {
-	      System.out.println("===> sqlSession recommend_giver()_DAO 호출");
+	      System.out.println("===> sqlSession recommend_giver()_DAO �샇異�");
 		return sqlSession.selectList("giverMapper.recommend_giver",vo);
 	}
 	
-	
-	
+
 
 	 //-------------------- 동윤 -------------------------------------------------------------   
 	// 도우미 기본정보 입력   
@@ -119,11 +119,11 @@ public class GiverDAOImpl implements GiverDAO {
 		   return sqlSession.insert("giverMapper.insert_hope_area", Hvo);
 	   }	
 	
-	   // 업데이트 구문
-	   // 기본정보
+	   // �뾽�뜲�씠�듃 援щЦ
+	   // 湲곕낯�젙蹂�
 	   @Override
 	   public void updateDefault_info(GiverVO vo) throws Exception{
-		   System.out.println("===> sqlSession updateDefault_info()_DAO 호출");
+		   System.out.println("===> sqlSession updateDefault_info()_DAO �샇異�");
 		   
 		   // #{giver_type},smoking= #{smoking}
 
@@ -134,11 +134,11 @@ public class GiverDAOImpl implements GiverDAO {
 	   
 	   
 	   
-	   // 경력
+	   // 寃쎈젰
 	   @Override
 	   public void update_Career_info(CareerVO co) throws Exception{
 
-		   System.out.println("===> sqlSession update_Career_info() DAO 호출");
+		   System.out.println("===> sqlSession update_Career_info() DAO �샇異�");
 		   System.out.println("career_name"+co.getCareer_name());
 		   System.out.println("work_Period"+co.getWork_period_start());
 		   System.out.println("work_Period"+co.getWork_period_end());
@@ -146,31 +146,33 @@ public class GiverDAOImpl implements GiverDAO {
 		   System.out.println("giver_no"+co.getGiver_no());
 		   sqlSession.update("giverMapper.update_Career_info",co);
 	   }
-	   //라이센스
+	   //�씪�씠�꽱�뒪
 	   @Override
 	   public void update_license_info(LicenseVO lo) throws Exception{
-		   System.out.println("update_license_info 호출");
+		   System.out.println("update_license_info �샇異�");
 		   System.out.println("license_name"+lo.getLicense_name());
-		   System.out.println("license_Institute"+lo.getLicense_Institute());
+		   System.out.println("license_Institute"+lo.getLicense_institute());
 		   System.out.println("giver_no"+lo.getGiver_no());
-		   System.out.println("license_redate"+lo.getLicense_Redate());
+		   System.out.println("license_redate"+lo.getLicense_redate());
 		   sqlSession.update("giverMapper.update_license_info",lo);
 	   }
-	   // 희망근무지역
+	   // �씗留앷렐臾댁��뿭
 	   public void update_Hope_Business_Area_info(Hope_Business_AreaVO ho) throws Exception{
 		   System.out.println("hope_business_city"+ho.getHope_business_city());
 		   System.out.println("hope_business_town"+ho.getHope_business_town());
 		   System.out.println("giver_no"+ho.getGiver_no());
-		   System.out.println("update_Hope_Business_Area_info 호출");
+		   System.out.println("update_Hope_Business_Area_info �샇異�");
 		   sqlSession.update("giverMapper.update_Hope_Business_Area_info",ho);
 	   }
-	   // 일일 만족도
+	   // �씪�씪 留뚯”�룄
 	   public void update_Giver_Satisfaction_info(Giver_SatisfactionVO go) throws Exception{
-		   System.out.println("update_Giver_Satisfaction_info 호출");
+		   System.out.println("update_Giver_Satisfaction_info �샇異�");
 		   System.out.println("customer_satisfaction_score"+go.getCustomer_satisfaction_score());
 		   System.out.println("customer_satisfaction_complain"+go.getCustomer_satisfaction_complain());
 		   sqlSession.update("giverMapper.update_Giver_Satisfaction_info",go);
 	   }
+
+
 	   
 	   	
 		

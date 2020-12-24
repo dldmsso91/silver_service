@@ -204,7 +204,6 @@
 						<table class="table tabl e-boardered">
 						<thead>
 							<tr>
-								<th nowrap>시설분류</th>
 								<th nowrap>시설명</th>
 								<th nowrap>주소</th>
 								<th nowrap>전화번호</th>
@@ -218,14 +217,13 @@
 						<tbody>
 							<c:forEach items="${myReservation }" var="myReservation">
 							<tr>
-								<td nowrap>${myReservation.welfareFacilitiesVO.typeName}</td>
 								<td nowrap>${myReservation.facilityName}</td>
 								<td nowrap>${myReservation.welfareFacilitiesVO.address}</td>
 								<td nowrap>${myReservation.welfareFacilitiesVO.telnumber}</td>
 								<td nowrap>${myReservation.userName}</td>
 								<td nowrap>${myReservation.resDate} ${myReservation.resTime}</td>
 								<td nowrap>${myReservation.visitPurpose}</td>
-								<td nowrap><a href="UpdateReservationForm?resNo=${myReservation.resNo}">
+								<td nowrap><a href="updateReservationForm?resNo=${myReservation.resNo}">
 								<input type="button" value="수정"></a></td>
 								<td nowrap><input type="hidden" name="resNo" value="${myReservation.resNo}">
 								<input type="submit" value="삭제"></td>

@@ -106,6 +106,7 @@ $(document).ready(function(){
                     <a href="#">도우미 지원하기</a>
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply_yj">생활도우미 지원하기</a></li>
+                        <li><a href="guide_walk_apply_yj">외출도우미 지원하기</a></li>
                         <li><a href="guide_nursing_apply_yj">간병인도우미 지원하기</a></li>
                       </ul>
                       </li>
