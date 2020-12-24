@@ -31,7 +31,11 @@ public interface GiverDAO {
 
 
 	//吏��썝 痍⑥냼�븯湲�
-	public void deleteGiver(GiverVO Dvo) throws Exception;
+	public void deleteHope_Business_Area(Hope_Business_AreaVO Hvo) throws Exception;
+	public void deletelicense(LicenseVO Lvo) throws Exception;
+	public void deletecareer(CareerVO Cvo) throws Exception;
+	public void deleteGiver_Satisfaction(Giver_SatisfactionVO Svo) throws Exception;
+	public void deleteGiver(GiverVO Gvo) throws Exception;
 
 	//�씪�씪留뚯”�룄 �엯�젰�븯湲�
 	public void insertSatisfaction(Giver_SatisfactionVO satisfactionVO) throws Exception;

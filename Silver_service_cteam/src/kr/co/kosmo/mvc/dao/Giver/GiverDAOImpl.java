@@ -25,9 +25,29 @@ public class GiverDAOImpl implements GiverDAO {
 
 	
 	@Override
-	public void deleteGiver(GiverVO Dvo) throws Exception {
+	public void deleteHope_Business_Area(Hope_Business_AreaVO Hvo) throws Exception {
 		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
-		sqlSession.delete("giverMapper.deleteGiver",Dvo);
+		sqlSession.delete("giverMapper.deleteHope_Business_Area",Hvo);
+	}	 
+	@Override
+	public void deletelicense(LicenseVO Lvo) throws Exception {
+		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
+		sqlSession.delete("giverMapper.deletelicense",Lvo);
+	}	 
+	@Override
+	public void deletecareer(CareerVO Cvo) throws Exception {
+		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
+		sqlSession.delete("giverMapper.deletecareer",Cvo);
+	}	 
+	@Override
+	public void deleteGiver_Satisfaction(Giver_SatisfactionVO Svo) throws Exception {
+		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
+		sqlSession.delete("giverMapper.deleteGiver_Satisfaction",Svo);
+	}	 
+	@Override
+	public void deleteGiver(GiverVO Gvo) throws Exception {
+		System.out.println("===> sqlSession deleteGiver()_DAO �샇異�");
+		sqlSession.delete("giverMapper.deleteGiver",Gvo);
 	}	 
 	
 	@Override
@@ -43,9 +63,7 @@ public class GiverDAOImpl implements GiverDAO {
 		System.out.println("===> sqlSession selectGiverByNo()_DAO �샇異�");
 		
 		return sqlSession.selectList("giverMapper.selectGiverByNo",vo);
-	}
-		
-	
+	}	
 	@Override
 	public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception {
 		System.out.println("===> sqlSession selectDefault_info()_DAO �샇異�");
@@ -151,9 +169,9 @@ public class GiverDAOImpl implements GiverDAO {
 	   public void update_license_info(LicenseVO lo) throws Exception{
 		   System.out.println("update_license_info �샇異�");
 		   System.out.println("license_name"+lo.getLicense_name());
-		   System.out.println("license_Institute"+lo.getLicense_institute());
+		   System.out.println("license_Institute"+lo.getLicense_Institute());
 		   System.out.println("giver_no"+lo.getGiver_no());
-		   System.out.println("license_redate"+lo.getLicense_redate());
+		   System.out.println("license_redate"+lo.getLicense_Redate());
 		   sqlSession.update("giverMapper.update_license_info",lo);
 	   }
 	   // �씗留앷렐臾댁��뿭

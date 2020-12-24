@@ -222,6 +222,7 @@ margin: 0 auto;
          <img src="resources/images/img_3_sq.jpg" alt="My Image">      
          </div>
             <table class="ui celled table" style="width: 1000px;margin: auto; border=1">
+  			<input type="hidden" name="u_no" value="${member.u_no}"/>             
             <tr><td rowspan="10">기본정보</td></tr>            
                <tr>
                <td>서비스 종류</td>

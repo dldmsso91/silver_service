@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import kr.co.kosmo.mvc.dao.CommunityDAO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
@@ -15,54 +16,67 @@ import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 public class CommunityServiceImpl implements CommunityService{
 	
 	@Autowired
-	private CommunityDAO commnunityDao;
+	private CommunityDAO communityDao;
 	
 	@Override
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo) {
-		return commnunityDao.getFacilityInfo(vo);
+		return communityDao.getFacilityInfo(vo);
 	}
 	
+	@Transactional
 	@Override
-	public List<WelfareFacilitiesVO> getMedicalList() {
-		return commnunityDao.getMedicalList();
+	public Map<String, Object> getMedicalList() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("medicalList", communityDao.getMedicalList());
+		map.put("medicalRecommendList", communityDao.getMedicalRecommendList());
+		return map;
 	}
 	
+	@Transactional
 	@Override
-	public List<WelfareFacilitiesVO> getElderlyhomeList() {
-		return commnunityDao.getElderlyhomeList();
+	public Map<String, Object> getElderlyhomeList() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("elderlyhomeList", communityDao.getElderlyhomeList());
+		map.put("elderlyhomeRecommendList", communityDao.getElderlyhomeRecommendList());
+		return map;
 	}
 	
+	@Transactional
 	@Override
-	public List<WelfareFacilitiesVO> getSilverhallList() {
-		return commnunityDao.getSilverhallList();
+	public Map<String, Object> getSilverhallList() {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("silverhallList", communityDao.getSilverhallList());
+		map.put("silverhallRecommendList", communityDao.getSilverhalleRecommendList());
+		return map;
 	}
 	
 	@Override
 	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo) {
-		return commnunityDao.getWelfareFacility(vo);
+		return communityDao.getWelfareFacility(vo);
 	}
 	
+	@Transactional
 	@Override
 	public Map<String, Object> getReservationmember(int u_no,WelfareFacilitiesVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map.put("member", commnunityDao.getReservationmember(u_no));
-		map.put("facInfo", commnunityDao.getWelfareFacility(vo));
+		map.put("member", communityDao.getReservationmember(u_no));
+		map.put("facInfo", communityDao.getWelfareFacility(vo));
 		return map;
 	}
 	
 	@Override
 	public List<ReservationInfoVO> insertReservationInfo(ReservationInfoVO vo) {
-		commnunityDao.insertReservationInfo(vo);
-		return commnunityDao.getMyReservation(vo);
+		communityDao.insertReservationInfo(vo);
+		return communityDao.getMyReservation(vo);
 	}
 	
 	@Override
 	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo){
-		return commnunityDao.getMyReservation(vo);
+		return communityDao.getMyReservation(vo);
 	}
 	
 	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo) {
-		return commnunityDao.updateReservationForm(vo);
+		return communityDao.updateReservationForm(vo);
 	}
 	
 }

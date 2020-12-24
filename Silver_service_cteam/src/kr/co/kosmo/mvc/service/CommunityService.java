@@ -11,11 +11,11 @@ public interface CommunityService {
 	
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo);
 	
-	public List<WelfareFacilitiesVO> getMedicalList();
+	public Map<String, Object> getMedicalList();
 	
-	public List<WelfareFacilitiesVO> getElderlyhomeList();
+	public Map<String, Object> getElderlyhomeList();
 	
-	public List<WelfareFacilitiesVO> getSilverhallList();
+	public Map<String, Object> getSilverhallList();
 	
 	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo);
 	
@@ -26,4 +26,5 @@ public interface CommunityService {
 	public List<ReservationInfoVO> getMyReservation(ReservationInfoVO vo);
 	
 	public ReservationInfoVO updateReservationForm(ReservationInfoVO vo);
+	
 }

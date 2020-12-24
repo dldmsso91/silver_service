@@ -169,7 +169,7 @@
     <div class="layer" >
 
           <div class="layer_inner">
-			<h1>내 이력서 열람</h1>
+			<h1>내 이력서 열람</h1>${giver_no}
 			<div class="My_Image">
 			<img src="resources/images/1.jpg" alt="My Image">		
 			</div>
@@ -287,9 +287,10 @@
 			</c:forEach>
 		</c:forEach>			
 			</table>
+				<input type="hidden" name="giver_no" value="${giver_no}"/>   			
 				<div class="button_div">			
-				<button type="submit" class="btn btn-primary" id="update" value="상품삭제" onclick="javascript: form.action='my_resume_update_en';">이력서 수정</button>
-				<button type="submit" class="btn btn-primary" id="delete" value="상품수정" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>
+				<button type="submit" class="btn btn-primary" id="update" value="이력서 수정" onclick="javascript: form.action='my_resume_update_en';">이력서 수정</button>
+				<button type="submit" class="btn btn-primary" id="delete" value="이력서 삭제" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>
 				</div>
 		    </div>
 	    </div>

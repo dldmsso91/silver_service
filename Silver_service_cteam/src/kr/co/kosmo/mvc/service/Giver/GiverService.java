@@ -17,15 +17,20 @@ import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
 public interface GiverService {
 
 
-	public void deleteGiver(GiverVO vo) throws Exception;
+	
+	
+	
+	
+	//------------------------------------------ 은내 상세이력서select, 추천도우미 select, 일일만족도insert, 지원서 삭제 ----------------------------
 
 	public void insertSatisfaction(Giver_SatisfactionVO satisfactionVO) throws Exception;
 	
 	public Map<String, Object> selectGiver_list(GiverVO vo) throws Exception;
+	public void deleteGiver_seed(CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo,Giver_SatisfactionVO Svo) throws Exception;
+	public void deleteGiver( GiverVO Gvo) throws Exception;
+
 	
 	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception;
-	
-
 	
 	
 	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception;	
@@ -35,7 +40,13 @@ public interface GiverService {
 	public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception;
 	public List<GiverVO> select_Giver_Satisfaction_info(GiverVO vo) throws Exception;
 		
-	   //------------------------------------------ 동윤 지원자 insert ----------------------------
+
+	
+	
+	
+	
+	
+	//------------------------------------------ 동윤 지원자 insert ----------------------------
 	   public void insertGiverAll( GiverVO Gvo, CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo) throws Exception;     
 	   
 	   
@@ -46,6 +57,7 @@ public interface GiverService {
 	   
 			   
 	   
+   //------------------------------------------ 용진 지원자 update ----------------------------
 	   
 	   // �뾽�뜲�씠�듃
 	   // 湲곕낯

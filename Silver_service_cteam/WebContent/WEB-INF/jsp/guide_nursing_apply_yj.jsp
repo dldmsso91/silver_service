@@ -343,7 +343,8 @@ margin: 0 auto;
          <img src="resources/images/1.jpg" alt="My Image">      
          </div>
            <table class="ui celled table" name="inform_table" style="  width: 1200px;margin: auto; border=1">
-            
+
+  			<input type="hidden" name="u_no" value="${member.u_no}"/>   
             <input type="hidden" name="giver_type" value="간병도우미"/>   
 
             <tr><td rowspan="7">기본정보</td></tr>
@@ -444,12 +445,12 @@ margin: 0 auto;
             </tr>
             <tr>
                <td>발행기관</td>
-               <td><input type='text' name='license_institute' style="width: 50%;" /></td>
+               <td><input type='text' name='license_Institute' style="width: 50%;" /></td>
             </tr>             
 			<tr>
 				<td>취득연도</td>
 				<td>
-				<input type='date' name='license_redate'/>
+				<input type='date' name='license_Redate'/>
 				</td>
 			</tr>
 			<tr>

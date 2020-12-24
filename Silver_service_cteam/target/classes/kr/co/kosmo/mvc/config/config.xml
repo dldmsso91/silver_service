@@ -14,6 +14,7 @@
 	<typeAlias type="kr.co.kosmo.mvc.dto.ReplyVO" alias="rvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.MemberVO" alias="mvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.GiverVO" alias="giver"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO" alias="test"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CustomerVO" alias="customer"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CareerVO" alias="career"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO" alias="satisfaction"/>

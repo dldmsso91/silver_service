@@ -1,5 +1,7 @@
 package kr.co.kosmo.mvc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -83,19 +85,19 @@ public class Moon_Jeon_Controller {
 	      }  
 	
 	
-	   //----------------------´ÙÁß insert¹®   µ¿À± -------------------------------- DY
+	   //----------------------ï¿½ï¿½ï¿½ï¿½ insertï¿½ï¿½   ï¿½ï¿½ï¿½ï¿½ -------------------------------- DY
 	/*
 	@Autowired
 	private GiverDAO giverdao;
-		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½ giver_apply
 		@PostMapping("giver_apply")
-		// ÆûÀ¸·ÎºÎÅÍ Àü´ÞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
-		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µðºñ¿¡ Àü´ÞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ý.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ Voï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½.
 		public ModelAndView insertGiverAll(GiverVO Gvo) throws Exception {
 			ModelAndView mav = new ModelAndView();
 			int res = giverdao.insertGiver(Gvo);
 
-			if (res == 1) {// ¸¶ÀÌ¹ÙÆ¼½º ÀÛ¾÷ÀÌ ¼º°ø
+			if (res == 1) {// ï¿½ï¿½ï¿½Ì¹ï¿½Æ¼ï¿½ï¿½ ï¿½Û¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 				mav.setViewName("success");
 				//mav.addObject("giver_type", Gvo.getGiver_type());
 			} else {
@@ -106,30 +108,30 @@ public class Moon_Jeon_Controller {
 			return mav;
 		}
 		
-		// Ãß°¡ ÇØ¼­ ÇØº¸´Â ±¸°£ ---------------------------------------------------
+		// ï¿½ß°ï¿½ ï¿½Ø¼ï¿½ ï¿½Øºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ---------------------------------------------------
 
-		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½ giver_apply
 		@PostMapping("giver_apply")
-		// ÆûÀ¸·ÎºÎÅÍ Àü´ÞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
-		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µðºñ¿¡ Àü´ÞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ý.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ Voï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½.
 		public void insertCareer(Model model,CareerVO Cvo) throws Exception {
 			int res = giverdao.insertCareer(Cvo);
 			System.out.println("career" + res);	
 		}
 		
-		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½ giver_apply
 		@PostMapping("giver_apply")
-		// ÆûÀ¸·ÎºÎÅÍ Àü´ÞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
-		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µðºñ¿¡ Àü´ÞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ý.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ Voï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½.
 		public void insertLicense(Model model, LicenseVO Lvo) throws Exception {
 			int res = giverdao.insertLicense(Lvo);
 			System.out.println("license" + res);
 		}
 		
-		// µµ¿ì¹Ì Áö¿øÀÚ Ã³¸®ÇÏ±â giver_apply
+		// ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ï±ï¿½ giver_apply
 		@PostMapping("giver_apply")
-		// ÆûÀ¸·ÎºÎÅÍ Àü´ÞµÇ´Â ÆÄ¶ó¹ÌÅÍÀÌ¸§ÀÌ Vo°´Ã¼ÀÇ ÇÁ·ÎÆÛÆ¼¶û °°¾Æ¾ßÇÑ´Ù.
-		// ¸¸¾à ´Ù¸£´Ù¸é °ªÀÌ ¸ÅÇÎµÇÁö ¾Ê°í µðºñ¿¡ Àü´ÞµÇ±â ¶§¹®¿¡ null¿¡·¯°¡ ¹ß»ý.
+		// ï¿½ï¿½ï¿½ï¿½ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ´ï¿½ ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ï¿½ï¿½ Voï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½Ñ´ï¿½.
+		// ï¿½ï¿½ï¿½ï¿½ ï¿½Ù¸ï¿½ï¿½Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ ï¿½Ê°ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ÞµÇ±ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ nullï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ß»ï¿½.
 		public void insertHopeBusinessArea(Hope_Business_AreaVO Hvo) throws Exception {
 			ModelAndView mav = new ModelAndView();
 			int res = giverdao.insertHopeBusinessArea(Hvo);
@@ -138,11 +140,15 @@ public class Moon_Jeon_Controller {
 		}
 		*/
 	
-	// --------------------------------------- µÑ¿À°Å¸é µÇ´Â ºÎºÐ -----------------------
+	// --------------------------------------- ï¿½Ñ¿ï¿½ï¿½Å¸ï¿½ ï¿½Ç´ï¿½ ï¿½Îºï¿½ -----------------------
 		@PostMapping("giver_apply")
-		public String insertGiverAll( GiverVO Gvo, CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo) throws Exception{
-			giverService.insertGiverAll( Gvo, Cvo, Lvo, Hvo);
+		public String insertGiverAll( GiverVO Gvo, CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo,HttpSession session) throws Exception{
 			
+			
+			
+			giverService.insertGiverAll( Gvo, Cvo, Lvo, Hvo);
+			session.setAttribute("giver_no", Gvo.getGiver_no()); 
+
 			return "giver/len/succesed_apply_giver_en";
 		}
 		

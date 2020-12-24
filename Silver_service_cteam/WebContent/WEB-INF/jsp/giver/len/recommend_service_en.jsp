@@ -176,7 +176,7 @@ h3 {
 <div id="test" class="slide-item overlay"></div>
 
 <h2>이은내님을 위한 도우미들입니다</h2>
-
+${customer_no}
 <form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
 		<ul class="bxslider">

@@ -6,6 +6,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.catalina.tribes.group.interceptors.TwoPhaseCommitInterceptor.MapEntry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -26,11 +27,19 @@ public class GiverServiceImple implements GiverService {
 	@Autowired
 	private GiverDAO giver_dao;
 
-
+	//------------------------------------------ 은내 상세이력서select, 추천도우미 select, 일일만족도insert, 지원서 삭제 ----------------------------
 	
 	@Override
-	public void deleteGiver(GiverVO vo) throws Exception {
-		giver_dao.deleteGiver(vo);		
+	public void deleteGiver_seed(CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo,Giver_SatisfactionVO Svo) throws Exception {
+		giver_dao.deletecareer(Cvo);
+		giver_dao.deleteGiver_Satisfaction(Svo);
+		giver_dao.deleteHope_Business_Area(Hvo);
+		giver_dao.deletelicense(Lvo);
+	}
+	
+	@Override
+	public void deleteGiver(GiverVO Gvo) throws Exception {
+		giver_dao.deleteGiver(Gvo);		
 	}
 	
 	@Override
@@ -38,8 +47,6 @@ public class GiverServiceImple implements GiverService {
 		System.out.println("===> sqlSession insertTEST()_Service �샇異�"+satisfactionVO.getCustomer_satisfaction_complain());			
 		giver_dao.insertSatisfaction(satisfactionVO);
 	}
-	
-	
 	
 	@Override
 	public Map<String, Object> selectGiver_list(GiverVO vo) throws Exception {
@@ -54,13 +61,43 @@ public class GiverServiceImple implements GiverService {
 		return map;
 	}
 	
-
 	@Override
 	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception {
 		System.out.println("===> select_Giver_recommend_giver()_Service �샇異�");		
 		return giver_dao.recommend_giver(vo);
 	};	
 	
+	//--------------------맵 없이 테스트용으로 만든 select
+	
+	@Override
+	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception {
+		System.out.println("===> selectGiverByNo()_Service �샇異�");
+		return giver_dao.selectGiverByNo_list(vo);
+	}	
+	@Override
+	public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception {
+		System.out.println("===> selectDefault_info()_Service �샇異�");
+		return giver_dao.selectDefault_info(vo);
+	}
+	@Override
+	public List<GiverVO> select_Career_info(GiverVO vo) throws Exception {
+		System.out.println("===> select_Career_info()_Service �샇異�");
+		return giver_dao.select_Career_info(vo);
+	}
+	@Override
+	public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception{
+		System.out.println("===> select_Hope_Business_Area_info()_Service �샇異�");				
+		return giver_dao.select_Hope_Business_Area_info(vo);
+	};
+	@Override
+	public List<GiverVO> select_Giver_Satisfaction_info(GiverVO vo) throws Exception{
+		System.out.println("===> select_Giver_Satisfaction_info()_Service �샇異�");			
+		return giver_dao.select_Giver_Satisfaction_info(vo);
+	}
+	@Override
+	public List<GiverVO> select_license_info(GiverVO vo) throws Exception {
+		return giver_dao.select_License(vo);
+	}	   
 
 
 	   //------------------------------------------ 동윤 지원자 insert ----------------------------
@@ -85,8 +122,8 @@ public class GiverServiceImple implements GiverService {
 		   System.out.println("---------------------------------------------------------");
 		   
 		   System.out.println("===> sqlSession insertTEST()_Service 호출 Lvo getLicense_name"+Lvo.getLicense_name());
-		   System.out.println("===> sqlSession insertTEST()_Service 호출 Lvo getLicense_institute"+Lvo.getLicense_institute());
-		   System.out.println("===> sqlSession insertTEST()_Service 호출 Lvo getLicense_redate"+Lvo.getLicense_redate());
+		   System.out.println("===> sqlSession insertTEST()_Service 호출 Lvo getLicense_institute"+Lvo.getLicense_Institute());
+		   System.out.println("===> sqlSession insertTEST()_Service 호출 Lvo getLicense_redate"+Lvo.getLicense_Redate());
 		   System.out.println("---------------------------------------------------------");
 		   
 		   System.out.println("===> sqlSession insertTEST()_Service 호출 Hvo getHope_business_city"+Hvo.getHope_business_city());
@@ -100,58 +137,18 @@ public class GiverServiceImple implements GiverService {
 	   
 	   
 	   
-		@Override
-		public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception {
-			System.out.println("===> selectGiverByNo()_Service �샇異�");
-			return giver_dao.selectGiverByNo_list(vo);
-		}	
-		@Override
-		public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception {
-			System.out.println("===> selectDefault_info()_Service �샇異�");
-			return giver_dao.selectDefault_info(vo);
-		}
-		
-		@Override
-		public List<GiverVO> select_Career_info(GiverVO vo) throws Exception {
-			System.out.println("===> select_Career_info()_Service �샇異�");
-			return giver_dao.select_Career_info(vo);
-		}
-		
-		
-		
-		@Override
-		public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception{
-			System.out.println("===> select_Hope_Business_Area_info()_Service �샇異�");				
-			return giver_dao.select_Hope_Business_Area_info(vo);
-		};
-		
-		
-		@Override
-		public List<GiverVO> select_Giver_Satisfaction_info(GiverVO vo) throws Exception{
-			System.out.println("===> select_Giver_Satisfaction_info()_Service �샇異�");			
-			return giver_dao.select_Giver_Satisfaction_info(vo);
-		}
-
-
-		@Override
-		public List<GiverVO> select_license_info(GiverVO vo) throws Exception {
-			// TODO Auto-generated method stub
-			return giver_dao.select_License(vo);
-		}	   
-	   
+	   //------------------------------------------ 용진 지원자 update ----------------------------	   
 	   // �뾽�뜲�씠�듃 援щЦ
 	   // 湲곕낯
 
 	   @Override
 	   public void updateDefault_info(GiverVO vo) throws Exception {
 		   giver_dao.updateDefault_info(vo);
-		   
 	   }
 	   
 	   @Override
 	   public void update_Career_info(CareerVO co) throws Exception {
 		   giver_dao.update_Career_info(co);
-		   
 	   }
 	   
 	   // �씪�씠�꽱�뒪
@@ -166,6 +163,8 @@ public class GiverServiceImple implements GiverService {
 	    public void update_Giver_Satisfaction_info(Giver_SatisfactionVO go) throws Exception{
 	    	giver_dao.update_Giver_Satisfaction_info(go);
 	    }
+
+
 
 
 

@@ -32,6 +32,21 @@ public class CustomerVO {
 		
 		
 
+		public CustomerVO() {
+			super();
+			// TODO Auto-generated constructor stub
+		}
+
+
+		public CustomerVO(int customer_no) {
+			super();
+			this.customer_no = customer_no;
+		}
+
+
+
+
+
 		public int getCustomer_no() {
 			return customer_no;
 		}

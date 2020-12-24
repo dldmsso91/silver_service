@@ -45,19 +45,28 @@ public class CommunityController {
 	
 	@RequestMapping(value="/medicalLocation")
 	public String medicalLocation(WelfareFacilitiesVO vo, Model model) {
-		model.addAttribute("medicalList", communityService.getMedicalList());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = communityService.getMedicalList();
+		model.addAttribute("medicalList", map.get("medicalList"));
+		model.addAttribute("medicalRecommendList",  map.get("medicalRecommendList"));
 		return "community/medicalLocation_jw";
 	}
 	
 	@RequestMapping(value="/silverhallLocation")
 	public String silverhallLocation(WelfareFacilitiesVO vo, Model model) {
-		model.addAttribute("silverhallList", communityService.getSilverhallList());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = communityService.getSilverhallList();
+		model.addAttribute("silverhallList", map.get("silverhallList"));
+		model.addAttribute("silverhallRecommendList",  map.get("silverhallRecommendList"));
 		return "community/silverhallLocation_jw";
 	}
 	
 	@RequestMapping(value="/elderlyhomeLocation")
 	public String elderlyhomeLocation(WelfareFacilitiesVO vo, Model model) {
-		model.addAttribute("elderlyhomeList", communityService.getElderlyhomeList());
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = communityService.getElderlyhomeList();
+		model.addAttribute("elderlyhomeList", map.get("elderlyhomeList"));
+		model.addAttribute("elderlyhomeRecommendList",  map.get("elderlyhomeRecommendList"));
 		return "community/elderlyhomeLocation_jw";
 	}
 	

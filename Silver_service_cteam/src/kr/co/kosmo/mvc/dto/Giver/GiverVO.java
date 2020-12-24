@@ -21,6 +21,7 @@ public class GiverVO {
 		private String hope_worktime_start;
 		private String hope_worktime_end;		
 		private String apply_giver_redate;
+		private String my_IMG;
 		
 		
 		private MemberVO memberVO;
@@ -133,6 +134,14 @@ public class GiverVO {
 
 		public void setHope_worktime_end(String hope_worktime_end) {
 			this.hope_worktime_end = hope_worktime_end;
+		}
+		
+		public String getMy_IMG() {
+			return my_IMG;
+		}
+		
+		public void setMy_IMG(String my_IMG) {
+			this.my_IMG = my_IMG;
 		}
 		
 		

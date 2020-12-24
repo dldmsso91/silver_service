@@ -4,7 +4,7 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="commu">
 
-	<select id="getMedicalList" resultType="facInfo">
+	<select id="getMedicalrecommend" resultType="facInfo">
 		<![CDATA[
 		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
 		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
@@ -12,8 +12,12 @@
 		where RNUM <=5
 		]]>
 	</select>
+	
+	<select id="getMedicalList" resultType="facInfo">
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설'
+	</select>
 
-	<select id="getElderlyhomeList" resultType="facInfo">
+	<select id="getElderlyhomerecommend" resultType="facInfo">
 		<![CDATA[
 		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
 		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
@@ -21,8 +25,12 @@
 		where RNUM <=5
 		]]>
 	</select>
+	
+	<select id="getElderlyhomeList" resultType="facInfo">
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인여가복지시설'
+	</select>
 
-	<select id="getSilverhallList" resultType="facInfo">
+	<select id="getSilverhallrecommend" resultType="facInfo">
 		<![CDATA[
 		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
 		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
@@ -31,6 +39,11 @@
 		]]>
 	</select>
 	
+	
+	<select id="getSilverhallList" resultType="facInfo">
+		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '재가노인복지시설'
+	</select>
+
 	<resultMap type="facInfo" id="facInfo">
 		<id property="facilityNo" column="facilityNo"/>
 		<result property="facilityName" column="facilityName" />

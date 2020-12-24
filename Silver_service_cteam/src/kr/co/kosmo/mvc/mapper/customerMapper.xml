@@ -87,8 +87,40 @@
 
 <!-- Customer 정보 insert 부분 -->
 <insert id="insert_customer" parameterType="customer">
-	 INSERT INTO customer VALUES 
-	 (Customer_seq.nextval,5,74,#{giver_type},#{my_condition},#{my_allergy},#{can_walk},#{hope_start_date},#{hope_finish_date},#{hope_service_place},#{hope_salary},#{hope_start_servicetime},#{hope_end_servicetime},0,sysdate)   	
+	 INSERT INTO customer 
+	 (CUSTOMER_NO,
+	 u_no,
+	 giver_type,
+	 my_condition,
+	 my_allergy,
+	 can_walk,
+	 hope_start_date,
+	 hope_finish_date,
+	 hope_Service_place,
+	 hope_salary,
+	 hope_start_servicetime,
+	 hope_end_servicetime,
+	 penalty,
+	 apply_customer_redate 
+	 )	 
+	 VALUES 
+	 (Customer_seq.nextval,
+	 1,
+	 #{giver_type},
+	 #{my_condition},
+	 #{my_allergy},
+	 #{can_walk},
+	 #{hope_start_date},
+	 #{hope_finish_date},
+	 #{hope_service_place},
+	 #{hope_salary},
+	 #{hope_start_servicetime},
+	 #{hope_end_servicetime},
+	 0,
+	 sysdate)   	
+	<selectKey keyProperty="customer_no" resultType="int">
+	SELECT Customer_seq.CURRVAL AS customer_no FROM DUAL
+	</selectKey>
 </insert>
 
 </mapper>

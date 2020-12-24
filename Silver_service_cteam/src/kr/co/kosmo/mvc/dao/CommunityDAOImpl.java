@@ -26,13 +26,28 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	
 	@Override
+	public List<WelfareFacilitiesVO> getMedicalRecommendList() {
+		return ss.selectList("commu.getMedicalrecommend");
+	}
+	
+	@Override
 	public List<WelfareFacilitiesVO> getElderlyhomeList() {
 		return ss.selectList("commu.getElderlyhomeList");
 	}
 	
 	@Override
+	public List<WelfareFacilitiesVO> getElderlyhomeRecommendList(){
+		return ss.selectList("commu.getElderlyhomerecommend");
+	}
+	
+	@Override
 	public List<WelfareFacilitiesVO> getSilverhallList() {
 		return ss.selectList("commu.getSilverhallList");
+	}
+	
+	@Override
+	public List<WelfareFacilitiesVO> getSilverhalleRecommendList() {
+		return ss.selectList("commu.getSilverhallrecommend");
 	}
 	
 	@Override

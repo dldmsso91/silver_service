@@ -32,7 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${elderlyhomeList }" var="elderlyhome">
+								<c:forEach items="${elderlyhomeRecommendList}" var="elderlyhome">
 									<tr>
 										<td nowrap><a
 											href="welfareFacilityDetail?facilityNo=${elderlyhome.facilityNo}">${elderlyhome.facilityName}</a></td>
