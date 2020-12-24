@@ -8,11 +8,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -218,51 +220,47 @@ public class GiverController_len {
 	
 	//-------------------------------------------용진
 		
-	@RequestMapping(value="/my_resume_update_en")
-	public String my_resume_update_en(Model model,GiverVO vo) throws Exception{
-		
-		//테스트 값
-		vo.setGiver_no(2);
-		vo.setU_no(1);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.selectGiver_list(vo);
-		
-		model.addAttribute("Default",map.get("Default"));
-		model.addAttribute("Career",map.get("Career"));
-		model.addAttribute("Area",map.get("Area"));
-		model.addAttribute("Satisfaction",map.get("Satisfaction"));
-		model.addAttribute("License",map.get("License"));
-		
-		
-		return "giver/len/my_resume_update_en";
-	}  
-
-	  // 업데이트문 사용하기 위한 셀렉트 추가
-	   @RequestMapping(value = "/giver_test_list3")
-	   public String selectTest_Moon(Model model,GiverVO vo) throws Exception{   
+	   @RequestMapping(value="/my_resume_update_en")
+	   public String my_resume_update_en(Model model,GiverVO vo,int giver_no) throws Exception{
 	      
 	      //테스트 값
-	      vo.setU_no(2);      
-	      vo.setGiver_no(2);
+	      vo.setGiver_no(giver_no);
+	      model.addAttribute("giver_no",giver_no);   
 	      
-	      List<GiverVO> Default_list = giver_service.selectGiverByNo_list(vo);
+	      Map<String, Object> map = new HashMap<String, Object>();
+	      map = giver_service.selectGiver_list(vo);
 	      
-	      List<GiverVO> Career_list = giver_service.select_Career_info(vo);
-	      List<GiverVO> License_list = giver_service.select_license_info(vo);
-	      List<GiverVO> Business_Area_list = giver_service.select_Hope_Business_Area_info(vo);
+	      model.addAttribute("Default",map.get("Default"));
+	      model.addAttribute("Career",map.get("Career"));
+	      model.addAttribute("Area",map.get("Area"));
+	      model.addAttribute("Satisfaction",map.get("Satisfaction"));
+	      model.addAttribute("License",map.get("License"));
 	      
-	      List<GiverVO> Satisfaction_list = giver_service.select_Giver_Satisfaction_info(vo);
+	      
+	      return "giver/len/my_resume_update_en";
+	   }  
 
-	      System.out.println("selectGiverByNo_list controller확인");
-
-	      model.addAttribute("Default",Default_list);
-	      model.addAttribute("Career",Career_list);
-	      model.addAttribute("Area",Business_Area_list);
-	      model.addAttribute("Satisfaction",Satisfaction_list);
-	      model.addAttribute("License",License_list);
-	      return "test/list3";
-	}		
+	   // 업데이트문
+	   @RequestMapping(value= "/updateGiver",method = {RequestMethod.GET,RequestMethod.POST})   
+	   public String updateAll(@ModelAttribute("giver") GiverVO vo,LicenseVO lo,CareerVO co,Hope_Business_AreaVO ho,MemberVO mo,Model model,HttpServletRequest request,int giver_no) throws Exception{
+		   request.setCharacterEncoding("euc-kr");
+		   //테스트 값
+		   	  vo.setGiver_no(giver_no);
+		   	model.addAttribute("giver_no",giver_no);
+		      lo.setGiver_no(giver_no);
+		      co.setGiver_no(giver_no);
+		      ho.setGiver_no(giver_no);
+		      mo.setU_no(giver_no);
+			  System.out.println("------------------------------vo.giver_no"+vo.getGiver_no());
+		      giver_service.updateDefault_info(vo);
+			  giver_service.update_license_info(lo);
+			  giver_service.update_Career_info(co);
+			  giver_service.update_Hope_Business_Area_info(ho);
+			  giver_service.updatemember(mo);
+			  
+		      return "redirect:my_resume_en?giver_no="+giver_no;
+	   
+	   }
 	
 	
 }

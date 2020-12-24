@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
+import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
@@ -138,31 +139,43 @@ public class GiverServiceImple implements GiverService {
 	   
 	   
 	   //------------------------------------------ 용진 지원자 update ----------------------------	   
-	   // �뾽�뜲�씠�듃 援щЦ
-	   // 湲곕낯
+	   // 업데이트 구문
+	   // 기본
 
 	   @Override
 	   public void updateDefault_info(GiverVO vo) throws Exception {
 		   giver_dao.updateDefault_info(vo);
+		   
 	   }
 	   
 	   @Override
 	   public void update_Career_info(CareerVO co) throws Exception {
 		   giver_dao.update_Career_info(co);
+		   
 	   }
 	   
-	   // �씪�씠�꽱�뒪
+	   // 라이센스
+	   @Override
 	    public void update_license_info(LicenseVO lo) throws Exception{
 	    	giver_dao.update_license_info(lo);
 	    }
-	    // �씗留앷렐臾댁��뿭
+	    // 희망근무지역
+	   @Override
 	    public void update_Hope_Business_Area_info(Hope_Business_AreaVO ho) throws Exception{
 	    	giver_dao.update_Hope_Business_Area_info(ho);
 	    }
-	    // �씪�씪留뚯”�룄
+	    // 일일만족도
+	   @Override
 	    public void update_Giver_Satisfaction_info(Giver_SatisfactionVO go) throws Exception{
 	    	giver_dao.update_Giver_Satisfaction_info(go);
 	    }
+
+	    // 멤버
+	   @Override
+	    public void updatemember(MemberVO mo) throws Exception{
+	    	giver_dao.updatemember(mo);
+	    }
+	    
 
 
 

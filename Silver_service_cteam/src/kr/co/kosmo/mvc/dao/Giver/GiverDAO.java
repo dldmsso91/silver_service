@@ -4,6 +4,7 @@ package kr.co.kosmo.mvc.dao.Giver;
 
 import java.util.List;
 
+import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
@@ -53,17 +54,19 @@ public interface GiverDAO {
 	   
 	   	
 	   
-	   // �뾽�뜲�씠�듃
-	   // 湲곕낯�젙蹂�
+	   // 업데이트
+	   // 기본정보
 	   public void updateDefault_info(GiverVO vo) throws Exception;
-	   // 寃쎈젰
+	   // 경력
 	   public void update_Career_info(CareerVO co) throws Exception;
-	   // �씪�씠�꽱�뒪
+	   // 라이센스
 	   public void update_license_info(LicenseVO lo) throws Exception;
-	   // �씗留앷렐臾댁��뿭
+	   // 희망근무지역
 	   public void update_Hope_Business_Area_info(Hope_Business_AreaVO ho) throws Exception;
-	   // �씪�씪 留뚯”�룄
+	   // 일일 만족도
 	   public void update_Giver_Satisfaction_info(Giver_SatisfactionVO go) throws Exception;
+	   // 멤버테이블
+	   public void updatemember(MemberVO mo) throws Exception;
 
 
 	   	

@@ -211,7 +211,6 @@
 // 		        	type:'post',
 // 		        	url : 'getMedicalList',
 // 		        	data : "swLat="+swLat+"swLng="+swLng+"neLat"+neLat+"neLng"+neLng,
-// 		        	contentType : 'application/x-www-form-urlencoded;charset=UTF-8',
 // 		        	success : function(resultData){
 // 		        		positions = new Array();
 // 		        		for(var item in resultData){

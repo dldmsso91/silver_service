@@ -130,13 +130,14 @@
  	
  	
 <!-- 	자격증 조회문 -->
-	<select id="select_license_info" parameterType="giver" resultMap="giver">        
- 	SELECT 
-        l.license_no,l.license_name,l.license_Institute,l.license_Redate
+   <select id="select_license_info" parameterType="giver" resultMap="giver">        
+    SELECT 
+        l.license_no,l.license_name,l.license_Institute,to_char(l.license_Redate,'yyyy-mm-dd') license_Redate
 
- 	FROM U_MEMBER u,license l, giver g
-	WHERE  u.u_no=g.u_no and g.giver_no= l.giver_no and g.giver_no= #{giver_no}
- 	</select>       
+    FROM U_MEMBER u,license l, giver g
+   WHERE  u.u_no=g.u_no and g.giver_no= l.giver_no and g.giver_no= #{giver_no}
+    </select>       
+             
              
         
 <!-- 	희망근무지역 조회문 -->
@@ -254,41 +255,56 @@ INSERT INTO license VALUES(license_seq.nextval,giver_seq.currval,#{license_name}
 
 
 
-<!-- 용진  update문 시작 -->
+<!-- 용진 update문 시작 -->
+
+
+<!-- membertable 업데이트 -->
+
+
+<!--  membertable 업데이트 -->
+<!--  membertable 업데이트 -->
+<update id="updatemember" parameterType="giver">
+update u_member
+set u_phone = #{u_phone},u_email = #{u_email},u_addr = #{u_addr} ,u_addr1 = #{u_addr1},u_addr2 = #{u_addr2}
+where u_no = #{u_no}
+
+
+</update>
 <!-- 기본정보 업데이트문 -->
-<update id="updateDefault_info" parameterType="giver">
-update (SELECTu.u_no,u.u_id,u.u_name,u.u_birth,u.u_phone,u.u_email,u.u_addr,u.u_redate,g.giver_no,g.giver_type,
-g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.School,g.Major,g.penalty,g.apply_giver_redateFROM U_MEMBER u,giver g
-WHERE g.u_no = u.u_no and g.giver_no = #{giver_no})setgiver_type = #{giver_type},
-hope_business_place = #{hope_business_place},hope_salary = #{hope_salary},smoking = #{smoking},
-school = #{school},major = #{major},penalty = #{penalty},apply_giver_redate = sysdate 
+
+
+<update id="updateDefault_info" parameterType="giver"> 
+update giver set smoking = #{smoking} , school = #{school} , major = #{major} , hope_worktime_start = #{hope_worktime_start},hope_worktime_end = #{hope_worktime_end} where giver_no = #{giver_no} 
 </update>
 
 <!-- 자격증 업데이트문 -->
-<update id="update_license_info" parameterType="giver">
-update licenseset license_name = #{license_name},license_Institute = #{license_Institute},license_Redate = #{license_Redate}
-where giver_no=#{giver_no} 
-</update>
 
+
+<update id="update_license_info" parameterType="giver"> 
+update license set license_name = #{license_name},license_Institute = #{license_Institute},license_Redate = #{license_Redate} where giver_no=#{giver_no} 
+</update>
 
 <!-- 경력 업데이트문 -->
+
+
 <update id="update_Career_info" parameterType="giver">
-update ( SELECTc.career_no,c.career_name,c.Work_Period,c.roleFROM U_MEMBER u, career c, giver g
-WHERE u.u_no = g.u_no and g.giver_no = c.giver_no and g.giver_no= #{giver_no})setcareer_name = #{career_name},work_Period = #{work_Period},role = #{role} 
-</update>
+ update career set career_name = #{career_name} , work_period_start = #{work_period_start} , work_period_end = #{work_period_end} , role = #{role} where giver_no = #{giver_no} 
+ </update>
 
 <!-- 희망근무지역 업데이트문 -->
-<update id="update_Hope_Business_Area_info" parameterType="giver"> 
-update hope_business_area set hope_business_city = #{hope_business_city} ,hope_business_town = #{hope_business_town}
-where giver_no = #{giver_no} </update>
 
-<!-- 일일 만족도 업데이트문 -->
-<update id="update_Giver_Satisfaction_info" parameterType="giver"> 
-update Giver_Satisfaction set customer_satisfaction_score = #{customer_satisfaction_score}, 
-customer_satisfaction_complain = #{customer_satisfaction_complain}, giver_satisfaction_redate = sysdate 
-where giver_no = #{giver_no} 
+
+<update id="update_Hope_Business_Area_info" parameterType="giver"> 
+update hope_business_area set hope_business_city = #{hope_business_city} ,hope_business_town = #{hope_business_town} where giver_no = #{giver_no} 
 </update>
 
+<!-- 일일 만족도 업데이트문 -->
+
+<!-- <update id="update_Giver_Satisfaction_info" parameterType="giver"> -->
+<!-- update Giver_Satisfaction set customer_satisfaction_score = #{customer_satisfaction_score}, -->
+<!-- customer_satisfaction_complain = #{customer_satisfaction_complain}, giver_satisfaction_redate = sysdate -->
+<!-- where giver_no = #{giver_no} -->
+<!-- </update> -->
 
 
 

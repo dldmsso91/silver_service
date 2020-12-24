@@ -178,21 +178,21 @@
 				<tr>
 					<td>나이</td>
 						<td colspan='2'>
-							<input type='hidden' class='u_birth' name='u_birth' value='${Default[0].memberVO.u_birth}'>
-							<input type='hidden' class='u_birth2' name='u_birth' value='${Default[0].memberVO.u_birth2}'>
+							<input type='hidden' class='u_birth'  value='${Default[0].memberVO.u_birth}'>
+							<input type='hidden' class='u_birth2' value='${Default[0].memberVO.u_birth2}'>
 							<span id="age"></span>
     					</td>
 				</tr>
 				<tr>
 					<td>핸드폰번호</td>
 						<td colspan='2'>
-							${Default[0].memberVO.u_phone}
+						<input type="text" name="u_phone"	value="${Default[0].memberVO.u_phone}">
     					</td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
 						<td colspan='2'>
-							${Default[0].memberVO.u_email}
+							<input type="text" name="u_email" value="${Default[0].memberVO.u_email}">
     					</td>
 				</tr>
 				<tr>
@@ -204,33 +204,33 @@
       				<tr>
       					<td>주소</td>
       					<td colspan='2'>
-      					${Default[0].memberVO.u_addr}
-      					${Default[0].memberVO.u_addr1}
-      					${Default[0].memberVO.u_addr2}</td>
+      					<input type="text" name="u_addr" value="${Default[0].memberVO.u_addr}">
+      					<input type="text" name="u_addr1" value="${Default[0].memberVO.u_addr1}">
+      					<input type="text" name="u_addr2" value="${Default[0].memberVO.u_addr2}"></td>
       				</tr>
 			<tr>
 				<td>흡연여부</td>
 				<td colspan='2'>
-					${Default[0].smoking}
+					<input type="text" name="smoking" value="${Default[0].smoking}">
 				</td>
 			</tr>
 			<tr>
 				<td>학력</td>
 				<td colspan='2'>
-					${Default[0].school}
+					<input type="text" name="school" value="${Default[0].school}">
 				</td>
 			</tr>
 			<tr>
 				<td>전공</td>
 				<td colspan='2'>
-					${Default[0].major}
+					<input type="text" name="major" value="${Default[0].major}">
 				</td>
 			</tr>
 			<tr>
 				<td>희망근무시간</td>
 				<td colspan='2'>
-					${Default[0].hope_worktime_start}~
-					${Default[0].hope_worktime_end}
+				<input type="text" name="hope_worktime_start" value="${Default[0].hope_worktime_start}">~
+				<input type="text" name="hope_worktime_end" value="	${Default[0].hope_worktime_end}">
 				</td>
 			</tr>			
 
@@ -284,6 +284,7 @@
 			</c:forEach>
 		</c:forEach>			
 			</table>
+			<input type="hidden" name="giver_no" value="${giver_no}"/>
 				<div class="button_div">			
 				<button type="submit" class="btn btn-primary" id="update" value="상품수정" >이력서 수정</button>
 				<button type="submit" class="btn btn-primary" id="delete" value="상품삭제" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>

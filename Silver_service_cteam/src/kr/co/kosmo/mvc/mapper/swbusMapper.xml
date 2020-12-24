@@ -18,4 +18,54 @@
     GPSLATI > (#{LAT}-0.002) AND GPSLATI < (#{LAT}+0.002) AND GPSLONG > (#{LNG}-0.002) AND GPSLONG < (#{LNG}+0.002) 
   ]]>
  </select>
+ <select id="selectRouteId" parameterType="HashMap" resultType="HashMap">
+        SELECT
+            ROUTEID,
+            ROUTENO,
+            STARTNODENM,
+            ENDNODENM,
+            STARTVEHICLETIME,
+            ENDVEHICLETIME
+        FROM
+            ROUTE_INFO
+        WHERE
+            ROUTEID=#{ROUTEID}
+        ORDER BY ROUTENO
+</select>
+<!--  -->
+<select id="selectRoutePath" parameterType="HashMap" resultType="HashMap">
+       
+        SELECT
+            route.ROUTEID,
+            route.NODEORD,
+            route.NODENAME,
+            route.NODEID,
+            node.GPSLATI AS LAT,
+            node.GPSLONG AS LNG
+        FROM
+            ROUTE_ORDER route, NODE_INFO node
+        WHERE
+            route.ROUTEID=#{ROUTEID} AND
+            route.NODEID=node.NODEID
+        ORDER BY NODEORD
+        
+</select>
+
+ <select id="selectRouteList" parameterType="HashMap" resultType="HashMap">
+		
+		SELECT
+            ROUTEID,
+            ROUTENO,
+            STARTNODENM,
+            ENDNODENM,
+            STARTVEHICLETIME,
+            ENDVEHICLETIME
+        FROM
+            ROUTE_INFO
+        WHERE
+            ROUTENO=#{ROUTENO}
+        ORDER BY ROUTEID
+        
+</select> 
+
 </mapper>
