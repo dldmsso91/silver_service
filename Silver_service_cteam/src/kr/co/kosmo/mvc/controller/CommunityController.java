@@ -157,9 +157,12 @@ public class CommunityController {
 		return "myReservation_jw";
 	}
 	
+	
 	@RequestMapping(value="/getMedicalListAjax")
-	public List<WelfareFacilitiesVO> getMedicalList(WelfareFacilitiesVO vo) {
-		return communityService.getMedicalListAjax(vo);
+	public String getMedicalList(WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> medicalList = communityService.getMedicalListAjax(vo);
+		String Latitude = medicalList.get(1).getLatitude();
+		return Latitude;
 	}
 	
 }

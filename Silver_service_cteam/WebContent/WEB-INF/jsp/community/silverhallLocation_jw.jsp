@@ -32,29 +32,20 @@
 						<table class="table no-m">
 							<thead>
 								<tr>
-									<th>시설명</th>
-									<th>주소</th>
-									<th>전화번호</th>
-									<th nowrap>만족도</th>
+									<th nowrap>시설명</th>
+									<th nowrap>주소</th>
+									<th nowrap>전화번호</th>
+									<th nowrap>시설점수</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${silverhallRecommendList}" var="silverhall">
 									<tr>
-										<td nowrap><a
+										<td><a
 											href="welfareFacilityDetail?facilityNo=${silverhall.facilityNo}">${silverhall.facilityName}</a></td>
 										<td>${silverhall.address}</td>
 										<td nowrap>${silverhall.telnumber}</td>
-										<td>
-											<div class="progress progress-sm no-m">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="100" aria-valuemin="0"
-													aria-valuemax="100"
-													style="width: ${silverhall.serviceScore}%">
-													<span class="sr-only">100% Complete (success)</span>
-												</div>
-											</div>
-										</td>
+										<td nowrap>${silverhall.totalScore}</td>
 									</tr>
 								</c:forEach>
 
@@ -86,40 +77,26 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 <script>
+
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
-			center : new kakao.maps.LatLng(37.604397, 127.0229984), // 지도의 중심좌표
-			level : 5
+			center : new kakao.maps.LatLng(37.5935973, 127.02629), // 지도의 중심좌표
+			level : 6
 		// 지도의 확대 레벨
 		};
-
+		
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		
+		
 
 		var positions = new Array();
 		<c:forEach items="${silverhallList}" var="silverhall">
 			positions.push({
 					content : '<div>${silverhall.facilityName}</div>',
-					latlng : new kakao.maps.LatLng("${silverhall.latitude}", "${silverhall.longitude}")});
+					latlng : new kakao.maps.LatLng("${silverhall.latitude}", "${silverhall.longitude}")
+			});
 		</c:forEach>
-
-		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-// 		var positions = [ {
-// 			content : '<div>${silverhallList[0].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${silverhallList[0].latitude}, ${silverhallList[0].longitude})
-// 		}, {
-// 			content : '<div>${silverhallList[1].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${silverhallList[1].latitude}, ${silverhallList[1].longitude})
-// 		}, {
-// 			content : '<div>${silverhallList[2].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${silverhallList[2].latitude}, ${silverhallList[2].longitude})
-// 		}, {
-// 			content : '<div>${silverhallList[3].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${silverhallList[3].latitude}, ${silverhallList[3].longitude})
-// 		}, {
-// 			content : '<div>${silverhallList[4].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${silverhallList[4].latitude}, ${silverhallList[4].longitude})
-// 		} ];
-
+		
 		for (var i = 0; i < positions.length; i++) {
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
@@ -205,6 +182,57 @@
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		}
-	</script>
-</body>
-</html>
+
+		var bounds = map.getBounds();
+		var swLatLng = bounds.getSouthWest();
+		var swLat = swLatLng.getLat();
+		var swLng = swLatLng.getLng();
+		var neLatLng = bounds.getNorthEast();
+		var neLat = neLatLng.getLat();
+		var neLng = neLatLng.getLng();
+
+// 		alert(swLat);
+// 		alert(swLng);
+// 		alert(neLat);
+// 		alert(neLng);
+		
+		
+		kakao.maps.event.addListener(map, 'center_changed', function() {
+
+		    // 지도의  레벨을 얻어옵니다
+		    var level = map.getLevel();
+		
+		    // 지도의 중심좌표를 얻어옵니다 
+		    var latlng = map.getCenter();
+
+		    var bounds = map.getBounds();
+			var swLatLng = bounds.getSouthWest();
+			var swLat = swLatLng.getLat();
+			var swLng = swLatLng.getLng();
+			var neLatLng = bounds.getNorthEast();
+			var neLat = neLatLng.getLat();
+			var neLng = neLatLng.getLng();
+
+		});
+		
+		
+// 		$(function(){	
+// 			$('#map').click(function(){
+// 		        $.ajax({
+// 		        	type:'post',
+// 		        	url : 'getMedicalListAjax',
+// 		        	data : "swLat="+swLat+"swLng="+swLng+"neLat"+neLat+"neLng"+neLng,
+// 		        	success : function(resultData){
+
+// 						console.log(resultData);
+		        		
+// 		        	},
+// 		        	error : function(err){
+// 		        		alert(err);
+// 		        	}
+// 		        });
+		       
+// 			})
+// 		})
+			
+</script>

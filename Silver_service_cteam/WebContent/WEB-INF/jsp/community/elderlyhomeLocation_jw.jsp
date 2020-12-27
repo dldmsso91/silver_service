@@ -25,29 +25,20 @@
 						<table class="table no-m">
 							<thead>
 								<tr>
-									<th>시설명</th>
-									<th>주소</th>
-									<th>전화번호</th>
-									<th nowrap>만족도</th>
+									<th nowrap>시설명</th>
+									<th nowrap>주소</th>
+									<th nowrap>전화번호</th>
+									<th nowrap>시설점수</th>
 								</tr>
 							</thead>
 							<tbody>
 								<c:forEach items="${elderlyhomeRecommendList}" var="elderlyhome">
 									<tr>
-										<td nowrap><a
+										<td><a
 											href="welfareFacilityDetail?facilityNo=${elderlyhome.facilityNo}">${elderlyhome.facilityName}</a></td>
 										<td>${elderlyhome.address}</td>
 										<td nowrap>${elderlyhome.telnumber}</td>
-										<td>
-											<div class="progress progress-sm no-m">
-												<div class="progress-bar progress-bar-success"
-													role="progressbar" aria-valuenow="100" aria-valuemin="0"
-													aria-valuemax="100"
-													style="width:${elderlyhome.serviceScore}%">
-													<!-- <span class="sr-only">100% Complete (success)</span> -->
-												</div>
-											</div>
-										</td>
+										<td nowrap>${elderlyhome.totalScore}</td>
 									</tr>
 								</c:forEach>
 							</tbody>
@@ -88,41 +79,26 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 <script>
+
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
-			center : new kakao.maps.LatLng(37.604397, 127.0229984), // 지도의 중심좌표
-			level : 5
+			center : new kakao.maps.LatLng(37.5935973, 127.02629), // 지도의 중심좌표
+			level : 6
 		// 지도의 확대 레벨
 		};
-
+		
 		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
+		
+		
 
 		var positions = new Array();
 		<c:forEach items="${elderlyhomeList}" var="elderlyhome">
 			positions.push({
 					content : '<div>${elderlyhome.facilityName}</div>',
-					latlng : new kakao.maps.LatLng("${elderlyhome.latitude}", "${elderlyhome.longitude}")});
+					latlng : new kakao.maps.LatLng("${elderlyhome.latitude}", "${elderlyhome.longitude}")
+			});
 		</c:forEach>
 		
-		// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-// 		var positions = [ {
-// 			content : '<div>${elderlyhomeList[0].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${elderlyhomeList[0].latitude}, ${elderlyhomeList[0].longitude})
-// 		}, {
-// 			content : '<div>${elderlyhomeList[1].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${elderlyhomeList[1].latitude}, ${elderlyhomeList[1].longitude})
-// 		}, {
-// 			content : '<div>${elderlyhomeList[2].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${elderlyhomeList[2].latitude}, ${elderlyhomeList[2].longitude})
-// 		}, {
-// 			content : '<div>${elderlyhomeList[3].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${elderlyhomeList[3].latitude}, ${elderlyhomeList[3].longitude})
-// 		}, {
-// 			content : '<div>${elderlyhomeList[4].facilityName}</div>',
-// 			latlng : new kakao.maps.LatLng(${elderlyhomeList[4].latitude}, ${elderlyhomeList[4].longitude})
-// 		} ];
-
 		for (var i = 0; i < positions.length; i++) {
 			// 마커를 생성합니다
 			var marker = new kakao.maps.Marker({
@@ -208,10 +184,57 @@
 			// 지도 중심좌표를 접속위치로 변경합니다
 			map.setCenter(locPosition);
 		}
-	</script>
 
+		var bounds = map.getBounds();
+		var swLatLng = bounds.getSouthWest();
+		var swLat = swLatLng.getLat();
+		var swLng = swLatLng.getLng();
+		var neLatLng = bounds.getNorthEast();
+		var neLat = neLatLng.getLat();
+		var neLng = neLatLng.getLng();
 
+// 		alert(swLat);
+// 		alert(swLng);
+// 		alert(neLat);
+// 		alert(neLng);
+		
+		
+		kakao.maps.event.addListener(map, 'center_changed', function() {
 
-</body>
+		    // 지도의  레벨을 얻어옵니다
+		    var level = map.getLevel();
+		
+		    // 지도의 중심좌표를 얻어옵니다 
+		    var latlng = map.getCenter();
 
-</html>
+		    var bounds = map.getBounds();
+			var swLatLng = bounds.getSouthWest();
+			var swLat = swLatLng.getLat();
+			var swLng = swLatLng.getLng();
+			var neLatLng = bounds.getNorthEast();
+			var neLat = neLatLng.getLat();
+			var neLng = neLatLng.getLng();
+
+		});
+		
+		
+// 		$(function(){	
+// 			$('#map').click(function(){
+// 		        $.ajax({
+// 		        	type:'post',
+// 		        	url : 'getMedicalListAjax',
+// 		        	data : "swLat="+swLat+"swLng="+swLng+"neLat"+neLat+"neLng"+neLng,
+// 		        	success : function(resultData){
+
+// 						console.log(resultData);
+		        		
+// 		        	},
+// 		        	error : function(err){
+// 		        		alert(err);
+// 		        	}
+// 		        });
+		       
+// 			})
+// 		})
+			
+</script>

@@ -4,78 +4,148 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="commu">
 
-	<select id="getMedicalrecommend" resultType="facInfo">
+	<resultMap type="facInfo" id="facInfo">
+		<id property="facilityNo" column="facilityNo"/>
+		<result property="facilityName" column="facilityName" />
+		<result property="typeName" column="typeName" />
+		<result property="eavaluationResult" column="eavaluationResult" />
+		<result property="facilityName" column="facilityName" />
+		<result property="peopleLimit" column="peopleLimit" />
+		<result property="peopleNow" column="peopleNow" />
+		<result property="peopleMargin" column="peopleMargin" />
+		<result property="peopleWait" column="peopleWait" />
+		<result property="telnumber" column="telnumber" />
+		<result property="address" column="address" />
+		<result property="supplyService" column="supplyService" />
+		<result property="latitude" column="latitude" />
+		<result property="longitude" column="longitude" />
+		<result property="totalScore" column="totalScore" />
+	<association property="welfareFacilityStaffVO" column="facilityNo" javaType="welStaff">
+		<result property="facilityNo" column="facilityNo"/>
+		<result property="facilityName" column="facilityName"/>
+		<result property="staffTotal" column="staffTotal"/>
+		<result property="director" column="director"/>
+		<result property="general" column="general"/>
+		<result property="socialWorker" column="socialWorker"/>
+		<result property="doctor" column="doctor"/>
+		<result property="contractDoctor" column="contractDoctor"/>
+		<result property="nurse" column="nurse"/>
+		<result property="nurseAside" column="nurseAside"/>
+		<result property="dentalist" column="dentalist"/>
+		<result property="careWorker1st" column="careWorker1st"/>
+		<result property="careWorker2nd" column="careWorker2nd"/>
+		<result property="careWorker3rd" column="careWorker3rd"/>
+		<result property="physicalTherapist" column="physicalTherapist"/>
+		<result property="occupationalTherapist" column="occupationalTherapist"/>
+		<result property="officer" column="officer"/>
+		<result property="nutritionist" column="nutritionist"/>
+		<result property="cook" column="cook"/>
+		<result property="cleanliness" column="cleanliness"/>
+		<result property="keeper" column="keeper"/>
+		<result property="assitant" column="assitant"/>
+		<result property="others" column="others"/>
+	</association>
+	<association property="welfareFacilityScoreVO" column="facilityNo" javaType="welScore">
+		<result property="facilityNo" column="facilityNo"/>
+		<result property="facilityName" column="facilityName"/>
+		<result property="evaluateDate" column="evaluateDate"/>
+		<result property="evaluateGrade" column="evaluateGrade"/>
+		<result property="manageScore" column="manageScore"/>
+		<result property="safetyScore" column="safetyScore"/>
+		<result property="assureScore" column="assureScore"/>
+		<result property="processScore" column="processScore"/>
+		<result property="resultScore" column="resultScore"/>
+	</association>
+	</resultMap>
+
+	<select id="getMedicalrecommend" resultMap="facInfo">
 		<![CDATA[
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
-		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
-		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설' order by servicescore desc)wel)
-		where RNUM <=5
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult,totalScore from
+	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
+	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
+	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
+	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName Like '%주야간보호%' order by "TOTALSCORE" desc) wel)
+	    where RNUM <=5
 		]]>
 	</select>
 	
 	<select id="getMedicalList" resultType="facInfo">
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설'
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult from welfarefacilities where typeName Like '%주야간보호%'
 	</select>
 	
 	<select id="getMedicalListAjax" parameterType="facInfo" resultType="facInfo">
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인의료복지시설' 
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult from welfarefacilities where typeName Like '%주야간보호%'
 		and latitude between #{swLat} and #{neLat} and longitude between #{swLng} and #{neLng}
 	</select>
 
-	<select id="getElderlyhomerecommend" resultType="facInfo">
+	<select id="getElderlyhomerecommend" resultMap="facInfo">
 		<![CDATA[
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
-		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
-		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인여가복지시설' order by servicescore desc)wel)
-		where RNUM <=5
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult,totalScore from
+	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
+	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
+	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
+	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName = '방문간호' order by "TOTALSCORE" desc) wel)
+	    where RNUM <=5
 		]]>
 	</select>
 	
 	<select id="getElderlyhomeList" resultType="facInfo">
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '노인여가복지시설'
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult from welfarefacilities where typeName = '방문간호'
 	</select>
 
-	<select id="getSilverhallrecommend" resultType="facInfo">
+	<select id="getSilverhallrecommend" resultMap="facInfo">
 		<![CDATA[
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from
-		(select wel.facilityNo,wel.typeName,wel.facilityName,wel.cityloc,wel.address,wel.telnumber,wel.latitude,wel.longitude,wel.serviceScore, rownum "RNUM" from
-		(select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '재가노인복지시설' order by servicescore desc)wel)
-		where RNUM <=5
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult,totalScore from
+	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
+	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
+	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
+	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName = '방문요양' order by "TOTALSCORE" desc) wel)
+	    where RNUM <=5
 		]]>
 	</select>
 	
 	
 	<select id="getSilverhallList" resultType="facInfo">
-		select facilityNo,typeName,facilityName,cityloc,address,telnumber,latitude,longitude,serviceScore from welfarefacilities where typeName = '재가노인복지시설'
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult from welfarefacilities where typeName = '방문요양'
 	</select>
-
-	<resultMap type="facInfo" id="facInfo">
-		<id property="facilityNo" column="facilityNo"/>
-		<result property="facilityName" column="facilityName" />
-		<result property="typeName" column="typeName" />
-		<result property="cityloc" column="cityloc" />
-		<result property="address" column="address" />
-		<result property="telnumber" column="telnumber" />
-		<result property="serviceScore" column="serviceScore" />
-		<result property="latitude" column="latitude" />
-		<result property="longitude" column="longitude" />
-	<association property="medicalDetail" column="facilityNo" javaType="medicalDetail">
-		<result property="facilityNo" column="facilityNo"/>
-		<result property="peopleLimit" column="peopleLimit"/>
-		<result property="peopleNumber" column="peopleNumber"/>
-	</association>
-	<association property="silverhallDetail" column="facilityNo" javaType="silverDetail">
-		<result property="facilityNo" column="facilityNo"/>
-		<result property="serviceType" column="serviceType"/>
-	</association>
-	</resultMap>
+	
 	<select id="facInfo" resultMap="facInfo">
 		select
-		w.facilityNo, w.facilityName, w.typeName,w.cityloc,w.address,w.telnumber,w.serviceScore,w.latitude,w.longitude,m.peopleLimit, m.peopleNumber, s.servicetype
-		FROM welfarefacilities w, medicalDetail m, silverhalldetail s
+		w.facilityNo, w.typeName, w.eavaluationResult, w.facilityName, w.peopleLimit, w.peopleNow, w.peopleMargin, w.peopleWait, w.telnumber,
+		w.address, w.supplyService, w.latitude, w.longitude, f.staffTotal, f.director, f.general, f.socialWorker, f.doctor, f.contractDoctor, f.nurse,
+		f.nurseAside, f.dentalist, f.careWorker1st, f.careWorker2nd, f.careWorker3rd, f.physicalTherapist, f.occupationalTherapist, f.officer, f.nutritionist, f.cook,
+		f.cleanliness, f.keeper, f.assitant, f.others, s.evaluateDate, s.evaluateGrade, s.manageScore, s.safetyScore, s.assureScore, s.processScore, s.resultScore
+		FROM welfarefacilities w, welfareFacilityScore s, welfareFacilityStaff f
 		WHERE w.FACILITYNO = #{facilityNo}
-		and w.facilityNo = m.facilityNo(+) and w.facilityNo = s.facilityNo(+)
+		and w.facilityNo = f.facilityNo and w.facilityNo = s.facilityNo
 	</select>
+	
+
+<!-- 	<resultMap type="facInfo" id="facInfo"> -->
+<!-- 		<id property="facilityNo" column="facilityNo"/> -->
+<!-- 		<result property="facilityName" column="facilityName" /> -->
+<!-- 		<result property="typeName" column="typeName" /> -->
+<!-- 		<result property="address" column="address" /> -->
+<!-- 		<result property="telnumber" column="telnumber" /> -->
+<!-- 		<result property="latitude" column="latitude" /> -->
+<!-- 		<result property="longitude" column="longitude" /> -->
+<!-- 	<association property="medicalDetail" column="facilityNo" javaType="medicalDetail"> -->
+<!-- 		<result property="facilityNo" column="facilityNo"/> -->
+<!-- 		<result property="peopleLimit" column="peopleLimit"/> -->
+<!-- 		<result property="peopleNumber" column="peopleNumber"/> -->
+<!-- 	</association> -->
+<!-- 	<association property="silverhallDetail" column="facilityNo" javaType="silverDetail"> -->
+<!-- 		<result property="facilityNo" column="facilityNo"/> -->
+<!-- 		<result property="serviceType" column="serviceType"/> -->
+<!-- 	</association> -->
+<!-- 	</resultMap> -->
+<!-- 	<select id="facInfo" resultMap="facInfo"> -->
+<!-- 		select -->
+<!-- 		w.facilityNo, w.facilityName, w.typeName,w.address,w.telnumber,w.latitude,w.longitude,m.peopleLimit, m.peopleNumber, s.servicetype -->
+<!-- 		FROM welfarefacilities w, medicalDetail m, silverhalldetail s -->
+<!-- 		WHERE w.FACILITYNO = #{facilityNo} -->
+<!-- 		and w.facilityNo = m.facilityNo(+) and w.facilityNo = s.facilityNo(+) -->
+<!-- 	</select> -->
 	
 	<select id="reservationmember" resultType="mvo" parameterType="int">
 		select u_no,u_id,u_name

@@ -20,10 +20,6 @@
 				<td>${facInfo.facilityName}</td>
 			</tr>
 			<tr>
-				<td>소재지</td>
-				<td>${facInfo.cityloc}</td>
-			</tr>
-			<tr>
 				<td>주소</td>
 				<td>${facInfo.address}</td>
 			</tr>
@@ -32,35 +28,93 @@
 				<td>${facInfo.telnumber}</td>
 			</tr>
 			<tr>
-				<td>만족도 점수</td>
-				<td>${facInfo.serviceScore}</td>
+				<td>정원</td>
+				<td>${facInfo.peopleLimit}</td>
 			</tr>
-			<c:choose>
-				<c:when test="${facInfo.typeName==\"노인의료복지시설\"}">
-					<tr>
-						<td>정원</td>
-						<td>${facInfo.medicalDetail.peopleLimit}</td>
-					</tr>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${facInfo.typeName==\"노인의료복지시설\"}">
-					<tr>
-						<td>현재원</td>
-						<td>${facInfo.medicalDetail.peopleNumber}</td>
-					</tr>
-				</c:when>
-			</c:choose>
-			<c:choose>
-				<c:when test="${facInfo.typeName==\"재가노인복지시설\"}">
-					<tr>
-						<td>제공 서비스</td>
-						<td>${facInfo.silverhallDetail.serviceType}</td>
-					</tr>
-				</c:when>
-			</c:choose>
+			<tr>
+				<td>현원</td>
+				<td>${facInfo.peopleNow}</td>
+			</tr>
+			<tr>
+				<td>잔여</td>
+				<td>${facInfo.peopleMargin}</td>
+			</tr>
+			<tr>
+				<td>대기</td>
+				<td>${facInfo.peopleWait}</td>
+			</tr>
 		</table>
-
+		<h4>평가결과</h4>
+		<table class="ui celled table">
+			<tr>
+				<td>평가날짜</td>
+				<td>평가등급</td>
+				<td>기관운영</td>
+				<td>환경및안전</td>
+				<td>수급자권리보장</td>
+				<td>급여제공과정</td>
+				<td>급여제공결과</td>
+			</tr>
+			<tr>
+				<td>${facInfo.welfareFacilityScoreVO.evaluateDate}</td>
+				<td>${facInfo.eavaluationResult}</td>
+				<td>${facInfo.welfareFacilityScoreVO.manageScore}점</td>
+				<td>${facInfo.welfareFacilityScoreVO.safetyScore}점</td>
+				<td>${facInfo.welfareFacilityScoreVO.assureScore}점</td>
+				<td>${facInfo.welfareFacilityScoreVO.processScore}점</td>
+				<td>${facInfo.welfareFacilityScoreVO.resultScore}점</td>
+			</tr>
+		</table>
+		<h4>인력현황</h4>
+		<table class="ui celled table">
+			<tr>
+				<td>총인원</td>
+				<td>시설장</td>
+				<td>사무국장</td>
+				<td>사회복지사</td>
+				<td>전임의사</td>
+				<td>계약의사</td>
+				<td>간호사</td>
+				<td>간호조무사</td>
+				<td>치위생사</td>
+				<td>요양보호사 1급</td>
+				<td>요양보호사 2급</td>
+				<td>요양보호사 유예</td>
+				<td>물리치료사</td>
+				<td>작업치료사</td>
+				<td>사무원</td>
+				<td>영양원</td>
+				<td>조리원</td>
+				<td>위생원</td>
+				<td>관리인</td>
+				<td>보조원</td>
+				<td>기타</td>
+			</tr>
+			<tr>
+				<td>${facInfo.welfareFacilityStaffVO.staffTotal}</td>
+				<td>${facInfo.welfareFacilityStaffVO.director}</td>
+				<td>${facInfo.welfareFacilityStaffVO.general}</td>
+				<td>${facInfo.welfareFacilityStaffVO.socialWorker}</td>
+				<td>${facInfo.welfareFacilityStaffVO.doctor}</td>
+				<td>${facInfo.welfareFacilityStaffVO.contractDoctor}</td>
+				<td>${facInfo.welfareFacilityStaffVO.nurse}</td>
+				<td>${facInfo.welfareFacilityStaffVO.nurseAside}</td>
+				<td>${facInfo.welfareFacilityStaffVO.dentalist}</td>
+				<td>${facInfo.welfareFacilityStaffVO.careWorker1st}</td>
+				<td>${facInfo.welfareFacilityStaffVO.careWorker2nd}</td>
+				<td>${facInfo.welfareFacilityStaffVO.careWorker3rd}</td>
+				<td>${facInfo.welfareFacilityStaffVO.physicalTherapist}</td>
+				<td>${facInfo.welfareFacilityStaffVO.occupationalTherapist}</td>
+				<td>${facInfo.welfareFacilityStaffVO.officer}</td>
+				<td>${facInfo.welfareFacilityStaffVO.nutritionist}</td>
+				<td>${facInfo.welfareFacilityStaffVO.cook}</td>
+				<td>${facInfo.welfareFacilityStaffVO.cleanliness}</td>
+				<td>${facInfo.welfareFacilityStaffVO.keeper}</td>
+				<td>${facInfo.welfareFacilityStaffVO.assitant}</td>
+				<td>${facInfo.welfareFacilityStaffVO.others}</td>
+			</tr>
+		</table>
+		<div style="height:20px;"></div>
 		<div id="map" class="map" style="width: 55%; height: 400px;"></div>
 
 

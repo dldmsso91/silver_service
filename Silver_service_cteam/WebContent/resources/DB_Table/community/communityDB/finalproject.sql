@@ -1,18 +1,3 @@
-CREATE TABLE U_MEMBER(
-     U_NO NUMBER NOT NULL PRIMARY KEY
-    ,U_ID VARCHAR2(20)  UNIQUE  NOT NULL 
-    ,U_PASSWORD VARCHAR2(50) NOT NULL
-    ,U_NAME   VARCHAR2(50) NOT NULL
-    ,U_BIRTH  varchar2(20) NOT NULL
-    ,U_BIRTH2 varchar2(20) NOT NULL
-    ,U_PHONE VARCHAR2(50) 
-    ,U_EMAIL VARCHAR2(100) NOT NULL
-    ,U_ADDR  VARCHAR2(200) NOT NULL
-    ,U_ADDR1 VARCHAR2(200) NOT NULL
-    ,U_ADDR2 VARCHAR2(200) NOT NULL
-    ,U_REDATE DATE DEFAULT SysDATE
-);
-
 insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc1234','abc1234','홍길동','651212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
 insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc123','abc123','아무개','551212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
 commit;
@@ -20,26 +5,58 @@ commit;
 create table welfareFacilities(
 facilityNo number(10) primary key,
 typeName varchar2(50),
-facilityName varchar2(50) not null,
-cityloc varchar2(20),
-address varchar2(100) not null,
-telnumber varchar2(30) not null,
-latitude varchar2(40),
-longitude varchar2(40),
-serviceScore number(5)
-);
-
-create table medicaldetail(
-facilityNo number(10),
+eavaluationResult varchar2(50),
+facilityName varchar2(100) not null,
 peopleLimit number(10),
-peopleNumber number(10),
-foreign key(facilityNo) references welfareFacilities(facilityNo)
+peopleNow number(10),
+peopleMargin number(10),
+peopleWait  number(10),
+telnumber varchar2(30) not null,
+address varchar2(100) not null,
+supplyService varchar(200),
+latitude varchar2(40),
+longitude varchar2(40)
 );
 
-create table silverhalldetail(
+create table welfareFacilityScore(
 facilityNo number(10),
-serviceType varchar2(20),
-foreign key(facilityNo) references welfareFacilities(facilityNo)
+facilityName varchar2(100) not null,
+EvaluateDate varchar2(30),
+EvaluateGrade varchar2(20),
+ManageScore number(3),
+SafetyScore number(3),
+AssureScore number(3),
+ProcessScore number(3),
+ResultScore number(3),
+foreign key(facilityNO) references welfareFacilities(facilityNo)
+);
+
+
+create table welfareFacilityStaff(
+facilityNo number(10),
+facilityName varchar2(100) not null,
+staffTotal number(3),
+Director number(3),
+General number(3),
+SocialWorker number(3),
+Doctor number(3),
+ContractDoctor number(3),
+Nurse number(3),
+NurseAside number(3),
+Dentalist number(3),
+CareWorker1st number(3),
+CareWorker2nd number(3),
+CareWorker3rd number(3),
+PhysicalTherapist number(3),
+OccupationalTherapist number(3),
+Officer number(3),
+Nutritionist number(3),
+Cook number(3),
+Cleanliness number(3),
+Keeper number(3),
+Assitant number(3),
+Others number(3),
+foreign key(facilityNO) references welfareFacilities(facilityNo)
 );
 
 create table reservationInfo(
