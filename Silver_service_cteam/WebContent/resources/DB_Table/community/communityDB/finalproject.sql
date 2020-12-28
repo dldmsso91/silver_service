@@ -1,3 +1,14 @@
+/*
+동시 처리 가능한 Processes parameter 값을 초과 했기 때문에
+ORA-12516 에러 발생 시 Processes paramerter값 변경 필요
+└ 1. cmd 실행후 sqlplus "/as sysdba" 입력
+└ 2. SQL> show parameter 실행후 processes 값 확인 (현재 150)
+└ 3. SQL> alter system set processes = 500 scope = spfile; 입력 (동시에 처리가능한 process의 숫자 500개로 증가)
+└ 4. SQL> shutdown immediate -> DB종료
+└ 5. SQL> startup ->DB 시작
+*/
+
+
 insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc1234','abc1234','홍길동','651212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
 insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc123','abc123','아무개','551212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
 commit;
