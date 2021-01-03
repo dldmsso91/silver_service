@@ -17,7 +17,7 @@
     ,U_REDATE DATE DEFAULT SYSDATE
 ); -->
 	<insert id="register" parameterType="mvo">
-	    INSERT INTO U_MEMBER
+	    INSERT INTO U_MEMBER (u_no,u_id,u_password,u_name,u_birth,u_birth2,u_phone,u_email,u_addr,u_addr1,u_addr2,u_redate)
 	                  VALUES(U_MEMBER_SEQ.NEXTVAL ,	                  											                		   
 									                 		   
 	                 		    #{u_id}
@@ -91,5 +91,19 @@
 	     
 	  	  	  	   
 </delete>	
+
+
+<!-- 은내 -->	
+<!-- 신청서 작성 시 멤버에 customer 정보넣기 -->	
+<update id="update_customerNo_mem" parameterType="hashmap">
+	UPDATE u_member SET customer_no = #{customer_no} where u_no = #{u_no}
+</update>
+	
+<!-- 지원서 작성 시 멤버에 customer 정보넣기 테스트 중 -->	
+<update id="update_giverNo_mem" parameterType="hashmap">
+	UPDATE u_member SET giver_no = #{giver_no} where u_no = #{u_no}
+</update>
+	
+
 	
 </mapper>

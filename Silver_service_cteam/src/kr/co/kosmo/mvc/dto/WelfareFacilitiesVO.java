@@ -1,5 +1,6 @@
 package kr.co.kosmo.mvc.dto;
 
+import java.util.List;
 
 /*
 facilityNo number(10) primary key,
@@ -26,8 +27,16 @@ public class WelfareFacilitiesVO {
 	private WelfareFacilityStaffVO welfareFacilityStaffVO;
 	private WelfareFacilityScoreVO welfareFacilityScoreVO;
 	private int totalScore;
+	private List<FacilityReviewVO> facilityReviewVO;
 	
 	
+	
+	public List<FacilityReviewVO> getFacilityReviewVO() {
+		return facilityReviewVO;
+	}
+	public void setFacilityReviewVO(List<FacilityReviewVO> facilityReviewVO) {
+		this.facilityReviewVO = facilityReviewVO;
+	}
 	public int getTotalScore() {
 		return totalScore;
 	}

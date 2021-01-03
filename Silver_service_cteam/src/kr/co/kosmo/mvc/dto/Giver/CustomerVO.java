@@ -34,6 +34,11 @@ public class CustomerVO {
 		public CustomerVO(int customer_no) {
 			this.customer_no = customer_no;
 		}
+		
+		
+		
+		
+		
 		public int getCustomer_no() {
 			return customer_no;
 		}

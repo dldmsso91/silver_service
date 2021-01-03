@@ -5,20 +5,20 @@
 
     <!-- MAIN -->
 
-
-
+<form method="post" action="my_apply_service_detail">
+<input type="hidden" name="customer_no" value="${Customer_no}"/>   
     <div class="slide-item overlay" style="background-image: url('resources/images/promis.jpg')">
       <div class="container">
         <div class="row justify-content-center text-center">
           <div class="col-lg-6 align-self-center">
-            <h1 class="heading mb-3">서비스 신청이 완료되었습니다.</h1>
+            <h1 class="heading mb-3">${member.u_name}님 서비스 신청이 완료되었습니다.</h1>
             <p class="lead text-white mb-5">언제나 최고의 서비스로 보답드리겠습니다. </p>
-            <p><a href="my_service_en" class="btn btn-primary">신청내역 확인하기</a></p>
+            <p><input type="submit" value="신청내역 확인하기" class="btn btn-primary"></p>   
           </div>
         </div>
       </div>  
     </div>
-
+</form>
   <script src="resources/js/jquery-3.3.1.min.js"></script>
   <script src="resources/js/jquery-ui.js"></script>
   <script src="resources/js/popper.min.js"></script>

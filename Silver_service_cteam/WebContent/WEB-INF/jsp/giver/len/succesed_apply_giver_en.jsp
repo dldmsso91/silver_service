@@ -5,7 +5,7 @@
 <!-- MAIN -->
 
 
-<form method="post" action="my_resume_en">
+<form method="post" action="giver_resume_en">
 <input type="hidden" name="giver_no" value="${giver_no}"/>   
 <div class="slide-item overlay"
 	style="background-image: url('resources/images/promise2.jpg')">

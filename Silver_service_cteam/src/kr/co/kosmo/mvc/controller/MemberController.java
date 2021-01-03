@@ -71,6 +71,7 @@ public class MemberController {
 		}else {
 			session.setAttribute("member", login);
 			session.setAttribute("u_no", login.getU_no());
+			session.setAttribute("u_id", login.getU_id());
 		}
 		
 		return "redirect:/";

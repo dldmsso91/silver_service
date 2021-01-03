@@ -2,6 +2,8 @@ package kr.co.kosmo.mvc.dao;
 
 
 
+import java.util.HashMap;
+
 import org.apache.ibatis.session.SqlSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -47,6 +49,18 @@ public class MemberDAOImpl implements MemberDAO {
 		//  #{userId}, #{userPass}에 파라미터값이 매칭이 되겠지요.
 		sql.delete("memberMapper.memberDelete", vo);
 		
+	}
+	
+	//--------은내
+	//customerNo update(세션용)	
+	@Override
+	public void update_customerNo_mem(HashMap<String, Integer> map) throws Exception {
+		sql.update("memberMapper.update_customerNo_mem",map);
+	}
+	//giverNo update(세션용)	
+	@Override
+	public void update_giverNo_mem(HashMap<String, Integer> map) throws Exception {
+		sql.update("memberMapper.update_giverNo_mem",map);		
 	}
 }
 

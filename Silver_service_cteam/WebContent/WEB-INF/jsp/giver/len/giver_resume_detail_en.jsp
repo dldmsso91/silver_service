@@ -3,31 +3,7 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 
 
-<script type="text/javascript"
-	src="https://www.gstatic.com/charts/loader.js"></script>
-<script type="text/javascript">
-	google.charts.load('current', {
-		'packages' : [ 'corechart' ]
-	});
-	google.charts.setOnLoadCallback(drawChart);
 
-	function drawChart() {
-		var data = google.visualization.arrayToDataTable([ [ 'Year', 'Sales' ],
-				[ '외향성', 1000 ], [ '호감성', 1170 ], [ '성실성', 660 ],
-				[ '정서적 불안정성', 1030 ], [ '경험에 대한 개방성', 1030 ], ]);
-
-		var options = {
-			title : '직업 흥미 유형별 점수_워크넷',
-			curveType : 'function',
-			legend : 'none'
-		};
-
-		var chart = new google.visualization.LineChart(document
-				.getElementById('curve_chart'));
-
-		chart.draw(data, options);
-	}
-</script>
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
@@ -355,40 +331,6 @@
 			</div>
 			<div id="item_header" class="item_header01">
 				<div class="header">
-					<h4>성격 진단검사</h4>
-				</div>
-
-				<div class="inner_item">
-					<table class="ui celled table">
-						<tr>
-							<td rowspan="2">성격 진단검사</td>
-						</tr>
-						<tr>
-							<td>
-								<table class="sub_table" style="border: 1px solid #dee2e6;">
-									<tr>
-										<th>외향성</th>
-										<th>호감성</th>
-										<th>성실성</th>
-										<th>정서적 불안정성</th>
-										<th>경험에 대한 개방성</th>
-									</tr>
-									<tr>
-										<td>55</td>
-										<td>66</td>
-										<td>77</td>
-										<td>88</td>
-										<td>99</td>
-									</tr>
-								</table>
-							</td>
-							<td></td>
-						</tr>
-					</table>
-				</div>
-			</div>
-			<div id="item_header" class="item_header01">
-				<div class="header">
 					<h4>경력사항</h4>
 				</div>
 
@@ -410,9 +352,8 @@
 
 			<div class="button_div">
 				<p>
-				<input type="hidden" value="${Default[0].giver_no}">
-				<button type="submit" class="btn btn-primary" id="select_giver" value="선택하기">선택하기</button>				
-<!-- 					<a href="succesed_apply_service_en" class="btn btn-primary"	style="margin-top: 30px;">선택하기</a> -->
+                <a href="succesed_apply_service_en?giver_no=${Default[0].giver_no}&customer_no=${Customer_no}" class="btn btn-primary"/>선택하기</a>				
+
 				</p>
 			</div>
 		</div>

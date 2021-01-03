@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>    
 
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -9,30 +9,6 @@
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
 
-
-
-
-<script>
-	$(document).ready(function() {
-		$('.bxslider').bxSlider({
-			auto : true,
-			autoControls : true,
-			stopAutoOnClick : true,
-			pager : true,
-			minSlides : 6,
-			maxSlides : 2,
-			slideWidth : 800,
-			slideMargin : 20,
-			touchEnabled : (navigator.maxTouchPoints > 0)
-		});
-
-		$('#star_grade a').click(function() {
-			$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-			$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-			return false;
-		});
-	});
-</script>
 
 
 <style>
@@ -57,6 +33,17 @@ img {
 	width: 300px;
 	height: 150px;
 }
+table{
+	margin: 0 auto;
+	width: 60%;
+	text-align: center;    
+    margin-bottom: 2%;	
+	}
+.button{
+	margin: 0 auto;
+    text-align: center;	
+    margin-bottom: 5%;	
+}
 </style>
 
 
@@ -67,133 +54,47 @@ img {
 
 <div id="test" class="slide-item overlay"></div>
 
-
-
+<form method="post" name="form" id='form'>	
 <div class="layer">
-	<table id="products" border="1"
-		style="margin-left: 500px; margin-top: 200px;">
+	<h2>후기 목록</h2>
+	<table id="products" border="1">
 		<thead>
 			<tr>
+				<th>선택</th>
 				<th>글번호</th>
-				<th>작성자</th>
-				<th>이미지</th>
+				<th>도우미 이름</th>
+				<th>서비스 타입</th>
+				<th>서비스 장소</th>
+				<th>후기내용</th>
 				<th>별점</th>
 				<th>날짜</th>
 			</tr>
 		</thead>
 		<tbody>
 			<!--  반복문으로 사용 -->
+		<c:forEach items="${hugi}" var="h">
+
 			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">1</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
+				<td><input type="radio" name='hugi_no' value='${h.hugi_no}'></td>
+				<td>${h.hugi_no}</td>
+				<td>
+					<a href="customer_hugi_detail_look_yj">${h.memberVO.u_name}</a>
+				</td>
+				<td>${h.giver.giver_type}</td>
+				<td>${h.giver.hope_business_place}</td>
+				<td>${h.hugi_contents}</td>
+				<td>${h.hugi_score}</td>
+				<td>${h.hugi_redate}</td>
 			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">2</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">3</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td><img src="resources/images/svg/svg/001-elderly.svg"
-					alt="Image" class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">4</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">5</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">6</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">7</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">8</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td style="width: 154.22222px; height: 154.22222px;">9</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td><img src="resources/images/svg/svg/001-elderly.svg"
-					alt="Image" class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-			<tr>
-				<td>10</td>
-				<td style="width: 154.22222px; height: 154.22222px;"><a
-					href="customer_hugi_detail_look_yj">작성자</a></td>
-				<td style="width: 154.22222px; height: 154.22222px;"><img
-					src="resources/images/svg/svg/001-elderly.svg" alt="Image"
-					class="img-fluid" style="width: 150px;"></td>
-				<td style="width: 154.22222px; height: 154.22222px;">별점</td>
-				<td style="width: 154.22222px; height: 154.22222px;">날짜</td>
-			</tr>
-		</tbody>
+		</c:forEach>
 		</tbody>
 	</table>
-	<form action="" id="setRows">
-		<p>
-			<input type="hidden" name="rowPerPage" value="3">
-		</p>
-	</form>
-	<div></div>
+	<div class="button">
+		<button type="submit" class="btn btn-primary" id="delete" value="후기삭제" onclick="javascript: form.action='deleteHugi';">후기삭제</button>
+		<button type="submit" class="btn btn-primary" id="update" value="후기수정" onclick="javascript: form.action='updateHugi';">후기수정</button>	
+	</div>
 </div>
-
-
-
+</form>
 
 <script src="resources/js/jquery-3.3.1.min.js"></script>
 <script src="resources/js/jquery-ui.js"></script>
@@ -212,7 +113,7 @@ img {
 
 <script src="resources/js/main.js"></script>
 <script src="resources/js/star.js"></script>
-<Script></Script>
+
 
 
 </body>

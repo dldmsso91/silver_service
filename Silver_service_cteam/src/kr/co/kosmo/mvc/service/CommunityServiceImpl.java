@@ -19,8 +19,11 @@ public class CommunityServiceImpl implements CommunityService{
 	private CommunityDAO communityDao;
 	
 	@Override
-	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo) {
-		return communityDao.getFacilityInfo(vo);
+	public Map<String, Object> getFacilityInfo(WelfareFacilitiesVO vo) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("getFacilityInfo", communityDao.getFacilityInfo(vo));
+		map.put("getFacilityReview", communityDao.getFacilityReview(vo));
+		return map;
 	}
 	
 	@Transactional

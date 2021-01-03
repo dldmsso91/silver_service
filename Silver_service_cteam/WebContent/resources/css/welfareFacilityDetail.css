@@ -30,19 +30,6 @@
 .button_div p{
 margin: 0 auto;
 }
-
-.My_Image{
-    width: 150px;
-    overflow: hidden;
-    height: 160px;
-    border-radius: 30px;
-    margin: 0 auto;
-    margin-top: 40px;
-}
-.My_Image img{
-    width: 100%;
-}
-
 .map{
 	display:table;
 	margin: 0 auto;

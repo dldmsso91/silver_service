@@ -23,7 +23,7 @@ public class bus_Controller {
 	@Autowired		//@Resource
 	private BusStopParser busStopParser;
 	
-	//»èÁ¦ 
+	//ï¿½ê¶˜ï¿½ì £ 
 	@RequestMapping(value = "/bus_admin")
 	public String bus_Admin() {
 		return "bus_admin_sw";
@@ -46,9 +46,24 @@ public class bus_Controller {
          
         return mv;
     }
-    
-	//sizeÀÇ °æ¿ì ¸î °³ÀÇ Á¤º¸°¡ ÆÄ½Ì µÇ¾ú´Â Áö¸¦ È®ÀÎÇÏ±â À§ÇÔ
-    //³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
+   
+
+  //ë…¸ì„  ì •ë³´ 
+
+    @RequestMapping(value="/bus_info")
+    //public ModelAndView bus_Info(Map<String, Object> commandMap) throws Exception{
+    public ModelAndView bus_Info(String routeno,String routeid) throws Exception{ 
+    ModelAndView mv = new ModelAndView("bus_info_sw");
+    System.out.println("nodeid:=>"+routeno);
+    System.out.println("routeno:"+routeid);
+    mv.addObject("routeno",routeno);
+    mv.addObject("routeid",routeid);
+    return mv;
+
+    }
+	
+	//sizeï¿½ì“½ å¯ƒìŒìŠ¦ ï§ï¿½ åª›ì’–ì“½ ï¿½ì ™è¹‚ë‹¿ï¿½ ï¿½ë™†ï¿½ë–› ï¿½ë¦ºï¿½ë¿€ï¿½ë’— ï§ï¿½ç‘œï¿½ ï¿½ì†—ï¿½ì”¤ï¿½ë¸¯æ¹²ï¿½ ï¿½ìï¿½ë¸¿
+    //ï¿½êµ¹ä»¥ë¬’ë¿‰ ï¿½ê¶˜ï¿½ì £ï¿½ë¸· ï¿½ì‚ï¿½ì ™
   	@RequestMapping(value = "/regNodeInfo")
   	public ModelAndView regNodeInfo(CommandMap commandMap) throws Exception {
 
@@ -59,7 +74,7 @@ public class bus_Controller {
   	} 
 
   	
-  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
+  	//ï¿½êµ¹ä»¥ë¬’ë¿‰ ï¿½ê¶˜ï¿½ì £ï¿½ë¸· ï¿½ì‚ï¿½ì ™
   	@RequestMapping(value = "/regNodeToRoute")
   	public ModelAndView regNodeToRoute() throws Exception {
   		ModelAndView mv = new ModelAndView("regSuc");
@@ -69,7 +84,7 @@ public class bus_Controller {
   	}
 
   	
-  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
+  	//ï¿½êµ¹ä»¥ë¬’ë¿‰ ï¿½ê¶˜ï¿½ì £ï¿½ë¸· ï¿½ì‚ï¿½ì ™
   	@RequestMapping(value = "/regRouteInfo")
   	public ModelAndView regRouteInfo(CommandMap commandMap) throws Exception {
 
@@ -80,7 +95,7 @@ public class bus_Controller {
   	}
   	
   	
-  	//³ªÁß¿¡ »èÁ¦ÇÒ ¿¹Á¤
+  	//ï¿½êµ¹ä»¥ë¬’ë¿‰ ï¿½ê¶˜ï¿½ì £ï¿½ë¸· ï¿½ì‚ï¿½ì ™
   	@RequestMapping(value = "/regRouteToOrder")
   	public ModelAndView regRouteToOrder(CommandMap commandMap) throws Exception {
 
@@ -90,9 +105,9 @@ public class bus_Controller {
   		return mv;
   	}
   	
-    //Á¤·ùÀå Á¤º¸ 
-	//@ResponseBody :¼­¹ö¿¡¼­ Å¬¶óÀÌ¾ğÆ®·Î ÀÀ´ä µ¥ÀÌÅÍ¸¦ Àü¼ÛÇÏ±â À§ÇØ¼­ ÀÚ¹Ù °´Ã¼¸¦ HTTP ÀÀ´ä º»¹®ÀÇ °´Ã¼·Î º¯È¯ÇÏ¿© Å¬¶óÀÌ¾ğÆ®·Î Àü¼Û½ÃÅ°´Â ¿ªÈ°
-	//ajax»ç¿ëÇÒ¶§ »ç¿ëÇÏ¸ç jsonView¸¦ ½áÁØ´Ù.
+    //ï¿½ì ™ç‘œì„ì˜£ ï¿½ì ™è¹‚ï¿½ 
+	//@ResponseBody :ï¿½ê½Œè¸°ê¾©ë¿‰ï¿½ê½Œ ï¿½ê²¢ï¿½ì”ªï¿½ì” ï¿½ë¼µï¿½ë“ƒæ¿¡ï¿½ ï¿½ì“³ï¿½ë–Ÿ ï¿½ëœ²ï¿½ì” ï¿½ê½£ç‘œï¿½ ï¿½ìŸ¾ï¿½ë„šï¿½ë¸¯æ¹²ï¿½ ï¿½ìï¿½ë¹ï¿½ê½Œ ï¿½ì˜„è«›ï¿½ åª›ì•¹ê»œç‘œï¿½ HTTP ï¿½ì“³ï¿½ë–Ÿ è¹‚ëªƒĞ¦ï¿½ì“½ åª›ì•¹ê»œæ¿¡ï¿½ è¹‚ï¿½ï¿½ì†šï¿½ë¸¯ï¿½ë¿¬ ï¿½ê²¢ï¿½ì”ªï¿½ì” ï¿½ë¼µï¿½ë“ƒæ¿¡ï¿½ ï¿½ìŸ¾ï¿½ë„šï¿½ë–†ï¿½ê¶ï¿½ë’— ï¿½ë¿­ï¿½ì†¢
+	//ajaxï¿½ê¶—ï¿½ìŠœï¿½ë¸·ï¿½ë¸£ ï¿½ê¶—ï¿½ìŠœï¿½ë¸¯ï§ï¿½ jsonViewç‘œï¿½ ï¿½ëœ¥ä»¥ï¿½ï¿½ë–.
 	@RequestMapping(value="/nodeList")
 	public @ResponseBody ModelAndView busList(@RequestBody Map<String,Object> map) throws Exception{
 	    map.put("list", swBusServ.nodeList(map));
@@ -100,7 +115,7 @@ public class bus_Controller {
 	}
 	
 	
-	//½Ç½Ã°£ ¹ö½ºÁ¤º¸
+	//ï¿½ë–ï¿½ë–†åª›ï¿½ è¸°ê¾©ë’ªï¿½ì ™è¹‚ï¿½
 	@RequestMapping(value="/nodeRealTime")
 	 public @ResponseBody ModelAndView nodeRealTime(@RequestBody Map<String,Object> map) throws Exception{
 	  map.put("list", busStopParser.apiParserNodeRealTime(map));
@@ -111,19 +126,11 @@ public class bus_Controller {
 
 	
 	
-	//³ë¼± Á¤º¸ 
-	@RequestMapping(value="/bus_info")
-	public ModelAndView bus_Info(CommandMap commandMap) throws Exception{
-	     
-	    ModelAndView mv = new ModelAndView("bus_info_sw");
-	     
-	    mv.addObject("routeno",commandMap.get("routeno"));
-	    mv.addObject("routeid",commandMap.get("routeid"));
-	     
-	    return mv;
-	}
+
+
 	
-	 //³ë¼± °æ·Î Á¤º¸ ÆäÀÌÁö
+	
+	 //ï¿½ë‚ï¿½ê½‘ å¯ƒìˆì¤ˆ ï¿½ì ™è¹‚ï¿½ ï¿½ëŸ¹ï¿½ì” ï§ï¿½
 	@RequestMapping(value="/routeInfo")
 	public @ResponseBody ModelAndView routeInfo(@RequestBody Map<String,Object> map) throws Exception{
 	    Map<String,Object> temp = swBusServ.routeInfo(map);

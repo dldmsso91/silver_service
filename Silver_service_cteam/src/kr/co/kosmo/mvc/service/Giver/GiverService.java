@@ -5,13 +5,17 @@ package kr.co.kosmo.mvc.service.Giver;
 import java.util.List;
 import java.util.Map;
 
+import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
 import kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO;
 import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
+import kr.co.kosmo.mvc.dto.Giver.HugiVO;
 import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
+import kr.co.kosmo.mvc.dto.Giver.Service_matchingVO;
+import kr.co.kosmo.mvc.dto.Giver.WorktimeVO;
 
 
 
@@ -22,57 +26,156 @@ public interface GiverService {
 	
 	
 	
-	//------------------------------------------ 은내 상세이력서select, 추천도우미 select, 일일만족도insert, 지원서 삭제 ----------------------------
+	//------------------------------------------ 은내----------------------------
 
+	//일일만족도 등록
 	public void insertSatisfaction(Giver_SatisfactionVO satisfactionVO) throws Exception;
+
+
+	//도우미에게 신청 등록
+	public void apply_to_giver_insert(int giver_no, int customer_no) throws Exception;
 	
-	public Map<String, Object> selectGiver_list(GiverVO vo) throws Exception;
-	public void deleteGiver_seed(CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo,Giver_SatisfactionVO Svo) throws Exception;
-	public void deleteGiver( GiverVO Gvo) throws Exception;
+	//------------------------------------giver 탈퇴 delete문 start	
+	//giver 탈퇴(자식들)	
+	public void deleteGiver_seed(CareerVO cvo, LicenseVO lvo, Hope_Business_AreaVO hvo,Giver_SatisfactionVO svo) throws Exception;
+	//giver 탈퇴(부모)	
+	public void deleteGiver(GiverVO gvo) throws Exception;
+	//------------------------------------giver 탈퇴 delete문 end	
 
 	
-	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception;
+	//------------------------------------customer 탈퇴 delete문 start	
+	//customer 탈퇴(자식들)	
+	public void deleteCustomer_seed(HugiVO hvo, Service_matchingVO svo, Apply_to_giverVO avo) throws Exception;
+	//customer 탈퇴(부모)	
+	public void deleteCustomer(CustomerVO cvo) throws Exception;
+	//------------------------------------customer 탈퇴 delete문 end	
+
+	
+
+	
+	//추천도우미 select 
+//	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception;
+	
+
+
 	
 	
+	//------------------------------------내 이력서 확인하기용 select문 start	
+	//상세페이지 info select (Map방식)
+	public Map<String, Object> select_MyResume_list(int u_no) throws Exception;
+	//------------------------------------내 이력서 확인하기용 select문 end		
+
+	
+	
+	//------------------------------------내 신청서 확인하기용 select문 start	
+	public List<CustomerVO> select_default_customer_info(int u_no) throws Exception;
+	//------------------------------------내 신청서 확인하기용 select문 end		
+	
+	
+	
+	
+	//------------------------------------내 서비스 확인하기용(고객) select문 start		
+	//상세페이지 info select (Map방식)
+	public Map<String, Object> cheack_my_service_customer(int u_no) throws Exception;
+	//------------------------------------내 서비스 확인하기용(고객) select문 end	
+		
+	
+	
+	//------------------------------------도우미 이력서 확인하기용 select문 start	
+	//상세페이지 info select (Map방식)
+	public Map<String, Object> selectGiver_list(GiverVO vo) throws Exception;
+	
+	//상세페이지 info select (이전 방식-다른작업자 분이 쓰시고 계셔서 냅둠.)
+	public List<GiverVO> selectGiverList(GiverVO vo) throws Exception;
 	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception;	
 	public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception;
 	public List<GiverVO> select_Career_info(GiverVO vo) throws Exception;
 	public List<GiverVO> select_license_info(GiverVO vo) throws Exception;
 	public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception;
-	public List<GiverVO> select_Giver_Satisfaction_info(GiverVO vo) throws Exception;
+	//------------------------------------도우미 이력서 확인하기용 select문 end	
+	
+
+
+	
+	//-------Mypage
+	
+	//고객 상세정보
+	public List<CustomerVO> select_customer_detail(int customer_no) throws Exception;
+	
+	
+	//도우미에게 서비스 신청한 list select	
+	public List<Apply_to_giverVO> select_apply_to_Giver(int u_no) throws Exception;
+	
+	//후기 등록
+	public void insert_hugi_giver(HugiVO hvo) throws Exception;
+	//후기 select	
+	public List<HugiVO> select_hugi(int u_no) throws Exception;
+	
+	//후기 delete	
+	public void delete_Hugi(HugiVO hvo) throws Exception;
+	
+	//후기 detail select(update용)	
+	public List<HugiVO> select_hugi_detail(HugiVO hvo) throws Exception;
+	
+	//후기 update	
+	public void update_Hugi(HugiVO hvo) throws Exception;
+	
+	
+	//서비스 매칭 insert
+	public void insert_matching(Service_matchingVO service_matchingVO) throws Exception;	
+	
+	
+	//서비스 매칭시 신청리스트에서 해당 신청서 delete
+	public void delete_apply(Apply_to_giverVO avo) throws Exception;
+
 		
+	//매칭테이블에서 목록 가져오기(매칭확인부분에 쓰일것.)
+	public List<Service_matchingVO> select_metching_list(int u_no) throws Exception;
+	
+	
+	//매칭테이블에서 도우미 정보를 가져오기(매칭확인부분에 쓰일것.)
+	public List<Service_matchingVO> select_metching_giver(int u_no) throws Exception;
+	
+	
+	//매칭테이블에서 고객 정보를 가져오기(매칭확인부분에 쓰일것.)
+	public List<Service_matchingVO> select_metching_customer(Service_matchingVO svo) throws Exception;
+	
+	
+	//서비스 매칭시 신청리스트에서 해당 신청서 delete
+	public void delete_matching(Service_matchingVO svo) throws Exception;
 
 	
 	
 	
 	
-	
 	//------------------------------------------ 동윤 지원자 insert ----------------------------
-	   public void insertGiverAll( GiverVO Gvo, CareerVO Cvo, LicenseVO Lvo, Hope_Business_AreaVO Hvo) throws Exception;     
-	   
-	   
-	   
-	   
-	   
-	   
+	   public void insertGiverAll( GiverVO gvo, List<CareerVO> cvo, List<LicenseVO> lvo, List<Hope_Business_AreaVO> hvo) ;     
 	   
 			   
+	   
 	   
  //------------------------------------------ 용진 지원자 update ----------------------------
 	   
 	   // 업데이트
 	   // 기본
 	   public void updateDefault_info(GiverVO vo) throws Exception;
-	   // 경력
-	   public void update_Career_info(CareerVO co) throws Exception;
-	   // 라이센스
-	   public void update_license_info(LicenseVO lo) throws Exception;
-	   // 희망근무지역
-	   public void update_Hope_Business_Area_info(Hope_Business_AreaVO ho) throws Exception;
-	   // 일일 만족도
-	   public void update_Giver_Satisfaction_info(Giver_SatisfactionVO go) throws Exception;
+
 	   // 멤버
 	   public void updatemember(MemberVO mo) throws Exception;
+	   // 업데이트 라이센스
+	   public void updateLicenseService(LicenseVO lvo) throws Exception;
+	   // 업데이트 고객신청정보
+	   public void updateCustomerService(CustomerVO cvo) throws Exception;
+	   // 출퇴근 기록부
+	   public void worktimeInsertService(WorktimeVO wvo) throws Exception;
+	   // 출퇴근 기록 리스트
+	   public List<WorktimeVO> worktimeselectService(WorktimeVO wvo) throws Exception;
+
+	   // 업데이트 경력
+	   public void updateCareerService(CareerVO cvo) throws Exception;
+	   // 업데이트 희망지역
+	   public void updateHopeBusinessService(Hope_Business_AreaVO hvo) throws Exception;
+
 	   	   	
 	   	   	
 

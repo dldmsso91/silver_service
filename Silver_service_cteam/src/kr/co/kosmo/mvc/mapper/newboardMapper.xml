@@ -12,14 +12,43 @@
 VALUES(    NEW_BOARD_SEQ.NEXTVAL , #{ntitle} , #{ncontent} , #{nwriter}  )
    
    </insert>
-  	<select id="list" resultType="nbvo">
-		SELECT   NBNO
-			   , NTITLE
-			   , NWRITER
-			   , NREGDATE
-		  FROM NEW_BOARD
-		  ORDER BY NBNO DESC
-	</select> 
+<select id="listPage" resultType="nbvo" parameterType="kr.co.kosmo.mvc.dto.NewSearchCriteria">
+		SELECT  NBNO, 
+		        NTITLE, 
+		        NCONTENT,
+		        NWRITER, 
+		        NREGDATE
+		 FROM ( 
+		        SELECT NBNO, 
+		               NTITLE, 
+		               NCONTENT, 
+		               NWRITER, 
+		               NREGDATE, 
+		               ROW_NUMBER() OVER(ORDER BY NBNO DESC) AS RNUM
+		         FROM NEW_BOARD
+		         WHERE 1=1 
+		         	<include refid="search"></include>
+		                       ) MP
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY NBNO DESC
+	</select>
+	
+	<select id="listCount" parameterType="kr.co.kosmo.mvc.dto.NewSearchCriteria" resultType="int">
+		SELECT COUNT(NBNO)
+		   FROM NEW_BOARD
+		   WHERE 1=1
+		<include refid="search"></include>	
+		   AND NBNO > 0
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND NTITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND NCONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'w'.toString()">AND NWRITER LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (NTITLE LIKE '%' || #{keyword} || '%') or (NCONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
 	<select id="read" parameterType="int" resultType="nbvo">
 		SELECT	NBNO
 			  , NTITLE

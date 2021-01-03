@@ -1,147 +1,53 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
+<link rel="stylesheet" href="resources/css/welfareFacilityDetail.css">
 <!-- MAIN -->
 <div id="test" class="slide-item overlay"></div>
 
-<div class="site-section">
-	<div class="container">
-		<h1 style="margin-bottom: 50px; text-align: center;">커뮤니티 서비스</h1>
-		<div class="row justify-content-between">
-			<div class="col-lg-7">
-				<div class="section-heading">
-					<div id="map" style="width: 100%; height: 600px;"></div>
-				</div>
-			</div>
-			<div class="col-lg-5">
+<div class="layer">
+	<div class="layer_inner">
+		<h1>요양시설 찾기</h1>
+		<table class="ui celled table"><tr>
+		<td>지역 : 
+			<select name="hope_business_city" id="hope_business_city"></select>
+			<select name="hope_business_town" id="hope_business_town"></select>
+		</td>
+		<td>급여종류 :
+			<select name="typeName" class="select_css03">
+					<option value="%">전체</option>
+					<option value="노인요양시설">노인요양시설</option>
+					<option value="노인요양공동생활가정">노인요양공동생활가정</option>
+					<option value="방문요양">방문요양</option>
+					<option value="방문목욕">방문목욕</option>
+					<option value="방문간호">방문간호</option>
+					<option value="주야간보호">주야간보호</option>
+					<option value="단기보호">단기보호</option>
+					<option value="복지용구">복지용구</option>
+			</select>
+		</td>
+		<td>시설명 : 
+			<input type="text" name="typeName">
+		</td>
+		<td>
+			<input type="submit" value="검색">
+		</td>
+		</tr>
+		</table>
+		<table class="ui celled table">
+			<tr>
+				<td>급여종류</td>
+				<td>평가결과</td>
+				<td>기관명</td>
+				<td>정원</td>
+				<td>현원</td>
+				<td>잔여</td>
+				<td>대기</td>
+				<td>전화번호</td>
+				<td>주소</td>
+			</tr>
 
-				<div class="d-block custom-media algin-items-stretch">
-
-					<div id="chatbox">
-						<div id="friendslist">
-							<div id="topmenu">
-								<span class="friends"></span> <span class="chats"></span> <span
-									class="history"></span>
-							</div>
-
-							<div id="friends">
-								<div class="friend">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-									<p>
-										<strong>챗휴먼</strong> <span>chathuman@gmail.com</span>
-									</p>
-									<div class="status available"></div>
-								</div>
-
-								<div class="friend">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-									<p>
-										<strong>고장내는 기계</strong> <span>errormachine@gmail.com</span>
-									</p>
-									<div class="status away"></div>
-								</div>
-
-								<div class="friend">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/3_copy.jpg" />
-									<p>
-										<strong>지옥에서 온 악마</strong> <span>devilfromhell@gmail.com</span>
-									</p>
-									<div class="status inactive"></div>
-								</div>
-
-								<div class="friend">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/4_copy.jpg" />
-									<p>
-										<strong>금붕어</strong> <span>forgetperthreesecond@gmail.com</span>
-									</p>
-									<div class="status inactive"></div>
-								</div>
-
-								<div id="search">
-									<input type="text" id="searchfield" value="Search contacts..." />
-								</div>
-
-							</div>
-
-						</div>
-
-						<div id="chatview" class="p1">
-							<div id="profile">
-
-								<div id="close">
-									<div class="cy"></div>
-									<div class="cx"></div>
-								</div>
-
-								<p>Miro Badev</p>
-							</div>
-							<div id="chat-messages">
-								<label>Thursday 02</label>
-
-								<div class="message">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-									<div class="bubble">
-										고통이 없으면 성취도 없다 근데 고통이 있다고해서 성취도 있는 것은 아니다.
-										<div class="corner"></div>
-									</div>
-								</div>
-
-								<div class="message right">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-									<div class="bubble">
-										위험을 감수하지 않으면 실패도 하지 않는다.
-										<div class="corner"></div>
-									</div>
-								</div>
-
-								<div class="message">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-									<div class="bubble">
-										남들이 알아주지 않더라도 너의 일을 묵묵히 하다보면 결국 남 좋은 일만 하게 된다.
-										<div class="corner"></div>
-									</div>
-								</div>
-
-								<div class="message right">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/2_copy.jpg" />
-									<div class="bubble">
-										열심히 일하다보면 언젠가 보상을 받기도 한다. 하지만 게으름을 피우면 당장 확실한 보상을 받는다.
-										<div class="corner"></div>
-									</div>
-								</div>
-
-								<div class="message">
-									<img
-										src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/245657/1_copy.jpg" />
-									<div class="bubble">
-										남들이 널 필요로 한다고 해서 그게 니가 중요한 사람이라는 뜻은 아니다.
-										<div class="corner"></div>
-									</div>
-								</div>
-
-							</div>
-
-							<div id="sendmessage">
-								<input type="text" value="Send message..." />
-								<button id="send"></button>
-							</div>
-
-						</div>
-					</div>
-
-
-
-
-				</div>
-			</div>
-		</div>
+		</table>
 	</div>
 </div>
 
@@ -161,67 +67,48 @@
 <script src="resources/js/isotope.pkgd.min.js"></script>
 <script src="resources/js/main.js"></script>
 
-<script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 <script>
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-	mapOption = {
-		center : new kakao.maps.LatLng(37.4781144, 126.8784167), // 지도의 중심좌표
-		level : 3
-	// 지도의 확대 레벨
-	};
-
-	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-	// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-	var positions = [ {
-		content : '<div>고장내는 기계</div>',
-		latlng : new kakao.maps.LatLng(37.478673, 126.8786544)
-	}, {
-		content : '<div>지옥에서온 악마</div>',
-		latlng : new kakao.maps.LatLng(37.4804014, 126.883129)
-	}, {
-		content : '<div>금붕어</div>',
-		latlng : new kakao.maps.LatLng(37.4781922, 126.8753113)
-	}, {
-		content : '<div>챗휴먼</div>',
-		latlng : new kakao.maps.LatLng(37.4786133, 126.8784542)
-	} ];
-
-	for (var i = 0; i < positions.length; i++) {
-		// 마커를 생성합니다
-		var marker = new kakao.maps.Marker({
-			map : map, // 마커를 표시할 지도
-			position : positions[i].latlng
-		// 마커의 위치
-		});
-
-		// 마커에 표시할 인포윈도우를 생성합니다 
-		var infowindow = new kakao.maps.InfoWindow({
-			content : positions[i].content
-		// 인포윈도우에 표시할 내용
-		});
-
-		// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-		// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-		// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-		kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(map,
-				marker, infowindow));
-		kakao.maps.event.addListener(marker, 'mouseout',
-				makeOutListener(infowindow));
-	}
-
-	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-	function makeOverListener(map, marker, infowindow) {
-		return function() {
-			infowindow.open(map, marker);
-		};
-	}
-
-	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	function makeOutListener(infowindow) {
-		return function() {
-			infowindow.close();
-		};
-	}
-</script>
+$('document').ready(function() {
+	 var area0 = ["시/도 선택","서울특별시","인천광역시","대전광역시","광주광역시","대구광역시","울산광역시","부산광역시","경기도","강원도","충청북도","충청남도","전라북도","전라남도","경상북도","경상남도","제주도"];
+	  var area1 = ["강남구","강동구","강북구","강서구","관악구","광진구","구로구","금천구","노원구","도봉구","동대문구","동작구","마포구","서대문구","서초구","성동구","성북구","송파구","양천구","영등포구","용산구","은평구","종로구","중구","중랑구"];
+	   var area2 = ["계양구","남구","남동구","동구","부평구","서구","연수구","중구","강화군","옹진군"];
+	   var area3 = ["대덕구","동구","서구","유성구","중구"];
+	   var area4 = ["광산구","남구","동구",     "북구","서구"];
+	   var area5 = ["남구","달서구","동구","북구","서구","수성구","중구","달성군"];
+	   var area6 = ["남구","동구","북구","중구","울주군"];
+	   var area7 = ["강서구","금정구","남구","동구","동래구","부산진구","북구","사상구","사하구","서구","수영구","연제구","영도구","중구","해운대구","기장군"];
+	   var area8 = ["고양시","과천시","광명시","광주시","구리시","군포시","김포시","남양주시","동두천시","부천시","성남시","수원시","시흥시","안산시","안성시","안양시","양주시","오산시","용인시","의왕시","의정부시","이천시","파주시","평택시","포천시","하남시","화성시","가평군","양평군","여주군","연천군"];
+	   var area9 = ["강릉시","동해시","삼척시","속초시","원주시","춘천시","태백시","고성군","양구군","양양군","영월군","인제군","정선군","철원군","평창군","홍천군","화천군","횡성군"];
+	   var area10 = ["제천시","청주시","충주시","괴산군","단양군","보은군","영동군","옥천군","음성군","증평군","진천군","청원군"];
+	   var area11 = ["계룡시","공주시","논산시","보령시","서산시","아산시","천안시","금산군","당진군","부여군","서천군","연기군","예산군","청양군","태안군","홍성군"];
+	   var area12 = ["군산시","김제시","남원시","익산시","전주시","정읍시","고창군","무주군","부안군","순창군","완주군","임실군","장수군","진안군"];
+	   var area13 = ["광양시","나주시","목포시","순천시","여수시","강진군","고흥군","곡성군","구례군","담양군","무안군","보성군","신안군","영광군","영암군","완도군","장성군","장흥군","진도군","함평군","해남군","화순군"];
+	   var area14 = ["경산시","경주시","구미시","김천시","문경시","상주시","안동시","영주시","영천시","포항시","고령군","군위군","봉화군","성주군","영덕군","영양군","예천군","울릉군","울진군","의성군","청도군","청송군","칠곡군"];
+	   var area15 = ["거제시","김해시","마산시","밀양시","사천시","양산시","진주시","진해시","창원시","통영시","거창군","고성군","남해군","산청군","의령군","창녕군","하동군","함안군","함양군","합천군"];
+	   var area16 = ["서귀포시","제주시","남제주군","북제주군"];
+	 
+		 // 시/도 선택 박스 초기화
+		 $("select[name^=hope_business_city]").each(function() {
+		  $selsido = $(this);
+		  $.each(eval(area0), function() {
+		   $selsido.append("<option value='"+this+"'>"+this+"</option>");
+		  });
+		  $selsido.next().append("<option value=''>구/군 선택</option>");
+		 });
+		 
+		 // 시/도 선택시 구/군 설정
+		 $("select[name^=hope_business_city]").change(function() {
+		  var area = "area"+$("option",$(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
+		  var $hope_business_town = $(this).next(); // 선택영역 군구 객체
+		  $("option",$hope_business_town).remove(); // 구군 초기화
+		  if(area == "area0")
+		   $hope_business_town.append("<option value=''>구/군 선택</option>");
+		  else {
+		   $.each(eval(area), function() {
+		    $hope_business_town.append("<option value='"+this+"'>"+this+"</option>");
+		   });
+		  }
+		 });
+});
+	
+</script> 

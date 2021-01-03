@@ -8,7 +8,7 @@
 
 <!--   ResultMap -->
 <!-- 현재 giver에 join되어있음. -->
-<resultMap type="giver" id="giver">
+<resultMap type="giver" id="giver2">
    <id property="giver_no" column="giver_no"/>
    <result column="apply_giver_no" property="apply_giver_no"/>
    <result column="u_no" property="u_no"/>   
@@ -105,7 +105,7 @@
 	 )	 
 	 VALUES 
 	 (Customer_seq.nextval,
-	 1,
+	 #{u_no},
 	 #{giver_type},
 	 #{my_condition},
 	 #{my_allergy},

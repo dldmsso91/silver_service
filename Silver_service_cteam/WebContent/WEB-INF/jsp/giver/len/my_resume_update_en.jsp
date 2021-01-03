@@ -161,7 +161,8 @@
 <div id="test" class="slide-item overlay"></div>
 
 
-<form method="post" name="form" id='form' action="updateGiver">	
+<form method="post" action="TestUpdate">
+<input type="hidden" name="giver_no" value="${giver_no}"/> 
     <div class="layer" >
 
           <div class="layer_inner">
@@ -169,6 +170,7 @@
 			<div class="My_Image">
 			<img src="resources/images/1.jpg" alt="My Image">		
 			</div>
+			
 				<table class="ui celled table">
 				<tr><td rowspan="11">기본정보</td></tr>
 				<tr>
@@ -186,13 +188,13 @@
 				<tr>
 					<td>핸드폰번호</td>
 						<td colspan='2'>
-						<input type="text" name="u_phone"	value="${Default[0].memberVO.u_phone}">
+						${Default[0].memberVO.u_phone}
     					</td>
 				</tr>
 				<tr>
 					<td>E-mail</td>
 						<td colspan='2'>
-							<input type="text" name="u_email" value="${Default[0].memberVO.u_email}">
+							${Default[0].memberVO.u_email}
     					</td>
 				</tr>
 				<tr>
@@ -204,9 +206,9 @@
       				<tr>
       					<td>주소</td>
       					<td colspan='2'>
-      					<input type="text" name="u_addr" value="${Default[0].memberVO.u_addr}">
-      					<input type="text" name="u_addr1" value="${Default[0].memberVO.u_addr1}">
-      					<input type="text" name="u_addr2" value="${Default[0].memberVO.u_addr2}"></td>
+      					${Default[0].memberVO.u_addr}&nbsp;
+      					${Default[0].memberVO.u_addr1}&nbsp;
+      					${Default[0].memberVO.u_addr2}
       				</tr>
 			<tr>
 				<td>흡연여부</td>
@@ -239,7 +241,9 @@
 				<tr>  				
 					<td class="first">희망근무지역</td>
 					<td >희망근무지역 :  </td>
-					<td colspan='2'><input type="text" name="hope_business_city" value="${a.hope_business_city}"><input type="text" name="hope_business_town" value="${a.hope_business_town}"></td>					
+					<td colspan='2'>
+					<input type="hidden" name="hope_business_area_no" value="${a.hope_business_area_no}"/> 
+					<input type="text" name="hope_business_city" value="${a.hope_business_city}"><input type="text" name="hope_business_town" value="${a.hope_business_town}"></td>					
 				</tr>
 			</c:forEach>
 		</c:forEach>	
@@ -254,17 +258,22 @@
 			<th>발급일</th>
 		</tr>
 		
+<%-- form 을 나눈다. action="testLicense" --%>		
 	<c:forEach items="${License}" var="g">
 		<c:forEach items="${g.licenseVO}" var="l">
 				<tr>  				
 					<td class="first">자격증</td>
-					<td><input type="text" name="license_name" value="${l.license_name}"></td> 
+					<td>
+				
+<!-- 	여기 정확한 라이센스 번호가 나와야 함. -->
+	
+<input type="hidden" name="license_no" value="${l.license_no}"> 
+					<input type="text" name="license_name" value="${l.license_name}"></td> 
 					<td><input type="text" name="license_Institute" value="${l.license_Institute}"></td>
 					<td><input type="text" name="license_Redate" value="${l.license_Redate}"></td>
 				</tr>
 			</c:forEach>
-		</c:forEach>	
-		
+		</c:forEach>
 		
 		<tr>
 			<th></th>
@@ -276,7 +285,9 @@
 		<c:forEach items="${g.careerVO}" var="c">
 				<tr>  				
 					<td class="first">경력사항</td>
-					<td><input type="text" name="career_name" value="${c.career_name}"></td> 
+					<td>
+<input type="hidden" name="career_no" value="${c.career_no}"> 
+					<input type="text" name="career_name" value="${c.career_name}"></td> 
 					<td><input type="text" name="work_period_start" value="${c.work_period_start}">~
 					<input type="text" name="work_period_end" value="${c.work_period_end}"></td>
 					<td><input type="text" name="role" value="${c.role}"></td>
@@ -284,7 +295,6 @@
 			</c:forEach>
 		</c:forEach>			
 			</table>
-			<input type="hidden" name="giver_no" value="${giver_no}"/>
 				<div class="button_div">			
 				<button type="submit" class="btn btn-primary" id="update" value="상품수정" >이력서 수정</button>
 				<button type="submit" class="btn btn-primary" id="delete" value="상품삭제" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>

@@ -17,6 +17,10 @@ public class MemberVO {
 	private Date   u_redate;
 	private String u_gender;
 	private int u_age;
+
+	//추가함(은내)
+	private int giver_no;
+	private int customer_no;
 	
 	
 	public int getU_age() {
@@ -131,7 +135,21 @@ public class MemberVO {
 		this.u_redate = u_redate;
 	}
 
-
+	
+	
+	//추가함 (은내)
+	public int getGiver_no() {
+		return giver_no;
+	}
+	public void setGiver_no(int giver_no) {
+		this.giver_no = giver_no;
+	}
+	public int getCustomer_no() {
+		return customer_no;
+	}
+	public void setCustomer_no(int customer_no) {
+		this.customer_no = customer_no;
+	}
 	@Override
 	public String toString() {
 		return "MemberVO [u_no=" + u_no + ", u_id=" + u_id + ", u_password=" + u_password + ",u_name= " + u_name +

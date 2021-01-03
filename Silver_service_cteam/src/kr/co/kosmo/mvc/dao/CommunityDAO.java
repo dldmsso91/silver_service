@@ -3,6 +3,7 @@ package kr.co.kosmo.mvc.dao;
 import java.util.List;
 
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
+import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 
@@ -10,6 +11,8 @@ public interface CommunityDAO {
 	
 	
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo);
+	
+	public List<FacilityReviewVO> getFacilityReview(WelfareFacilitiesVO vo);
 	
 	public List<WelfareFacilitiesVO> getMedicalList();
 	
@@ -38,5 +41,7 @@ public interface CommunityDAO {
 	public void reservationDelete(ReservationInfoVO vo);
 	
 	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo);
+	
+	public int insertReview(FacilityReviewVO vo);
 	
 }

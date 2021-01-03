@@ -6,18 +6,24 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 @Repository
 public class CommunityDAOImpl implements CommunityDAO{
-	// �ڵ� �� ���� 
+	
 	@Autowired
 	private SqlSessionTemplate ss;
 	
 	@Override
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo) {
 		return ss.selectOne("commu.facInfo", vo);
+	}
+	
+	@Override
+	public List<FacilityReviewVO> getFacilityReview(WelfareFacilitiesVO vo) {
+		return ss.selectList("commu.getReview", vo);
 	}
 	
 	@Override
@@ -88,6 +94,11 @@ public class CommunityDAOImpl implements CommunityDAO{
 	@Override
 	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo) {
 		return ss.selectList("commu.getMedicalListAjax", vo);
+	}
+	
+	@Override
+	public int insertReview(FacilityReviewVO vo) {
+		return ss.insert("commu.insertReview",vo);
 	}
 	
 }

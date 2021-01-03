@@ -2,6 +2,8 @@ package kr.co.kosmo.mvc.service;
 
 
 
+import java.util.HashMap;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -47,5 +49,28 @@ public class MemberServiceImpl implements MemberService {
 	public void memberDelete(MemberVO vo) throws Exception {
 		dao.memberDelete(vo);
 }
+	
+	
+	
+	//--------은내
+	//customerNo update(세션용)	
+	@Override
+	public void update_customerNo_mem(int u_no, int customer_no) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("u_no", u_no);
+		map.put("customer_no", customer_no);
+		dao.update_customerNo_mem(map);
+	}
+
+	//giverNo update(세션용)	
+	@Override
+	public void update_giverNo_mem(int u_no, int giver_no) throws Exception {
+		HashMap<String, Integer> map = new HashMap<String, Integer>();
+		
+		map.put("u_no", u_no);
+		map.put("giver_no", giver_no);
+		dao.update_giverNo_mem(map);
+	}
 	
 }

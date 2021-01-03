@@ -11,6 +11,7 @@
 	<div>
 		<a href="new_list">목록</a>
 		<a href="new_writeView">글 작성</a>
+
 	</div>
 </div>
 

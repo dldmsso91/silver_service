@@ -9,6 +9,63 @@
 	src="https://www.gstatic.com/charts/loader.js"></script>
 <script>
 	$(document).ready(function() {
+		
+		var birth2 = $('.u_birth2').val()
+		
+
+
+        var birth3 = birth2.slice(0,1);
+        var gender = $('#gender');
+        if(birth3 == '1' || birth3 == '3')
+        	gender.text('남자');
+        else if(birth3 == '2' || birth3 == '4')
+        	gender.text('여자');
+					
+            
+        
+        
+
+			var birth1 = $('.u_birth').val();
+			var age=0;
+         
+
+              var yy=birth1.substr(0,2);    //생년
+              var mm=birth1.substr(2,2);    //생월
+              var dd=birth1.substr(4,2);    //생일
+
+            
+		      //생년 계산(80세 이전까지 적용하므로 첫자가 0~2이 아니면 1900년대/ 아니면 2000년대)
+				today=new Date();
+              
+				var i=birth1.substr(0,1);
+				
+				cc=(i>2) ? '19':'20';
+				
+				var birthyear=cc+yy;
+				var m=today.getMonth()+1-6; 
+				
+				m=(m<0)?m+12:m; 
+				
+				var d=today.getDate();
+				var age=today.getFullYear()-birthyear;
+				
+				
+		  		var age_val = $('#age');
+					if (mm>m) {age++;
+					age_val.text(age);	
+					
+					}
+					else if (mm==m){
+						if (dd<=d){
+						age_val.text(age);	
+							
+							
+						}
+						else if(dd>d){	age++;
+						age_val.text(age);	
+						
+						}
+					}		
 		$('.bxslider').bxSlider({
 			auto : true,
 			autoControls : true,
@@ -20,6 +77,7 @@
 			slideMargin : 20,
 			touchEnabled : (navigator.maxTouchPoints > 0)
 		});
+		
 	});
 </script>
 
@@ -175,61 +233,39 @@ h3 {
 
 <div id="test" class="slide-item overlay"></div>
 
-<h2>${member.u_name}${Customer_no}님을 위한 도우미들입니다</h2>
+<h2>${member.u_name}${member.u_addr1}${Customer_no}님을 위한 도우미들입니다</h2>
 
 <form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
 		<ul class="bxslider">
 
-<c:forEach items="${recommend}" var="r">
-	<input name="giver_no" type="hidden" value="${r.u_no}" />
+<c:forEach items="${Default}" var="r">
 			<li><img src="resources/images/1.jpg" alt="Image"
 				class="img-fluid" />
-				<h3>${r.memberVO.u_name}${r.u_no}</h3>
+				<h3>${r.memberVO.u_name}</h3>
 				<hr>
-				<h5>간병 서비스 이력</h5>
-				<p>실제 간병한 환자의 병명, 증상 유형 별 분석 데이터</p> <img
-				src="resources/images/4.png" />
-				<div class="care-list">
-					<div class="item">
-						<div class="title">재활</div>
-						<div class="line-color re"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">암</div>
-						<div class="line-color am"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">치매</div>
-						<div class="line-color ch"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-					<div class="item">
-						<div class="title">격리</div>
-						<div class="line-color su"></div>
-						<div class="count">
-							<span>12</span>회
-						</div>
-					</div>
-				</div>
-				<hr>
-				<h5>도우미에 대한 평가</h5>
-				<c:forEach items="${r.giver_satisfactionVO}" var="s">						
-					<input type="hidden" id="satisfaction_score" value="${s.customer_satisfaction_score}">				
-					<div><span class="stars-container stars-${s.customer_satisfaction_score}">★★★★★</span></div>	
+				<h5>기본 정보</h5>
+				
+				<c:forEach items="${r.hope_business_areaVO}" var="h">						
+				희망근무지역 :  ${h.hope_business_city}/${h.hope_business_town}<br/>
 				</c:forEach>
-					<br/>
+	
+				
+				나이 :<span id="age"></span><br/>				
+				성별 : <span id="gender"></span><br/>
+				희망연봉 : ${r.hope_salary}<br/>
+				
+				<h5>도우미에 대한 평가</h5>
+<%-- 				<c:forEach items="${r.giver_satisfactionVO}" var="s">						 --%>
+<%-- 					<input type="hidden" id="satisfaction_score" value="${s.customer_satisfaction_score}">				 --%>
+<%-- 					<div><span class="stars-container stars-${s.customer_satisfaction_score}">★★★★★</span></div>	 --%>
+<%-- 				</c:forEach> --%>
+<!-- 					<br/> -->
 				
 									
-				<button type="submit" class="btn btn-primary" value="선택하기">선택하기</button></li>
+				<input type='hidden' class='u_birth' name='u_birth' value='${r.memberVO.u_birth}'>
+				<input type='hidden' class='u_birth2' name='u_birth' value='${r.memberVO.u_birth2}'>
+                <a href="giver_resume_detail_en?giver_no=${r.giver_no}&customer_no=${Customer_no}" class="btn btn-primary"/>선택하기</a>
 </c:forEach>
 		</ul>
 	</div>

@@ -3,7 +3,11 @@ package kr.co.kosmo.mvc.dto.Giver;
 
 
 
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
+
+import org.springframework.web.multipart.MultipartFile;
 
 import kr.co.kosmo.mvc.dto.MemberVO;
 
@@ -35,7 +39,34 @@ public class GiverVO {
 		private List<Hope_Business_AreaVO> hope_business_areaVO;
 		
 		
+		//-----------------------------------------------
+		MultipartFile file;	// write.jsp에 파일첨부시 name="file"과 동일한 변수명
 		
+		public MultipartFile getFile() {
+			return file;
+		}
+		public void setFile(MultipartFile file) {
+			this.file = file;
+			
+			// 업로드 파일 접근
+			if(! file.isEmpty()){
+				this.my_IMG = file.getOriginalFilename();
+				
+				//***********************************************
+				// 해당 경로로 변경
+				File f = new File("D:\\work\\Silver_service_cteam\\WebContent\\resources\\upload\\"+my_IMG);
+				
+				try {
+					file.transferTo(f);
+					
+				} catch (IllegalStateException e) {				
+					e.printStackTrace();
+				} catch (IOException e) {
+					
+					e.printStackTrace();
+				}
+			}
+		}
 		
 		
 		

@@ -13,4 +13,11 @@ public interface MemberService {
 	public int idChk(MemberVO vo) throws Exception;
 	//회원탈퇴
 	public void memberDelete(MemberVO vo) throws Exception;
+	
+	//--------은내
+	//customerNo update(세션용)	
+	public void update_customerNo_mem(int u_no, int customer_no) throws Exception;
+	//giverNo update(세션용)	
+	public void update_giverNo_mem(int u_no, int giver_no) throws Exception;
+
 }

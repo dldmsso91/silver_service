@@ -8,17 +8,21 @@
 	<typeAlias type="kr.co.kosmo.mvc.dto.WelfareFacilityScoreVO" alias="welScore"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.WelfareFacilityStaffVO" alias="welStaff"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.ReservationInfoVO" alias="res"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.FacilityReviewVO" alias="rev"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.BoardVO" alias="bvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.NewBoardVO" alias="nbvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.SearchCriteria" alias="scvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.ReplyVO" alias="rvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.MemberVO" alias="mvo"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.GiverVO" alias="giver"/>
-	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO" alias="test"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO" alias="atgVO"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.HugiVO" alias="hugi"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Service_matchingVO" alias="matchingVO"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CustomerVO" alias="customer"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CareerVO" alias="career"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO" alias="satisfaction"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.LicenseVO" alias="license"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO" alias="hope_business_area"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.WorktimeVO" alias="work"/>
 </typeAliases>
 </configuration>  

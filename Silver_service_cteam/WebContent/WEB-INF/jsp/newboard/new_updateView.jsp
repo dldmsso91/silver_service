@@ -19,7 +19,7 @@
 				if(fn_valiChk()){
 					return false;
 				}
-				formObj.attr("action", "update");
+				formObj.attr("action", "update1");
 				formObj.attr("method", "post");
 				formObj.submit();
 			})
@@ -36,9 +36,8 @@
 		}
 		
 	</script>
-	<body>
-	
-		<div id="root">
+<div id="test" class="slide-item overlay"></div>
+      <div class="container">
 			<header>
 				<h1> 게시판</h1>
 			</header>
@@ -50,7 +49,7 @@
 			<hr />
 			
 			<section id="container">
-				<form name="updateForm" role="form" method="post" action="update">
+				<form name="updateForm" role="form" method="post" action="update1">
 					<input type="hidden" name="nbno" value="${update.nbno}" readonly="readonly"/>
 					<table>
 						<tbody>
@@ -85,5 +84,18 @@
 			</section>
 			<hr />
 		</div>
-	</body>
-</html>
+<script src="resources/js/jquery-ui.js"></script>
+<script src="resources/js/popper.min.js"></script>
+<script src="resources/js/bootstrap.min.js"></script>
+<script src="resources/js/owl.carousel.min.js"></script>
+<script src="resources/js/jquery.countdown.min.js"></script>
+<script src="resources/js/jquery.easing.1.3.js"></script>
+<script src="resources/js/aos.js"></script>
+<script src="resources/js/jquery.waypoints.min.js"></script>
+<script src="resources/js/jquery.animateNumber.min.js"></script>
+<script src="resources/js/jquery.fancybox.min.js"></script>
+<script src="resources/js/jquery.sticky.js"></script>
+<script src="resources/js/isotope.pkgd.min.js"></script>
+
+
+<script src="resources/js/main.js"></script>

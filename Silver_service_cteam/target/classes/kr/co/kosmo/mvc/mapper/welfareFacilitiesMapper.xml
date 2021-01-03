@@ -115,37 +115,14 @@
 		w.address, w.supplyService, w.latitude, w.longitude, f.staffTotal, f.director, f.general, f.socialWorker, f.doctor, f.contractDoctor, f.nurse,
 		f.nurseAside, f.dentalist, f.careWorker1st, f.careWorker2nd, f.careWorker3rd, f.physicalTherapist, f.occupationalTherapist, f.officer, f.nutritionist, f.cook,
 		f.cleanliness, f.keeper, f.assitant, f.others, s.evaluateDate, s.evaluateGrade, s.manageScore, s.safetyScore, s.assureScore, s.processScore, s.resultScore
-		FROM welfarefacilities w, welfareFacilityScore s, welfareFacilityStaff f
+		FROM welfarefacilities w, welfareFacilityScore s, welfareFacilityStaff f, facilityReview r
 		WHERE w.FACILITYNO = #{facilityNo}
 		and w.facilityNo = f.facilityNo and w.facilityNo = s.facilityNo
 	</select>
-	
 
-<!-- 	<resultMap type="facInfo" id="facInfo"> -->
-<!-- 		<id property="facilityNo" column="facilityNo"/> -->
-<!-- 		<result property="facilityName" column="facilityName" /> -->
-<!-- 		<result property="typeName" column="typeName" /> -->
-<!-- 		<result property="address" column="address" /> -->
-<!-- 		<result property="telnumber" column="telnumber" /> -->
-<!-- 		<result property="latitude" column="latitude" /> -->
-<!-- 		<result property="longitude" column="longitude" /> -->
-<!-- 	<association property="medicalDetail" column="facilityNo" javaType="medicalDetail"> -->
-<!-- 		<result property="facilityNo" column="facilityNo"/> -->
-<!-- 		<result property="peopleLimit" column="peopleLimit"/> -->
-<!-- 		<result property="peopleNumber" column="peopleNumber"/> -->
-<!-- 	</association> -->
-<!-- 	<association property="silverhallDetail" column="facilityNo" javaType="silverDetail"> -->
-<!-- 		<result property="facilityNo" column="facilityNo"/> -->
-<!-- 		<result property="serviceType" column="serviceType"/> -->
-<!-- 	</association> -->
-<!-- 	</resultMap> -->
-<!-- 	<select id="facInfo" resultMap="facInfo"> -->
-<!-- 		select -->
-<!-- 		w.facilityNo, w.facilityName, w.typeName,w.address,w.telnumber,w.latitude,w.longitude,m.peopleLimit, m.peopleNumber, s.servicetype -->
-<!-- 		FROM welfarefacilities w, medicalDetail m, silverhalldetail s -->
-<!-- 		WHERE w.FACILITYNO = #{facilityNo} -->
-<!-- 		and w.facilityNo = m.facilityNo(+) and w.facilityNo = s.facilityNo(+) -->
-<!-- 	</select> -->
+	<select id="getReview" resultType="rev" parameterType="facInfo">
+		select revNo, u_id, rdate, content, score from facilityReview where facilityNo = #{facilityNo}
+	</select>
 	
 	<select id="reservationmember" resultType="mvo" parameterType="int">
 		select u_no,u_id,u_name
@@ -219,5 +196,9 @@
 		where r.resNo = #{resNo} and r.facilityNO = w.facilityNO and r.u_no = u.u_no
 	</select>
 	
+	<insert id="insertReview" parameterType="rev">
+		insert into facilityReview
+		values((select nvl(max(revNo),0)+1 from facilityReview),#{facilityNo},#{facilityName},#{u_no},#{u_id},#{content},#{score},sysdate)
+	</insert>
 
 </mapper>  

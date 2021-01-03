@@ -14,16 +14,14 @@
 
 
 <link rel="stylesheet" type="text/css" href="<c:url value='resources/css/ui.css'/>" />
-<link rel="stylesheet" type="text/css" href="<c:url value='resources/css/category.css'/>" />
 <!-- jQuery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="<c:url value='/resources/js/common.js'/>" charset="utf-8"></script>
-
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 
 <!-- kakao Map API -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=269a72416406e08431df9d8c16aa3a48"></script>
+	src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=2191486fc6b30c04214865e41c7b313e"></script>
 
 
 </head>
@@ -292,7 +290,7 @@
 
 	      $("#nodeidVal").addClass("used");
 
-	       }
+	     }
    
    map.setCenter(new kakao.maps.LatLng(obj.attr("lat"),obj.attr("lng")));
 
@@ -318,9 +316,7 @@ $.ajax({
 
              var map=result["list"][i];
 
-
               var arrtime= Math.floor(map["ARRTIME"]/60);
-
 
                var str = "<a href='#this' routeno='"+map["ROUTENO"]+"' routeid='"+map["ROUTEID"]+"' name='route"+i+"' id='route"+i+"' class='result sc_real_route_result'>"+map["ROUTENO"]
 
@@ -330,16 +326,8 @@ $.ajax({
 
                 }      
 
-         
         $("#routeBox").css("height", 52*result["list"].length);
-
-        
-        $("#busList_Btn").on("click",function(e){
-
-             e.preventDefault();
-             fn_routeInfo(obj);
-
-              });
+    
          $("a[name^=route]").on("click",function(e){
              e.preventDefault();
              fn_routeInfo($(this));
@@ -355,31 +343,23 @@ $.ajax({
 
 
 function fn_routeInfo(obj){
-var comSubmit = new ComSubmit();
-comSubmit.addParam("routeno",obj.attr("routeno"));
-comSubmit.addParam("routeid",obj.attr("routeid"));
-comSubmit.setUrl("<c:url value='/bus_info'/>");
-comSubmit.submit();
+	location = "bus_info?routeno="+obj.attr("routeno")+"&routeid="+obj.attr("routeid");
+	// var comSubmit = new ComSubmit();
+	// alert("Test : "+obj.attr("routeno")+":"+obj.attr("routeid"));
+	// //$('#routeno').attr('value','test11');
+	// //comSubmit.addParam("routeno",obj.attr("routeno"));
+	// //comSubmit.addParam("routeid",obj.attr("routeid"));
+	// comSubmit.setUrl("<c:url value='/bus_info'/>");
+	// comSubmit.addParam("routeno",obj.attr("routeno"));
+	// comSubmit.addParam("routeid",obj.attr("routeid"));
+	// comSubmit.submit();
+
 }
 	</script>
 	<!-- 메인 끝 -->
 
 
 
-	<script src="resources/js/jquery-3.3.1.min.js"></script>
-	<script src="resources/js/jquery-ui.js"></script>
-	<script src="resources/js/popper.min.js"></script>
-	<script src="resources/js/bootstrap.min.js"></script>
-	<script src="resources/js/owl.carousel.min.js"></script>
-	<script src="resources/js/jquery.countdown.min.js"></script>
-	<script src="resources/js/jquery.easing.1.3.js"></script>
-	<script src="resources/js/aos.js"></script>
-	<script src="resources/js/jquery.waypoints.min.js"></script>
-	<script src="resources/js/jquery.animateNumber.min.js"></script>
-	<script src="resources/js/jquery.fancybox.min.js"></script>
-	<script src="resources/js/jquery.sticky.js"></script>
-	<script src="resources/js/isotope.pkgd.min.js"></script>
 
-	<script src="resources/js/main.js"></script>
-</body>
+</body> 
 </html>

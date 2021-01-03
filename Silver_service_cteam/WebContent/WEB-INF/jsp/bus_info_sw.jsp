@@ -10,19 +10,20 @@
 	href="<c:url value='resources/css/ui.css'/>" />
 
 <!-- jQuery -->
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
 <!-- kakao Map API -->
 <script type="text/javascript"
-	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=269a72416406e08431df9d8c16aa3a48"></script>
-
+	src="http://dapi.kakao.com/v2/maps/sdk.js?appkey=2191486fc6b30c04214865e41c7b313e"></script>
+<script src="<c:url value='/resources/js/common.js'/>" charset="utf-8"></script>
 <title>아직 안됨</title>
 <script src="https://code.jquery.com/jquery-3.4.1.js" integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous">
+
 </script>
 
 </head>
 <body>
+<form id="commonForm" name="commonForm"></form>
 	<!-- 버스 매뉴 -->
 	<div id="gnb" class="gnb">
 		<ul>
@@ -57,7 +58,7 @@
 <div id="body" >
         <div id="searchMenu" class="leftBox">
             <div id="searchBox" class="leftBox" >
-                <p class="margin0">버스 번호    <input type="text" value="5" id="routeno" style="width:100px; height:30px;"></p>
+                <p class="margin0">버스 번호    <input type="text" value="${routeno}" id="routeno" style="width:100px; height:30px;"></p>
                 <a  href="#this" id="sc_btn" class="btn" >찾기</a>
             </div>
         </div>
@@ -75,8 +76,8 @@
         </div>
     </div>
     
-<script src="<c:url value='/resources/js/common.js'/>" charset="utf-8"></script>
-<form id="commonForm" name="commonForm"></form>
+
+
 <script src="<c:url value='resources/js/map.js'/>" charset="utf-8"></script>
 		
 		<script type="text/javascript">
@@ -122,7 +123,6 @@
                         fn_clickRoute($(this).attr("routeid"));
                        
                         });
-                    $("a[name^=route]").trigger("click");
 
                 },
                 error:function(request,status,error){
@@ -168,17 +168,56 @@
                     map["ENDVEHICLETIME"][1]+":"+map["ENDVEHICLETIME"][2]+map["ENDVEHICLETIME"][3]+
                     "</td></tr></tbody>";
 
-                    $("#routeTable").before("<p>노선 정보(아직 데이터가 안들어가 고정되어있음)</p>");
+                    $("#routeTable").before("<p>노선 정보</p>");
                
                     $("#routeTable").append(str);
                     $("#routeTable").after("<hr/><p>노선 경로</p>");
                      
-                    <!-- 노선 처리 해야되는 부분 (진행 중)-->
+                    <!-- 노선 경로 처리 해야되는 부분 (진행 중)-->
+                    var path=result["path"];
+                    var direction="right";
+                    for(var i=0,count=0;i<path.length;i++,count++){
+                         
+                        var str ="<li class='direction_li li_"+direction+"'><span class='topline_span'></span>";
+                        if(count==4&&i!=(path.length-1)){
+                            str+="<span class='rightline_span'></span>";
+                        }else if(count==9&&i!=(path.length-1)){
+                            str+="<span class='leftline_span'></span>";
+                        }
+                        if(i==(path.length-1)){
+                            direction="arrive";
+                        }
+                        str+="<img class='direction_img' src='resources/images/direction_"+direction+".png'/><span id='path"+i+"' nodeid="+path[i]["NODEID"]+" name='nodeinfo"+i+"' lat='"+path[i]["LAT"]+"' lng='"+path[i]["LNG"]+"' class='direction_nodename'>"+path[i]["NODENAME"]+"</span></li>";
+                        if(count==4){
+                            direction="left";
+                        }else if(count==9){
+                            direction="right";
+                            count=-1;//카운트값이 다시 0이 되어야하는데 for문의 증가문으로 더해지기 때문에 -1을 해줌으로써 for문이 다시 실행되면 0이 된다.
+                        }
+                        //클래스명 변경 혹은 이미지 변경을 위하여 디렉션 변경
+                        $("#routePath").append(str);
+ 
+                        //정류소들을 전부 마커에 표기 해줍니다.
+                        fn_nodeMarkerMaker($("#path"+i));
+ 
+                        //객체의 값을 라인 배열에 넣어줍니다.
+                        linePath.push(new kakao.maps.LatLng($("#path"+i).attr("lat"), $("#path"+i).attr("lng")));
+ 
+                        $("li[class^=direction]").on("click",function(e){
+                            e.preventDefault();
+                            fn_clickPath($(this).children("span[name^=nodeinfo]"));
+                             
+                        })
+                         
+                         
+                    }
+                    //라인 메이커를 지도에 표시하는 함수입니다.
+                    fn_nodeLineMaker();
 
-
-                    <!-- 노선 처리 해야되는 부분 end -->
+                    <!-- 노선 경로 처리 해야되는 부분 end -->
                 },
-                error:function(){
+                error:function(request,status,error){
+                	alert("code = "+ request.status + " message = " + request.responseText + " error = " + error); // 실패 시 처리
                     alert("노선 불러올 수 없습니다.");
                 }
             })

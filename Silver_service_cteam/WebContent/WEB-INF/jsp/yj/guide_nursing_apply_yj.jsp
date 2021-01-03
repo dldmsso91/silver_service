@@ -106,8 +106,8 @@ $('document').ready(function() {
 							<tr>\
 								<td>근무기간</td>\
 								<td>\
-									<input type="date" name="work_start_period"/>부터\
-									<input type="date" name="work_end_period"/>까지\
+									<input type="date" name="work_period_start"/>부터\
+									<input type="date" name="work_period_end"/>까지\
 									</td>\
 							</tr>\
 					</table>\
@@ -131,12 +131,12 @@ $('document').ready(function() {
 					</tr>\
 					<tr>\
 					   <td>발행기관</td>\
-					   <td><input type="text" name="license_institute" style="width: 50%;" /></td>\
+					   <td><input type="text" name="license_Institute" style="width: 50%;" /></td>\
 					</tr>\
 					<tr>\
 						<td>취득연도</td>\
 						<td>\
-						<input type="date" name="license_redate"/>\
+						<input type="date" name="license_Redate"/>\
 						</td>\
 					</tr>\
 					</table>\
@@ -149,6 +149,16 @@ $('document').ready(function() {
 	         });
 	     }); // end click
 	     
+
+		  $("#my_IMG").change(function(){
+			   if(this.files && this.files[0]) {
+			    var reader = new FileReader;
+			    reader.onload = function(data) {
+			     $(".select_img img").attr("src", data.target.result).width(500);        
+			    }
+			    reader.readAsDataURL(this.files[0]);
+			   }
+			  });
 		});
 	
 </script> 
@@ -227,7 +237,7 @@ margin: 0 auto;
     color: #fff;
     font-size: 15px;
 }        
-    
+.select_img img { margin:20px 0;}    
 </style>
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
@@ -279,7 +289,7 @@ margin: 0 auto;
                       <ul class="dropdown">
                         <li><a href="guide_Life_apply_yj">생활도우미 지원하기</a></li>
                         <li><a href="guide_walk_apply_yj">외출도우미 지원하기</a></li>
-                        <li><a href="guide_nursing_apply_yj">간병인도우미 지원하기</a></li>
+                        <li><a href="guide_nursing_apply_yj">간병도우미 지원하기</a></li>
                       </ul>
                       </li>
                   </ul>
@@ -334,38 +344,61 @@ margin: 0 auto;
 
 
 
-<form method="post" action="giver_apply">
+<form method="post" action="giver_apply" enctype="multipart/form-data" >
     <div class="layer" >
 
           <div class="layer_inner">
-         <h1>간병인도우미 지원하기</h1>
-         <div class="My_Image">
-         <img src="resources/images/1.jpg" alt="My Image">      
-         </div>
-           <table class="ui celled table" name="inform_table" style="  width: 1200px;margin: auto; border=1">
-            
-            <input type="hidden" name="giver_type" value="간병인도우미"/>   
+         <h1>간병도우미 지원하기</h1>
 
+           <table class="ui celled table" name="inform_table" style="  width: 1200px;margin: auto; border=1">
+   			<input type="hidden" name="u_no" value="${member.u_no}"/>            
+            <input type="hidden" name="giver_type" value="간병도우미"/>
+               
+		<div class="inputArea">
+		 <div class="select_img"><img src="" /></div>
+		 <label for="my_IMG">자기 이미지</label>
+		 <input type="file" id="my_IMG" name="file"/>
+		 
+		 <br><br>
+		 <%=request.getRealPath("/") %>
+		</div>
             <tr><td rowspan="7">기본정보</td></tr>
               <tr>         
-               <td>희망근무지역</td> 
+               <td>희망근무지역</td>
                <td>
-                <!-- 1차 희망지역 -->
 				<select name="hope_business_city" id="hope_business_city"></select>
 				<select name="hope_business_town" id="hope_business_town"></select>
 				<br>
-				<br>
-<!--			2차 희망지역
-				<select name="hope_business_city2" id="hope_business_city2"></select>
-				<select name="hope_business_town2" id="hope_business_town2"></select> -->             
+				<br>            
             </td>
             </tr>
-              <tr>         
-               <td>희망근무장소</td> 
+            <tr>         
+               <td>제 1 희망 지역</td>
                <td>
-               <input type="text" name="hope_business_place" style="width: 60%;" value=""/>       
-               </td>
-               </tr>            
+				<select name="hope_business_city" id="hope_business_city"></select>
+				<select name="hope_business_town" id="hope_business_town"></select>
+				<br>
+				<br>            
+            </td>
+            </tr>
+            <tr>         
+               <td>제 2 희망 지역</td>
+               <td>
+				<select name="hope_business_city" id="hope_business_city"></select>
+				<select name="hope_business_town" id="hope_business_town"></select>
+				<br>
+				<br>            
+            </td>
+            </tr>
+            <tr>         
+               <td>제 3 희망 지역</td>
+               <td>
+				<select name="hope_business_city" id="hope_business_city"></select>
+				<select name="hope_business_town" id="hope_business_town"></select>
+				<br>
+				<br>            
+            </td>
+            </tr>         
             <tr>
                <td>
                   희망급여
@@ -444,12 +477,12 @@ margin: 0 auto;
             </tr>
             <tr>
                <td>발행기관</td>
-               <td><input type='text' name='license_institute' style="width: 50%;" /></td>
+               <td><input type='text' name='license_Institute' style="width: 50%;" /></td>
             </tr>             
 			<tr>
 				<td>취득연도</td>
 				<td>
-				<input type='date' name='license_redate'/>
+				<input type='date' name='license_Redate'/>
 				</td>
 			</tr>
 			<tr>
@@ -476,8 +509,8 @@ margin: 0 auto;
 			<tr>
 			<td>근무기간</td>
 			<td>
-			<input type='date' name='work_start_period'/>부터
-			<input type='date' name='work_end_period'/>까지		
+			<input type='date' name='work_period_start'/>부터
+			<input type='date' name='work_period_end'/>까지		
 			</td>
 			</tr>
 			<tr>
@@ -490,9 +523,7 @@ margin: 0 auto;
 			</div>
          </table>
             <div class="button_div">
-             <p><a href="" class="btn btn-primary">직업적성검사</a></p><br/> 
-                  <p><a href="succesed_apply_giver_en" class="btn btn-primary">작성</a></p>
-                  <input type="submit" value="가입" class="btn btn-primary">   
+                  <p><input type="submit" value="가입" class="btn btn-primary"></p>   
                   <p><a href="apply_services_en" class="btn btn-primary">취소</a></p>                   
 <!--                    <input name="write" type="submit" value="작성하기"> -->
 <!--                      <input name="cancel"type="reset" value="취소하기"> -->

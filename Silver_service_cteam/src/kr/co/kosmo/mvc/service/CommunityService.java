@@ -9,7 +9,7 @@ import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 public interface CommunityService {
 	
 	
-	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo);
+	public Map<String, Object> getFacilityInfo(WelfareFacilitiesVO vo);
 	
 	public Map<String, Object> getMedicalList();
 	
