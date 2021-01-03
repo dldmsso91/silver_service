@@ -44,4 +44,8 @@ public interface CommunityDAO {
 	
 	public int insertReview(FacilityReviewVO vo);
 	
+	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo);
+	
+	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
+	
 }

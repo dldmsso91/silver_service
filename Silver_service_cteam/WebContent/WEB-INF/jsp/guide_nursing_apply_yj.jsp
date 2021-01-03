@@ -292,11 +292,11 @@ margin: 0 auto;
                 </li>
 
 				<li class="has-children">
-                  <a href="#" class="nav-link">커뮤니티 서비스</a>
-                  <ul class="dropdown">
-                    <li><a href="communityService" class="nav-link">친구위치 검색</a></li>
+				<a href="#" class="nav-link">요양시설 서비스</a>
+				<ul class="dropdown">
+				<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
                     <li class="has-children">
-                      <a href="#">커뮤니티 공간 정보</a>
+                      <a href="#">요양시설 지도 정보</a>
                       <ul class="dropdown">
                         <li><a href="medicalLocation">의료복지시설</a></li>
                         <li><a href="silverhallLocation">재가노인복지시설</a></li>
@@ -304,7 +304,6 @@ margin: 0 auto;
                       </ul>
                     </li>
                   </ul>
-                </li>
                 <li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
                 <li><a href="contact" class="nav-link">Contact</a></li>
 

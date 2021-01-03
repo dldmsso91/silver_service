@@ -87,4 +87,15 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDao.getMedicalListAjax(vo);
 	}
 	
+	@Override
+	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo){
+		return communityDao.getElderlyhomeListAjax(vo);
+	}
+	
+	@Override
+	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo){
+		return communityDao.getSilverhallListAjax(vo);
+	}
+	
+	
 }

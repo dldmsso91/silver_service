@@ -101,4 +101,14 @@ public class CommunityDAOImpl implements CommunityDAO{
 		return ss.insert("commu.insertReview",vo);
 	}
 	
+	@Override
+	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo){
+		return ss.selectList("commu.getElderlyhomeListAjax", vo);
+	}
+	
+	@Override
+	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo){
+		return ss.selectList("commu.getSilverhallListAjax", vo);
+	}
+	
 }

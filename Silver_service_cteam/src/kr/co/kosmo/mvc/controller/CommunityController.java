@@ -12,6 +12,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import kr.co.kosmo.mvc.dao.CommunityDAO;
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
@@ -153,14 +154,27 @@ public class CommunityController {
 		return "myReservation_jw";
 	}
 
-	@RequestMapping(value = "/getMedicalListAjax")
-	public String getMedicalList(WelfareFacilitiesVO vo) {
+	@ResponseBody
+	@RequestMapping(value="/getMedicalListAjax", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> getMedicalList(@RequestBody WelfareFacilitiesVO vo) {
 		List<WelfareFacilitiesVO> medicalList = communityService.getMedicalListAjax(vo);
-		String Latitude = medicalList.get(1).getLatitude();
-		return Latitude;
+		return medicalList;
 	}
 	
-//	@RequestMapping(value="addReview", method= RequestMethod.POST)
+	@ResponseBody
+	@RequestMapping(value="/getSilverhallListAjax", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> getSilverhallList(@RequestBody WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> medicalList = communityService.getSilverhallListAjax(vo);
+		return medicalList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/getElderlyhomeListAjax", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> getElderlyhomeList(@RequestBody WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> medicalList = communityService.getElderlyhomeListAjax(vo);
+		return medicalList;
+	}
+	
 	@RequestMapping(value="addReview")
 	public String addReview(FacilityReviewVO vo) {
 		communityDAO.insertReview(vo);

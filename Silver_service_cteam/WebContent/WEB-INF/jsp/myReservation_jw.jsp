@@ -36,6 +36,7 @@
 <script src="https://code.jquery.com/jquery-3.4.1.js"
 	integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
 	crossorigin="anonymous">
+	
 </script>
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
@@ -43,7 +44,6 @@
 	src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
 <script type="text/javascript"
 	src="https://www.gstatic.com/charts/loader.js"></script>
-
 <body data-spy="scroll" data-target=".site-navbar-target"
 	data-offset="300">
 
@@ -111,12 +111,12 @@
 												소개</a></li>
 									</ul></li>
 
-								<li class="has-children"><a href="#" class="nav-link">커뮤니티
+								<li class="has-children"><a href="#" class="nav-link">요양시설
 										서비스</a>
 									<ul class="dropdown">
-										<li><a href="communityService" class="nav-link">친구위치
+										<li><a href="communityService" class="nav-link">요양시설
 												검색</a></li>
-										<li class="has-children"><a href="#">커뮤니티 공간 정보</a>
+										<li class="has-children"><a href="#">요양시설 지도 정보</a>
 											<ul class="dropdown">
 												<li><a href="medicalLocation">노인의료복지시설</a></li>
 												<li><a href="silverhallLocation">재가노인복지시설</a></li>
@@ -199,37 +199,41 @@
 
 
 				<div class="9u" id="right_contents">
-				<h2>예약 확인하기</h2>
+					<h2>예약 확인하기</h2>
 					<form action="reservationDelete" method="post">
 						<table class="table tabl e-boardered">
-						<thead>
-							<tr>
-								<th nowrap>시설명</th>
-								<th nowrap>주소</th>
-								<th nowrap>전화번호</th>
-								<th nowrap>예약자명</th>
-								<th nowrap>예약일정</th>
-								<th nowrap>방문목적</th>
-								<th nowrap>예약수정</th>
-								<th nowrap>예약취소</th>
-							</tr>
-						</thead>
-						<tbody>
-							<c:forEach items="${myReservation }" var="myReservation">
-							<tr>
-								<td nowrap>${myReservation.facilityName}</td>
-								<td nowrap>${myReservation.welfareFacilitiesVO.address}</td>
-								<td nowrap>${myReservation.welfareFacilitiesVO.telnumber}</td>
-								<td nowrap>${myReservation.userName}</td>
-								<td nowrap>${myReservation.resDate} ${myReservation.resTime}</td>
-								<td nowrap>${myReservation.visitPurpose}</td>
-								<td nowrap><a href="updateReservationForm?resNo=${myReservation.resNo}">
-								<input type="button" value="수정"></a></td>
-								<td nowrap><input type="hidden" name="resNo" value="${myReservation.resNo}">
-								<input type="submit" value="삭제"></td>
-							</tr>
-							</c:forEach>
-						</tbody>
+							<thead>
+								<tr>
+									<th nowrap>시설명</th>
+									<th nowrap>주소</th>
+									<th nowrap>전화번호</th>
+									<th nowrap>예약자명</th>
+									<th nowrap>예약일정</th>
+									<th nowrap>방문목적</th>
+									<th nowrap>예약수정</th>
+									<th nowrap>예약취소</th>
+								</tr>
+							</thead>
+							<tbody>
+								<c:forEach items="${myReservation }" var="myReservation">
+									<tr>
+										<td nowrap>${myReservation.facilityName}</td>
+										<td nowrap>${myReservation.welfareFacilitiesVO.address}</td>
+										<td nowrap>${myReservation.welfareFacilitiesVO.telnumber}</td>
+										<td nowrap>${myReservation.userName}</td>
+										<td nowrap>${myReservation.resDate}
+											${myReservation.resTime}</td>
+										<td nowrap>${myReservation.visitPurpose}</td>
+										<td nowrap><a
+											href="updateReservationForm?resNo=${myReservation.resNo}">
+												<input type="button" value="수정">
+										</a></td>
+										<td nowrap><input type="hidden" name="resNo"
+											value="${myReservation.resNo}"> <input type="submit"
+											value="삭제"></td>
+									</tr>
+								</c:forEach>
+							</tbody>
 						</table>
 					</form>
 
@@ -339,7 +343,9 @@
 					<div class="border-top pt-5">
 						<p class="copyright">
 							<small> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-								Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+								Copyright &copy;<script>
+									document.write(new Date().getFullYear());
+								</script>
 								All rights reserved | This template is made with <i
 								class="icon-heart text-danger" aria-hidden="true"></i> by <a
 								href="https://colorlib.com" target="_blank">Colorlib</a> <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></small>

@@ -29,4 +29,8 @@ public interface CommunityService {
 
 	public List<WelfareFacilitiesVO> getMedicalListAjax(WelfareFacilitiesVO vo);
 	
+	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo);
+	
+	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
+	
 }

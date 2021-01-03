@@ -74,7 +74,17 @@
 	</select>
 	
 	<select id="getMedicalListAjax" parameterType="facInfo" resultType="facInfo">
-		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude,eavaluationResult from welfarefacilities where typeName Like '%주야간보호%'
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude from welfarefacilities where typeName Like '%주야간보호%'
+		and latitude between #{swLat} and #{neLat} and longitude between #{swLng} and #{neLng}
+	</select>
+	
+	<select id="getElderlyhomeListAjax" parameterType="facInfo" resultType="facInfo">
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude from welfarefacilities where typeName Like '방문간호'
+		and latitude between #{swLat} and #{neLat} and longitude between #{swLng} and #{neLng}
+	</select>
+	
+	<select id="getSilverhallListAjax" parameterType="facInfo" resultType="facInfo">
+		select facilityNo,typeName,facilityName,address,telnumber,latitude,longitude from welfarefacilities where typeName Like '방문요양'
 		and latitude between #{swLat} and #{neLat} and longitude between #{swLng} and #{neLng}
 	</select>
 

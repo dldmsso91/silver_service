@@ -18,8 +18,8 @@
 				alt="Image" class="img-fluid">
 			</span>
 			<div>
-				<span class="subheading"><h5>어디에있지 서비스</h5></span>
-				<h3 class="heading">내 친구가 어디에있지? 지금 찾아보세요!</h3>
+				<span class="subheading"><h5>요양시설 서비스</h5></span>
+				<h3 class="heading">요양시설이 어디에있지? 지금 찾아보세요!</h3>
 				<a href="#" class="small">여기를 눌러주세요</a>
 			</div>
 		</div>

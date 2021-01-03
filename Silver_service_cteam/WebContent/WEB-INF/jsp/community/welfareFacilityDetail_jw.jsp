@@ -3,17 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<!-- <link rel="stylesheet" href="resources/assets/css/bootstrap.min.css"> -->
-<!-- Fontawesome CSS -->
-<!-- <link rel="stylesheet" href="resources/assets/plugins/fontawesome/css/fontawesome.min.css"> -->
 <link rel="stylesheet" href="resources/assets/plugins/fontawesome/css/all.min.css">
-<!-- Main CSS -->
 <link rel="stylesheet" href="resources/assets/css/style.css">
-<!-- 구글폰트 -->
-<!-- <link href="https://fonts.googleapis.com/css?family=Nanum+Gothic:400,700,800&amp;subset=korean" rel="stylesheet"> -->
-<!-- <link rel="precsonnect" href="https://fonts.gstatic.com"> -->
-<!-- <link href="https://fonts.googleapis.com/css2?family=Major+Mono+Display&display=swap" rel="stylesheet"> -->
-<!-- MAIN -->
 <link rel="stylesheet" href="resources/css/welfareFacilityDetail.css">
 
 <div id="test" class="slide-item overlay"></div>
