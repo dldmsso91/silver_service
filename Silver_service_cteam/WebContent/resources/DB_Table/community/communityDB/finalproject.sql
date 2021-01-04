@@ -7,12 +7,6 @@ ORA-12516 에러 발생 시 Processes paramerter값 변경 필요
 └ 4. SQL> shutdown immediate -> DB종료
 └ 5. SQL> startup ->DB 시작
 */
-
-
-insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc1234','abc1234','홍길동','651212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
-insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc123','abc123','아무개','551212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
-commit;
-
 create table welfareFacilities(
 facilityNo number(10) primary key,
 typeName varchar2(50),

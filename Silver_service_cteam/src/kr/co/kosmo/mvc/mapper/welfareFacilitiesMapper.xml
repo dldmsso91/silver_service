@@ -217,7 +217,7 @@
 		<if test="typeName != null or typeName != ''">
 			AND typeName like #{typeName}
 		</if>
-		<if test="facilityName != null  or facilityName != ''">
+		<if test="facilityName != null and facilityName != ''">
 			AND facilityName = #{facilityName}
 		</if>
 	</select>
