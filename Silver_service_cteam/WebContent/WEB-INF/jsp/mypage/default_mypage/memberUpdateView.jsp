@@ -22,7 +22,7 @@
                 <th>이름</th>
                 <td><input type="text" class="form-control"  name="u_name"  value="${member.u_name}"   readonly="readonly"></td>        
             	</tr>
-                    <tr>
+                   <tr>
                     <th>주민번호</th>
                     <td>
                         <input type="text"  name="u_birth" id="u_birth"   size="8"  value= "${member.u_birth}" readonly="readonly" >
@@ -38,26 +38,21 @@
                 <th>이메일</th>
                 <td><input type="email" class="form-control" name="u_email"  value= "${member.u_email}"></td>       
             </tr>					
-            <tr>
-            <th> 우편번호</th>
-            <td>
-             <input type = "text" name="u_addr" id="u_addr"value= "${member.u_addr}"/>
-             <input type = "button" value = "주소찾기"/>
-            </td>
-            </tr>
-            <tr>
-            <th> 주소 </th>
-            <td>
-             <input type = "text" name="u_addr1"  id="u_addr1" value= "${member.u_addr1}" />
-             <input type = "button" value = "주소찾기"/>
-            </td>
-           </tr>
-           <tr>
-            <th> 상세주소 </th>
-            <td>
-             <input type = "text" name="u_addr2"  id="u_addr2" value= "${member.u_addr2}" />
-            </td>
-                 </tr>                         
+		<tr>
+		<th>우편번호</th>
+		<td><input type="text" id="sample6_postcode" placeholder="우편번호" name="u_addr"  value= "${member.u_addr}">
+		<input type="button" onclick="sample6_execDaumPostcode()" value="주소찾기">
+		</td>
+		<tr>
+		<th>주소</th>
+		<td><input type="text" id="sample6_address" placeholder="주소" name="u_addr1" value= "${member.u_addr1}"></td>
+		</tr>
+			<tr>
+			<th>상세주소</th>
+		<td><input type="text" id="sample6_detailAddress" placeholder="상세주소" name="u_addr2"value= "${member.u_addr2}">		
+		<input type="text" id="sample6_extraAddress" placeholder="참고항목"></td>
+			</tr>
+       
             <tr>
                 <td colspan="2"><center>
                 <button  type="submit" id="submit" class="btn btn-primary" value=회원정보수정>회원정보수정</button>

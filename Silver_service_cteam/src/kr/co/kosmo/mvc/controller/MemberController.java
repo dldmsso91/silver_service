@@ -3,9 +3,9 @@ package kr.co.kosmo.mvc.controller;
 
 
 
-import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.slf4j.Logger;
@@ -16,13 +16,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import kr.co.kosmo.mvc.dto.BoardVO;
+
 import kr.co.kosmo.mvc.dto.MemberVO;
-import kr.co.kosmo.mvc.dto.ReplyVO;
-import kr.co.kosmo.mvc.dto.SearchCriteria;
+
 import kr.co.kosmo.mvc.service.MemberService;
 
 
@@ -36,12 +36,12 @@ public class MemberController {
 	@Autowired
 	MemberService service;
 	
-	// �쉶�썝媛��엯 get
+
 	@RequestMapping(value = "/register", method = RequestMethod.GET)
 	public void getRegister() throws Exception {
 		logger.info("get register");
 	}
-	// 아이디 중복 체크
+
 	@ResponseBody
 	@RequestMapping(value="/idChk", method = RequestMethod.POST)
 	public int idChk(MemberVO vo) throws Exception {
@@ -49,6 +49,7 @@ public class MemberController {
 		return result;
 	}
 	
+
 	// 회원가입 post
 	@RequestMapping(value = "/register", method = RequestMethod.POST)
 	public String postRegister(MemberVO vo) throws Exception {
@@ -63,11 +64,11 @@ public class MemberController {
 			// 요기에서~ 입력된 아이디가 존재한다면 -> 다시 회원가입 페이지로 돌아가기 
 			// 존재하지 않는다면 -> register
 		} catch (Exception e) {
-			throw new RuntimeException();
+			throw new RuntimeException("---예외처리발생");
 		}
 		return "redirect:/index";
 	}
-	// 로그인
+	// 濡쒓렇�씤
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String login(MemberVO vo, HttpServletRequest req, RedirectAttributes rttr) throws Exception{
 		logger.info("post login");
@@ -82,13 +83,15 @@ public class MemberController {
 			session.setAttribute("member", login);
 			session.setAttribute("u_no", login.getU_no());
 			session.setAttribute("u_id", login.getU_id());
-			session.setAttribute("customer_no", login.getCustomer_no());
-			session.setAttribute("giver_no", login.getGiver_no());
+			
+			 session.setAttribute("customer_no", login.getCustomer_no());
+			 session.setAttribute("giver_no", login.getGiver_no());
+			
 		}
 		
 		return "redirect:/";
 	}
-	//로그아웃
+	//濡쒓렇�븘�썐
 	@RequestMapping(value = "/logout", method = RequestMethod.GET)
 	public String logout(HttpSession session) throws Exception{
 		
@@ -100,16 +103,16 @@ public class MemberController {
 	
 
 	/*
-	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶(�떎�뙣)
+	 * // 占쎌돳占쎌뜚占쎄맒占쎄쉭占쎌젟癰귣똻�쒙옙�돳(占쎈뼄占쎈솭)
 	 * 
 	 * @RequestMapping(value="/memberView") public String memberView(String u_id
 	 * ,Model model) { model.addAllAttributes("dto",memberService.viewMember(u_id));
-	 * logger.info("�겢由��븳�븘�씠�뵒 :" +u_id); return "memberView"; }
+	 * logger.info("占쎄깻�뵳占쏙옙釉놂옙釉섓옙�뵠占쎈탵 :" +u_id); return "memberView"; }
 	 * 
 	 */
 	
 	/*
-	 * // �쉶�썝�긽�꽭�젙蹂댁“�쉶
+	 * // 占쎌돳占쎌뜚占쎄맒占쎄쉭占쎌젟癰귣똻�쒙옙�돳
 	 * 
 	 * @RequestMapping(value = "/readmember" , method = RequestMethod.GET) public
 	 * String readmember(MemberVO memberVO ,@ModelAttribute("scri") SearchCriteria
@@ -121,7 +124,7 @@ public class MemberController {
 	 */
 	
 	
-	// �쉶�썝�젙蹂댁닔�젙
+	// 占쎌돳占쎌뜚占쎌젟癰귣똻�땾占쎌젟
 //	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 //	public String registerUpdateView() throws Exception{
 //		
@@ -129,7 +132,7 @@ public class MemberController {
 //	}
 //                                                                                                                                      
 
-	//마이페이지 이동
+	//留덉씠�럹�씠吏� �씠�룞
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String registerUpdateView() throws Exception{
 		
@@ -145,22 +148,22 @@ public class MemberController {
 		
 		return "redirect:/";
 	}
-	// 회원 탈퇴 get
+	// �쉶�썝 �깉�눜 get
 		@RequestMapping(value="memberDeleteView", method = RequestMethod.GET)
 		public String memberDeleteView() throws Exception{
 			return "memberDeleteView";
 		}
 		
 		
-		// 회원 탈퇴 post
+		// �쉶�썝 �깉�눜 post
 			@RequestMapping(value="memberDelete", method = RequestMethod.POST)
 			public String memberDelete(MemberVO vo, HttpSession session, RedirectAttributes rttr) throws Exception{
 				
-				// 세션에 있는 member를 가져와 member변수에 넣어줍니다.
+				// �꽭�뀡�뿉 �엳�뒗 member瑜� 媛��졇�� member蹂��닔�뿉 �꽔�뼱以띾땲�떎.
 				MemberVO member = (MemberVO) session.getAttribute("member");
-				// 세션에있는 비밀번호
+				// �꽭�뀡�뿉�엳�뒗 鍮꾨�踰덊샇
 				String sessionPass = member.getU_password();
-				// vo로 들어오는 비밀번호
+				// vo濡� �뱾�뼱�삤�뒗 鍮꾨�踰덊샇
 				String voPass = vo.getU_password();
 				
 				if(!(sessionPass.equals(voPass))) {
@@ -171,4 +174,36 @@ public class MemberController {
 				session.invalidate();
 				return "redirect:/";
 			}
+			// 아이디 찾기 폼
+			@RequestMapping(value = "/find_id_form")
+			public String find_id_form() throws Exception{
+				return "find_id_form";
+			}
+			// 아이디 찾기
+			@RequestMapping(value = "/find_id", method = RequestMethod.POST)
+			public String find_id(HttpServletResponse response, @RequestParam("u_email") String u_email, Model md) throws Exception{
+				md.addAttribute("u_id", service.find_id(response, u_email));
+				return "find_id";
+			}
+			 
+
+			/*
+			 * // 이메일 중복 체크
+			 * 
+			 * @ResponseBody
+			 * 
+			 * @RequestMapping(value="/emailChk", method = RequestMethod.POST) public int
+			 * emailChk(MemberVO vo) throws Exception { int result = service.emailChk(vo);
+			 * return result; }
+			 */
+			/* 비밀번호 찾기 */
+			@RequestMapping(value = "/findpw", method = RequestMethod.GET)
+			public void findPwGET() throws Exception{
+			}
+			@RequestMapping(value = "/findpw", method = RequestMethod.POST)
+			public void findPwPOST(@ModelAttribute MemberVO vo, HttpServletResponse response) throws Exception{
+				service.findPw(response, vo);
+			}
+
+			
 	}

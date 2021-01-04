@@ -17,7 +17,7 @@
     ,U_REDATE DATE DEFAULT SYSDATE
 ); -->
 	<insert id="register" parameterType="mvo">
-	    INSERT INTO U_MEMBER (u_no,u_id,u_password,u_name,u_birth,u_birth2,u_phone,u_email,u_addr,u_addr1,u_addr2,u_redate)
+	    INSERT INTO U_MEMBER
 	                  VALUES(U_MEMBER_SEQ.NEXTVAL ,	                  											                		   
 									                 		   
 	                 		    #{u_id}
@@ -30,18 +30,19 @@
 	                 		   , #{u_addr}
 	                 		   , #{u_addr1}
 	                 		   , #{u_addr2}                 
-	           				  ,sysdate
+	           				  ,  sysdate
+	           				  , null
+	           				  , null
 	           				  )
     </insert>
         <!-- 로그인 -->
 	<select id="login" resultType="mvo">
-		SELECT U_NO,U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2,GIVER_NO,CUSTOMER_NO
+		SELECT U_NO,U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
 		  FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
 		   AND U_PASSWORD = #{u_password}   
 	</select>
- 
-<!--  	  회원 조회
+   	
 		<select id="readmember" parameterType="mvo" resultType="mvo">
 		SELECT	u_id
 			  , u_password
@@ -51,12 +52,17 @@
 			  , u_addr			  
 		 FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
-	</select> -->
+	</select> 
  <!-- 아이디 중복체크 -->
- <select id="idChk" resultType="int">
+ <select id="idChk" resultType="int" parameterType="String">
 	SELECT COUNT(*) FROM U_MEMBER
 	WHERE U_ID = #{u_id}
 </select>
+<!--  
+ <select id="emailChk" resultType="int">
+	SELECT COUNT(*) FROM U_MEMBER
+	WHERE U_EMAIL = #{u_email}
+</select> -->
 
 
  <!-- 회원정보 수정 -->
@@ -78,7 +84,7 @@
 <delete id="memberDelete">
 	DELETE FROM U_MEMBER
 	WHERE 
-	  	 U_ID = #{u_id}
+	  U_ID = #{u_id}
 	  AND U_PASSWORD = #{u_password} 
 	  AND U_NAME =  #{u_name}
 	  AND U_BIRTH = #{u_birth} 
@@ -91,6 +97,18 @@
 	     
 	  	  	  	   
 </delete>	
+	<!-- 아이디 찾기 -->
+	<select id="find_id" parameterType="String" resultType="String">
+	SELECT u_id FROM U_MEMBER WHERE U_EMAIL = #{u_email}
+	</select>	
+<!-- 비밀번호 변경 -->
+<update id="updatePw" >
+	update U_MEMBER set U_PASSWORD = #{u_password} where U_ID = #{u_id}
+</update>
+	<!-- 아이디 중복 검사 -->
+	<select id="check_id" parameterType="String" resultType="int">
+		select count(*) from u_member where U_ID = #{u_id}
+	</select>
 
 
 <!-- 은내 -->	

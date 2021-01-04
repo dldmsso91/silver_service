@@ -38,8 +38,16 @@
                 return false;
             }          
         }
-
-
+	$(function(){
+		$("#find_id_btn").click(function(){
+			location.href='find_id_form';
+		})
+	})
+	$(function(){
+		$("#find_pw_btn").click(function(){
+			location.href='findpw';
+		})
+	})
 	</script>
 <style>
 .login_img img {
@@ -121,18 +129,22 @@
                   </ul>
                 </li>
 
-           <li class="has-children"><a href="#" class="nav-link">요양시설
-									서비스</a>
-								<ul class="dropdown">
-									<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
-									<li class="has-children"><a href="#">요양시설 지도 정보</a>
-										<ul class="dropdown">
-											<li><a href="medicalLocation">노인의료복지시설</a></li>
-											<li><a href="silverhallLocation">재가노인복지시설</a></li>
-											<li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
-										</ul></li>
-								</ul></li>
-							<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
+            <li class="has-children">
+                  <a href="#" class="nav-link">커뮤니티 서비스</a>
+                  <ul class="dropdown">
+                    <li><a href="communityService" class="nav-link">친구위치 검색</a></li>
+                    <li class="has-children">
+                      <a href="#">커뮤니티 공간 정보</a>
+                      <ul class="dropdown">
+                        <li><a href="medicalLocation">의료복지시설</a></li>
+                        <li><a href="silverhallLocation">재가노인복지시설</a></li>
+                        <li><a href="elderlyhomeLocation">요양시설</a></li>
+                      </ul>
+                    </li>
+                  </ul>
+                </li>
+                <li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
+                <li><a href="contact" class="nav-link">Contact</a></li>
 
 			
             <li><a href="login" class="login_img" ><img src="resources/images/login.png"></a>로그인</li>
@@ -182,7 +194,7 @@
                   
                   <br>
                   <div class="back">
-					<a target="" id="idinquiry" href="">아이디 찾기</a><span class="bar" aria-hidden="true">|</span> <a target="_blank" id="pwinquiry" href="">비밀번호 찾기</a>
+					<a id="find_id_btn">아이디 찾기</a><span class="bar" aria-hidden="true">|</span> <a id="find_pw_btn">비밀번호 찾기</a>
 				</div>
                   	<div>
                    <p>

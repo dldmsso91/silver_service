@@ -18,7 +18,7 @@ public class MemberVO {
 	private String u_gender;
 	private int u_age;
 
-	//추가함(은내)
+
 	private int giver_no;
 	private int customer_no;
 	
@@ -137,7 +137,7 @@ public class MemberVO {
 
 	
 	
-	//추가함 (은내)
+	//異붽��븿 (���궡)
 	public int getGiver_no() {
 		return giver_no;
 	}
