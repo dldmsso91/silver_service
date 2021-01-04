@@ -106,4 +106,5 @@ h4{
 	
 </div>
 <a href="delete_matching?customer_no=${matching_customer[0].customerVO.customer_no}" class="btn btn-primary">서비스 취소하기</a>
+<a href="terminate_service?customer_no=${matching_customer[0].customerVO.customer_no}&giver_no=${matching_customer[0].giver_no}" class="btn btn-primary">서비스 종료</a>
 <script src="resources/js/my_resume.js"></script>

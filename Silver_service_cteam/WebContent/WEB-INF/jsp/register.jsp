@@ -383,22 +383,18 @@ margin-top: 150px;
                   </ul>
                 </li>
 
-            <li class="has-children">
-				<a href="#" class="nav-link">요양시설 서비스</a>
-				<ul class="dropdown">
-				<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
-                    <li class="has-children">
-                      <a href="#">요양시설 지도 정보</a>
-                      <ul class="dropdown">
-                        <li><a href="medicalLocation.do">의료복지시설</a></li>
-                        <li><a href="silverhallLocation.do">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation.do">요양시설</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="bus_service.do" class="nav-link">노약자 교통정보</a></li>
-                <li><a href="contact.do" class="nav-link">Contact</a></li>
+          <li class="has-children"><a href="#" class="nav-link">요양시설
+									서비스</a>
+								<ul class="dropdown">
+									<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
+									<li class="has-children"><a href="#">요양시설 지도 정보</a>
+										<ul class="dropdown">
+											<li><a href="medicalLocation">노인의료복지시설</a></li>
+											<li><a href="silverhallLocation">재가노인복지시설</a></li>
+											<li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
+										</ul></li>
+								</ul></li>
+							<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
               </ul>
             </nav>
            </div> 

@@ -3,20 +3,48 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>        
 
 
-
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 
 <script src="resources/js/my_resume.js"></script>
+<style>
+.no_resume_msg{
+font-family: 'Jua', sans-serif;
+color: #383737;
+}
+</style>
+
 <!-- MAIN -->
 
 
+
+<c:if test="${Default[0] == null}">
+
+	<div class="My_Image">
+	<img src="resources/images/sorry.png" >		
+	</div>
+
+	<h1 class="no_resume_msg">작성한 이력서가 없습니다.</h1>
+	
+
+	<br>
+	<br>
+	<br>
+	<p>
+		<a href="apply_services_type_en" class="btn btn-primary">지원서 작성하러 가기</a>
+	</p>	
+</c:if>
+
+
+
+<c:if test="${Default[0] != null}">
 <form method="post" name="form" id='form'>	
     <div class="layer" >
 
           <div class="layer_inner">
 			<h1>내 이력서 열람</h1>
 			<div class="My_Image">
-			<img src="resources/images/1.jpg" alt="My Image">		
+			<img src="resources/upload/${Default[0].my_IMG}" alt="My Image">		
 			</div>
 				<table class="ui celled table">
 				<tr><td rowspan="11">기본정보</td></tr>
@@ -135,12 +163,13 @@
 			</table>
 				<input type="hidden" name="giver_no" value="${giver_no}"/>   			
 				<div class="button_div">			
-				<button type="submit" class="btn btn-primary" id="update" value="이력서 수정" onclick="javascript: form.action='my_resume_update_en';">이력서 수정</button>
+				<button type="submit" class="btn btn-primary" id="update" value="이력서 수정" onclick="javascript: form.action='my_resume_update_mypage';">이력서 수정</button>
 				<button type="submit" class="btn btn-primary" id="delete" value="이력서 삭제" onclick="javascript: form.action='my_resume_delete_en';">이력서 삭제</button>
 				</div>
 		    </div>
 	    </div>
     </form>
+</c:if>
     
 
 

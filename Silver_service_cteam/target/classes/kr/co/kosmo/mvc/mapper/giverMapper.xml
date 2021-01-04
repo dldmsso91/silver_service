@@ -24,6 +24,7 @@
 	<result column="major" property="major"/>
 	<result column="penalty" property="penalty"/>
 	<result column="apply_giver_redate" property="apply_giver_redate"/>
+	<result column="my_IMG" property="my_IMG"/>
 	<association property="memberVO" column="u_no" javaType="mvo">
 		<id property="u_no" column="u_no"/>
 		<result property="u_id" column="u_id"/>
@@ -69,13 +70,6 @@
 		<result column="work_period_end" property="work_period_end"/>	
 		<result column="role" property="role"/>	
 	</collection>		
-<!-- 	<collection property="giver_satisfactionVO" ofType="satisfaction"> -->
-<!-- 		<id column="giver_no" property="giver_no"/> -->
-<!-- 		<result column="customer_satisfaction_no" property="customer_satisfaction_no"/>	 -->
-<!-- 		<result column="customer_satisfaction_score" property="customer_satisfaction_score"/>	 -->
-<!-- 		<result column="customer_satisfaction_complain" property="customer_satisfaction_complain"/>	 -->
-<!-- 		<result column="giver_Satisfaction_redate" property="giver_Satisfaction_redate"/>	 -->
-<!-- 	</collection>		 -->
 	<collection property="hope_business_areaVO" ofType="hope_business_area">
 		<id column="giver_no" property="giver_no"/>
 		<result column="hope_business_no" property="hope_business_no"/>	
@@ -244,8 +238,61 @@
 	</association>			
 </resultMap>
 
+
+<resultMap type="terminate_giverVO" id="terminate_giverVO">
+		<id property="terminate_giver_service_no" column="terminate_giver_service_no"/>
+		<result column="u_no" property="u_no"/>   
+		<result column="giver_no" property="giver_no"/>   
+		<result column="customer_no" property="customer_no"/>
+		<result column="terminate_giver_service_redate" property="terminate_giver_service_redate"/>
+	<association property="memberVO" column="u_no" javaType="mvo">
+		<id property="u_no" column="u_no"/>
+		<result property="u_id" column="u_id"/>
+		<result property="u_name" column="u_name"/>
+		<result property="u_birth" column="u_birth"/>
+		<result property="u_birth2" column="u_birth2"/>
+		<result property="u_phone" column="u_phone"/>
+		<result property="u_email" column="u_email"/>
+		<result property="u_addr" column="u_addr"/>
+		<result property="u_addr1" column="u_addr1"/>
+		<result property="u_addr2" column="u_addr2"/>
+		<result property="u_redate" column="u_redate"/>
+	</association>	
+	<association property="giverVO" column="giver_no" javaType="giver">
+		<id property="giver_no" column="giver_no"/>
+		<result property="giver_type" column="giver_type"/>
+		<result property="hope_business_place" column="hope_business_place"/>
+		<result property="hope_salary" column="hope_salary"/>
+		<result property="smoking" column="smoking"/>
+		<result property="school" column="school"/>
+		<result property="major" column="major"/>
+		<result property="hope_worktime_start" column="hope_worktime_start"/>
+		<result property="hope_worktime_end" column="hope_worktime_end"/>
+		<result property="apply_giver_redate" column="apply_giver_redate"/>
+	</association>	
+	<association property="customerVO" column="customer_no" javaType="customer">
+		<id property="customer_no" column="customer_no"/>
+		<result property="u_no" column="u_no"/>
+		<result property="giver_type" column="giver_type"/>
+		<result property="my_condition" column="my_condition"/>
+		<result property="my_allergy" column="my_allergy"/>
+		<result property="can_walk" column="can_walk"/>
+		<result property="hope_start_date" column="hope_start_date"/>
+		<result property="hope_finish_date" column="hope_finish_date"/>
+		<result property="hope_service_place" column="hope_service_place"/>
+		<result property="hope_salary" column="hope_salary"/>
+		<result property="hope_start_servicetime" column="hope_start_servicetime"/>
+		<result property="hope_end_servicetime" column="hope_end_servicetime"/>
+		<result property="penalty" column="penalty"/>
+		<result property="apply_customer_redate" column="apply_customer_redate"/>
+	</association>			
+</resultMap>
+
+
+
+
 <!-- 	전체 조회문-->
-	<select id="selectGiverByNo" parameterType="giver" resultMap="giver">
+	<select id="selectGiverByNo" parameterType="int" resultMap="giver">
 	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
 		
 		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.hope_worktime_start,
@@ -294,29 +341,29 @@
 
 <!-- giver 이력서 확인하기용 select문 start -->
 <!-- 	기본정보 조회문 -->
-	<select id="selectDefault_info" parameterType="giver" resultMap="giver">
+	<select id="selectDefault_info" parameterType="int" resultMap="giver">
   	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,		
 		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.hope_worktime_start,
-		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate
+		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate,g.my_IMG
  	FROM U_MEMBER u,giver g
 	WHERE u.u_no=g.u_no and g.giver_no= #{giver_no}
 	</select>	
 <!-- 	경력 조회문 -->
-	<select id="select_Career_info" parameterType="giver" resultMap="giver">
+	<select id="select_Career_info" parameterType="int" resultMap="giver">
 	SELECT 
         c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
  	FROM U_MEMBER u, career c, giver g
 	WHERE  u.u_no=g.u_no and g.giver_no= c.giver_no and g.giver_no= #{giver_no}
  	</select>    	
 <!-- 	자격증 조회문 -->
-   <select id="select_license_info" parameterType="giver" resultMap="giver">        
+   <select id="select_license_info" parameterType="int" resultMap="giver">        
     SELECT 
         l.license_no,l.license_name,l.license_Institute,to_char(l.license_Redate,'yyyy-mm-dd') license_Redate
     FROM U_MEMBER u,license l, giver g
    WHERE  u.u_no=g.u_no and g.giver_no= l.giver_no and g.giver_no= #{giver_no}
     </select>              
 <!-- 	희망근무지역 조회문 -->
- 	<select id="select_Hope_Business_Area_info" parameterType="giver" resultMap="giver">       
+ 	<select id="select_Hope_Business_Area_info" parameterType="int" resultMap="giver">       
   	SELECT 
         h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
  	FROM U_MEMBER u,Hope_Business_Area h, giver g
@@ -340,7 +387,6 @@
    </insert>
 
 
-
 <!-- 서비스 이용내역 조회문 -->
  	<select id="select_apply_to_Giver" parameterType="int" resultMap="atgVO">         
 	select * 
@@ -351,7 +397,6 @@
     and g.u_no=#{u_no}    
     </select> 
 
-
    
 <!-- 마음에드는 도우미에게 서비스 신청 insert문 -->
    <insert id="apply_to_giver_insert" parameterType="hashmap" >        
@@ -360,22 +405,28 @@
    
    
 <!-- 지원 삭제 delete문 -->
-	<delete id="deleteHope_Business_Area" parameterType="hope_business_area">
+	<delete id="deleteHope_Business_Area" parameterType="int">
 	DELETE FROM Hope_Business_Area WHERE Giver_no = #{giver_no} 
 	</delete>   
-	<delete id="deletelicense" parameterType="license">
+	<delete id="deletelicense" parameterType="int">
 	DELETE FROM license WHERE Giver_no = #{giver_no} 
 	</delete>   
-	<delete id="deletecareer" parameterType="career">
+	<delete id="deletecareer" parameterType="int">
 	DELETE FROM career WHERE Giver_no = #{giver_no} 
 	</delete>   
-	<delete id="deleteGiver_Satisfaction" parameterType="satisfaction">
+	<delete id="deleteGiver_Satisfaction" parameterType="int">
 	DELETE FROM Giver_Satisfaction WHERE Giver_no = #{giver_no} 
 	</delete>   
-	
-<!-- 여기에 후기랑 뭐 이거저거 추가해야해.	 -->
-	
-	<delete id="deleteGiver" parameterType="giver">
+	<delete id="deleteHugi_G" parameterType="int">
+	DELETE FROM hugi WHERE customer_no = #{giver_no} 
+	</delete>    
+	<delete id="deleteApply_to_giver_G" parameterType="int">
+	DELETE FROM apply_to_giver WHERE customer_no = #{giver_no} 
+	</delete>   
+	<delete id="deleteService_matching_G" parameterType="int">
+	DELETE FROM service_matching WHERE customer_no = #{giver_no} 
+	</delete>   	
+	<delete id="deleteGiver" parameterType="int">
 	DELETE FROM giver WHERE Giver_no = #{giver_no} 
 	</delete>   
 
@@ -383,16 +434,16 @@
 
 
 <!-- 신청서 삭제 delete문 -->
-	<delete id="deleteHugi" parameterType="hugi">
+	<delete id="deleteHugi" parameterType="int">
 	DELETE FROM hugi WHERE customer_no = #{customer_no} 
 	</delete>    
-	<delete id="deleteApply_to_giver" parameterType="atgVO">
+	<delete id="deleteApply_to_giver" parameterType="int">
 	DELETE FROM apply_to_giver WHERE customer_no = #{customer_no} 
 	</delete>   
-	<delete id="deleteService_matching" parameterType="matchingVO">
+	<delete id="deleteService_matching" parameterType="int">
 	DELETE FROM service_matching WHERE customer_no = #{customer_no} 
 	</delete>   
-	<delete id="deleteCustomer" parameterType="customer">
+	<delete id="deleteCustomer" parameterType="int">
 	DELETE FROM customer WHERE customer_no =#{customer_no} 
 	</delete>   
 
@@ -405,8 +456,9 @@
 <!-- customer 신청서 확인하기용 select문 start -->
  	<select id="select_default_customer_info" parameterType="int" resultMap="customer">       
 	select * from u_member u, customer c 
-	where u.u_no = c.u_no 
-	    and u.u_no=#{u_no}
+	where c.u_no = u.u_no 
+        and c.customer_no=u.customer_no
+	    and u.customer_no=#{customer_no}
   	</select>
 <!-- customer 신청서 확인하기용 select문 end -->
 
@@ -415,20 +467,31 @@
 <!-- customer 내 서비스 확인하기용 select문 start -->
 <!-- apply select문 -->
  	<select id="select_customer_apply" parameterType="int" resultMap="atgVO">       
-	select *
-	from apply_to_giver a,customer c, u_member u
-	where a.customer_no = c.customer_no
-	    and c.u_no = u.u_no
-	    and u.u_no=#{u_no}
+	select * from apply_to_giver a, u_member u,giver g
+	where a.giver_no = g.giver_no
+	    and g.u_no=u.u_no
+	    and a.customer_no=#{customer_no}
   	</select>
-<!-- matching select문 -->
+<!-- matching select문(고객) -->
  	<select id="select_customer_matching" parameterType="int" resultMap="matchingVO">       
 	select * from customer c, service_matching s,u_member u 
 	where s.customer_no=c.customer_no
 	and c.u_no=u.u_no
 	and u.u_no=#{u_no}
   	</select>
+<!-- matching select문(도우미) -->
+ 	<select id="select_giver_matching" parameterType="int" resultMap="matchingVO">       
+	select * from giver g, service_matching s,u_member u 
+	where u.u_no=g.u_no
+    and g.giver_no=s.giver_no
+	and s.customer_no=#{customer_no}
+  	</select>
 <!-- customer 내 서비스 확인하기용 select문 end -->
+
+
+
+
+
 
 
 
@@ -437,32 +500,40 @@
 <!-- 내 이력서 확인하기용 select문 start -->
 <!-- 	기본정보 조회문 -->
 	<select id="select_MyDefault_info" parameterType="int" resultMap="giver">
-  	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,		
+   	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,		
 		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.hope_worktime_start,
-		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate
+		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate,g.my_IMG
  	FROM U_MEMBER u,giver g
-	WHERE u.u_no=g.u_no and u.u_no= #{u_no}
+	WHERE g.u_no=u.u_no
+    and g.giver_no=u.giver_no
+    and u.giver_no=#{giver_no}
 	</select>	
 <!-- 	경력 조회문 -->
 	<select id="select_MyCareer_info" parameterType="int" resultMap="giver">
-    	SELECT 
-        c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
+    SELECT c.career_no,c.career_name,c.work_period_start,c.work_period_end,c.role
  	FROM U_MEMBER u, career c, giver g
-	WHERE  u.u_no=g.u_no and g.giver_no= c.giver_no and u.u_no= #{u_no}
+	WHERE  u.u_no=g.u_no
+        and g.giver_no = u.giver_no
+        and g.giver_no= c.giver_no 
+        and u.giver_no= #{giver_no}
  	</select>   
 <!--자격증 조회문 -->
    <select id="select_Mylicense_info" parameterType="int" resultMap="giver">        
-    SELECT 
-        l.license_no,l.license_name,l.license_Institute,to_char(l.license_Redate,'yyyy-mm-dd') license_Redate
+    SELECT l.license_no,l.license_name,l.license_Institute,to_char(l.license_Redate,'yyyy-mm-dd') license_Redate
     FROM U_MEMBER u,license l, giver g
-   WHERE  u.u_no=g.u_no and g.giver_no= l.giver_no and u.u_no= #{u_no}
+    WHERE  u.u_no=g.u_no
+        and g.giver_no = u.giver_no
+        and g.giver_no= l.giver_no 
+        and u.giver_no= #{giver_no}
     </select>              
 <!--희망근무지역 조회문 -->
  	<select id="select_MyHope_Business_Area_info" parameterType="int" resultMap="giver">       
-     	SELECT 
-        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
+    SELECT h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
  	FROM U_MEMBER u,Hope_Business_Area h, giver g
-	WHERE  u.u_no=g.u_no and g.giver_no= h.giver_no  and u.u_no= #{u_no}
+	WHERE  u.u_no=g.u_no
+        and g.giver_no = u.giver_no
+        and g.giver_no= h.giver_no  
+        and u.giver_no=  #{giver_no}
   	</select>
 <!-- 내 이력서 확인하기용 select문 end -->
 
@@ -477,7 +548,6 @@
 
 
 
-
 <!-- 매칭 완료 insert -->
    <insert id="insert_matching" parameterType="matchingVO" >        
   	INSERT INTO service_matching VALUES (service_matching_seq.nextval,#{u_no},#{giver_no},#{customer_no},sysdate)
@@ -489,7 +559,7 @@
 	</delete>   
 
 
-<!-- 매칭테이블 selectlist -->
+<!-- 매칭테이블 select list -->
 	<select id="select_metching_list" parameterType="int" resultMap="matchingVO">       
     select * from service_matching s, u_member u, customer c 
      where s.customer_no = c.customer_no
@@ -522,6 +592,39 @@
 	</delete>   
 
 
+<!-- 서비스 종료 insert문 -->
+   <insert id="insert_terminate" parameterType="terminate_giverVO">        
+	INSERT INTO Terminate_giver_service(
+	Terminate_giver_service_no
+	,U_NO
+	,giver_no
+	,customer_no
+	,Terminate_giver_service_redate) 
+	VALUES (
+	Terminate_giver_service_seq.nextval
+	,#{u_no}
+	,#{giver_no}
+	,#{customer_no}
+	,sysdate)
+   </insert>
+   
+<!-- 서비스 종료 select문(도우미용) -->
+ 	<select id="select_terminate_giver" parameterType="int" resultMap="terminate_giverVO">     
+	select * from Terminate_giver_service t, u_member u, customer c
+	where t.customer_no = c.customer_no
+	    and c.u_no=u.u_no
+	    and t.giver_no=#{giver_no}
+   </select>
+
+<!-- 서비스 종료 select문(고객용) -->
+ 	<select id="select_terminate_customer" parameterType="int" resultMap="terminate_giverVO">     
+	select * from Terminate_giver_service t, u_member u, giver g
+	where t.giver_no = g.giver_no
+	    and g.u_no=u.u_no
+	    and t.customer_no=#{customer_no}
+   </select>
+
+
 
 
 <!-- 도우미용 서비스 후기 insert문 -->
@@ -530,11 +633,27 @@
 		VALUES (hugi_seq.nextval,#{u_no},#{customer_no},#{hugi_score},#{hugi_contents},sysdate)
    </insert>
 
+<!-- 도우미용 서비스 후기 insert문 -->
+   <insert id="insert_hugi_customer" parameterType="hugi">        
+		INSERT INTO hugi(hugi_no,u_no,giver_no,hugi_score,hugi_contents,hugi_redate) 
+		VALUES (hugi_seq.nextval,#{u_no},#{giver_no},#{hugi_score},#{hugi_contents},sysdate)
+   </insert>
+
+
+
 <!-- 도우미용 서비스 후기 리스트 조회문 -->
  	<select id="select_hugi" parameterType="int" resultMap="hugi">       
 	SELECT * FROM Hugi h, u_member u, customer c 
 	where h.customer_no=c.customer_no
 	    and c.u_no=u.u_no
+	    and h.u_no=#{u_no}    
+   </select>
+
+<!-- 고객용 서비스 후기 리스트 조회문 -->
+ 	<select id="select_hugi_customer" parameterType="int" resultMap="hugi">       
+	SELECT * FROM Hugi h, u_member u, giver g 
+	where h.giver_no=g.giver_no
+	    and g.u_no=u.u_no
 	    and h.u_no=#{u_no}    
    </select>
 
@@ -671,6 +790,10 @@ hope_start_servicetime = #{hope_start_servicetime},
 hope_end_servicetime = #{hope_end_servicetime}
 
 </update>
+
+
+
+
 
 
 </mapper>

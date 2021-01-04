@@ -4,7 +4,7 @@
 <html>
 <head>
 <!-- css  -->
-<title></title>
+<title>정류장 찾기</title>
 <meta charset="utf-8">
 <meta name="viewport"
 	content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -64,16 +64,22 @@
 
 		</ul>
 	</div>
-
+<script type="text/javascript">
+    $(document).ready(function(){
+        $(".gnb_menu").on("click",function(e){
+            $(".gnb_menu").removeClass("selected");
+        })
+    })
+    </script>
 	<div id="body">
 		<div id="searchMenu" class="leftBox">
 			<div id="searchBox" class="leftBox">
 				<p class="margin0">
-					<input type="hidden" id="lat" value="37.49992"
+					<input type="hidden" id="lat" value="${lat }"
 						style="width: 150px; height: 20px;">
 				</p>
 				<p class="margin0">
-					<input type="hidden" id="lng" value="126.77501"
+					<input type="hidden" id="lng" value="${lng }"
 						style="width: 150px; height: 20px;">
 				</p>
 				
@@ -95,36 +101,7 @@
 		</div>
 	</div>
 	<form id="commonForm" name="commonForm"></form>
-	<!-- ------------------------------------------------------------------------------------- -->
-	<!-- <div class="map_wrap">
-    <div id="map" style="width:100%;height:100%;position:relative;overflow:hidden;"></div>
-    <ul id="category">
-        <li id="BK9" data-order="0"> 
-            <span class="category_bg bank"></span>
-            은행
-        </li>       
-        <li id="MT1" data-order="1"> 
-            <span class="category_bg mart"></span>
-            마트
-        </li>  
-        <li id="PM9" data-order="2"> 
-            <span class="category_bg pharmacy"></span>
-            약국
-        </li>  
-        <li id="OL7" data-order="3"> 
-            <span class="category_bg oil"></span>
-            주유소
-        </li>  
-        <li id="CE7" data-order="4"> 
-            <span class="category_bg cafe"></span>
-            카페
-        </li>  
-        <li id="CS2" data-order="5"> 
-            <span class="category_bg store"></span>
-            편의점
-        </li>      
-    </ul>
-</div> -->
+	
 	<script src="resources/js/map.js" charset="utf-8"></script>
 	
 <!--  ---------------------------------------------------------------------- -->
@@ -139,7 +116,13 @@
 			$("#sc_btn").on("click", function(e) {
 				e.preventDefault();
 				fn_clickSearchButton();
+				if($("#lng").val() == ""){ 
+					alert("마우스로 위치를 지정해주세요"); 
+					location.reload();
+					return false ; 
+					}
 			})
+			
 			
 			//자기 위치 찾기로 이동
 			 $("#location_btn").on("click", function(e) {
@@ -149,6 +132,7 @@
 			$("a[name^='node']").on("click", function(e) {
 				e.preventDefault();
 				fn_clickNode($(this));
+				
 			})
 		})
 
@@ -217,7 +201,7 @@
 					lon = position.coords.longitude; // 경도
 
 					var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-					message = '<div style="padding:5px;">현재 자기 위치 </div>'; // 인포윈도우에 표시될 내용입니다
+					message = '<div style="padding:4px;">현재 자기 위치 </div>'; // 인포윈도우에 표시될 내용입니다
 
 					// 마커와 인포윈도우를 표시합니다
 					displayMarker(locPosition, message);
@@ -332,7 +316,7 @@ $.ajax({
              e.preventDefault();
              fn_routeInfo($(this));
          });
-          
+         
           },
     error:function(){
      alert("실시간 버스 정보를 불러올 수 없습니다.");
@@ -343,17 +327,13 @@ $.ajax({
 
 
 function fn_routeInfo(obj){
-	location = "bus_info?routeno="+obj.attr("routeno")+"&routeid="+obj.attr("routeid");
-	// var comSubmit = new ComSubmit();
-	// alert("Test : "+obj.attr("routeno")+":"+obj.attr("routeid"));
-	// //$('#routeno').attr('value','test11');
-	// //comSubmit.addParam("routeno",obj.attr("routeno"));
-	// //comSubmit.addParam("routeid",obj.attr("routeid"));
-	// comSubmit.setUrl("<c:url value='/bus_info'/>");
-	// comSubmit.addParam("routeno",obj.attr("routeno"));
-	// comSubmit.addParam("routeid",obj.attr("routeid"));
-	// comSubmit.submit();
-
+var comSubmit = new ComSubmit();
+//alert("Test"+obj.attr("routeno"));
+$('#routeno').val(obj.attr("routeno"));
+comSubmit.addParam("routeno",obj.attr("routeno"));
+comSubmit.addParam("routeid",obj.attr("routeid"));
+comSubmit.setUrl("<c:url value='/bus_info'/>");
+comSubmit.submit();
 }
 	</script>
 	<!-- 메인 끝 -->

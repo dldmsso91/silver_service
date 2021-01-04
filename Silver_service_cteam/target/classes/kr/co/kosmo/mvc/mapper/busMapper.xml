@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+  
+  <mapper namespace="buscommon">
+ 
+  <!-- 정류장 정보 조회 등록 -->
+   <insert id="insertNodeInfo" parameterType="Map">
+ 
+   INSERT INTO NODE_INFO(
+    NODEID,
+    NODENO,
+    NODENAME,
+    GPSLATI,
+    GPSLONG
+   )
+    VALUES(
+    #{NODEID },
+    #{NODENO },
+    #{NODENAME},
+    #{GPSLATI },
+    #{GPSLONG}
+   )
+ 
+ </insert>
+ 
+ <!-- 버스 도작 정보 등록 -->
+  <insert id="insertNode" parameterType="HashMap" >
+  
+   INSERT INTO NODE_ROUTE(
+    NODEID,
+    NODENAME,
+    ROUTEID,
+    ROUTENO
+   )
+    VALUES(
+    #{NODEID},
+    #{NODENAME},
+    #{ROUTEID},
+    #{ROUTENO}
+   )
+ 
+ </insert>
+  
+ <!--Null 허용컬럼에 값이 null이 들어가는 경우 ,jdbcType=VARCHAR를 붙여서 해결 -->
+ <!-- 정류장 순서 등록-->
+   <insert id="insertRouteOrder" parameterType="HashMap">
+  
+   INSERT INTO ROUTE_ORDER(
+    ROUTEID,
+    NODEORD,
+    NODENAME,
+    NODEID
+   )
+    VALUES(
+    #{ROUTEID},
+    #{NODEORD},
+    #{NODENAME,jdbcType=VARCHAR},
+    #{NODEID}
+   )
+  
+ </insert>
+  
+  <!--노선 정보 조회 등록-->
+   <insert id="insertRouteInfo" parameterType="HashMap">
+
+   INSERT INTO ROUTE_INFO(
+    ROUTEID,
+    ROUTENO,
+    STARTNODENM,
+    ENDNODENM,
+    STARTVEHICLETIME,
+    ENDVEHICLETIME
+   )
+    VALUES(
+    #{ROUTEID},
+    #{ROUTENO},
+    #{STARTNODENM},
+    #{ENDNODENM},
+    #{STARTVEHICLETIME},
+    #{ENDVEHICLETIME, jdbcType=VARCHAR}  
+   )
+
+ </insert>
+  </mapper>

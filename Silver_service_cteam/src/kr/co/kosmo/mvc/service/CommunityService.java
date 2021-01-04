@@ -3,6 +3,8 @@ package kr.co.kosmo.mvc.service;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 
@@ -32,5 +34,7 @@ public interface CommunityService {
 	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo);
 	
 	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
+	
+	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
 	
 }

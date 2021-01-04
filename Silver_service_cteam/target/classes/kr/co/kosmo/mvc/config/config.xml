@@ -18,6 +18,7 @@
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO" alias="atgVO"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.HugiVO" alias="hugi"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Service_matchingVO" alias="matchingVO"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Terminate_giver_serviceVO" alias="terminate_giverVO"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CustomerVO" alias="customer"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.CareerVO" alias="career"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Giver_SatisfactionVO" alias="satisfaction"/>

@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="newboardMapper">
+   <!-- 새소식 글 작성 -->
+   <insert id="newinsert" parameterType="nbvo">
+	   INSERT INTO NEW_BOARD(    NBNO 
+	   					      , NTITLE 
+	   					      , NCONTENT 
+	   					      , NWRITER  )	                 
+VALUES(    NEW_BOARD_SEQ.NEXTVAL , #{ntitle} , #{ncontent} , #{nwriter}  )
+   
+   </insert>
+<select id="listPage" resultType="nbvo" parameterType="kr.co.kosmo.mvc.dto.NewSearchCriteria">
+		SELECT  NBNO, 
+		        NTITLE, 
+		        NCONTENT,
+		        NWRITER, 
+		        NREGDATE
+		 FROM ( 
+		        SELECT NBNO, 
+		               NTITLE, 
+		               NCONTENT, 
+		               NWRITER, 
+		               NREGDATE, 
+		               ROW_NUMBER() OVER(ORDER BY NBNO DESC) AS RNUM
+		         FROM NEW_BOARD
+		         WHERE 1=1 
+		         	<include refid="search"></include>
+		                       ) MP
+		WHERE RNUM BETWEEN #{rowStart} AND #{rowEnd}
+		ORDER BY NBNO DESC
+	</select>
+	
+	<select id="listCount" parameterType="kr.co.kosmo.mvc.dto.NewSearchCriteria" resultType="int">
+		SELECT COUNT(NBNO)
+		   FROM NEW_BOARD
+		   WHERE 1=1
+		<include refid="search"></include>	
+		   AND NBNO > 0
+	</select>
+	
+	<sql id="search">
+		<if test="searchType != null">
+			<if test="searchType == 't'.toString()">AND NTITLE LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'c'.toString()">AND NCONTENT LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'w'.toString()">AND NWRITER LIKE '%' || #{keyword} || '%'</if>
+			<if test="searchType == 'tc'.toString()">AND (NTITLE LIKE '%' || #{keyword} || '%') or (NCONTENT LIKE '%' || #{keyword} || '%')</if>
+		</if>
+	</sql>
+	<select id="read" parameterType="int" resultType="nbvo">
+		SELECT	NBNO
+			  , NTITLE
+			  , NCONTENT
+			  , NWRITER
+			  , NREGDATE
+		 FROM NEW_BOARD
+		 WHERE NBNO = #{nbno}
+	</select> 
+	    <update id="update" parameterType="nbvo">
+			UPDATE NEW_BOARD
+		   SET NTITLE    =   #{ntitle},
+		   	   NCONTENT  =   #{ncontent}
+		 WHERE NBNO = #{nbno} 
+	</update>
+	
+	<delete id="delete" parameterType="int">
+		DELETE 
+		  FROM NEW_BOARD
+		 WHERE NBNO = #{nbno}
+	</delete>
+	  
+</mapper>

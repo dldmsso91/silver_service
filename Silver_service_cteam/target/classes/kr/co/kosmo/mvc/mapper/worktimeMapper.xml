@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="work">
+<insert id="worktimeInsert" parameterType="work">
+insert into giver_worktime values(
+giver_worktime_seq.nextval,
+#{giver_no},
+#{start_time},
+#{end_time}
+)
+
+</insert>
+<select id="worktimeselect" parameterType="work" resultType="int">
+select * from giver_worktime where giver_no = #{giver_no} order by g_work_no asc
+</select>
+</mapper>

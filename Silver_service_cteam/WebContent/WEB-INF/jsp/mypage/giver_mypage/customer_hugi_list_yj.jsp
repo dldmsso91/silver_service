@@ -5,7 +5,8 @@
 <link rel="preconnect" href="https://fonts.gstatic.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@500&display=swap" rel="stylesheet">
 
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
 <!-- MAIN -->
 
 <style>
@@ -82,9 +83,31 @@ h4{
 .stars-4:after { width: 80%; }
 .stars-5:after { width: 100; }
 
+.no_resume_msg{
+    border-bottom: none;
+    width: 100%;
+	font-family: 'Jua', sans-serif;
+	color: #383737;
+}
 </style>
-    <h3>내 후기 내역보기</h3>
 
+
+
+<c:if test="${hugi[0] == null}">
+
+	<br>
+	<br>
+	<div class="My_Image">
+	<img src="resources/images/sorry.png" >		
+	</div>
+	<br>
+	<h1 class="no_resume_msg">아직 작성한 후기가 없습니다</h1>
+	<h5 class="no_resume_msg">*서비스 매칭 후 부터 작성이 가능하십니다*</h5>
+	
+</c:if>
+
+<c:if test="${hugi[0] != null}">
+<h3>내 후기 내역보기</h3>
 <form method="post" name="form" id='form'>	
 	<div class="customer">
      <table class="table table-hover">
@@ -121,8 +144,9 @@ h4{
 	</table>	
 	</div>
 	<div class="button">
-		<button type="submit" class="btn btn-primary" id="update" value="후기수정" onclick="javascript: form.action='updateHugi';">후기수정</button>	
-		<button type="submit" class="btn btn-primary" id="delete" value="후기삭제" onclick="javascript: form.action='deleteHugi';">후기삭제</button>
+		<button type="submit" class="btn btn-primary" id="update" value="후기수정" onclick="javascript: form.action='updateHugi_customer';">후기수정</button>	
+		<button type="submit" class="btn btn-primary" id="delete" value="후기삭제" onclick="javascript: form.action='deleteHugi_customer';">후기삭제</button>
 	</div>
 </form>	
+</c:if>	
 <script src="resources/js/my_resume.js"></script>

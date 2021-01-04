@@ -18,27 +18,37 @@
 		border-color: rgba(0,0,0,.1);
 	}
 
+.content-container {	
+	margin-left: auto;
+	margin-right: auto;
+    width: 1700px;
+	height: inherit;
+    position:relative;
+	display: flex;    
+}
 
-
-#left_contents{padding:3%;
+#left_contents{
+	padding:3%;
+    width: 22%;
+    text-align: center;   
     background: gainsboro;
+
+	
+    height: inherit;       
 }
-#right_contents{padding:3%;}
+#right_contents{
+	
+	padding:3%;
+    width: 72%;
 
 
-.\39 u { width: 75% }
-.\-9u { margin-left: 75% }
+    position: relative;
+	height: inherit;		
+	}
 
-.\-3u { margin-left: 25% }
 
 
-.col-lg-3 {
-    -webkit-box-flex: 0;
-    -ms-flex: 0 0 25%;
-    flex: 0 0 21%;
-    max-width: 30%;
-    padding: 2%;
-}
+
 .service .service-inner p {
     font-size: 19px;
     color: #848484;

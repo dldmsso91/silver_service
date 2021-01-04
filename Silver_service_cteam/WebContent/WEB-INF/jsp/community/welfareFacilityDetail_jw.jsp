@@ -3,7 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 
-<link rel="stylesheet" href="resources/assets/plugins/fontawesome/css/all.min.css">
+<link rel="stylesheet"
+	href="resources/assets/plugins/fontawesome/css/all.min.css">
 <link rel="stylesheet" href="resources/assets/css/style.css">
 <link rel="stylesheet" href="resources/css/welfareFacilityDetail.css">
 
@@ -118,103 +119,101 @@
 		</table>
 		<div style="height: 20px;"></div>
 		<div id="map" class="map" style="width: 55%; height: 400px;"></div>
-		
-		<h2>이용후기 작성</h2>
-		<table class="ui celled table">
-		<form action="addReview" method="post">
-			<tr>
-				<td id="star_grade"><a href="#1" class="a.off">★</a> <a
-					href="#2" class="a.off">★</a> <a href="#3" class="a.off">★</a> <a
-					href="#4" class="a.off">★</a> <a href="#5" class="a.off">★</a><span
-					id="target">Total : </span><br/>
-					<textarea id="content" name="content" cols=60 rows=3 placeholder="시설을 평가해주세요"></textarea><br/>
-					<input type="hidden" id="facilityNo" name="facilityNo" value="${facInfo.facilityNo}">
-					<input type="hidden" id="facilityName" name="facilityName" value="${facInfo.facilityName}">
-					<input type="hidden" id="u_no" name="u_no" value="${sessionScope.u_no}">
-					<input type="hidden" id="u_id" name="u_id" value="${sessionScope.u_id}">
-					<input type="hidden" id="score" name="score" value="">
-					<input type="submit" class="btn btn-primary" value="작성">
-<!-- 					<div id="review_btn" style="background-color: #ddd; cursor: pointer;">등록</div> -->
-				</td>
-			</tr>
-		</form>
-			<tr>
-				<td>
-					<div>
-						<div class="doc-review review-listing">
-							<ul class="comments-list">
-								<c:if test="${empty review}">
-									<div class="card text-center">
-										<p style="margin: 10px; padding: 10px;">이 시설에 남겨진 후기가 없습니다.</p>
-									</div>
-								</c:if>
-								<c:forEach var="review" items="${review}">
-									<!-- Comment List -->
-									<li>
-										<div class="comment">
-											<!-- 									<img class="avatar avatar-sm rounded-circle" alt="User Image" -->
-											<%-- 										src="${path}/resources/patient/profileImg/${review.patientDTO.p_photo}"> --%>
-											<div class="comment-body"
-												style="width: -webkit-fill-available;">
-												<div class="meta-data">
-													<span class="comment-author">${review.u_id}</span> 
-													<span class="comment-date">${review.rdate}</span>
-													<div class="review-count rating">
-														<c:forEach begin="0" end="4" step="1" varStatus="i">
-															<c:choose>
-																<c:when test="${review.score > i.index}">
-																	<i class="fas fa-star filled"></i>
-																</c:when>
-																<c:otherwise>
-																	<i class="fas fa-star"></i>
-																	</c:otherwise>
-															</c:choose>
-														</c:forEach>
-													</div>
-												</div>
-												<p class="comment-content">${review.content}</p>
-											</div>
-										</div>
-									</li>
-									<!-- /Comment List -->
-								</c:forEach>
-							</ul>
 
-							<!-- Show All -->
-							<!-- <div class="all-feedback text-center">
+		<h2>이용후기 작성</h2>
+		<form action="addReview" method="post">
+			<table class="ui celled table">
+				<tr>
+					<td id="star_grade"><a href="#1" class="a.off">★</a> <a
+						href="#2" class="a.off">★</a> <a href="#3" class="a.off">★</a> <a
+						href="#4" class="a.off">★</a> <a href="#5" class="a.off">★</a><span
+						id="target">Total : </span><br /> <textarea id="content"
+							name="content" cols=60 rows=3 placeholder="시설을 평가해주세요"></textarea><br />
+						<input type="hidden" id="facilityNo" name="facilityNo"
+						value="${facInfo.facilityNo}"> <input type="hidden"
+						id="facilityName" name="facilityName"
+						value="${facInfo.facilityName}"> <input type="hidden"
+						id="u_no" name="u_no" value="${sessionScope.u_no}"> <input
+						type="hidden" id="u_id" name="u_id" value="${sessionScope.u_id}">
+						<input type="hidden" id="score" name="score" value=""> <input
+						type="submit" class="btn btn-primary" value="작성"> <!-- 					<div id="review_btn" style="background-color: #ddd; cursor: pointer;">등록</div> -->
+					</td>
+				</tr>
+				<tr>
+					<td>
+						<div>
+							<div class="doc-review review-listing">
+								<ul class="comments-list">
+									<c:if test="${empty review}">
+										<div class="card text-center">
+											<p style="margin: 10px; padding: 10px;">이 시설에 남겨진 후기가
+												없습니다.</p>
+										</div>
+									</c:if>
+									<c:forEach var="review" items="${review}">
+										<!-- Comment List -->
+										<li>
+											<div class="comment">
+												<!-- 									<img class="avatar avatar-sm rounded-circle" alt="User Image" -->
+												<%-- 										src="${path}/resources/patient/profileImg/${review.patientDTO.p_photo}"> --%>
+												<div class="comment-body"
+													style="width: -webkit-fill-available;">
+													<div class="meta-data">
+														<span class="comment-author">${review.u_id}</span> <span
+															class="comment-date">${review.rdate}</span>
+														<div class="review-count rating">
+															<c:forEach begin="0" end="4" step="1" varStatus="i">
+																<c:choose>
+																	<c:when test="${review.score > i.index}">
+																		<i class="fas fa-star filled"></i>
+																	</c:when>
+																	<c:otherwise>
+																		<i class="fas fa-star"></i>
+																	</c:otherwise>
+																</c:choose>
+															</c:forEach>
+														</div>
+													</div>
+													<p class="comment-content">${review.content}</p>
+												</div>
+											</div>
+										</li>
+										<!-- /Comment List -->
+									</c:forEach>
+								</ul>
+								<!-- Show All -->
+								<!-- <div class="all-feedback text-center">
 										<a href="#" class="btn btn-primary btn-sm">
 											Show all feedback <strong>(167)</strong>
 										</a>
 									</div> -->
-							<!-- /Show All -->
-
+								<!-- /Show All -->
+							</div>
 						</div>
+					</td>
+			</table>
+		</form>
+		<!-- 				<h1>별점 jQuery예제</h1> -->
+		<!-- 				<h2>별점 입력 예제</h2> -->
+		<!-- 				<table class="ui celled table"> -->
+		<!-- 					<tr> -->
+		<!-- 						<td>내용:</td> -->
+		<!-- 						<td><input type="text" id="content" name="content"></td> -->
+		<!-- 					</tr> -->
+		<!-- 					<tr> -->
+		<!-- 						<td id="star_grade"><a href="#1" class="a.off">★</a> <a -->
+		<!-- 							href="#2" class="a.off">★</a> <a href="#3" class="a.off">★</a> <a -->
+		<!-- 							href="#4" class="a.off">★</a> <a href="#5" class="a.off">★</a> <span -->
+		<!-- 							id="target">Total : </span> -->
+		<!-- 								<input type="hidden" id="u_no" name="u_no" value=2> -->
+		<!-- 							</td> -->
 
-					</div>
-				</td>
-		</table>
-
-<!-- 				<h1>별점 jQuery예제</h1> -->
-<!-- 				<h2>별점 입력 예제</h2> -->
-<!-- 				<table class="ui celled table"> -->
-<!-- 					<tr> -->
-<!-- 						<td>내용:</td> -->
-<!-- 						<td><input type="text" id="content" name="content"></td> -->
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 						<td id="star_grade"><a href="#1" class="a.off">★</a> <a -->
-<!-- 							href="#2" class="a.off">★</a> <a href="#3" class="a.off">★</a> <a -->
-<!-- 							href="#4" class="a.off">★</a> <a href="#5" class="a.off">★</a> <span -->
-<!-- 							id="target">Total : </span> -->
-<!-- 								<input type="hidden" id="u_no" name="u_no" value=2> -->
-<!-- 							</td> -->
-
-<!-- 					</tr> -->
-<!-- 					<tr> -->
-<!-- 						<td><div id="review_btn" -->
-<!-- 								style="background-color: #ddd; cursor: pointer;">save</div> -->
-<!-- 					</tr> -->
-<!-- 				</table> -->
+		<!-- 					</tr> -->
+		<!-- 					<tr> -->
+		<!-- 						<td><div id="review_btn" -->
+		<!-- 								style="background-color: #ddd; cursor: pointer;">save</div> -->
+		<!-- 					</tr> -->
+		<!-- 				</table> -->
 
 
 		<!-- 		<h2>별점 출력예제</h2> -->

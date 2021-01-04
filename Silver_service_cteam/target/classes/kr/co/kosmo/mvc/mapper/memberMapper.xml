@@ -35,7 +35,7 @@
     </insert>
         <!-- 로그인 -->
 	<select id="login" resultType="mvo">
-		SELECT U_NO,U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2
+		SELECT U_NO,U_ID,U_PASSWORD,U_NAME,U_BIRTH,U_PHONE,U_EMAIL,U_ADDR,U_ADDR1,U_ADDR2,GIVER_NO,CUSTOMER_NO
 		  FROM U_MEMBER
 		 WHERE U_ID = #{u_id}
 		   AND U_PASSWORD = #{u_password}   
@@ -104,6 +104,14 @@
 	UPDATE u_member SET giver_no = #{giver_no} where u_no = #{u_no}
 </update>
 	
-
+<!-- 신청서 삭제 시 멤버에 customer_no 0으로 정보변경 테스트 중 -->	
+<update id="delete_customerNo_mem" parameterType="int">
+	UPDATE u_member SET customer_no = 0 where u_no = #{u_no}
+</update>
 	
+<!-- 지원서 삭제 시 멤버에 giver_no 0으로 정보변경 테스트 중 -->	
+<update id="delete_giverNo_mem" parameterType="int">
+	UPDATE u_member SET giver_no = 0 where u_no = #{u_no}
+</update>	
+
 </mapper>

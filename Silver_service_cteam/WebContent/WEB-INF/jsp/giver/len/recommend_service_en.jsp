@@ -233,7 +233,7 @@ h3 {
 
 <div id="test" class="slide-item overlay"></div>
 
-<h2>${member.u_name}${member.u_addr1}${Customer_no}님을 위한 도우미들입니다</h2>
+<h2>${member.u_name}님을 위한 도우미들입니다</h2>
 
 <form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
@@ -265,7 +265,7 @@ h3 {
 									
 				<input type='hidden' class='u_birth' name='u_birth' value='${r.memberVO.u_birth}'>
 				<input type='hidden' class='u_birth2' name='u_birth' value='${r.memberVO.u_birth2}'>
-                <a href="giver_resume_detail_en?giver_no=${r.giver_no}&customer_no=${Customer_no}" class="btn btn-primary"/>선택하기</a>
+                <a href="giver_resume_detail_en?giver_no=${r.giver_no}&customer_no=${customer_no}" class="btn btn-primary"/>선택하기</a>
 </c:forEach>
 		</ul>
 	</div>

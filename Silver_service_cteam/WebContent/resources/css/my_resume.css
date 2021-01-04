@@ -1,0 +1,51 @@
+
+.table {
+	width: 55%;
+	margin-bottom: 1rem;
+	text-align: center;
+	margin: 0 auto;
+	margin-top: 50px;
+}
+
+.sub_table {
+	text-align: center;
+	margin: 0 auto;
+}
+
+.layer {
+	text-align: center;
+	margin-top: 25px;
+}
+
+.button_div {
+	display: inline-flex;
+	width: 15%;
+	margin: 0 auto;
+	margin-top: 20px;
+}
+
+.button_div input {
+	margin-left: 1%;
+	margin-right: 1%;
+}
+
+.btn {
+	padding: 10px 25px;
+}
+
+.button_div p {
+	margin: 0 auto;
+}
+
+.My_Image {
+	width: 150px;
+	overflow: hidden;
+	height: 160px;
+	border-radius: 30px;
+	margin: 0 auto;
+	margin-top: 40px;
+}
+
+.My_Image img {
+	width: 100%;
+}

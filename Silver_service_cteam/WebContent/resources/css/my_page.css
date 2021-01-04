@@ -1,0 +1,21 @@
+
+.center{
+	
+	text-align: center;
+	margin: 0 auto;
+	margin-top:8%;
+}
+
+.table {
+    width: 85%;
+    margin-bottom: 1rem;
+    text-align: center;
+    margin: 0 auto;
+    margin-top: 50px;
+}
+.button_div {
+    display: inline-flex;
+    width: 25%;
+    margin: 0 auto;
+    margin-top: 20px;
+}

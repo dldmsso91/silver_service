@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-=======
 /*
 동시 처리 가능한 Processes parameter 값을 초과 했기 때문에
 ORA-12516 에러 발생 시 Processes paramerter값 변경 필요
@@ -15,7 +13,6 @@ insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc1234',
 insert into U_MEMBER Values((select nvl(max(U_NO),0)+1 from U_MEMBER),'abc123','abc123','아무개','551212','1234567','010-1234-5678','abc1234@naver.com','08505','서울시','금천구 가산동',sysdate);
 commit;
 
->>>>>>> refs/remotes/origin/main
 create table welfareFacilities(
 facilityNo number(10) primary key,
 typeName varchar2(50),
@@ -83,19 +80,6 @@ userAge number(5),
 resDate Date default sysdate,
 resTime VARCHAR2(20),
 visitPurpose varchar2(100),
-foreign key(facilityNO) references welfareFacilities(facilityNo),
-foreign key(U_NO) references U_MEMBER(U_NO)
-);
-
-create table facilityReview(
-revNo number(10)primary key,
-facilityNo number(10),
-facilityName varchar2(100),
-u_no number(10),
-u_id varchar2(34),
-content varchar2(400),
-score number,
-rdate date,
 foreign key(facilityNO) references welfareFacilities(facilityNo),
 foreign key(U_NO) references U_MEMBER(U_NO)
 );

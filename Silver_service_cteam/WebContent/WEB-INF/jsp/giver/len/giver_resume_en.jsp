@@ -171,7 +171,7 @@
           <div class="layer_inner">
 			<h1>내 이력서 열람</h1>${giver_no}
 			<div class="My_Image">
-			<img src="resources/images/1.jpg" alt="My Image">		
+			<img src="resources/upload/${Default[0].my_IMG}" alt="My Image">	
 			</div>
 				<table class="ui celled table">
 				<tr><td rowspan="11">기본정보</td></tr>

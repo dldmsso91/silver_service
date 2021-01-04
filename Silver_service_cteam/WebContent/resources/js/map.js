@@ -26,7 +26,7 @@ function fn_clickSetting(){
 	
 	//지도에 클릭 이벤트를 등록합니다
 	// 지도를 클릭하면 마지막 파라미터로 넘어온 함수를 호출합니다
-	daum.maps.event.addListener(map, 'click', function(mouseEvent) {        
+	kakao.maps.event.addListener(map, 'click', function(mouseEvent) {        
 	    
 		if(clickMarker!=null){
 			clickMarker.setMap(null);
@@ -40,8 +40,8 @@ function fn_clickSetting(){
 	    var resultDiv2 = document.getElementById('lng');
 	    resultDiv2.value = Math.floor(latlng.getLng()*100000)/100000;
 	    
-	    clickMarker = new daum.maps.Marker({
-	    	position: new daum.maps.LatLng(resultDiv1.value,resultDiv2.value),
+	    clickMarker = new kakao.maps.Marker({
+	    	position: new kakao.maps.LatLng(resultDiv1.value,resultDiv2.value),
 	    	image:clickIcon,
 	    	clickable:false
 	    });
@@ -63,89 +63,21 @@ function fn_nodeMarkerMaker(obj){
 	    position: markerPosition,
 	    clickable: true 
 	});
-	var iwContent = obj.attr("nodename") , // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-    iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-	// 인포윈도우를 생성합니다
-		var infowindow = new kakao.maps.InfoWindow({
-			content : iwContent,
-			removable : iwRemoveable
-			});
-
-// 마커에 클릭이벤트를 등록합니다
-kakao.maps.event.addListener(marker, 'click', function() {
-      // 마커 위에 인포윈도우를 표시합니다
-      infowindow.open(map, marker);  
-});
 	//마커를 지도 위에 표시되도록 세팅합니다.
 	marker.setMap(map);
 
-	
-	
 	//생성된 마커를 배열에 추가합니다.
 	markers.push(marker);
 	kakao.maps.event.addListener(marker,"click",function(e){
 		if(obj.attr("id").slice(0,4)=="node"){
-			
 			//마커 클릭 이벤트를 선언해줍니다.
-			fn_clickNode(obj);
-				
+			//fn_clickNode(obj);
+			fn_clickPath(obj);
 			
 		}else if(obj.attr("id").slice(0,4)=="path"){
 			fn_clickPath(obj);
 		}	
 	});
-	//------------------------자기 위치 ----------------------
-	if (navigator.geolocation) {
-	    
-	    // GeoLocation을 이용해서 접속 위치를 얻어옵니다
-	    navigator.geolocation.getCurrentPosition(function(position) {
-	        
-	        var lat = position.coords.latitude, // 위도
-	            lon = position.coords.longitude; // 경도
-	        
-	        var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-	            message = '<div style="padding:5px;">my location </div>'; // 인포윈도우에 표시될 내용입니다
-	        
-	        // 마커와 인포윈도우를 표시합니다
-	        displayMarker(locPosition, message);
-	            
-	      });
-	    
-	} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
-	    
-	    var locPosition = new kakao.maps.LatLng(lat, lng),    
-	        message = 'geolocation을 사용할수 없어요..'
-	        
-	    displayMarker(locPosition, message);
-	}
-
-	// 지도에 마커와 인포윈도우를 표시하는 함수입니다
-	function displayMarker(locPosition, message) {
-
-	    // 마커를 생성합니다
-	    var marker = new kakao.maps.Marker({  
-	        map: map, 
-	        position: locPosition
-	    }); 
-	    
-	    var iwContent = message, // 인포윈도우에 표시할 내용
-	        iwRemoveable = true;
-
-	    // 인포윈도우를 생성합니다
-	    var infowindow = new kakao.maps.InfoWindow({
-	        content : iwContent,
-	        removable : iwRemoveable
-	    });
-	    
-	    // 인포윈도우를 마커위에 표시합니다 
-	    infowindow.open(map, marker);
-	    
-	    // 지도 중심좌표를 접속위치로 변경합니다
-	    map.setCenter(locPosition);      
-	}    
-	
-	
 	
 }
 
@@ -169,11 +101,11 @@ function fn_setOverlay(obj){
 	customOverlay = new kakao.maps.CustomOverlay({
 	    map: map,
 	    clickable: false,
-	    content: '<a href="#this" onclick="fn_clickOverlay();"><span class="customOverlay">'+obj.html()+'</span></a>',
-	    position: new daum.maps.LatLng(obj.attr("lat"),obj.attr("lng")),
-	    xAnchor: 0.5,
-	    yAnchor: 3,
-	    zIndex: 3
+	    content: '<a href="#this" onclick="fn_clickOverlay();"><span class="customOverlay">'+obj.html()+'</span></a>',  //엘리먼트 또는 HTML 문자열 형태의 내용
+	    position: new kakao.maps.LatLng(obj.attr("lat"),obj.attr("lng")),
+	    xAnchor: 0.5, // 커스텀 오버레이의 x축 위치입니다. 1에 가까울수록 왼쪽에 위치합니다. 기본값은 0.5 입니다
+	    yAnchor: 3,// 커스텀 오버레이의 y축 위치입니다. 1에 가까울수록 왼쪽에 위치합니다. 기본값은 0.5 입니다
+	    zIndex: 3 // 커스텀 오버레이의 z축 위치입니다. 1에 가까울수록 왼쪽에 위치합니다. 기본값은 0.5 입니다
 	});
 	customOverlay.setMap(map);
 }
@@ -184,4 +116,25 @@ function setMarkers(map){
 		markers[i].setMap(map);
 	}
 }
+
+function fn_nodeLineMaker(){
+	// 지도에 표시할 선을 생성합니다
+	var polyline = new kakao.maps.Polyline({
+	    path: linePath, // 선을 구성하는 좌표배열 입니다
+	    strokeWeight: 3, // 선의 두께 입니다
+	    strokeColor: '#FF0000', // 선의 색깔입니다
+	    strokeOpacity: 0.7, // 선의 불투명도 입니다 1에서 0 사이의 값이며 0에 가까울수록 투명합니다
+	    strokeStyle: 'solid' // 선의 스타일입니다
+	});
+	
+	// 지도에 선을 표시합니다 
+	polyline.setMap(map);
+	
+	//지도의 중심 좌표를 정류장 출발점의 중심으로 위치 변경합니다.
+	map.setCenter(linePath[0]);
+	
+	//마커들의 배열에 폴리라인을 같이 넣어 관리합니다.
+	markers.push(polyline);
+}
+
 

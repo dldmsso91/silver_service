@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="customerMapper">
+
+ 
+
+<!--   ResultMap -->
+<!-- 현재 giver에 join되어있음. -->
+<resultMap type="giver" id="giver2">
+   <id property="giver_no" column="giver_no"/>
+   <result column="apply_giver_no" property="apply_giver_no"/>
+   <result column="u_no" property="u_no"/>   
+   <result column="giver_type" property="giver_type"/>
+   <result column="hope_business_place" property="hope_business_place"/>
+   <result column="hope_salary" property="hope_salary"/>
+   <result column="hope_worktime_start" property="hope_worktime_start"/>
+   <result column="hope_worktime_end" property="hope_worktime_end"/>
+   <result column="smoking" property="smoking"/>
+   <result column="school" property="school"/>
+   <result column="major" property="major"/>
+   <result column="penalty" property="penalty"/>
+   <result column="apply_giver_redate" property="apply_giver_redate"/>
+   <association property="memberVO" column="u_no" javaType="mvo">
+      <id property="u_no" column="u_no"/>
+      <result property="u_id" column="u_id"/>
+      <result property="u_name" column="u_name"/>
+      <result property="u_birth" column="u_birth"/>
+      <result property="u_phone" column="u_phone"/>
+      <result property="u_email" column="u_email"/>
+      <result property="u_addr" column="u_addr"/>
+      <result property="u_redate" column="u_redate"/>
+   </association>
+   <collection property="licenseVO" ofType="license" >
+      <id column="giver_no" property="giver_no"/>
+      <result column="license_name" property="license_name"/>   
+      <result column="license_Institute" property="license_Institute"/>   
+      <result column="license_Redate" property="license_Redate"/>   
+   </collection>      
+
+   <collection property="careerVO" ofType="career">
+      <id column="giver_no" property="giver_no"/>
+      <result column="career_name" property="career_name"/>   
+      <result column="work_period_start" property="work_period_start"/>   
+      <result column="work_period_end" property="work_period_end"/>   
+      <result column="role" property="role"/>   
+   </collection>      
+   <collection property="giver_satisfactionVO" ofType="satisfaction">
+      <id column="giver_no" property="giver_no"/>
+      <result column="customer_satisfaction_score" property="customer_satisfaction_score"/>   
+      <result column="customer_satisfaction_complain" property="customer_satisfaction_complain"/>   
+      <result column="giver_Satisfaction_redate" property="giver_Satisfaction_redate"/>   
+   </collection>      
+   <collection property="hope_business_areaVO" ofType="hope_business_area">
+      <id column="giver_no" property="giver_no"/>
+      <result column="hope_business_city" property="hope_business_city"/>   
+      <result column="hope_business_town" property="hope_business_town"/>   
+   </collection>
+ <!--
+   <collection property="CustomerVO" ofType="Customer">
+      <id column="giver_no" property="giver_no"/>
+      <result column="my_condition" property="my_condition"/>   
+      <result column="my_allergy" property="my_allergy"/>
+      <result column="can_walk" property="can_walk"/>   
+      <result column="hope_start_date" property="hope_start_date"/>
+      <result column="hope_finish_date" property="hope_finish_date"/>   
+      <result column="hope_start_servicetime" property="hope_start_servicetime"/>
+      <result column="hope_end_servicetime" property="hope_end_servicetime"/>   
+      <result column="hope_service_place" property="hope_service_place"/>                     
+   </collection>
+   <collection property="CustomerVO" ofType="Customer">
+      <id column="u_no" property="u_no"/>
+      <result column="my_condition" property="my_condition"/>   
+      <result column="my_allergy" property="my_allergy"/>
+      <result column="can_walk" property="can_walk"/>   
+      <result column="hope_start_date" property="hope_start_date"/>
+      <result column="hope_finish_date" property="hope_finish_date"/>   
+      <result column="hope_start_servicetime" property="hope_start_servicetime"/>
+      <result column="hope_end_servicetime" property="hope_end_servicetime"/>   
+      <result column="hope_service_place" property="hope_service_place"/>  
+   </collection>
+   -->
+</resultMap>
+
+
+
+<!-- Customer 정보 insert 부분 -->
+<insert id="insert_customer" parameterType="customer">
+	 INSERT INTO customer 
+	 (CUSTOMER_NO,
+	 u_no,
+	 giver_type,
+	 my_condition,
+	 my_allergy,
+	 can_walk,
+	 hope_start_date,
+	 hope_finish_date,
+	 hope_Service_place,
+	 hope_salary,
+	 hope_start_servicetime,
+	 hope_end_servicetime,
+	 penalty,
+	 apply_customer_redate 
+	 )	 
+	 VALUES 
+	 (Customer_seq.nextval,
+	 #{u_no},
+	 #{giver_type},
+	 #{my_condition},
+	 #{my_allergy},
+	 #{can_walk},
+	 #{hope_start_date},
+	 #{hope_finish_date},
+	 #{hope_service_place},
+	 #{hope_salary},
+	 #{hope_start_servicetime},
+	 #{hope_end_servicetime},
+	 0,
+	 sysdate)   	
+	<selectKey keyProperty="customer_no" resultType="int">
+	SELECT Customer_seq.CURRVAL AS customer_no FROM DUAL
+	</selectKey>
+</insert>
+
+</mapper>

@@ -179,11 +179,11 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 
 
 
-		<h3>어떤 부분을 수정하시나요?</h3>
+		<h3>이번 업무는 어떠셨나요?</h3>
 	 <form action="insert_hugi_giver" method="post"  enctype="multipart/form-data">
 			<input type="hidden" name="u_no" value="${u_no}"/>   		
 			<input type="hidden" name="customer_no" value="${customer_no}"/> 		
-			<input type="text" class="test" value="나쁘지 않음" >
+<!-- 			<input type="text" class="test" value="나쁘지 않음" > -->
 		 	<input type="hidden" name="hugi_contents" class="hugi_contents" value="나쁘지 않음" /> 
 		    <div class="site-section">
 		      <div class="container">

@@ -1,0 +1,69 @@
+
+공지사항 테이블
+CREATE TABLE mp_BOARD(
+    BNO NUMBER NOT NULL,
+    TITLE VARCHAR2(100)     NOT NULL,
+    CONTENT VARCHAR2(2000)  NOT NULL,
+    WRITER VARCHAR2(100)    NOT NULL,
+    REGDATE DATE            DEFAULT SYSDATE,
+    PRIMARY KEY(BNO)
+);
+
+공지사항 시퀀스
+
+CREATE SEQUENCE S_BOARD_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+회원가입 테이블
+CREATE TABLE U_MEMBER(
+     U_NO NUMBER NOT NULL PRIMARY KEY
+    ,U_ID VARCHAR2(20)  UNIQUE  NOT NULL 
+    ,U_PASSWORD VARCHAR2(50) NOT NULL
+    ,U_NAME   VARCHAR2(50) NOT NULL
+    ,U_BIRTH  varchar2(20) NOT NULL
+    ,U_BIRTH2 varchar2(20) NOT NULL
+    ,U_PHONE VARCHAR2(50) 
+    ,U_EMAIL VARCHAR2(100) NOT NULL
+    ,U_ADDR  VARCHAR2(200) NOT NULL
+    ,U_ADDR1 VARCHAR2(200) NOT NULL
+    ,U_ADDR2 VARCHAR2(200) NOT NULL
+    ,U_REDATE DATE DEFAULT SysDATE
+    ,GIVER_NO NUMBER(4)
+    ,CUSTOMER_NO NUMBER(4)
+);
+
+회원가입 시퀀스
+CREATE SEQUENCE U_MEMBER_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+공지사항 댓글 테이블
+create table mp_reply (
+    bno number not null,
+    rno number not null,
+    content varchar2(1000) not null,
+    writer varchar2(50) not null,
+    regdate date default sysdate,
+    primary key(bno, rno)
+);
+insert into mp_reply(bno, rno, content, writer)
+    values(831, mp_reply_seq.nextval, '테스트댓글', '테스트 작성자');
+
+새소식 게시판 테이블
+CREATE TABLE NEW_BOARD(
+    NBNO NUMBER NOT NULL,
+    NTITLE VARCHAR2(100)     NOT NULL,
+    NCONTENT VARCHAR2(2000)  NOT NULL,
+    NWRITER VARCHAR2(100)    NOT NULL,
+    NREGDATE DATE            DEFAULT SYSDATE,
+    PRIMARY KEY(NBNO)
+);
+
+새소식 게시판 시퀀스
+CREATE SEQUENCE NEW_BOARD_SEQ
+START WITH 1
+INCREMENT BY 1;
+
+INSERT INTO NEW_BOARD(nBNO, nTITLE, nCONTENT, nWRITER)
+     VALUES (NEW_BOARD_SEQ.NEXTVAL, '제목입니다', '내용입니다', 'test입니다');

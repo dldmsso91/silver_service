@@ -62,5 +62,15 @@ public class MemberDAOImpl implements MemberDAO {
 	public void update_giverNo_mem(HashMap<String, Integer> map) throws Exception {
 		sql.update("memberMapper.update_giverNo_mem",map);		
 	}
+	//신청서 삭제 시 멤버에 customer_no 0으로 정보변경 테스트 중 	
+	@Override
+	public void delete_customerNo_mem(int u_no) throws Exception {
+		sql.update("memberMapper.delete_customerNo_mem",u_no);		
+	}
+	//지원서 삭제 시 멤버에 giver_no 0으로 정보변경 테스트 중 
+	@Override
+	public void delete_giverNo_mem(int u_no) throws Exception {
+		sql.update("memberMapper.delete_giverNo_mem",u_no);		
+	}
 }
 

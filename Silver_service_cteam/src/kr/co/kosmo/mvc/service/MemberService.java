@@ -17,7 +17,16 @@ public interface MemberService {
 	//--------은내
 	//customerNo update(세션용)	
 	public void update_customerNo_mem(int u_no, int customer_no) throws Exception;
+
 	//giverNo update(세션용)	
 	public void update_giverNo_mem(int u_no, int giver_no) throws Exception;
 
+	//신청서 삭제 시 멤버에 customer_no 0으로 정보변경 테스트 중 	
+	public void delete_customerNo_mem(int u_no) throws Exception;
+
+	//지원서 삭제 시 멤버에 giver_no 0으로 정보변경 테스트 중 	
+	public void delete_giverNo_mem(int u_no) throws Exception;
+
+	
+	
 }

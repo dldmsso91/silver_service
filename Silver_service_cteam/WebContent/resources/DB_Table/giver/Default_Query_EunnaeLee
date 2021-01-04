@@ -111,4 +111,25 @@ SELECT * FROM dual;
 
 
 
+INSERT ALL 
+    INTO Hope_Business_Area VALUES (Hope_Area_seq_ftn,2,'대전시','문창동')   
+    INTO Hope_Business_Area VALUES (Hope_Area_seq_ftn,2,'서울시','여의도동')
+    INTO Hope_Business_Area VALUES (Hope_Area_seq_ftn,2,'인천시','송도동')
+SELECT * FROM dual;
+
+select * from Hope_Business_Area order by 1;
+
+INSERT ALL    
+    INTO career VALUES (career_seq_ftn,2,'케어스','2015-10-10','2020-12-12','요양사')
+    INTO career VALUES (career_seq_ftn,2,'케어스','2015-10-10','2020-12-12','요양조무사')
+    INTO career VALUES (career_seq_ftn,2,'케어스시','2015-10-10','2020-12-12','요양기사') 
+SELECT * FROM dual;
+
+select * from career order by 1
+
+INSERT ALL 
+    INTO license VALUES (career_seq_ftn,giver_seq.currval,'미용자격증2','대한민국',sysdate)
+    INTO license VALUES (license_seq_ftn,giver_seq.currval,'미드레곤자격증2','대한민국',sysdate)
+    INTO license VALUES (license_seq_ftn,giver_seq.currval,'뷰티풀용자격증2','대한민국',sysdate)
+SELECT * FROM DUAL
 

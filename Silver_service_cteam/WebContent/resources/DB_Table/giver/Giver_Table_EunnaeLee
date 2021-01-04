@@ -26,8 +26,7 @@ CREATE SEQUENCE giver_seq
   MINVALUE 1
   NOCYCLE;
   
-drop table giver;
-drop sequence giver_seq;
+
 
 /* --------------------------------------도우미 희망근무지역 테이블 */
 
@@ -43,10 +42,6 @@ CREATE SEQUENCE Hope_Business_Area_seq
   MAXVALUE 10000
   MINVALUE 1
   NOCYCLE;
-
-drop table Hope_Business_Area;
-drop sequence Hope_Business_Area_seq;
-
 
 
 
@@ -66,8 +61,6 @@ CREATE SEQUENCE license_seq
   MINVALUE 1
   NOCYCLE;
   
-drop table license;
-drop sequence license_seq;
 
 
 /* --------------------------------------도우미 경력 테이블 */
@@ -86,17 +79,16 @@ CREATE SEQUENCE career_seq
   MINVALUE 1
   NOCYCLE;
 
-drop table career;
-drop sequence career_seq;
+
 
 /* --------------------------------------서비스 후기 테이블 */
 CREATE TABLE Hugi(
     Hugi_no NUMBER(4) not null PRIMARY KEY,
-    giver_no NUMBER(4) not null REFERENCES giver(giver_no),   
-    Customer_NO NUMBER(4) not null REFERENCES Customer(Customer_NO),     
+    U_NO NUMBER(4) not null REFERENCES U_MEMBER(U_NO),     
+    giver_no NUMBER(4) REFERENCES giver(giver_no),   
+    Customer_NO NUMBER(4) REFERENCES Customer(Customer_NO),     
     Hugi_score NUMBER(5) not null,
-    Hugi_contents VARCHAR2(50),   
-    Hugi_redate DATE DEFAULT SYSDATE     
+    Hugi_contents VARCHAR2(50)    
 );
 CREATE SEQUENCE Hugi_seq
   START WITH 1
@@ -105,25 +97,23 @@ CREATE SEQUENCE Hugi_seq
   MINVALUE 1
   NOCYCLE;
 
-drop table Hugi;
-drop sequence Hugi_seq;
+
 /* --------------------------------------도우미 일일 만족도 테이블 */
-CREATE TABLE Giver_Satisfaction(
+CREATE TABLE service_Satisfaction(
     Giver_Satisfaction_no NUMBER(4) PRIMARY KEY,
+    U_NO NUMBER(4) not null REFERENCES U_MEMBER(U_NO), 
     giver_no NUMBER(4) not null REFERENCES giver(giver_no),       
     Customer_satisfaction_score NUMBER(10),
     Customer_satisfaction_complain VARCHAR2(50), 
     Giver_Satisfaction_redate DATE DEFAULT SYSDATE    
 );
-CREATE SEQUENCE Giver_Satisfaction_seq
+CREATE SEQUENCE service_Satisfaction_seq
   START WITH 1
   INCREMENT BY 1
   MAXVALUE 10000
   MINVALUE 1
   NOCYCLE;
 
-drop table Giver_Satisfaction;
-drop sequence Giver_Satisfaction_seq;
 
  /* --------------------------------------서비스 신청자 테이블 */
 CREATE TABLE Customer(
@@ -152,9 +142,6 @@ CREATE SEQUENCE Customer_seq
   MINVALUE 1
   NOCYCLE; 
   
-drop table customer;
-drop sequence Customer_seq;
-
 
 
 /* ----------------------------------신청자 리스트 테이블 */
@@ -171,38 +158,42 @@ CREATE SEQUENCE apply_to_giver_seq
   MINVALUE 1
   NOCYCLE;
 
-drop table apply_to_giver;
-drop sequence apply_to_giver_seq;
 
 
-/* ----------------------------------도우미의 서비스 이력내역 테이블 */
-
-
-CREATE TABLE Operation_details(
-    Operation_details_no NUMBER(4) not null PRIMARY KEY,
-    giver_no NUMBER(4) not null REFERENCES giver(giver_no),         
-    customer_no NUMBER(4) not null REFERENCES customer(customer_no),      
-    Hugi_no NUMBER(4) REFERENCES Hugi(Hugi_no)
+/* --------------------------------------서비스 매칭 테이블 */
+CREATE TABLE service_matching(
+    service_matching_no NUMBER(4) not null PRIMARY KEY,
+    U_NO NUMBER(4) not null REFERENCES U_MEMBER(U_NO),
+    giver_no NUMBER(4) not null REFERENCES Giver(Giver_NO),
+    customer_no NUMBER(4) not null REFERENCES Customer(Customer_NO),  
+    service_matching_redate DATE DEFAULT SYSDATE 
 );
-CREATE SEQUENCE Operation_details_seq
+
+CREATE SEQUENCE service_matching_seq
   START WITH 1
   INCREMENT BY 1
   MAXVALUE 10000
   MINVALUE 1
   NOCYCLE;
 
-drop table Operation_details;
-drop sequence Operation_details_seq;
 
 
 
+/* --------------------------------------서비스 종료 테이블 */
+CREATE TABLE Terminate_giver_service(
+    Terminate_giver_service_no NUMBER(4) not null PRIMARY KEY,
+    U_NO NUMBER(4) not null REFERENCES U_MEMBER(U_NO),    
+    giver_no NUMBER(4) not null REFERENCES giver(giver_no),              
+    customer_no NUMBER(4) not null REFERENCES customer(customer_no),      
+    Terminate_giver_service_redate DATE DEFAULT SYSDATE 
+);
 
-
-
-
-
-
-
+CREATE SEQUENCE Terminate_giver_service_seq
+  START WITH 1
+  INCREMENT BY 1
+  MAXVALUE 10000
+  MINVALUE 1
+  NOCYCLE;
 
 
 

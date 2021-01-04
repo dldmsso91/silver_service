@@ -97,5 +97,9 @@ public class CommunityServiceImpl implements CommunityService{
 		return communityDao.getSilverhallListAjax(vo);
 	}
 	
+	@Override
+	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map){
+		return communityDao.searchFacility(map);
+	}
 	
 }

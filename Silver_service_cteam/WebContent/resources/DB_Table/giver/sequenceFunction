@@ -1,0 +1,39 @@
+
+/* ------------------------ 함수 생성 ------------------------------ */
+
+/* ----------- Hope_Area_seq_ftn 함수 생성 ------------------ */
+create or replace
+FUNCTION Hope_Area_seq_ftn RETURN NUMBER AS
+num NUMBER;
+BEGIN
+SELECT Hope_Business_Area_seq.nextval
+INTO num
+FROM dual;
+return num;
+END Hope_Area_seq_ftn;
+
+
+/* ----------- career_seq_ftn 함수 생성 ------------------ */
+create or replace
+FUNCTION career_seq_ftn RETURN NUMBER AS
+num NUMBER;
+BEGIN
+SELECT career_seq.nextval
+INTO num
+FROM dual;
+return num;
+END career_seq_ftn;
+
+/* ----------- license_seq_ftn 함수 생성 ------------------ */
+
+create or replace
+FUNCTION license_seq_ftn RETURN NUMBER AS
+num NUMBER;
+BEGIN
+SELECT license_seq.nextval
+INTO num
+FROM dual;
+return num;
+END license_seq_ftn;
+
+

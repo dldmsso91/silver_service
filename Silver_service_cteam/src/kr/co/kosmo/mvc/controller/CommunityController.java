@@ -4,6 +4,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,6 +43,21 @@ public class CommunityController {
 		return "myReservation_jw";
 	}
 
+	@RequestMapping(value = "/searchFacility", method = RequestMethod.POST)
+	public String searchFacility(HttpServletRequest request, Model model) {
+		Map<String, String> map = new HashMap<String, String>();
+		String city = request.getParameter("city");
+		String town = request.getParameter("town");
+		String typeName = request.getParameter("typeName");
+		String facilityName = request.getParameter("facilityName");
+		map.put("city", city);
+		map.put("town", town);
+		map.put("typeName", typeName);
+		map.put("facilityName", facilityName);
+		model.addAttribute("searchList",communityService.searchFacility(map));
+		return "community/communityService_jw";
+	}
+	
 	@RequestMapping(value = "/communityService")
 	public String communityService() {
 		return "community/communityService_jw";

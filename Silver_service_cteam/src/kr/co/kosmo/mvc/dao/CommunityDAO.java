@@ -1,6 +1,7 @@
 package kr.co.kosmo.mvc.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
@@ -47,5 +48,6 @@ public interface CommunityDAO {
 	public List<WelfareFacilitiesVO> getElderlyhomeListAjax(WelfareFacilitiesVO vo);
 	
 	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
-	
+
+	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
 }

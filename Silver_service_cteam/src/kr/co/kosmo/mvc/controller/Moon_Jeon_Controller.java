@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
-
+import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.Career_SubVO;
 import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
@@ -64,30 +64,49 @@ public class Moon_Jeon_Controller {
 	
 	
 	
-//---------------------------------동윤 Controller ----------------------------------------
+//---------------------------------동윤/은내 Controller ----------------------------------------
 	
 	@RequestMapping(value="/guide_Life_apply_yj")
 	   public String guide_Life_apply_yj(HttpSession session) {
-			int u_no;
-			if(session.getAttribute("u_no")==null) {
+		int u_no;
+		
+		//만약 로그인이 안되어있다면, 로그인 페이지로 넘기기
+		if(session.getAttribute("member") == null){
 				return "login";
-			}
-			else {
-				u_no = Integer.parseInt(session.getAttribute("u_no").toString());
-			}
-		      return "dy/guide_Life_apply_yj";
+				
+		//만약 지원을 한 적이 있다면, 도우미 선택 페이지로 넘기기(은내 수정)
+		}else if(Integer.parseInt(session.getAttribute("giver_no").toString()) > 0) {	
+			System.out.println("guide_Life_apply_yj giver_no : "+session.getAttribute("giver_no"));
+			return "redirect:succesed_apply_giver_en";
+			
+		//만약 지원을 한 적이 없다면, 지원하기 페이지로 넘기기
+		}else{				
+			System.out.println("giver_no가 null이라면");
+			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+			return "dy/guide_Life_apply_yj";
+		}							
+		
 	   }
 	
 	@RequestMapping(value="/guide_nursing_apply_yj")
 	   public String guide_nursing_apply_yj(HttpSession session) {
 			int u_no;
-			if(session.getAttribute("u_no")==null) {
+			
+			
+			//만약 로그인이 안되어있다면, 로그인 페이지로 넘기기
+			if(session.getAttribute("member")==null) {
 				return "login";
-			}
-			else {
+				
+			//만약 지원을 한 적이 있다면, 도우미 선택 페이지로 넘기기(은내 수정)
+			}else if(Integer.parseInt(session.getAttribute("giver_no").toString()) > 0) {	
+				System.out.println("guide_Life_apply_yj giver_no : "+session.getAttribute("giver_no"));
+				return "redirect:succesed_apply_giver_en";
+				
+			//만약 지원을 한 적이 없다면, 지원하기 페이지로 넘기기
+			}else {
 				u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+				return "dy/guide_nursing_apply_yj";
 			}
-		    	return "dy/guide_nursing_apply_yj";
 	   }
 	   
 
@@ -95,8 +114,17 @@ public class Moon_Jeon_Controller {
 	@RequestMapping(value="/guide_walk_apply_yj")
 	   public String guide_walk_apply_yj(HttpSession session) {
 				int u_no;
+
+				//만약 로그인이 안되어있다면, 로그인 페이지로 넘기기
 				if(session.getAttribute("u_no")==null) {
 					return "login";
+
+				//만약 지원을 한 적이 있다면, 도우미 선택 페이지로 넘기기(은내 수정)
+				}else if(Integer.parseInt(session.getAttribute("giver_no").toString()) > 0) {	
+					System.out.println("guide_Life_apply_yj giver_no : "+session.getAttribute("giver_no"));
+					return "redirect:succesed_apply_giver_en";
+					
+				//만약 지원을 한 적이 없다면, 지원하기 페이지로 넘기기
 				}
 				else {
 					u_no = Integer.parseInt(session.getAttribute("u_no").toString());
@@ -107,13 +135,21 @@ public class Moon_Jeon_Controller {
 	@RequestMapping(value="/customer_service_apply_yj")
 	   public String customer_service_apply_yj(HttpSession session) {
 				int u_no;
+
+				//만약 로그인이 안되어있다면, 로그인 페이지로 넘기기
 				if(session.getAttribute("u_no")==null) {
 					return "login";
-				}
-				else {
+
+				//만약 지원을 한 적이 있다면, 도우미 선택 페이지로 넘기기(은내 수정)
+				}else if(Integer.parseInt(session.getAttribute("customer_no").toString()) > 0) {	
+					System.out.println("guide_Life_apply_yj giver_no : "+session.getAttribute("customer_no"));
+					return "redirect:recommend_service_en";
+					
+				//만약 지원을 한 적이 없다면, 지원하기 페이지로 넘기기
+				} else {
 					u_no = Integer.parseInt(session.getAttribute("u_no").toString());
-				}
 					return "dy/customer_service_apply_yj";
+				}
 	      }
 
 	
@@ -213,7 +249,7 @@ public class Moon_Jeon_Controller {
 			session.setAttribute("Hope_salary", Cvo.getHope_salary()); 
 			session.setAttribute("Hope_start_servicetime", Cvo.getHope_start_servicetime()); 
 			session.setAttribute("Hope_end_servicetime", Cvo.getHope_end_servicetime()); 
-			model.addAttribute("Default",giver_service.selectGiverList(vo));	
+			model.addAttribute("Default",giver_service.selectGiverList());	
 			
 			return "redirect:recommend_service_en";
 		}

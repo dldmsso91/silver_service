@@ -1,5 +1,10 @@
 package kr.co.kosmo.mvc.controller;
 
+
+
+
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 
@@ -7,12 +12,17 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
+import kr.co.kosmo.mvc.dto.BoardVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.ReplyVO;
+import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.service.MemberService;
 
 
@@ -72,6 +82,8 @@ public class MemberController {
 			session.setAttribute("member", login);
 			session.setAttribute("u_no", login.getU_no());
 			session.setAttribute("u_id", login.getU_id());
+			session.setAttribute("customer_no", login.getCustomer_no());
+			session.setAttribute("giver_no", login.getGiver_no());
 		}
 		
 		return "redirect:/";
@@ -110,12 +122,20 @@ public class MemberController {
 	
 	
 	// �쉶�썝�젙蹂댁닔�젙
+//	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
+//	public String registerUpdateView() throws Exception{
+//		
+//		return "memberUpdateView";
+//	}
+//                                                                                                                                      
+
+	//마이페이지 이동
 	@RequestMapping(value="/memberUpdateView", method = RequestMethod.GET)
 	public String registerUpdateView() throws Exception{
 		
-		return "memberUpdateView";
+		return "mypage/default_mypage/memberUpdateView";
 	}
-                                                                                                                                      
+	
 	@RequestMapping(value="/memberUpdate", method = RequestMethod.POST)
 	public String registerUpdate(MemberVO vo, HttpSession session) throws Exception{
 		

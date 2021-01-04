@@ -6,7 +6,7 @@
     <!-- MAIN -->
 
 <form method="post" action="my_apply_service_detail">
-<input type="hidden" name="customer_no" value="${Customer_no}"/>   
+<input type="hidden" name="customer_no" value="${customer_no}"/>   
     <div class="slide-item overlay" style="background-image: url('resources/images/promis.jpg')">
       <div class="container">
         <div class="row justify-content-center text-center">

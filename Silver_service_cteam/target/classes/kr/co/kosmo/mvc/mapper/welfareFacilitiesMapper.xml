@@ -210,5 +210,16 @@
 		insert into facilityReview
 		values((select nvl(max(revNo),0)+1 from facilityReview),#{facilityNo},#{facilityName},#{u_no},#{u_id},#{content},#{score},sysdate)
 	</insert>
+	
+	<select id="searchFacility" resultType="facInfo" parameterType="hashmap">
+		select facilityNo,typeName,eavaluationResult,facilityName,peopleLimit,peopleNow,address,peopleMargin,peopleWait,telnumber,address,supplyService from welfareFacilities
+		where address like '%'||#{city}||'%' AND address like '%'||#{town}||'%'
+		<if test="typeName != null or typeName != ''">
+			AND typeName like #{typeName}
+		</if>
+		<if test="facilityName != null  or facilityName != ''">
+			AND facilityName = #{facilityName}
+		</if>
+	</select>
 
 </mapper>  

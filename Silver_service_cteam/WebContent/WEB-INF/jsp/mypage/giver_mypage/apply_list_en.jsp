@@ -2,10 +2,29 @@
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>    
 
-
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+<style>
+.no_resume_msg{
+font-family: 'Jua', sans-serif;
+color: #383737;
+}
+</style>
 
 <!-- MAIN -->
-
+	<c:if test="${apply[0] == null}">
+	
+		<br>
+		<br>
+		<div class="My_Image">
+		<img src="resources/images/sorry.png" >		
+		</div>
+		<br>
+		<h1 class="no_resume_msg">아직 들어온 신청서가 없습니다</h1>
+		
+	</c:if>
+	
+	<c:if test="${apply[0] != null}">
     <h3>내게 온 신청서 확인하기</h3>
             <form role="form" method="get">
                <table class="table table-hover">
@@ -27,6 +46,6 @@
                   </c:forEach> 
                </table>
             </form>
-		
+	</c:if>		
 
 

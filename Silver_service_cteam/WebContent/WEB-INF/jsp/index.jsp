@@ -119,21 +119,18 @@ $(document).ready(function(){
                   </ul>
                 </li>
 
-          <li class="has-children">
-				<a href="#" class="nav-link">요양시설 서비스</a>
-				<ul class="dropdown">
-				<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
-                    <li class="has-children">
-                      <a href="#">요양시설 지도 정보</a>
-                      <ul class="dropdown">
-                        <li><a href="medicalLocation">노인의료복지시설</a></li>
-                        <li><a href="silverhallLocation">재가노인복지시설</a></li>
-                        <li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
-                      </ul>
-                    </li>
-                  </ul>
-                </li>
-                <li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
+           <li class="has-children"><a href="#" class="nav-link">요양시설
+									서비스</a>
+								<ul class="dropdown">
+									<li><a href="communityService" class="nav-link">요양시설 검색</a></li>
+									<li class="has-children"><a href="#">요양시설 지도 정보</a>
+										<ul class="dropdown">
+											<li><a href="medicalLocation">노인의료복지시설</a></li>
+											<li><a href="silverhallLocation">재가노인복지시설</a></li>
+											<li><a href="elderlyhomeLocation">노인여가복지시설</a></li>
+										</ul></li>
+								</ul></li>
+							<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
             <c:if test="${member == null}">
             <li><a href="login" class="login_img" id="login"><img src="resources/images/login.png"></a>로그인</li>
                  <li><a href="register" class="login_img"><img src="resources/images/sign_up.png"></a>회원가입</li>

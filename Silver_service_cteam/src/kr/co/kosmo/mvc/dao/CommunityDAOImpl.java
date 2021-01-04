@@ -1,6 +1,7 @@
 package kr.co.kosmo.mvc.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -109,6 +110,11 @@ public class CommunityDAOImpl implements CommunityDAO{
 	@Override
 	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo){
 		return ss.selectList("commu.getSilverhallListAjax", vo);
+	}
+	
+	@Override
+	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map){
+		return ss.selectList("commu.searchFacility", map);
 	}
 	
 }

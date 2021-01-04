@@ -33,6 +33,7 @@ import kr.co.kosmo.mvc.dto.Giver.HugiVO;
 import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
 import kr.co.kosmo.mvc.dto.Giver.License_SubVO;
 import kr.co.kosmo.mvc.dto.Giver.Service_matchingVO;
+import kr.co.kosmo.mvc.dto.Giver.Terminate_giver_serviceVO;
 import kr.co.kosmo.mvc.dto.Giver.WorktimeVO;
 import kr.co.kosmo.mvc.service.MemberService;
 import kr.co.kosmo.mvc.service.Giver.GiverService;
@@ -120,12 +121,14 @@ public class GiverController_len {
 	
 	//--------------------도우미 추천 페이지 및 giver_no를 memberVO에 update
 	@RequestMapping(value="/recommend_service_en")
-	public String recommend_service_en(Model model,GiverVO vo,HttpSession session) throws Exception{	
+	public String recommend_service_en(Model model,HttpSession session) throws Exception{
+		
+		
 		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());	
 		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());	
 		
-		model.addAttribute("Default",giver_service.selectGiverList(vo));	
-		model.addAttribute("Customer_no",customer_no);	
+		model.addAttribute("Default",giver_service.selectGiverList());	
+		model.addAttribute("customer_no",customer_no);	
 
 		System.out.println("succesed_apply_giver_en Customer_no : "+customer_no);
 		System.out.println("succesed_apply_giver_en u_no : "+u_no);
@@ -145,7 +148,7 @@ public class GiverController_len {
 		System.out.println("succesed_apply_service_en Controller"+customer_no);
 		System.out.println("succesed_apply_service_en Controller"+giver_no);
 		
-		model.addAttribute("Customer_no",customer_no);
+		model.addAttribute("customer_no",customer_no);
 		model.addAttribute("Giver_no",giver_no);
 		giver_service.apply_to_giver_insert(giver_no, customer_no);
 		return "giver/len/succesed_apply_service_en";
@@ -156,11 +159,11 @@ public class GiverController_len {
 
 	//--------------------도우미 상세 이력서 열람 페이지
 	@RequestMapping(value="/giver_resume_detail_en")
-	public String giver_resume_detail_en(Model model,GiverVO vo) throws Exception{
+	public String giver_resume_detail_en(Model model,int giver_no) throws Exception{
 		
 		Map<String, Object> map = new HashMap<String, Object>();
 		
-		map = giver_service.selectGiver_list(vo);
+		map = giver_service.selectGiver_list(giver_no);
 		model.addAttribute("Default",map.get("Default"));
 		model.addAttribute("Career",map.get("Career"));
 		model.addAttribute("Area",map.get("Area"));
@@ -169,31 +172,15 @@ public class GiverController_len {
 		return "giver/len/giver_resume_detail_en";
 	}  
 
-	
-	//--------- 내가 신청한 도우미 이력서 열람하기 select
-	@RequestMapping(value="/mypage_my_giver_resume_detail_en")
-	public String mypage_my_giver_resume_detail_en(Model model,GiverVO vo,MemberVO mem)  throws Exception{
-		//테스트 값
-		vo.setGiver_no(2);
-		vo.setU_no(1);
-		
-		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.selectGiver_list(vo);
-		model.addAttribute("Default",map.get("Default"));
-		model.addAttribute("Career",map.get("Career"));
-		model.addAttribute("Area",map.get("Area"));
-		model.addAttribute("License",map.get("License"));
-		return "len/mypage_my_giver_resume_detail_en";
-	}
-	
 
 	//--------------------내 이력서 열람 페이지
 	@RequestMapping(value="/giver_resume_en")
-	public String giver_resume_en(Model model,GiverVO vo,MemberVO mem,int giver_no) throws Exception{
-		vo.setGiver_no(giver_no);
+	public String giver_resume_en(Model model,int giver_no) throws Exception{
+
 		model.addAttribute("giver_no",giver_no);		
+
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.selectGiver_list(vo);
+		map = giver_service.selectGiver_list(giver_no);
 		model.addAttribute("Default",map.get("Default"));
 		model.addAttribute("Career",map.get("Career"));
 		model.addAttribute("Area",map.get("Area"));
@@ -206,35 +193,90 @@ public class GiverController_len {
 	//-----------내 신청서 확인하기
 	@RequestMapping(value="/my_apply")
 	public String my_apply(Model model,HttpSession session) throws Exception{
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
-		System.out.println("my_apply Controller 출력 완료!"+u_no);
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+		System.out.println("my_apply Controller 출력 완료!"+customer_no);
 	
-		model.addAttribute("Default",giver_service.select_default_customer_info(u_no));
+		model.addAttribute("Default",giver_service.select_default_customer_info(customer_no));
 		return "mypage/giver_mypage/my_apply_en";
 	}
+	
+	
+	
 	//-----------내 서비스 확인하기_list
 	@RequestMapping(value="/my_service_now")
 	public String my_service_now(Model model,HttpSession session) throws Exception{
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
-		System.out.println("my_service_now Controller 출력 완료!"+u_no);
+		
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());	
+
+		
+		System.out.println("my_service_now Controller u_no출력 완료!"+u_no);
+		System.out.println("my_service_now Controller customer_no출력 완료!"+customer_no);
 
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.cheack_my_service_customer(u_no);
-		
-		model.addAttribute("apply",map.get("apply"));
-		model.addAttribute("matching",map.get("matching"));		
+		map = giver_service.cheack_my_service_customer(u_no, customer_no);
 
+		//신청한 서비스
+		model.addAttribute("apply",map.get("apply"));
+		
+		//매칭된 서비스
+		model.addAttribute("matching_customer_info",map.get("matching_customer_info"));		
+		model.addAttribute("matching_giver_info",map.get("matching_giver_info"));		
+
+		//종료된 서비스 
+		model.addAttribute("terminate_customer_info",giver_service.select_terminate_customer(customer_no));		
+	
 		return "mypage/giver_mypage/my_service_now_en";
 	}
 	
+	
+	
+	//--------- 내가 신청한 도우미 이력서 열람하기 select
+	@RequestMapping(value="/apply_giver_detail")
+	public String apply_giver_detail(Model model,int giver_no)  throws Exception{
+
+		System.out.println("apply_giver_detail"+giver_no);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = giver_service.selectGiver_list(giver_no);
+		model.addAttribute("Default",map.get("Default"));
+		model.addAttribute("Career",map.get("Career"));
+		model.addAttribute("Area",map.get("Area"));
+		model.addAttribute("License",map.get("License"));
+		return "mypage/giver_mypage/my_giver_resume_en";
+	}
+	
+	
+	
+	//--------- 내가 신청한 도우미 취소하기 delete
+	@RequestMapping(value="/my_service_cencle_en")
+	public String my_service_cencle_en(Model model,HttpSession session,Apply_to_giverVO avo,int giver_no)  throws Exception{
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+		
+		System.out.println("my_service_cencle_en customer_no : "+customer_no);
+		System.out.println("my_service_cencle_en giver_no : "+giver_no);
+
+		//취소 누를 시 대기신청서 delete
+		avo.setGiver_no(giver_no);
+		avo.setCustomer_no(customer_no);
+		giver_service.delete_apply(avo);		
+		
+		return "redirect:my_service_now";
+	}
+	
+	
+	
+	
+		
+
 	//-----------내 이력서 확인하기
 	@RequestMapping(value="/my_resume")
 	public String my_resume(Model model,HttpSession session) throws Exception{
-		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
-		System.out.println("hugi_update_suc Controller 출력 완료!"+u_no);
+		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+		System.out.println("hugi_update_suc Controller 출력 완료!"+giver_no);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.select_MyResume_list(u_no);
+		map = giver_service.select_MyResume_list(giver_no);
 		model.addAttribute("Default",map.get("Default"));
 		model.addAttribute("Career",map.get("Career"));
 		model.addAttribute("Area",map.get("Area"));
@@ -244,32 +286,161 @@ public class GiverController_len {
 	
 	//-----------내 이력서 삭제하기
 	@RequestMapping("/my_resume_delete_en")
-	public String  my_resume_delete(Model model, GiverVO gvo, CareerVO cvo, LicenseVO lvo, Hope_Business_AreaVO hvo,Giver_SatisfactionVO svo,int giver_no) throws Exception {
-		gvo.setGiver_no(giver_no);
-		cvo.setGiver_no(giver_no);
-		lvo.setGiver_no(giver_no);
-		hvo.setGiver_no(giver_no);
-	//	svo.setGiver_no(giver_no);
+	public String  my_resume_delete(Model model, HttpSession session) throws Exception {
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+
 		//자식테이블 먼저 삭제
-		giver_service.deleteGiver_seed(cvo, lvo, hvo, svo);
+		giver_service.deleteGiver_seed(giver_no);
 		//부모테이블 삭제
-		giver_service.deleteGiver(gvo);
+		giver_service.deleteGiver(giver_no);
+		
+		//U_MEMBER테이블 giver_no 0값으로 수정
+		service.delete_giverNo_mem(u_no);
+		
 		return "index";
 	}
+	//mypage안에서 내 이력서 수정하기 페이지 
+	@RequestMapping(value="/my_resume_update_mypage")
+	public String my_resume_update_mypage(Model model,HttpSession session) throws Exception{      
+		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+
+		model.addAttribute("giver_no",giver_no);   
+		System.out.println("my_resume_update_mypage"+giver_no);
+		
+		Map<String, Object> map = new HashMap<String, Object>();
+		map = giver_service.selectGiver_list(giver_no);
+		
+		model.addAttribute("Default",map.get("Default"));
+		model.addAttribute("Career",map.get("Career"));
+		model.addAttribute("Area",map.get("Area"));
+		model.addAttribute("License",map.get("License"));
+		
+		return "mypage/giver_mypage/my_resume_update_mypage";
+	}  
+	
+
+	//mypage안에서 내 이력서 수정완료 
+	   @RequestMapping(value="update_myResume_mypage",method = {RequestMethod.GET,RequestMethod.POST})
+	   public String update_myResume_mypage(@ModelAttribute("giver")GiverVO vo,License_SubVO lvo,Career_SubVO cvo,Hope_Business_Area_SubVO hvo,Model model,HttpSession session)throws Exception {
+		   int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+	
+		   vo.setGiver_no(giver_no);
+		   lvo.setGiver_no(giver_no);
+		   hvo.setGiver_no(giver_no);
+		   cvo.setGiver_no(giver_no);
+		   model.addAttribute("giver_no",giver_no);
+
+		   giver_service.updateDefault_info(vo);
+
+		   // 라이센스 테이블 업데이트
+		   	List<String> list_l1 = lvo.getLicense_name();
+			List<String> list_l2 = lvo.getLicense_Institute();
+			List<String> list_l3 = lvo.getLicense_Redate();
+			List<Integer> list_l4 = lvo.getLicense_no();
+		
+
+			LicenseVO licensevo = null;
+			int l = list_l4.size();
+			
+			for(int i =0; i< l; i++) { 
+	  			 licensevo = new LicenseVO();
+	  			 licensevo.setLicense_name(list_l1.get(i)); 
+				 licensevo.setLicense_Institute(list_l2.get(i)); 
+				 licensevo.setLicense_Redate(list_l3.get(i));
+				 licensevo.setLicense_no(list_l4.get(i));
+
+				 giver_service.updateLicenseService(licensevo);
+			 }
+			
+	  		//-----------------Career List update 부분 ---------------------------------
+	  		
+			List<String> list_c1 = cvo.getCareer_name();
+			List<String> list_c2 = cvo.getRole();
+			List<String> list_c3 = cvo.getWork_period_start();
+			List<String> list_c4 = cvo.getWork_period_end();
+			List<Integer> list_c5 = cvo.getCareer_no();
+
+
+			CareerVO careervo = null;
+			int c = list_c1.size();
+
+	  		for(int i =0; i< c; i++) { 
+	  			 careervo = new CareerVO();
+	  			 careervo.setCareer_name(list_c1.get(i));
+				 System.out.println(list_c1.get(i));
+				 careervo.setRole(list_c2.get(i));
+				 careervo.setWork_period_start(list_c3.get(i));
+				 careervo.setWork_period_end(list_c4.get(i));
+				 careervo.setCareer_no(list_c5.get(i));
+
+
+				 giver_service.updateCareerService(careervo);
+
+			 }
+			
+		//-----------------Hope_Business_Area List update 부분 ---------------------------------
+		List<String> list_h1 = hvo.getHope_business_city();
+		List<String> list_h2 = hvo.getHope_business_town();
+		List<Integer> list_h3 = hvo.getHope_business_area_no();
+
+		Hope_Business_AreaVO hopeAreavo = null;
+		int h = list_h1.size();
+		
+		for(int i =0; i< h; i++) { 
+			 hopeAreavo = new Hope_Business_AreaVO();
+			 hopeAreavo.setHope_business_city(list_h1.get(i));
+			 hopeAreavo.setHope_business_town(list_h2.get(i));
+			 hopeAreavo.setHope_business_area_no(list_h3.get(i));
+			 
+			 giver_service.updateHopeBusinessService(hopeAreavo);
+
+		 }
+		
+		   return "redirect:my_resume";
+	   }	
+	
 	//-----------내 신청서 삭제하기
 	@RequestMapping("/delete_customer")
-	public String  delete_customer(Model model, HugiVO hvo, Service_matchingVO svo, Apply_to_giverVO avo,CustomerVO cvo,int customer_no) throws Exception {
+	public String  delete_customer(Model model,HttpSession session) throws Exception {
 
-		hvo.setCustomer_no(customer_no);
-		svo.setCustomer_no(customer_no);
-		avo.setCustomer_no(customer_no);
-		cvo.setCustomer_no(customer_no);
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
 		
 		//자식테이블 먼저 삭제
-		giver_service.deleteCustomer_seed(hvo, svo, avo);
+		giver_service.deleteCustomer_seed(customer_no);
 		//부모테이블 삭제
-		giver_service.deleteCustomer(cvo);
-		return "index";
+		giver_service.deleteCustomer(customer_no);
+		
+		//U_MEMBER테이블 customer_no 0값으로 수정
+		service.delete_customerNo_mem(u_no);
+		
+		return "index";		
+	}
+	//-----------내 신청서 수정하기
+	@RequestMapping("/update_my_apply")
+	public String  update_my_apply(Model model,HttpSession session) throws Exception {
+		
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+		System.out.println("my_apply Controller 출력 완료!"+customer_no);
+	
+		model.addAttribute("Default",giver_service.select_default_customer_info(customer_no));
+		return "mypage/giver_mypage/my_apply_update_mypage";		
+	}
+	//-----------내 신청서 수정완료
+	@RequestMapping(value="/updateCustomer_mypage",method = {RequestMethod.GET,RequestMethod.POST})
+	public String  updateCustomer_mypage(Model model,HttpSession session,CustomerVO Cvo) throws Exception {
+		
+		    System.out.println(Cvo.getCustomer_no());
+			System.out.println("================================");
+			System.out.println(Cvo.getCan_walk());
+			System.out.println(Cvo.getGiver_type());
+			System.out.println(Cvo.getCustomer_no());
+			System.out.println(Cvo.getMy_condition());
+			System.out.println(Cvo.getHope_salary());
+			
+			giver_service.updateCustomerService(Cvo);
+		return "redirect:my_apply";		
 	}
 		
 	//고객 상세정보
@@ -283,17 +454,19 @@ public class GiverController_len {
 		
 		//insert시 넘길 giver_no 가져오기 
 		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+		System.out.println("customer_detail u_no:"+u_no);
+		System.out.println("customer_detail giver_no:"+giver_no);
 		
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = giver_service.select_MyResume_list(u_no);
+		map = giver_service.select_MyResume_list(giver_no);
 		model.addAttribute("giver_no",map.get("Default"));		
 		return "mypage/giver_mypage/customer_detail_en";
 	}
 
 	
 	
-	
-	//---------도우미 후기 등록 페이지
+	//---------도우미용 후기 등록 페이지
 	@RequestMapping(value="/my_Hugi_giver")
 	public String my_Hugi_giver(Model model,HttpSession session,int customer_no) {
 	
@@ -305,27 +478,59 @@ public class GiverController_len {
 		return "mypage/giver_mypage/hugi_giver_en";
 	}	
 	
+	//---------고객용 후기 등록 페이지
+	@RequestMapping(value="/my_Hugi_customer")
+	public String my_Hugi_customer(Model model,HttpSession session,int giver_no) {
+		
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		
+		model.addAttribute("giver_no",giver_no);
+		model.addAttribute("u_no",u_no);
+		
+		return "mypage/giver_mypage/hugi_customer_en";
+	}	
+	
 	//--------------------후기 등록완료 페이지_도우미용
 	@RequestMapping(value="/insert_hugi_giver")
 	public String insert_hugi_giver(Model model,HugiVO hvo)throws Exception{
 		System.out.println("u_no"+hvo.u_no);
 		System.out.println("customer_no"+hvo.customer_no);
+		System.out.println("customer_no"+hvo.giver_no);
 		System.out.println("hugi_score"+hvo.hugi_score);
 		System.out.println("hugi_contents"+hvo.hugi_contents);
 		
 		giver_service.insert_hugi_giver(hvo);
 		return "redirect:my_matching_list";
 	}	
+	//--------------------후기 등록완료 페이지_고객용
+	@RequestMapping(value="/insert_hugi_customer")
+	public String insert_hugi_customer(Model model,HugiVO hvo)throws Exception{
+		System.out.println("u_no"+hvo.u_no);
+		System.out.println("customer_no"+hvo.customer_no);
+		System.out.println("customer_no"+hvo.giver_no);
+		System.out.println("hugi_score"+hvo.hugi_score);
+		System.out.println("hugi_contents"+hvo.hugi_contents);
+		
+		giver_service.insert_hugi_customer(hvo);
+		return "redirect:my_hugi_list_customer";
+	}	
 
-	//--------------------후기 삭제
+	//--------------------후기 삭제(도우미용)
 	@RequestMapping(value="/deleteHugi",method = RequestMethod.POST)
 	public String deleteHugi(HugiVO hvo)throws Exception{
 		giver_service.delete_Hugi(hvo);
 		System.out.println("deleteHugi Controller 출력 완료!");
 		return "redirect:my_hugi_list";
 	}	
+	//--------------------후기 삭제(고객용)
+	@RequestMapping(value="/deleteHugi_customer",method = RequestMethod.POST)
+	public String deleteHugi_customer(HugiVO hvo)throws Exception{
+		giver_service.delete_Hugi(hvo);
+		System.out.println("deleteHugi Controller 출력 완료!");
+		return "redirect:my_hugi_list_customer";
+	}	
 
-	//--------------------후기 수정페이지
+	//--------------------후기 수정페이지(도우미용)
 	@RequestMapping(value="/updateHugi",method = RequestMethod.POST)
 	public String updateHugi(Model model,HugiVO hvo,int hugi_no)throws Exception{
 		System.out.println("updateHugi Controller 출력 완료!"+hugi_no);
@@ -334,8 +539,17 @@ public class GiverController_len {
 		model.addAttribute("hugi_detail",giver_service.select_hugi_detail(hvo));
 		return "mypage/giver_mypage/hugi_giver_update_en";
 	}	
+	//--------------------후기 수정페이지(고객용)
+	@RequestMapping(value="/updateHugi_customer",method = RequestMethod.POST)
+	public String updateHugi_customer(Model model,HugiVO hvo,int hugi_no)throws Exception{
+		System.out.println("updateHugi Controller 출력 완료!"+hugi_no);
+		
+		model.addAttribute("hugi_no",hugi_no);
+		model.addAttribute("hugi_detail",giver_service.select_hugi_detail(hvo));
+		return "mypage/giver_mypage/hugi_customer_update_en";
+	}	
 
-	//--------------------후기 수정 완료
+	//--------------------후기 수정 완료(도우미용)
 	@RequestMapping(value="/suc_update_Hugi")
 	public String suc_updateHugi(Model model,HugiVO hvo)throws Exception{
 		System.out.println("hugi_no"+hvo.hugi_no);
@@ -346,9 +560,20 @@ public class GiverController_len {
 		giver_service.update_Hugi(hvo);
 		return "redirect:my_hugi_list";
 	}	
+	//--------------------후기 수정 완료(고객용)
+	@RequestMapping(value="/suc_update_Hugi_customer")
+	public String suc_update_Hugi_customer(Model model,HugiVO hvo)throws Exception{
+		System.out.println("hugi_no"+hvo.hugi_no);
+		System.out.println("u_no"+hvo.u_no);
+		System.out.println("customer_no"+hvo.customer_no);
+		System.out.println("hugi_score"+hvo.hugi_score);
+		System.out.println("hugi_contents"+hvo.hugi_contents);		
+		giver_service.update_Hugi(hvo);
+		return "redirect:my_hugi_list_customer";
+	}	
 
 	
-	//--------------------후기 리스트페이지
+	//--------------------후기 리스트페이지(도우미용)
 	@RequestMapping(value="/my_hugi_list")
 	public String hugi_list_giver(Model model,HttpSession session)throws Exception{
 		
@@ -356,6 +581,18 @@ public class GiverController_len {
 		System.out.println("hugi_update_suc Controller 출력 완료!"+u_no);
 		
 		model.addAttribute("hugi",giver_service.select_hugi(u_no));
+		return "mypage/giver_mypage/giver_hugi_list_yj";
+	}	
+
+	
+	//--------------------후기 리스트페이지(고객용)
+	@RequestMapping(value="/my_hugi_list_customer")
+	public String hugi_list_customer(Model model,HttpSession session)throws Exception{
+		
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		System.out.println("hugi_update_suc Controller 출력 완료!"+u_no);
+		
+		model.addAttribute("hugi",giver_service.select_hugi_customer(u_no));
 		return "mypage/giver_mypage/customer_hugi_list_yj";
 	}	
 
@@ -443,16 +680,68 @@ public class GiverController_len {
 		return "redirect:my_matching_list";
 	}  
 	
+	//--------------------서비스 종료하기
+	@RequestMapping(value="/terminate_service")
+	public String terminate_matching(Model model,HttpSession session,Service_matchingVO svo,int customer_no,int giver_no,Terminate_giver_serviceVO tvo) throws Exception{
+		int u_no = Integer.parseInt(session.getAttribute("u_no").toString());
+		
+		//테스트 값
+		System.out.println("매칭삭제에 들어올 멤버번호"+u_no);
+		System.out.println("매칭삭제에 들어올 고객번호"+customer_no);
+		System.out.println("매칭삭제에 들어올 도우미번호"+giver_no);
+		
+		
+		//매칭 삭제하기 
+		svo.setU_no(u_no);
+		svo.setCustomer_no(customer_no);
+		giver_service.delete_matching(svo);	
+		
+		//서비스 종료테이블에 insert 
+		tvo.setU_no(u_no);
+		tvo.setGiver_no(giver_no);
+		tvo.setCustomer_no(customer_no);
+		giver_service.insert_terminate(tvo);
+		
+		return "redirect:my_matching_list";
+	}  
+	
+	
+	//--------------------종료된 서비스 list(도우미용)
+	@RequestMapping(value="/my_terminate_list")
+	public String my_terminate_list(Model model,HttpSession session) throws Exception{
+		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
+		
+		//테스트 값
+		System.out.println("매칭삭제에 들어올 giver번호"+giver_no);
+
+		model.addAttribute("terminate_giver",giver_service.select_terminate_giver(giver_no));
+		
+		return "mypage/giver_mypage/giver_terminate_list_en";
+	}  
+	
+	//--------------------종료된 서비스 list(고객용)
+	@RequestMapping(value="/my_terminate_list_customer")
+	public String my_terminate_list_customer(Model model,HttpSession session) throws Exception{
+		int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+		
+		//테스트 값
+		System.out.println("매칭삭제에 들어올 giver번호"+customer_no);
+		
+		model.addAttribute("terminate_customer",giver_service.select_terminate_customer(customer_no));
+		
+		return "mypage/giver_mypage/customer_terminate_list_en";
+	}  
+	
 	
 	
 	
 	
 	
 
-	
-
-	
-
+	   
+	   
+	   
+	   
 	
 	//-------------------------------------------용진
 		
@@ -463,7 +752,7 @@ public class GiverController_len {
 	      model.addAttribute("giver_no",giver_no);   
 	      
 	      Map<String, Object> map = new HashMap<String, Object>();
-	      map = giver_service.selectGiver_list(vo);
+	      map = giver_service.selectGiver_list(giver_no);
 	      
 	      model.addAttribute("Default",map.get("Default"));
 	      model.addAttribute("Career",map.get("Career"));
@@ -586,16 +875,27 @@ public class GiverController_len {
 	} 	
 		// 신청정보 디테일 페이지
 		@RequestMapping(value="/my_apply_service_detail",method = {RequestMethod.GET,RequestMethod.POST})
-		public String my_apply_service_update(Model model,int customer_no,CustomerVO Cvo,HttpSession session) throws Exception{
-			model.addAttribute("Customer_no",customer_no);
+		public String my_apply_service_update(Model model,CustomerVO Cvo,HttpSession session) throws Exception{
 
 			
-//			model.addAttribute("Customer",giver_service.selectCustomerService(Cvo));
-			System.out.println("=============================Controller");
-			System.out.println(Cvo.getCustomer_no());
-			System.out.println(Cvo.getCan_walk());
-//			System.out.println(giver_service.selectCustomerService(Cvo));
+			int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+			System.out.println("my_apply Controller 출력 완료!"+customer_no);
+		
+			model.addAttribute("Default",giver_service.select_default_customer_info(customer_no));			
 			
+//			
+//			int customer_no = Integer.parseInt(session.getAttribute("customer_no").toString());
+//			
+//			
+//			model.addAttribute("Customer_no",customer_no);
+//
+//			
+////			model.addAttribute("Customer",giver_service.selectCustomerService(Cvo));
+//			System.out.println("=============================Controller");
+//			System.out.println(Cvo.getCustomer_no());
+//			System.out.println(Cvo.getCan_walk());
+////			System.out.println(giver_service.selectCustomerService(Cvo));
+//			
 			return "giver/len/my_apply_service_detail";
 		}  
 		// 신청저보 수정 페이지

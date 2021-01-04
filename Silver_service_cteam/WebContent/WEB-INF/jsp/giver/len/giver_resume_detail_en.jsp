@@ -352,7 +352,7 @@
 
 			<div class="button_div">
 				<p>
-                <a href="succesed_apply_service_en?giver_no=${Default[0].giver_no}&customer_no=${Customer_no}" class="btn btn-primary"/>선택하기</a>				
+                <a href="succesed_apply_service_en?giver_no=${Default[0].giver_no}&customer_no=${customer_no}" class="btn btn-primary"/>선택하기</a>				
 
 				</p>
 			</div>

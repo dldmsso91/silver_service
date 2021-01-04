@@ -15,6 +15,7 @@ import kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO;
 import kr.co.kosmo.mvc.dto.Giver.HugiVO;
 import kr.co.kosmo.mvc.dto.Giver.LicenseVO;
 import kr.co.kosmo.mvc.dto.Giver.Service_matchingVO;
+import kr.co.kosmo.mvc.dto.Giver.Terminate_giver_serviceVO;
 import kr.co.kosmo.mvc.dto.Giver.WorktimeVO;
 
 
@@ -22,7 +23,7 @@ public interface GiverDAO {
 
 
 	//test전체 select
-	public List<GiverVO> selectGiverByNo_list(GiverVO vo) throws Exception;
+	public List<GiverVO> selectGiverByNo_list(int giver_no) throws Exception;
 	
 	//도우미에게 서비스 신청한 list select
 	public List<Apply_to_giverVO> select_apply_to_Giver(int u_no) throws Exception;
@@ -30,31 +31,32 @@ public interface GiverDAO {
 	
 	//------------------------------------내 이력서 확인하기용 select문 start	
 	//상세페이지 info select 
-	public List<GiverVO> select_MyDefault_info(int u_no) throws Exception;
-	public List<GiverVO> select_MyCareer_info(int u_no) throws Exception;
-	public List<GiverVO> select_MyHope_Business_Area_info(int u_no) throws Exception;
-	public List<GiverVO> select_MyLicense(int u_no) throws Exception;
+	public List<GiverVO> select_MyDefault_info(int giver_no) throws Exception;
+	public List<GiverVO> select_MyCareer_info(int giver_no) throws Exception;
+	public List<GiverVO> select_MyHope_Business_Area_info(int giver_no) throws Exception;
+	public List<GiverVO> select_MyLicense(int giver_no) throws Exception;
 	//------------------------------------내 이력서 확인하기용 select문 end
 	
 	
 	//------------------------------------도우미 이력서 확인하기용 select문 start	
 	//상세페이지 info select 
-	public List<GiverVO> selectDefault_info(GiverVO vo) throws Exception;
-	public List<GiverVO> select_Career_info(GiverVO vo) throws Exception;
-	public List<GiverVO> select_Hope_Business_Area_info(GiverVO vo) throws Exception;
-	public List<GiverVO> select_License(GiverVO vo) throws Exception;	
+	public List<GiverVO> selectDefault_info(int giver_no) throws Exception;
+	public List<GiverVO> select_Career_info(int giver_no) throws Exception;
+	public List<GiverVO> select_Hope_Business_Area_info(int giver_no) throws Exception;
+	public List<GiverVO> select_License(int giver_no) throws Exception;	
 	//------------------------------------도우미 이력서 확인하기용 select문 end
 	
 	
 	//------------------------------------내 신청서 확인하기용 select문 start	
-	public List<CustomerVO> select_default_customer_info(int u_no) throws Exception;
+	public List<CustomerVO> select_default_customer_info(int customer_no) throws Exception;
 	//------------------------------------내 신청서 확인하기용 select문 end
 
 	
 	
 	//------------------------------------내 서비스 확인하기용(고객) select문 start	
-	public List<Apply_to_giverVO> select_customer_apply(int u_no) throws Exception;
+	public List<Apply_to_giverVO> select_customer_apply(int customer_no) throws Exception;
 	public List<Service_matchingVO> select_customer_matching(int u_no) throws Exception;
+	public List<Service_matchingVO> select_giver_matching(int customer_no) throws Exception;
 	//------------------------------------내 서비스 확인하기용(고객) select문 end
 	
 	
@@ -66,24 +68,27 @@ public interface GiverDAO {
 //	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception;
 
 	//----------- 추천도우미 대체용으로 쓰고있음 select	
-	public List<GiverVO> selectGiverList(GiverVO vo) throws Exception;
+	public List<GiverVO> selectGiverList() throws Exception;
 
 	//------------------------------------giver 탈퇴 start
-	public void deleteHope_Business_Area(Hope_Business_AreaVO hvo) throws Exception;
-	public void deletelicense(LicenseVO lvo) throws Exception;
-	public void deletecareer(CareerVO cvo) throws Exception;
-	public void deleteGiver_Satisfaction(Giver_SatisfactionVO svo) throws Exception;
-	public void deleteGiver(GiverVO gvo) throws Exception;
+	public void deleteHope_Business_Area(int giver_no) throws Exception;
+	public void deletelicense(int giver_no) throws Exception;
+	public void deletecareer(int giver_no) throws Exception;
+	public void deleteGiver_Satisfaction(int giver_no) throws Exception;
+	public void deleteHugi_G(int giver_no) throws Exception;
+	public void deleteApply_to_giver_G(int giver_no) throws Exception;
+	public void deleteService_matching_G(int giver_no) throws Exception;
+	public void deleteGiver(int giver_no) throws Exception;
 	//------------------------------------giver 탈퇴 end
 
 	
 	
 	
 	//------------------------------------customer 탈퇴 start
-	public void deleteHugi(HugiVO hvo) throws Exception;
-	public void deleteApply_to_giver(Apply_to_giverVO avo) throws Exception;
-	public void deleteService_matching(Service_matchingVO svo) throws Exception;
-	public void deleteCustomer(CustomerVO cvo) throws Exception;
+	public void deleteHugi(int customer_no) throws Exception;
+	public void deleteApply_to_giver(int customer_no) throws Exception;
+	public void deleteService_matching(int customer_no) throws Exception;
+	public void deleteCustomer(int customer_no) throws Exception;
 	//------------------------------------customer 탈퇴 end
 
 	
@@ -99,14 +104,20 @@ public interface GiverDAO {
 	//도우미에게 신청 등록
 	public void apply_to_giver_insert(HashMap<String, Integer> map) throws Exception;
 	
-	//후기 등록
+	//후기 등록(도우미용)
 	public void insert_hugi_giver(HugiVO hvo) throws Exception;
+
+	//후기 등록(고객용)
+	public void insert_hugi_customer(HugiVO hvo) throws Exception;
 	
 	//후기 수정
 	public void update_Hugi(HugiVO hvo) throws Exception;
 	
-	//후기 list select
+	//후기 list select(도우미용)
 	public List<HugiVO> select_hugi(int u_no) throws Exception;
+	
+	//후기 list select(고객용)
+	public List<HugiVO> select_hugi_customer(int u_no) throws Exception;
 	
 	//후기 detail select
 	public List<HugiVO> select_hugi_detail(HugiVO hvo) throws Exception;
@@ -133,6 +144,16 @@ public interface GiverDAO {
 	
 	//서비스 매칭 delete
 	public void delete_matching(Service_matchingVO svo) throws Exception;	
+	
+	
+	//서비스 종료 insert
+	public void insert_terminate(Terminate_giver_serviceVO tvo) throws Exception;
+	
+	//서비스 종료 정보를 가져오기(도우미용)
+	public List<Terminate_giver_serviceVO> select_terminate_giver(int giver_no) throws Exception;
+	
+	//서비스 종료 정보를 가져오기(고객용)
+	public List<Terminate_giver_serviceVO> select_terminate_customer(int customer_no) throws Exception;
 	
 	
 	//-------------------- 동윤 -------------------------------------------------------------
