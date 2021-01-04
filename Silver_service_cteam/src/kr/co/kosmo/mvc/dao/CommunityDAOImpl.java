@@ -33,8 +33,8 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	
 	@Override
-	public List<WelfareFacilitiesVO> getMedicalRecommendList() {
-		return ss.selectList("commu.getMedicalrecommend");
+	public List<WelfareFacilitiesVO> getMedicalRecommendList(WelfareFacilitiesVO vo) {
+		return ss.selectList("commu.getMedicalrecommend", vo);
 	}
 	
 	@Override
@@ -43,8 +43,8 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	
 	@Override
-	public List<WelfareFacilitiesVO> getElderlyhomeRecommendList(){
-		return ss.selectList("commu.getElderlyhomerecommend");
+	public List<WelfareFacilitiesVO> getElderlyhomeRecommendList(WelfareFacilitiesVO vo){
+		return ss.selectList("commu.getElderlyhomerecommend", vo);
 	}
 	
 	@Override
@@ -53,8 +53,8 @@ public class CommunityDAOImpl implements CommunityDAO{
 	}
 	
 	@Override
-	public List<WelfareFacilitiesVO> getSilverhalleRecommendList() {
-		return ss.selectList("commu.getSilverhallrecommend");
+	public List<WelfareFacilitiesVO> getSilverhalleRecommendList(WelfareFacilitiesVO vo) {
+		return ss.selectList("commu.getSilverhallrecommend", vo);
 	}
 	
 	@Override

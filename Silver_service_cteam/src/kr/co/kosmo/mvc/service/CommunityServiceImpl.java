@@ -18,6 +18,7 @@ public class CommunityServiceImpl implements CommunityService{
 	@Autowired
 	private CommunityDAO communityDao;
 	
+	@Transactional
 	@Override
 	public Map<String, Object> getFacilityInfo(WelfareFacilitiesVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
@@ -28,28 +29,28 @@ public class CommunityServiceImpl implements CommunityService{
 	
 	@Transactional
 	@Override
-	public Map<String, Object> getMedicalList() {
+	public Map<String, Object> getMedicalList(WelfareFacilitiesVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("medicalList", communityDao.getMedicalList());
-		map.put("medicalRecommendList", communityDao.getMedicalRecommendList());
+		map.put("medicalRecommendList", communityDao.getMedicalRecommendList(vo));
 		return map;
 	}
 	
 	@Transactional
 	@Override
-	public Map<String, Object> getElderlyhomeList() {
+	public Map<String, Object> getElderlyhomeList(WelfareFacilitiesVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("elderlyhomeList", communityDao.getElderlyhomeList());
-		map.put("elderlyhomeRecommendList", communityDao.getElderlyhomeRecommendList());
+		map.put("elderlyhomeRecommendList", communityDao.getElderlyhomeRecommendList(vo));
 		return map;
 	}
 	
 	@Transactional
 	@Override
-	public Map<String, Object> getSilverhallList() {
+	public Map<String, Object> getSilverhallList(WelfareFacilitiesVO vo) {
 		Map<String, Object> map = new HashMap<String, Object>();
 		map.put("silverhallList", communityDao.getSilverhallList());
-		map.put("silverhallRecommendList", communityDao.getSilverhalleRecommendList());
+		map.put("silverhallRecommendList", communityDao.getSilverhalleRecommendList(vo));
 		return map;
 	}
 	

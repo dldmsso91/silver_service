@@ -29,7 +29,7 @@
 
 					<div class="panel-body">
 
-						<table class="table no-m">
+						<table class="table no-m" id="boardList">
 							<thead>
 								<tr>
 									<th nowrap>시설명</th>
@@ -39,15 +39,6 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${medicalRecommendList}" var="medical">
-									<tr>
-										<td><a
-											href="welfareFacilityDetail?facilityNo=${medical.facilityNo}">${medical.facilityName}</a></td>
-										<td>${medical.address}</td>
-										<td nowrap>${medical.telnumber}</td>
-										<td nowrap>${medical.totalScore}</td>
-									</tr>
-								</c:forEach>
 
 							</tbody>
 						</table>
@@ -229,48 +220,35 @@
 		        		neLng : neLng,
 					}),
 		        	success : function(resultData){
-// 						console.log(resultData)
 		        		var positions = new Array();
 		        		for(var i in resultData){
-		        			console.log(resultData[i].facilityName);
-		        			console.log(resultData[i].latitude);
-		        			console.log(resultData[i].longitude);
 		        			positions.push({
 		        					content : '<div>'+resultData[i].facilityName+'</div>',
 		        					latlng : new kakao.maps.LatLng(resultData[i].latitude, resultData[i].longitude)
 		        			});
 		        		}
 		        		for (var i = 0; i < positions.length; i++) {
-		        			// 마커를 생성합니다
 		        			var marker = new kakao.maps.Marker({
-		        				map : map, // 마커를 표시할 지도
+		        				map : map,
 		        				position : positions[i].latlng
-		        			// 마커의 위치
 		        			});
 
-		        			// 마커에 표시할 인포윈도우를 생성합니다 
 		        			var infowindow = new kakao.maps.InfoWindow({
 		        				content : positions[i].content
-		        			// 인포윈도우에 표시할 내용
 		        			});
 
-		        			// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-		        			// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-		        			// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
 		        			kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(
 		        					map, marker, infowindow));
 		        			kakao.maps.event.addListener(marker, 'mouseout',
 		        					makeOutListener(infowindow));
 		        		}
 
-		        		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
 		        		function makeOverListener(map, marker, infowindow) {
 		        			return function() {
 		        				infowindow.open(map, marker);
 		        			};
 		        		}
 
-		        		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
 		        		function makeOutListener(infowindow) {
 		        			return function() {
 		        				infowindow.close();
@@ -281,6 +259,30 @@
 		        	error : function(err){
 		        		alert(err);
 		        	}
+		        });
+		        $.ajax({
+		        	url : 'medicalRecommendList',
+		        	method : 'POST',
+		        	contentType : "application/json; charset=utf-8",
+		        	data : JSON.stringify({
+		        		swLat : swLat,
+		        		swLng : swLng,
+		        		neLat : neLat,
+		        		neLng : neLng,
+					}),
+		            success : function(resultData){
+		            	$("#boardList tbody").html("");
+		            	console.log(resultData)
+		            	var str = '<TR>';
+		            	for(var i in resultData){
+						     str += '<TD><a href=welfareFacilityDetail?facilityNo='+resultData[i].facilityNo+'>' + resultData[i].facilityName + '</a></TD><TD>' + resultData[i].address + '</TD><TD>' + resultData[i].telnumber + '</TD><TD>'  + resultData[i].totalScore;
+						     str += '</TR>';
+						}
+						$("#boardList tbody").append(str); 
+		            },
+		            error : function(){
+		                alert("error");
+		            }
 		        });
 	       
 			})

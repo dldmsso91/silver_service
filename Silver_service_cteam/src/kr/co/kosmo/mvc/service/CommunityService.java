@@ -13,11 +13,11 @@ public interface CommunityService {
 	
 	public Map<String, Object> getFacilityInfo(WelfareFacilitiesVO vo);
 	
-	public Map<String, Object> getMedicalList();
+	public Map<String, Object> getMedicalList(WelfareFacilitiesVO vo);
 	
-	public Map<String, Object> getElderlyhomeList();
+	public Map<String, Object> getElderlyhomeList(WelfareFacilitiesVO vo);
 	
-	public Map<String, Object> getSilverhallList();
+	public Map<String, Object> getSilverhallList(WelfareFacilitiesVO vo);
 	
 	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo);
 	

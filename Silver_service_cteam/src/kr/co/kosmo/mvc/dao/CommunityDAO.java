@@ -17,15 +17,15 @@ public interface CommunityDAO {
 	
 	public List<WelfareFacilitiesVO> getMedicalList();
 	
-	public List<WelfareFacilitiesVO> getMedicalRecommendList();
+	public List<WelfareFacilitiesVO> getMedicalRecommendList(WelfareFacilitiesVO vo);
 	
 	public List<WelfareFacilitiesVO> getElderlyhomeList();
 	
-	public List<WelfareFacilitiesVO> getElderlyhomeRecommendList();
+	public List<WelfareFacilitiesVO> getElderlyhomeRecommendList(WelfareFacilitiesVO vo);
 	
 	public List<WelfareFacilitiesVO> getSilverhallList();
 	
-	public List<WelfareFacilitiesVO> getSilverhalleRecommendList();
+	public List<WelfareFacilitiesVO> getSilverhalleRecommendList(WelfareFacilitiesVO vo);
 	
 	public WelfareFacilitiesVO getWelfareFacility(WelfareFacilitiesVO vo);
 	

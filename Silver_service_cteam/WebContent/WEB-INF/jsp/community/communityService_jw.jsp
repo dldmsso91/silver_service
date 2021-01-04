@@ -49,7 +49,7 @@
 				<tr>
 					<td>${searchList.typeName}</td>
 					<td>${searchList.eavaluationResult}</td>
-					<td>${searchList.facilityName}</td>
+					<td><a href="welfareFacilityDetail?facilityNo=${searchList.facilityNo}">${searchList.facilityName}</a></td>
 					<td>${searchList.peopleLimit}</td>
 					<td>${searchList.peopleNow}</td>
 					<td>${searchList.peopleMargin}</td>
@@ -61,8 +61,6 @@
 		</table>
 	</div>
 </div>
-
-
 
 <script src="resources/js/jquery-ui.js"></script>
 <script src="resources/js/popper.min.js"></script>

@@ -66,16 +66,37 @@ public class CommunityController {
 	@RequestMapping(value = "/medicalLocation")
 	public String medicalLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getMedicalList();
+		map = communityService.getMedicalList(vo);
 		model.addAttribute("medicalList", map.get("medicalList"));
 		model.addAttribute("medicalRecommendList", map.get("medicalRecommendList"));
 		return "community/medicalLocation_jw";
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/silverhallRecommendList", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> silverhallRecommendList(@RequestBody WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> silverhallList = communityDAO.getSilverhalleRecommendList(vo);
+		return silverhallList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/elderlyhomeRecommendList", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> elderlyhomeRecommendList(@RequestBody WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> silverhallList = communityDAO.getElderlyhomeRecommendList(vo);
+		return silverhallList;
+	}
+	
+	@ResponseBody
+	@RequestMapping(value="/medicalRecommendList", method= RequestMethod.POST)
+	public List<WelfareFacilitiesVO> medicalRecommendList(@RequestBody WelfareFacilitiesVO vo) {
+		List<WelfareFacilitiesVO> silverhallList = communityDAO.getMedicalRecommendList(vo);
+		return silverhallList;
 	}
 
 	@RequestMapping(value = "/silverhallLocation")
 	public String silverhallLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getSilverhallList();
+		map = communityService.getSilverhallList(vo);
 		model.addAttribute("silverhallList", map.get("silverhallList"));
 		model.addAttribute("silverhallRecommendList", map.get("silverhallRecommendList"));
 		return "community/silverhallLocation_jw";
@@ -84,7 +105,7 @@ public class CommunityController {
 	@RequestMapping(value = "/elderlyhomeLocation")
 	public String elderlyhomeLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getElderlyhomeList();
+		map = communityService.getElderlyhomeList(vo);
 		model.addAttribute("elderlyhomeList", map.get("elderlyhomeList"));
 		model.addAttribute("elderlyhomeRecommendList", map.get("elderlyhomeRecommendList"));
 		return "community/elderlyhomeLocation_jw";

@@ -22,7 +22,7 @@
 
 					<div class="panel-body">
 
-						<table class="table no-m">
+						<table class="table no-m" id="boardList">
 							<thead>
 								<tr>
 									<th nowrap>시설명</th>
@@ -32,15 +32,7 @@
 								</tr>
 							</thead>
 							<tbody>
-								<c:forEach items="${elderlyhomeRecommendList}" var="elderlyhome">
-									<tr>
-										<td><a
-											href="welfareFacilityDetail?facilityNo=${elderlyhome.facilityNo}">${elderlyhome.facilityName}</a></td>
-										<td>${elderlyhome.address}</td>
-										<td nowrap>${elderlyhome.telnumber}</td>
-										<td nowrap>${elderlyhome.totalScore}</td>
-									</tr>
-								</c:forEach>
+								
 							</tbody>
 						</table>
 					</div>
@@ -234,9 +226,6 @@
 // 						console.log(resultData)
 		        		var positions = new Array();
 		        		for(var i in resultData){
-		        			console.log(resultData[i].facilityName);
-		        			console.log(resultData[i].latitude);
-		        			console.log(resultData[i].longitude);
 		        			positions.push({
 		        					content : '<div>'+resultData[i].facilityName+'</div>',
 		        					latlng : new kakao.maps.LatLng(resultData[i].latitude, resultData[i].longitude)
@@ -283,6 +272,30 @@
 		        	error : function(err){
 		        		alert(err);
 		        	}
+		        });
+		        $.ajax({
+		        	url : 'elderlyhomeRecommendList',
+		        	method : 'POST',
+		        	contentType : "application/json; charset=utf-8",
+		        	data : JSON.stringify({
+		        		swLat : swLat,
+		        		swLng : swLng,
+		        		neLat : neLat,
+		        		neLng : neLng,
+					}),
+		            success : function(resultData){
+		            	$("#boardList tbody").html("");
+		            	console.log(resultData)
+		            	var str = '<TR>';
+		            	for(var i in resultData){
+						     str += '<TD><a href=welfareFacilityDetail?facilityNo='+resultData[i].facilityNo+'>' + resultData[i].facilityName + '</a></TD><TD>' + resultData[i].address + '</TD><TD>' + resultData[i].telnumber + '</TD><TD>'  + resultData[i].totalScore;
+						     str += '</TR>';
+						}
+						$("#boardList tbody").append(str); 
+		            },
+		            error : function(){
+		                alert("error");
+		            }
 		        });
 	       
 			})

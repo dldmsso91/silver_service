@@ -22,8 +22,8 @@ public class WelfareFacilitiesVO {
 	private String eavaluationResult, typeName, facilityName;
 	private int peopleLimit, peopleNow, peopleMargin, peopleWait;
 	private String telnumber, address, supplyService, latitude, longitude;
-	private String swLat, swLng;
-	private String neLat, neLng;
+	private double swLat, swLng;
+	private double neLat, neLng;
 	private WelfareFacilityStaffVO welfareFacilityStaffVO;
 	private WelfareFacilityScoreVO welfareFacilityScoreVO;
 	private int totalScore;
@@ -133,28 +133,28 @@ public class WelfareFacilitiesVO {
 	public void setLongitude(String longitude) {
 		this.longitude = longitude;
 	}
-	public String getSwLat() {
+	public double getSwLat() {
 		return swLat;
 	}
-	public void setSwLat(String swLat) {
+	public void setSwLat(double swLat) {
 		this.swLat = swLat;
 	}
-	public String getSwLng() {
+	public double getSwLng() {
 		return swLng;
 	}
-	public void setSwLng(String swLng) {
+	public void setSwLng(double swLng) {
 		this.swLng = swLng;
 	}
-	public String getNeLat() {
+	public double getNeLat() {
 		return neLat;
 	}
-	public void setNeLat(String neLat) {
+	public void setNeLat(double neLat) {
 		this.neLat = neLat;
 	}
-	public String getNeLng() {
+	public double getNeLng() {
 		return neLng;
 	}
-	public void setNeLng(String neLng) {
+	public void setNeLng(double neLng) {
 		this.neLng = neLng;
 	}
 	

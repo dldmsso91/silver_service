@@ -20,6 +20,10 @@
 		<result property="latitude" column="latitude" />
 		<result property="longitude" column="longitude" />
 		<result property="totalScore" column="totalScore" />
+		<result property="swLat" column="swLat" />
+		<result property="swLng" column="swLng" />
+		<result property="neLat" column="neLat" />
+		<result property="neLng" column="neLng" />
 		<association property="welfareFacilityStaffVO" column="facilityNo" javaType="welStaff">
 			<result property="facilityNo" column="facilityNo"/>
 			<result property="facilityName" column="facilityName"/>
@@ -64,7 +68,8 @@
 	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
 	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
 	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
-	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName Like '%주야간보호%' order by "TOTALSCORE" desc) wel)
+	    from welfareFacilities w, welfareFacilityScore s 
+	    where w.facilityNo = s.facilityNo and w.typeName Like '%주야간보호%' and w.latitude between #{swLat} and #{neLat} and w.longitude between #{swLng} and #{neLng} order by "TOTALSCORE" desc) wel)
 	    where RNUM <=5
 		]]>
 	</select>
@@ -94,7 +99,8 @@
 	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
 	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
 	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
-	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName = '방문간호' order by "TOTALSCORE" desc) wel)
+	    from welfareFacilities w, welfareFacilityScore s 
+	    where w.facilityNo = s.facilityNo and w.typeName = '방문간호' and w.latitude between #{swLat} and #{neLat} and w.longitude between #{swLng} and #{neLng} order by "TOTALSCORE" desc) wel)
 	    where RNUM <=5
 		]]>
 	</select>
@@ -109,7 +115,8 @@
 	    (select wel.facilityNo, wel.typeName, wel.facilityName, wel.address, wel.telnumber, wel.latitude, wel.longitude ,wel.eavaluationResult, wel.TOTALSCORE, rownum "RNUM" from
 	    (select w.facilityNo,w.typeName,w.facilityName,w.address,w.telnumber,w.latitude,w.longitude,w.eavaluationResult,
 	    (s.ManageScore + s.SafetyScore + s.AssureScore + s.ProcessScore +s.ResultScore) "TOTALSCORE" 
-	    from welfareFacilities w, welfareFacilityScore s where w.facilityNo = s.facilityNo and w.typeName = '방문요양' order by "TOTALSCORE" desc) wel)
+	    from welfareFacilities w, welfareFacilityScore s 
+	    where w.facilityNo = s.facilityNo and w.typeName = '방문요양' and w.latitude between #{swLat} and #{neLat} and w.longitude between #{swLng} and #{neLng} order by "TOTALSCORE" desc) wel)
 	    where RNUM <=5
 		]]>
 	</select>

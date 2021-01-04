@@ -152,11 +152,8 @@
 										</div>
 									</c:if>
 									<c:forEach var="review" items="${review}">
-										<!-- Comment List -->
 										<li>
 											<div class="comment">
-												<!-- 									<img class="avatar avatar-sm rounded-circle" alt="User Image" -->
-												<%-- 										src="${path}/resources/patient/profileImg/${review.patientDTO.p_photo}"> --%>
 												<div class="comment-body"
 													style="width: -webkit-fill-available;">
 													<div class="meta-data">
