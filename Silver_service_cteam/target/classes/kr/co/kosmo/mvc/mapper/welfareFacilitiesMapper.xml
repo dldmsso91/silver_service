@@ -20,42 +20,42 @@
 		<result property="latitude" column="latitude" />
 		<result property="longitude" column="longitude" />
 		<result property="totalScore" column="totalScore" />
-	<association property="welfareFacilityStaffVO" column="facilityNo" javaType="welStaff">
-		<result property="facilityNo" column="facilityNo"/>
-		<result property="facilityName" column="facilityName"/>
-		<result property="staffTotal" column="staffTotal"/>
-		<result property="director" column="director"/>
-		<result property="general" column="general"/>
-		<result property="socialWorker" column="socialWorker"/>
-		<result property="doctor" column="doctor"/>
-		<result property="contractDoctor" column="contractDoctor"/>
-		<result property="nurse" column="nurse"/>
-		<result property="nurseAside" column="nurseAside"/>
-		<result property="dentalist" column="dentalist"/>
-		<result property="careWorker1st" column="careWorker1st"/>
-		<result property="careWorker2nd" column="careWorker2nd"/>
-		<result property="careWorker3rd" column="careWorker3rd"/>
-		<result property="physicalTherapist" column="physicalTherapist"/>
-		<result property="occupationalTherapist" column="occupationalTherapist"/>
-		<result property="officer" column="officer"/>
-		<result property="nutritionist" column="nutritionist"/>
-		<result property="cook" column="cook"/>
-		<result property="cleanliness" column="cleanliness"/>
-		<result property="keeper" column="keeper"/>
-		<result property="assitant" column="assitant"/>
-		<result property="others" column="others"/>
-	</association>
-	<association property="welfareFacilityScoreVO" column="facilityNo" javaType="welScore">
-		<result property="facilityNo" column="facilityNo"/>
-		<result property="facilityName" column="facilityName"/>
-		<result property="evaluateDate" column="evaluateDate"/>
-		<result property="evaluateGrade" column="evaluateGrade"/>
-		<result property="manageScore" column="manageScore"/>
-		<result property="safetyScore" column="safetyScore"/>
-		<result property="assureScore" column="assureScore"/>
-		<result property="processScore" column="processScore"/>
-		<result property="resultScore" column="resultScore"/>
-	</association>
+		<association property="welfareFacilityStaffVO" column="facilityNo" javaType="welStaff">
+			<result property="facilityNo" column="facilityNo"/>
+			<result property="facilityName" column="facilityName"/>
+			<result property="staffTotal" column="staffTotal"/>
+			<result property="director" column="director"/>
+			<result property="general" column="general"/>
+			<result property="socialWorker" column="socialWorker"/>
+			<result property="doctor" column="doctor"/>
+			<result property="contractDoctor" column="contractDoctor"/>
+			<result property="nurse" column="nurse"/>
+			<result property="nurseAside" column="nurseAside"/>
+			<result property="dentalist" column="dentalist"/>
+			<result property="careWorker1st" column="careWorker1st"/>
+			<result property="careWorker2nd" column="careWorker2nd"/>
+			<result property="careWorker3rd" column="careWorker3rd"/>
+			<result property="physicalTherapist" column="physicalTherapist"/>
+			<result property="occupationalTherapist" column="occupationalTherapist"/>
+			<result property="officer" column="officer"/>
+			<result property="nutritionist" column="nutritionist"/>
+			<result property="cook" column="cook"/>
+			<result property="cleanliness" column="cleanliness"/>
+			<result property="keeper" column="keeper"/>
+			<result property="assitant" column="assitant"/>
+			<result property="others" column="others"/>
+		</association>
+		<association property="welfareFacilityScoreVO" column="facilityNo" javaType="welScore">
+			<result property="facilityNo" column="facilityNo"/>
+			<result property="facilityName" column="facilityName"/>
+			<result property="evaluateDate" column="evaluateDate"/>
+			<result property="evaluateGrade" column="evaluateGrade"/>
+			<result property="manageScore" column="manageScore"/>
+			<result property="safetyScore" column="safetyScore"/>
+			<result property="assureScore" column="assureScore"/>
+			<result property="processScore" column="processScore"/>
+			<result property="resultScore" column="resultScore"/>
+		</association>
 	</resultMap>
 
 	<select id="getMedicalrecommend" resultMap="facInfo">
@@ -125,7 +125,7 @@
 		w.address, w.supplyService, w.latitude, w.longitude, f.staffTotal, f.director, f.general, f.socialWorker, f.doctor, f.contractDoctor, f.nurse,
 		f.nurseAside, f.dentalist, f.careWorker1st, f.careWorker2nd, f.careWorker3rd, f.physicalTherapist, f.occupationalTherapist, f.officer, f.nutritionist, f.cook,
 		f.cleanliness, f.keeper, f.assitant, f.others, s.evaluateDate, s.evaluateGrade, s.manageScore, s.safetyScore, s.assureScore, s.processScore, s.resultScore
-		FROM welfarefacilities w, welfareFacilityScore s, welfareFacilityStaff f, facilityReview r
+		FROM welfarefacilities w, welfareFacilityScore s, welfareFacilityStaff f
 		WHERE w.FACILITYNO = #{facilityNo}
 		and w.facilityNo = f.facilityNo and w.facilityNo = s.facilityNo
 	</select>

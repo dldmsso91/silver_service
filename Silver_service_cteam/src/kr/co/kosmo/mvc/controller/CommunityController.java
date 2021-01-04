@@ -40,7 +40,7 @@ public class CommunityController {
 		}
 		vo.setU_no(u_no);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
-		return "myReservation_jw";
+		return "mypage/community_mypage/myReservation_jw";
 	}
 
 	@RequestMapping(value = "/searchFacility", method = RequestMethod.POST)
@@ -126,7 +126,7 @@ public class CommunityController {
 		vo.setU_no(u_no);
 		communityService.insertReservationInfo(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
-		return "myReservation_jw";
+		return "mypage/community_mypage/myReservation_jw";
 	}
 
 	@RequestMapping(value = "/updateReservationForm")
@@ -153,7 +153,7 @@ public class CommunityController {
 		vo.setU_no(u_no);
 		communityDAO.updateReservation(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
-		return "myReservation_jw";
+		return "mypage/community_mypage/myReservation_jw";
 	}
 
 	@RequestMapping(value = "/reservationDelete")
@@ -167,7 +167,7 @@ public class CommunityController {
 		vo.setU_no(u_no);
 		communityDAO.reservationDelete(vo);
 		model.addAttribute("myReservation", communityService.getMyReservation(vo));
-		return "myReservation_jw";
+		return "mypage/community_mypage/myReservation_jw";
 	}
 
 	@ResponseBody

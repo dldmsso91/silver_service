@@ -75,8 +75,6 @@
 										</ul></li>
 								</ul></li>
 							<li><a href="bus_service" class="nav-link">노약자 교통정보</a></li>
-							<li><a href="contact" class="nav-link">Contact</a></li>
-
 						</ul>
 					</nav>
 				</div>

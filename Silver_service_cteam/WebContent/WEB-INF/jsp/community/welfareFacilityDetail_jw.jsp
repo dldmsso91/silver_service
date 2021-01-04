@@ -136,9 +136,10 @@
 						id="u_no" name="u_no" value="${sessionScope.u_no}"> <input
 						type="hidden" id="u_id" name="u_id" value="${sessionScope.u_id}">
 						<input type="hidden" id="score" name="score" value=""> <input
-						type="submit" class="btn btn-primary" value="작성"> <!-- 					<div id="review_btn" style="background-color: #ddd; cursor: pointer;">등록</div> -->
+						type="submit" class="btn btn-primary" value="작성">
 					</td>
 				</tr>
+			
 				<tr>
 					<td>
 						<div>
@@ -178,64 +179,16 @@
 												</div>
 											</div>
 										</li>
-										<!-- /Comment List -->
+
 									</c:forEach>
 								</ul>
-								<!-- Show All -->
-								<!-- <div class="all-feedback text-center">
-										<a href="#" class="btn btn-primary btn-sm">
-											Show all feedback <strong>(167)</strong>
-										</a>
-									</div> -->
-								<!-- /Show All -->
+
 							</div>
 						</div>
 					</td>
 			</table>
 		</form>
-		<!-- 				<h1>별점 jQuery예제</h1> -->
-		<!-- 				<h2>별점 입력 예제</h2> -->
-		<!-- 				<table class="ui celled table"> -->
-		<!-- 					<tr> -->
-		<!-- 						<td>내용:</td> -->
-		<!-- 						<td><input type="text" id="content" name="content"></td> -->
-		<!-- 					</tr> -->
-		<!-- 					<tr> -->
-		<!-- 						<td id="star_grade"><a href="#1" class="a.off">★</a> <a -->
-		<!-- 							href="#2" class="a.off">★</a> <a href="#3" class="a.off">★</a> <a -->
-		<!-- 							href="#4" class="a.off">★</a> <a href="#5" class="a.off">★</a> <span -->
-		<!-- 							id="target">Total : </span> -->
-		<!-- 								<input type="hidden" id="u_no" name="u_no" value=2> -->
-		<!-- 							</td> -->
 
-		<!-- 					</tr> -->
-		<!-- 					<tr> -->
-		<!-- 						<td><div id="review_btn" -->
-		<!-- 								style="background-color: #ddd; cursor: pointer;">save</div> -->
-		<!-- 					</tr> -->
-		<!-- 				</table> -->
-
-
-		<!-- 		<h2>별점 출력예제</h2> -->
-		<!-- 		<div id="star_result" class="ui celled table"> -->
-
-		<!-- 		<table> -->
-		<!-- 		<tr><td id ="star_total"></td><td id="msg"></td> -->
-		<!-- 		</tr> -->
-		<!-- 		</table> -->
-
-		<%-- 			<c:forEach var="e" begin="1" end="5" step="1"> --%>
-		<%-- 				<c:choose> --%>
-		<%-- 					<c:when test="${e <= sn/2 }"> --%>
-		<!-- 						<a href="#" class="on">★</a> -->
-		<%-- 					</c:when> --%>
-		<%-- 					<c:otherwise> --%>
-		<!-- 						<a href="#" class="off">★</a> -->
-		<%-- 					</c:otherwise> --%>
-		<%-- 				</c:choose> --%>
-
-		<%-- 			</c:forEach> --%>
-		<!-- 		</div> -->
 
 		<div class="button_div">
 			<p>
@@ -264,135 +217,118 @@
 <script type="text/javascript"
 	src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8f2c650719bcaf5ef8ed66f3b6f99a2a"></script>
 <script>
-	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
-	mapOption = {
+// 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
+// 	mapOption = {
+// 		center : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude}), // 지도의 중심좌표
+// 		level : 5
+// 	// 지도의 확대 레벨
+// 	};
+
+// 	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+// 	// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
+// 	var positions = [ {
+// 		content : '<div>${facInfo.facilityName}</div>',
+// 		latlng : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude})
+// 	} ];
+
+// 	for (var i = 0; i < positions.length; i++) {
+// 		// 마커를 생성합니다
+// 		var marker = new kakao.maps.Marker({
+// 			map : map, // 마커를 표시할 지도
+// 			position : positions[i].latlng
+// 		// 마커의 위치
+// 		});
+
+// 		// 마커에 표시할 인포윈도우를 생성합니다 
+// 		var infowindow = new kakao.maps.InfoWindow({
+// 			content : positions[i].content
+// 		// 인포윈도우에 표시할 내용
+// 		});
+
+// 		// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
+// 		// 이벤트 리스너로는 클로저를 만들어 등록합니다 
+// 		// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
+// 		kakao.maps.event.addListener(marker` 'mouseover', makeOverListener(map, marker, infowindow));
+// 		kakao.maps.event.addListener(marker, 'mouseout',makeOutListener(infowindow));
+// 	}
+
+// 	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+// 	function makeOverListener(map, marker, infowindow) {
+// 		return function() {
+// 			infowindow.open(map, marker);
+// 		};
+// 	}
+
+// 	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+// 	function makeOutListener(infowindow) {
+// 		return function() {
+// 			infowindow.close();
+// 		};
+// 	}
+
+	var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+    mapOption = { 
 		center : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude}), // 지도의 중심좌표
-		level : 5
-	// 지도의 확대 레벨
-	};
+        level: 3 // 지도의 확대 레벨
+    };
 
-	var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-	// 마커를 표시할 위치와 내용을 가지고 있는 객체 배열입니다 
-	var positions = [ {
-		content : '<div>${facInfo.facilityName}</div>',
-		latlng : new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude})
-	} ];
-
-	for (var i = 0; i < positions.length; i++) {
-		// 마커를 생성합니다
-		var marker = new kakao.maps.Marker({
-			map : map, // 마커를 표시할 지도
-			position : positions[i].latlng
-		// 마커의 위치
-		});
-
-		// 마커에 표시할 인포윈도우를 생성합니다 
-		var infowindow = new kakao.maps.InfoWindow({
-			content : positions[i].content
-		// 인포윈도우에 표시할 내용
-		});
-
-		// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-		// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-		// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
-		kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(
-				map, marker, infowindow));
-		kakao.maps.event.addListener(marker, 'mouseout',
-				makeOutListener(infowindow));
-	}
-
-	// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-	function makeOverListener(map, marker, infowindow) {
-		return function() {
-			infowindow.open(map, marker);
-		};
-	}
-
-	// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	function makeOutListener(infowindow) {
-		return function() {
-			infowindow.close();
-		};
-	}
-</script>
-<script>
-$(function() {
-
-	var total = 1;
-	$('#star_grade a').click(function() {
-		console.log($(this).attr("href"))
-		console.log($(this).attr("class"))
-
-		if ($(this).attr("href") === "#1") {
-			total = 1;
-		} else if ($(this).attr("href") === "#2") {
-			total = 2;
-		} else if ($(this).attr("href") === "#3") {
-			total = 3;
-		} else if ($(this).attr("href") === "#4") {
-			total = 4;
-		} else if ($(this).attr("href") === "#5") {
-			total = 5;
-		} else {
-
-		}
-
-		console.log("total :" + total);
-		$('#target').html("Total : " + total);
-		$("#score").val(total);
-		$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
-		$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
-		return false;
+	var map = new kakao.maps.Map(mapContainer, mapOption);
+	
+	// 마커가 표시될 위치입니다 
+	var markerPosition  = new kakao.maps.LatLng(${facInfo.latitude}, ${facInfo.longitude}); 
+	
+	// 마커를 생성합니다
+	var marker = new kakao.maps.Marker({
+	    position: markerPosition
 	});
-
-// 	var result;
-// 	var facilityNo = $("#facilityNo").val();
-// 	var facilityName = $("#facilityName").val();
-// 	var u_no = $("#u_no").val();
-// 	var u_id = $("#u_id").val();
-// 	var content = $("#content").val();
-// 	var score = total;
 	
+	// 마커가 지도 위에 표시되도록 설정합니다
+	marker.setMap(map);
 	
-// 	$("#review_btn").on(
-// 		'click',
-// 		function() {
-// 			var facilityNo = $("#facilityNo").val();
-// 			var facilityName = $("#facilityName").val();
-// 			var u_no = $("#u_no").val();
-// 			var u_id = $("#u_id").val();
-// 			var content = $("#content").val();
+	var iwContent = '<div style="padding:5px;">${facInfo.facilityName} <br><a href="https://map.kakao.com/link/map/${facInfo.facilityName},${facInfo.latitude}, ${facInfo.longitude}" style="color:blue" target="_blank">큰지도보기</a> <a href="https://map.kakao.com/link/to/${facInfo.facilityName},${facInfo.latitude}, ${facInfo.longitude}" style="color:blue" target="_blank">길찾기</a></div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+	    iwPosition = new kakao.maps.LatLng(33.450701, 126.570667); //인포윈도우 표시 위치입니다
+	
+	// 인포윈도우를 생성합니다
+	var infowindow = new kakao.maps.InfoWindow({
+	    position : iwPosition, 
+	    content : iwContent 
+	});
+	  
+	// 마커 위에 인포윈도우를 표시합니다. 두번째 파라미터인 marker를 넣어주지 않으면 지도 위에 표시됩니다
+	infowindow.open(map, marker); 
 
-// 			$.ajax({
-// 				url : "addReview",
-// 				type : "POST",
-// 				contentType : "application/json; charset=utf-8",
-// 				data : JSON.stringify({
-// 					facilityNo : facilityNo,
-// 					facilityName : facilityName,
-// 					u_no : u_no,
-// 					u_id : u_id,
-// 					content : content,
-// 					score : total,
-// 				}),
+</script>
 
-// 				success : function(data) {
-// 					console.log(facilityNo);
-// 					console.log(facilityName);
-// 					console.log(u_no);
-// 					console.log(u_id);
-// 					console.log(content);
-// 					console.log(total);
-				
-// 					$('#star_total').html(total);
-// 					$('#msg').html("/"+ content);			
-// 				},
-// 				error : function() {
-// 					alert("err");
-// 				}
-// 			});
-// 		})
-
-});
+<script>
+	$(function() {
+	
+		var total = 1;
+		$('#star_grade a').click(function() {
+			console.log($(this).attr("href"))
+			console.log($(this).attr("class"))
+	
+			if ($(this).attr("href") === "#1") {
+				total = 1;
+			} else if ($(this).attr("href") === "#2") {
+				total = 2;
+			} else if ($(this).attr("href") === "#3") {
+				total = 3;
+			} else if ($(this).attr("href") === "#4") {
+				total = 4;
+			} else if ($(this).attr("href") === "#5") {
+				total = 5;
+			} else {
+	
+			}
+	
+			console.log("total :" + total);
+			$('#target').html("Total : " + total);
+			$("#score").val(total);
+			$(this).parent().children("a").removeClass("on"); /* 별점의 on 클래스 전부 제거 */
+			$(this).addClass("on").prevAll("a").addClass("on"); /* 클릭한 별과, 그 앞 까지 별점에 on 클래스 추가 */
+			return false;
+		});
+	
+	});
 </script>

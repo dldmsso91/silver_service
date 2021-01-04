@@ -3,35 +3,32 @@
        "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
        "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
 <tiles-definitions>
-	<definition name="defaultTemplate" 
-		template="/WEB-INF/template/default/template.jsp">
-		<put-attribute name="header" 
-		value="/WEB-INF/template/default/header.jsp"
-		/>
-		<put-attribute name="menu" 
-		value="/WEB-INF/template/default/menu.jsp"
-		/>
-		<put-attribute name="footer" 
-		value="/WEB-INF/template/default/footer.jsp"
-		/>
+
+	<definition name="mypage/*/*" template="/WEB-INF/template/mypage/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/template/mypage/header.jsp"/>
+		<put-attribute name="aside" value="/WEB-INF/template/mypage/aside.jsp"	/>
+		<put-attribute name="body" value="/WEB-INF/jsp/mypage/{1}/{2}.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/template/mypage/footer.jsp"/>
+	</definition>
+
+	
+	<definition name="giverTemplate" template="/WEB-INF/template/default/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/template/default/header.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp"/>
+		</definition>
+	<definition name="*/*/*" extends="giverTemplate">
+			<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
+	</definition>	
+
+	
+	<definition name="defaultTemplate" template="/WEB-INF/template/default/template.jsp">
+		<put-attribute name="header" value="/WEB-INF/template/default/header.jsp"/>
+		<put-attribute name="menu" value="/WEB-INF/template/default/menu.jsp"/>
+		<put-attribute name="footer" value="/WEB-INF/template/default/footer.jsp"/>
 		</definition>
 	<definition name="*/*" extends="defaultTemplate">
 			<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}.jsp"/>
 	</definition>
 	
-	<definition name="giverTemplate" 
-		template="/WEB-INF/template/default/template.jsp">
-		<put-attribute name="header" 
-		value="/WEB-INF/template/default/header.jsp"
-		/>
-		<put-attribute name="menu" 
-		value="/WEB-INF/template/default/menu.jsp"
-		/>
-		<put-attribute name="footer" 
-		value="/WEB-INF/template/default/footer.jsp"
-		/>
-		</definition>
-	<definition name="*/*/*" extends="giverTemplate">
-			<put-attribute name="body" value="/WEB-INF/jsp/{1}/{2}/{3}.jsp"/>
-	</definition>	
 </tiles-definitions>
