@@ -214,11 +214,11 @@
 	<select id="searchFacility" resultType="facInfo" parameterType="hashmap">
 		select facilityNo,typeName,eavaluationResult,facilityName,peopleLimit,peopleNow,address,peopleMargin,peopleWait,telnumber,address,supplyService from welfareFacilities
 		where address like '%'||#{city}||'%' AND address like '%'||#{town}||'%'
-		<if test="typeName != null or typeName != ''">
+		<if test="typeName != null and typeName != ''">
 			AND typeName like #{typeName}
 		</if>
 		<if test="facilityName != null and facilityName != ''">
-			AND facilityName = #{facilityName}
+			AND facilityName like '%'||#{facilityName}||'%'
 		</if>
 	</select>
 
