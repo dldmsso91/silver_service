@@ -165,8 +165,8 @@ public class MemberServiceImpl implements MemberService {
 	}
 	
 	
-	//--------���궡
-	//customerNo update(�꽭�뀡�슜)	
+	//--------은내
+	//customerNo update(세션용)	
 	@Override
 	public void update_customerNo_mem(int u_no, int customer_no) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -176,7 +176,7 @@ public class MemberServiceImpl implements MemberService {
 		dao.update_customerNo_mem(map);
 	}
 
-	//giverNo update(�꽭�뀡�슜)	
+	//giverNo update(세션용)	
 	@Override
 	public void update_giverNo_mem(int u_no, int giver_no) throws Exception {
 		HashMap<String, Integer> map = new HashMap<String, Integer>();
@@ -186,16 +186,17 @@ public class MemberServiceImpl implements MemberService {
 		dao.update_giverNo_mem(map);
 	}
 	
-	//�떊泥��꽌 �궘�젣 �떆 硫ㅻ쾭�뿉 customer_no 0�쑝濡� �젙蹂대�寃� �뀒�뒪�듃 以� 
+	//신청서 삭제 시 멤버에 customer_no 0으로 정보변경 테스트 중 
 	@Override
 	public void delete_customerNo_mem(int u_no) throws Exception {
 		dao.delete_customerNo_mem(u_no);
 	}
 	
-	//吏��썝�꽌 �궘�젣 �떆 硫ㅻ쾭�뿉 giver_no 0�쑝濡� �젙蹂대�寃� �뀒�뒪�듃 以� 	
+	//지원서 삭제 시 멤버에 giver_no 0으로 정보변경 테스트 중 	
 	@Override
 	public void delete_giverNo_mem(int u_no) throws Exception {
 		dao.delete_giverNo_mem(u_no);
 	}
+	
 	
 }

@@ -65,21 +65,7 @@
 					
 					
 			  		var age_val = $('#age');
-						if (mm>m) {age++;
 						age_val.text(age);	
-						
-						}
-						else if (mm==m){
-							if (dd<=d){
-							age_val.text(age);	
-								
-								
-							}
-							else if(dd>d){	age++;
-							age_val.text(age);	
-							
-							}
-						}
 			
 			
 			genRowspan("first");

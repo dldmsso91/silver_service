@@ -4,15 +4,25 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="work">
 <insert id="worktimeInsert" parameterType="work">
-insert into giver_worktime values(
-giver_worktime_seq.nextval,
-#{giver_no},
-#{start_time},
-#{end_time}
-)
-
+insert into giver_worktime
+(g_work_no,giver_no,start_time,end_time,u_no)
+ values(giver_worktime_seq.nextval,#{giver_no},#{start_time},'',#{u_no})
 </insert>
-<select id="worktimeselect" parameterType="work" resultType="int">
+<select id="worktimeselect"  parameterType="int" resultType="work">
 select * from giver_worktime where giver_no = #{giver_no} order by g_work_no asc
 </select>
+
+<select id="worktimeselectone" resultType="int">
+select * from(select zxcv.*,rownum "RNUM" from(
+   select * from giver_worktime where giver_no=#{giver_no} order by 1 desc
+) zxcv)where rnum=1
+</select>
+
+<update id="worktimeupdate" parameterType="work">
+
+update giver_worktime set end_time = #{end_time} where g_work_no = #{g_work_no}
+
+</update>
+
+
 </mapper>

@@ -66,21 +66,7 @@
 					
 					
 			  		var age_val = $('#age');
-						if (mm>m) {age++;
 						age_val.text(age);	
-						
-						}
-						else if (mm==m){
-							if (dd<=d){
-							age_val.text(age);	
-								
-								
-							}
-							else if(dd>d){	age++;
-							age_val.text(age);	
-							
-							}
-						}
 			
 		// 	    ----------------------------------------click시 밑에 contents가 나오게 하는 코드div
 

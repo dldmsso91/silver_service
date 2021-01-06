@@ -315,19 +315,28 @@
 	</select>	
 
   
-<!-- 고객의 지역에 따른 추천 도우미 조회문 --> 
-<!--  	<select id="recommend_giver" parameterType="giver" resultMap="giver">   -->
-<!-- 	Select *        -->
-<!-- 	from U_MEMBER u,giver g,Hope_Business_Area h, Giver_Satisfaction s -->
-	
-<!-- 	WHERE   h.Hope_Business_city = u.u_addr -->
-<!-- 	        and h.Hope_Business_city =(select u_addr from u_member u, customer c where c.u_no=u.u_no and c.customer_no=#{Customer_no})  -->
-<!-- 	        and g.giver_type=(select giver_type from customer where customer_no=#{Customer_no})  -->
-<!-- 	        and u.u_no = g.u_no -->
-<!-- 	</select>  -->
+<!-- 고객의 지역과 도우미타입, 희망 금액과 희망장소에 따른 추천 도우미 조회문 --> 
+ 	<select id="recommend_giver" parameterType="hashmap" resultMap="giver">  
+	<![CDATA[ 	
+    	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,		
+    	
+ 		g.giver_no,g.giver_type,g.Hope_Business_Place,g.Hope_Salary,g.Smoking,g.hope_worktime_start, 
+ 		g.hope_worktime_end,g.School,g.Major,g.penalty,g.apply_giver_redate,g.my_IMG, 
+ 		
+        h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town
+        		
+	  	FROM U_MEMBER u,giver g,Hope_Business_Area h
+	 	WHERE u.u_no=g.u_no 
+	 		and g.giver_no=h.giver_no
+	 		and giver_type like '%'||#{giver_type_user}||'%'  
+			and Hope_Business_Place like '%'||#{hope_service_place_user}||'%'  
+			and Hope_Salary <= #{hope_salary_user} -->
+			and Hope_Business_town like '%'||#{addr_user}||'%' 
+ 	]]>                          
+	</select> 
   
 
-<!-- 추천페이지에 쓸 쿼리문 -->
+<!-- 추천페이지에 쓸 임시 쿼리문 -->
 	<select id="selectGiverList" parameterType="giver" resultMap="giver">
   	SELECT u.u_no,u.u_id,u.u_name,u.u_birth,u.u_birth2,u.u_phone,u.u_email,u.u_addr,u.u_addr1,u.u_addr2,u.u_redate,
         h.Hope_Business_Area_no,h.Hope_Business_city,h.Hope_Business_town,
@@ -431,8 +440,6 @@
 	</delete>   
 
 
-
-
 <!-- 신청서 삭제 delete문 -->
 	<delete id="deleteHugi" parameterType="int">
 	DELETE FROM hugi WHERE customer_no = #{customer_no} 
@@ -446,9 +453,6 @@
 	<delete id="deleteCustomer" parameterType="int">
 	DELETE FROM customer WHERE customer_no =#{customer_no} 
 	</delete>   
-
-
-
 
 
 <!-- Mypage부분 매퍼 -->
@@ -487,13 +491,6 @@
 	and s.customer_no=#{customer_no}
   	</select>
 <!-- customer 내 서비스 확인하기용 select문 end -->
-
-
-
-
-
-
-
 
 
 
@@ -537,15 +534,12 @@
   	</select>
 <!-- 내 이력서 확인하기용 select문 end -->
 
-
-
 <!-- 고객 상세정보 -->
  	<select id="select_customer_detail" parameterType="int" resultMap="customer">       
 	select * from customer c, u_member u 
 	where c.u_no=u.u_no
 	 and c.customer_no=#{customer_no}    
    </select>
-
 
 
 <!-- 매칭 완료 insert -->
@@ -586,8 +580,13 @@
         and s.customer_no=#{customer_no}       
    </select>
 
-<!-- 매칭테이블과 고객 정보 Join select -->
+<!-- 매칭테이블에서 고객이 취소할 경우 delete -->
 	<delete id="delete_matching" parameterType="matchingVO">
+	DELETE FROM service_matching WHERE giver_no = #{giver_no} and customer_no=#{customer_no}
+	</delete>   
+
+<!-- 매칭테이블에서 고객이 취소할 경우 delete -->
+	<delete id="delete_matching_giver" parameterType="matchingVO">
 	DELETE FROM service_matching WHERE u_no = #{u_no} and customer_no=#{customer_no}
 	</delete>   
 
@@ -624,22 +623,17 @@
 	    and t.customer_no=#{customer_no}
    </select>
 
-
-
-
 <!-- 도우미용 서비스 후기 insert문 -->
    <insert id="insert_hugi_giver" parameterType="hugi">        
-		INSERT INTO hugi(hugi_no,u_no,customer_no,hugi_score,hugi_contents,hugi_redate) 
-		VALUES (hugi_seq.nextval,#{u_no},#{customer_no},#{hugi_score},#{hugi_contents},sysdate)
+		INSERT INTO hugi(hugi_no,giver_no,u_no,customer_no,hugi_score,hugi_contents,hugi_redate) 
+		VALUES (hugi_seq.nextval,#{giver_no},#{u_no},#{customer_no},#{hugi_score},#{hugi_contents},sysdate)
    </insert>
 
 <!-- 도우미용 서비스 후기 insert문 -->
    <insert id="insert_hugi_customer" parameterType="hugi">        
-		INSERT INTO hugi(hugi_no,u_no,giver_no,hugi_score,hugi_contents,hugi_redate) 
-		VALUES (hugi_seq.nextval,#{u_no},#{giver_no},#{hugi_score},#{hugi_contents},sysdate)
+		INSERT INTO hugi(hugi_no,u_no,giver_no,customer_no,hugi_score,hugi_contents,hugi_redate) 
+		VALUES (hugi_seq.nextval,#{u_no},#{giver_no},#{customer_no},#{hugi_score},#{hugi_contents},sysdate)
    </insert>
-
-
 
 <!-- 도우미용 서비스 후기 리스트 조회문 -->
  	<select id="select_hugi" parameterType="int" resultMap="hugi">       

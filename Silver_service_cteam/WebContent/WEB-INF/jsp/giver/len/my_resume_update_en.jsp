@@ -65,21 +65,7 @@
 					
 					
 			  		var age_val = $('#age');
-						if (mm>m) {age++;
 						age_val.text(age);	
-						
-						}
-						else if (mm==m){
-							if (dd<=d){
-							age_val.text(age);	
-								
-								
-							}
-							else if(dd>d){	age++;
-							age_val.text(age);	
-							
-							}
-						}
 			
 			
 			genRowspan("first");
@@ -161,15 +147,21 @@
 <div id="test" class="slide-item overlay"></div>
 
 
-<form method="post" action="TestUpdate">
+<form method="post" action="TestUpdate" enctype="multipart/form-data">
 <input type="hidden" name="giver_no" value="${giver_no}"/> 
     <div class="layer" >
 
           <div class="layer_inner">
 			<h1>도우미 수정</h1>
-			<div class="My_Image">
-			<img src="resources/images/1.jpg" alt="My Image">		
-			</div>
+					<div class="inputArea">
+		 <div class="select_img"><img src="" /></div>
+		 <label id="my_IMG">자기 이미지</label>
+		 ========> ${Default[0].my_IMG}
+<%-- 		 <input type="hidden" id="my_IMG" id='file' name="file" value="${Default[0].my_IMG}}" /> --%>
+		 <br><br>
+		 <%=request.getRealPath("/") %>
+		 <input type="file" name="file" id="file">
+		</div>
 			
 				<table class="ui celled table">
 				<tr><td rowspan="11">기본정보</td></tr>

@@ -21,7 +21,8 @@ color: #383737;
 <!-- MAIN -->
 
 
-	<c:if test="${apply[0] == null}">
+<%-- 	<c:if test="${apply[0] == null & terminate_customer_info[0] ==null}"> --%>
+	<c:if test="${apply[0] == null && matching_giver_info[0] ==null}">
 	
 		<br>
 		<br>
@@ -33,7 +34,8 @@ color: #383737;
 		<h5 class="no_resume_msg">*서비스 신청서 작성 후 부터 이용이 가능하십니다*</h5>		
 	</c:if>
 	
-	<c:if test="${apply[0] != null}">
+<%-- 	<c:if test="${apply[0] != null & terminate_customer_info[0] ==null}}"> --%>
+	<c:if test="${apply[0] != null || matching_giver_info[0] !=null}">
     <h3>내 신청상태 확인하기</h3>
             <form role="form" method="get">
                <table class="table table-hover">

@@ -4,9 +4,12 @@ package kr.co.kosmo.mvc.dao.Giver;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
+import kr.co.kosmo.mvc.dto.BoardVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
@@ -22,6 +25,18 @@ import kr.co.kosmo.mvc.dto.Giver.WorktimeVO;
 public interface GiverDAO {
 
 
+	
+	
+	
+	
+	// 추천지금 테스트중(검색으로가자그냥)
+	public List<GiverVO> giver_list_page(SearchCriteria scri) throws Exception;
+	// 도우미 총 갯수
+	public int giver_listCount(SearchCriteria scri) throws Exception;	
+	
+	
+	
+	
 	//test전체 select
 	public List<GiverVO> selectGiverByNo_list(int giver_no) throws Exception;
 	
@@ -60,13 +75,10 @@ public interface GiverDAO {
 	//------------------------------------내 서비스 확인하기용(고객) select문 end
 	
 	
-	
-	
-	
-	
-	//추천도우미 select 
-//	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception;
+//	추천도우미 select 
+	public List<GiverVO> recommend_giver(HashMap<String, Object> map) throws Exception;
 
+	
 	//----------- 추천도우미 대체용으로 쓰고있음 select	
 	public List<GiverVO> selectGiverList() throws Exception;
 
@@ -142,8 +154,11 @@ public interface GiverDAO {
 	//매칭테이블에서 고객 정보를 가져오기(매칭확인부분에 쓰일것.)
 	public List<Service_matchingVO> select_metching_customer(Service_matchingVO svo) throws Exception;
 	
-	//서비스 매칭 delete
+	//서비스 매칭 고객용 delete
 	public void delete_matching(Service_matchingVO svo) throws Exception;	
+
+	//서비스 매칭 도우미용 delete
+	public void delete_matching_giver(Service_matchingVO svo) throws Exception;	
 	
 	
 	//서비스 종료 insert
@@ -177,16 +192,22 @@ public interface GiverDAO {
 	   public void updateLicense(LicenseVO lvo) throws Exception;
 	   // 업데이트 고객 신청
 	   public void updateCustomer(CustomerVO cvo) throws Exception;
-
-	   // 인설트 출퇴근 기록부
-	   public void worktimeInsert(WorktimeVO wvo) throws Exception;
-	   // 출퇴근 기록 리스트
-	   public List<WorktimeVO> worktimeselect(WorktimeVO wvo) throws Exception;
 	   // 업데이트 경력
 	   public void updateCareer(CareerVO cvo) throws Exception;
 	   // 업데이트 희망지역
 	   public void updateHopeBusiness(Hope_Business_AreaVO hvo) throws Exception;
 
+
+	   // 인설트 출퇴근 기록부
+	   public void worktimeInsert(WorktimeVO wvo) throws Exception;
+	   // 출퇴근 기록 리스트
+	   public List<WorktimeVO> worktimeselect(int g_work_no) throws Exception;
+	   // 업데이트 출퇴근 기록부
+	   public void worktimeupdate(WorktimeVO wvo) throws Exception;
+	   // 도우미 마이 페이지 리스트
+	   public List<Apply_to_giverVO> apply_to_giver_select(Apply_to_giverVO avo) throws Exception;
+	   // 출퇴근 셀렉트 원
+	   public List<WorktimeVO> worktimeselectone(int giver_no) throws Exception;
 
 	   	
 	

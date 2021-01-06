@@ -1,6 +1,14 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>    
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Jua&display=swap" rel="stylesheet">
+
+
+
+
 <link rel="stylesheet"
 	href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
 <script
@@ -225,6 +233,22 @@ h3 {
 	display: block;
 	margin: 0 auto;
 }
+
+.My_Image2 {
+	width: 10%;
+    margin: 0 auto;
+	margin-top: 5%;   
+    }
+
+.My_Image2 img {
+    width: 100%;   
+}
+.no_resume_msg{
+	font-family: 'Jua', sans-serif;
+	color: #383737;
+    text-align: center;
+    margin-top: 2%;
+}
 </style>
 
 <!-- MAIN -->
@@ -235,12 +259,32 @@ h3 {
 
 <h2>${member.u_name}님을 위한 도우미들입니다</h2>
 
+<c:if test="${test[0] == null}">
+
+	<div class="My_Image2">
+	<img src="resources/images/sorry.png" >		
+	</div>
+
+	<h1 class="no_resume_msg">고객님에게 해당하는 도우미가 아직 없습니다</h1>
+	
+
+	<br>
+	<br>
+	<br>
+	<p>
+		<a href="apply_services_type_en" class="btn btn-primary">신청서 작성하러 가기</a>
+	</p>	
+</c:if>
+
+<c:if test="${test[0] != null}">
 <form action="giver_resume_detail_en" method="post">
 	<div class='bxslider_area'>
 		<ul class="bxslider">
 
-<c:forEach items="${Default}" var="r">
-			<li><img src="resources/images/1.jpg" alt="Image"
+
+
+<c:forEach items="${test}" var="r">
+			<li><img src="resources/upload/${r.my_IMG}" alt="Image"
 				class="img-fluid" />
 				<h3>${r.memberVO.u_name}</h3>
 				<hr>
@@ -254,14 +298,7 @@ h3 {
 				나이 :<span id="age"></span><br/>				
 				성별 : <span id="gender"></span><br/>
 				희망연봉 : ${r.hope_salary}<br/>
-				
-				<h5>도우미에 대한 평가</h5>
-<%-- 				<c:forEach items="${r.giver_satisfactionVO}" var="s">						 --%>
-<%-- 					<input type="hidden" id="satisfaction_score" value="${s.customer_satisfaction_score}">				 --%>
-<%-- 					<div><span class="stars-container stars-${s.customer_satisfaction_score}">★★★★★</span></div>	 --%>
-<%-- 				</c:forEach> --%>
-<!-- 					<br/> -->
-				
+			
 									
 				<input type='hidden' class='u_birth' name='u_birth' value='${r.memberVO.u_birth}'>
 				<input type='hidden' class='u_birth2' name='u_birth' value='${r.memberVO.u_birth2}'>
@@ -270,7 +307,7 @@ h3 {
 		</ul>
 	</div>
 </form>
-
+</c:if>
 
 
 <script src="resources/js/jquery-ui.js"></script>

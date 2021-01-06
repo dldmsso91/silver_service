@@ -83,9 +83,8 @@ public class MemberController {
 			session.setAttribute("member", login);
 			session.setAttribute("u_no", login.getU_no());
 			session.setAttribute("u_id", login.getU_id());
-			
-			 session.setAttribute("customer_no", login.getCustomer_no());
-			 session.setAttribute("giver_no", login.getGiver_no());
+			session.setAttribute("customer_no", login.getCustomer_no());
+			session.setAttribute("giver_no", login.getGiver_no());
 			
 		}
 		

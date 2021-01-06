@@ -150,11 +150,19 @@ public class MemberVO {
 	public void setCustomer_no(int customer_no) {
 		this.customer_no = customer_no;
 	}
+//	@Override
+//	public String toString() {
+//		return "MemberVO [u_no=" + u_no + ", u_id=" + u_id + ", u_password=" + u_password + ",u_name= " + u_name +
+//				",u_birth="+u_birth+",u_birth2=" +u_birth2 +",u_phone="+u_phone+",u_email="+u_email+",u_addr="+u_addr+",u_addr1="+u_addr1+",u_addr2=+"+ u_addr2 +",u_redate ="+u_redate+	"]";
+//	}
+//	
 	@Override
 	public String toString() {
-		return "MemberVO [u_no=" + u_no + ", u_id=" + u_id + ", u_password=" + u_password + ",u_name= " + u_name +
-				",u_birth="+u_birth+",u_birth2=" +u_birth2 +",u_phone="+u_phone+",u_email="+u_email+",u_addr="+u_addr+",u_addr1="+u_addr1+",u_addr2=+"+ u_addr2 +",u_redate ="+u_redate+	"]";
+		return "MemberVO [u_no=" + u_no + ", u_id=" + u_id + ", u_password=" + u_password + ", u_name=" + u_name
+				+ ", u_birth=" + u_birth + ", u_birth2=" + u_birth2 + ", u_phone=" + u_phone + ", u_email=" + u_email
+				+ ", u_addr=" + u_addr + ", u_addr1=" + u_addr1 + ", u_addr2=" + u_addr2 + ", u_redate=" + u_redate
+				+ ", u_gender=" + u_gender + ", u_age=" + u_age + ", giver_no=" + giver_no + ", customer_no="
+				+ customer_no + "]";
 	}
-	
 
 }

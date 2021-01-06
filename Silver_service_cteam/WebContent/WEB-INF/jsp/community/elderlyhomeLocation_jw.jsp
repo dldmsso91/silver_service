@@ -75,7 +75,7 @@
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
 			center : new kakao.maps.LatLng(37.5935973, 127.02629), // 지도의 중심좌표
-			level : 6
+			level : 4
 		// 지도의 확대 레벨
 		};
 		
@@ -213,7 +213,7 @@
 				var neLat = neLatLng.getLat();
 				var neLng = neLatLng.getLng();
 		        $.ajax({
-		        	url : 'getElderlyhomeList',
+		        	url : 'getElderlyhomeListAjax',
 		        	method : 'POST',
 		        	contentType : "application/json; charset=utf-8",
 		        	data : JSON.stringify({

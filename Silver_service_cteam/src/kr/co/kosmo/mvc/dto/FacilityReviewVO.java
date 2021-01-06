@@ -23,7 +23,6 @@ public class FacilityReviewVO {
     
     
     
-    
 	public String getRdate() {
 		return rdate;
 	}
@@ -72,7 +71,6 @@ public class FacilityReviewVO {
 	public void setScore(int score) {
 		this.score = score;
 	}
-    
     
     
 }

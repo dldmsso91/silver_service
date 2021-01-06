@@ -15,7 +15,6 @@
 							</header>
 							<ul class="default alt">
 								<li class=""><a href="memberUpdateView">회원정보 수정</a></li>
-								<li class=""><a href="ServiceCenter_scm">고객센터</a></li>
 								<li class=""><a href="memberDeleteView">회원탈퇴</a></li>
 							</ul>
 						</section>
@@ -36,11 +35,13 @@
 							</header>
 							<ul class="default alt">
 								<li class=""><a href="my_resume">내 이력서 확인하기</a></li>
+								<li class=""><a href="recomend_test">test</a></li>
 								<li class=""><a href="my_apply_service">신청 리스트 확인하기</a></li>
 								<li class=""><a href="my_matching_list">매칭된 업무 확인하기</a></li>
 								<li class=""><a href="my_terminate_list">종료된 업무 확인하기</a></li>
 								<li class=""><a href="my_hugi_list">내 후기 내역보기</a></li>
-								<li class=""><a href="#">출퇴근 기록부</a></li>
+								<li class=""><a href="worktimeInsert">출퇴근 기록부</a></li>
+								<li class=""><a href="worktimelist">출퇴근 리스트</a></li>
 							</ul>
 						</section>
 						<section>

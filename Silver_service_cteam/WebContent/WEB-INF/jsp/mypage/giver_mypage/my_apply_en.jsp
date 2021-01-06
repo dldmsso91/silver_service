@@ -35,7 +35,7 @@ color: #383737;
 
 <c:if test="${Default[0] == null}">
 
-	<div class="My_Image">
+	<div class="My_Image2">
 	<img src="resources/images/sorry.png" >		
 	</div>
 
@@ -60,7 +60,7 @@ color: #383737;
 			</div>
 			<h2>내 신청서</h2>
 				<table class="ui celled table">
-				<tr><td rowspan="11">기본정보</td></tr>
+				<tr><td rowspan="11">기본정보${Default[0].customer_no}</td></tr>
 				<tr>
 					<td>이름</td>
 					<td colspan='2'>${Default[0].memberVO.u_name}</td>

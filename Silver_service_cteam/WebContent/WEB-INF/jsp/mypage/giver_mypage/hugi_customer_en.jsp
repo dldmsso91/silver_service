@@ -183,6 +183,7 @@ star-input>.input.focus{outline:1px dotted #ddd;}
 	 <form action="insert_hugi_customer" method="post"  enctype="multipart/form-data">
 			<input type="hidden" name="u_no" value="${u_no}"/>   		
 			<input type="hidden" name="giver_no" value="${giver_no}"/> 		
+			<input type="hidden" name="customer_no" value="${customer_no}"/> 		
 <!-- 			<input type="text" class="test" value="나쁘지 않음" > -->
 		 	<input type="hidden" name="hugi_contents" class="hugi_contents" value="나쁘지 않음" /> 
 		    <div class="site-section">

@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
+import kr.co.kosmo.mvc.dto.BoardVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
@@ -27,6 +29,32 @@ public class GiverDAOImpl implements GiverDAO {
 
 	@Autowired
 	private SqlSession sqlSession;
+	
+	
+	
+	
+	
+	
+	
+	
+	// 추천지금 테스트중(검색으로가자그냥)
+	@Override
+	public List<GiverVO> giver_list_page(SearchCriteria scri) throws Exception {
+	
+		return sqlSession.selectList("giverMapper.giver_listPage",scri);
+
+	}	
+	// 도우미 총 갯수
+	@Override
+	public int giver_listCount(SearchCriteria scri) throws Exception{
+		return sqlSession.selectOne("giverMapper.giver_listCount",scri);
+	}	
+	
+	
+	
+	
+	
+	
 	
 	
 
@@ -174,6 +202,7 @@ public class GiverDAOImpl implements GiverDAO {
 	//------------------------------------내 신청서 확인하기용 select문 start	
 	@Override
 	public List<CustomerVO> select_default_customer_info(int customer_no) throws Exception {
+		System.out.println("고객정보내놔"+customer_no);
 		return sqlSession.selectList("giverMapper.select_default_customer_info",customer_no);
 	}
 	//------------------------------------내 신청서 확인하기용 select문 end	
@@ -191,22 +220,21 @@ public class GiverDAOImpl implements GiverDAO {
 	}
 	@Override
 	public List<Service_matchingVO> select_giver_matching(int customer_no) throws Exception {
+		System.out.println("matching_giver_info dao:"+customer_no);		
 		return sqlSession.selectList("giverMapper.select_giver_matching",customer_no);
 	}
 	//------------------------------------내 서비스 확인하기용(고객) select문 end	
 
 	
 	
-	
-	
 	//----------- 추천도우미 select	
-//	@Override
-//	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception {
-//	      System.out.println("===> sqlSession recommend_giver()_DAO 출력");
-//		return sqlSession.selectList("giverMapper.recommend_giver",vo);
-//	}
+	@Override
+	public List<GiverVO> recommend_giver(HashMap<String, Object> map) throws Exception {
+	      System.out.println("===> sqlSession recommend_giver()_DAO 출력");
+		return sqlSession.selectList("giverMapper.recommend_giver",map);
+	}
 	
-
+	
 	//----------- 추천도우미 대체용으로 쓰고있음 select	야 이거 테스트중이다!
 	@Override
 	public List<GiverVO> selectGiverList() throws Exception {
@@ -323,10 +351,16 @@ public class GiverDAOImpl implements GiverDAO {
 		return sqlSession.selectList("giverMapper.select_metching_customer",svo);
 	}
 
-	//-------------- 매칭 delete
+	//-------------- 매칭 delete_고객
 	@Override
 	public void delete_matching(Service_matchingVO svo) throws Exception {
 		sqlSession.delete("giverMapper.delete_matching",svo);
+	}
+
+	//-------------- 매칭 delete_도우미
+	@Override
+	public void delete_matching_giver(Service_matchingVO svo) throws Exception {
+		sqlSession.delete("giverMapper.delete_matching_giver",svo);
 	}
 	
 	
@@ -424,13 +458,14 @@ public class GiverDAOImpl implements GiverDAO {
 		@Override
 		public void worktimeInsert(WorktimeVO wvo) throws Exception {
 			System.out.println("worktimeInsert  DAO 호출");
+			System.out.println("worktime==============="+wvo.getG_work_no());
 			sqlSession.insert("work.worktimeInsert", wvo);
 			
 		}
 		@Override
-		public List<WorktimeVO> worktimeselect(WorktimeVO wvo) throws Exception {
+		public List<WorktimeVO> worktimeselect(int g_work_no) throws Exception {
 			System.out.println("worktimeselect DAO 호출");
-			return sqlSession.selectList("work.worktimeselect", wvo);
+			return sqlSession.selectList("work.worktimeselect", g_work_no);
 			
 		}
 		@Override
@@ -444,6 +479,23 @@ public class GiverDAOImpl implements GiverDAO {
 			System.out.println("updateHopeBusiness DAO 호출");
 			sqlSession.update("giverMapper.updateHopeBusiness", hvo);
 			
+		}
+		@Override
+		public void worktimeupdate(WorktimeVO wvo) throws Exception {
+			System.out.println("worktimeupdate DAO 호출");
+			sqlSession.update("work.worktimeupdate", wvo);
+			
+		}
+		@Override
+		public List<Apply_to_giverVO> apply_to_giver_select(Apply_to_giverVO avo) throws Exception {
+			System.out.println("apply_to_giver_select DAO 호출");
+			return sqlSession.selectList("giverMapper.apply_to_giver_select",avo);
+			
+		}
+		@Override
+		 public List<WorktimeVO> worktimeselectone(int giver_no) throws Exception {
+			System.out.println("worktimeselectone DAO 호출");
+			return sqlSession.selectList("work.worktimeselect",giver_no);
 		}
 
 

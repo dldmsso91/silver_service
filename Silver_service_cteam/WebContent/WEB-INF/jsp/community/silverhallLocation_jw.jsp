@@ -220,7 +220,6 @@
 	        		neLng : neLng,
 				}),
 	        	success : function(resultData){
-// 					console.log(resultData)
 	        		var positions = new Array();
 	        		for(var i in resultData){
 	        			positions.push({

@@ -100,6 +100,7 @@
   <script src="resources/js/jquery.sticky.js"></script>
   <script src="resources/js/isotope.pkgd.min.js"></script>
   <script src="resources/js/main.js"></script>
+  <script src="resources/js/star.js"></script>
 
 
 </body>

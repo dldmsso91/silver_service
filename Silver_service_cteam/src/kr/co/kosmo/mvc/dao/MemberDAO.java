@@ -25,17 +25,17 @@ public interface MemberDAO {
 
 	public int idChk(String u_id) throws Exception;
 	
-	//--------���궡
-	//customerNO update(�꽭�뀡�슜)
+	//--------은내
+	//customerNO update(세션용)
 	public void update_customerNo_mem(HashMap<String, Integer> map) throws Exception;
 
-	//giverNO update(�꽭�뀡�슜)
+	//giverNO update(세션용)
 	public void update_giverNo_mem(HashMap<String, Integer> map) throws Exception;
 
-	//�떊泥��꽌 �궘�젣 �떆 硫ㅻ쾭�뿉 customer_no 0�쑝濡� �젙蹂대�寃� �뀒�뒪�듃 以� 	
+	//신청서 삭제 시 멤버에 customer_no 0으로 정보변경 테스트 중 	
 	public void delete_customerNo_mem(int u_no) throws Exception;
 
-	//吏��썝�꽌 �궘�젣 �떆 硫ㅻ쾭�뿉 giver_no 0�쑝濡� �젙蹂대�寃� �뀒�뒪�듃 以� 
+	//지원서 삭제 시 멤버에 giver_no 0으로 정보변경 테스트 중 
 	public void delete_giverNo_mem(int u_no) throws Exception;
 	
 	

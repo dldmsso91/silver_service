@@ -183,11 +183,12 @@ $(document).ready(function() {
 	<h3 style="text-align:center; margin:auto;">내 정보</h3>
 	<form method="post" name="form" id='form' action="updateCustomer">	
 				<table class="ui celled table"    style="width: 50% ;text-align: center;margin: auto;">
+					<c:forEach items="${Default}" var="d">
       				<tr><td rowspan="11">신청정보</td></tr>
       				<tr>
       				<td>도우미타입</td>
       				<td colspan='2'> 
-      				<input type="text" name="giver_type" value="${giver_type}">
+      				<input type="text" name="giver_type" value="${d.giver_type}">
 <!--       				<input type="radio" name="giver_type" value="간병도우미">간병도우미&nbsp;&nbsp;&nbsp; -->
 <!--                		<input type="radio" name="giver_type" value="외출도우미">외출도우미&nbsp;&nbsp;&nbsp; -->
 <!--                		<input type="radio" name="giver_type" value="생활도우미">생활도우미 -->
@@ -196,7 +197,7 @@ $(document).ready(function() {
       				<tr>
       				<td>현재상태</td>
       				<td colspan='2'> 
-      				<input type="text" name="my_condition" value="${my_condition}">
+      				<input type="text" name="my_condition" value="${d.my_condition}">
 <!--       				<input type="checkbox" name="status" value="수술"><label>수술</label>&nbsp;&nbsp;&nbsp; -->
 <!-- 						<input type="checkbox" name="status" value="재활"><label>재활</label>&nbsp;&nbsp;&nbsp; -->
 <!-- 						<input type="checkbox" name="status" value="암"><label>암</label>&nbsp;&nbsp;&nbsp; -->
@@ -212,7 +213,7 @@ $(document).ready(function() {
       				<tr>
       				<td>알러지유무</td>
       				<td colspan='2'> 
-      				<input type="text" name="my_allergy" value="${my_allergy}">
+      				<input type="text" name="my_allergy" value="${d.my_allergy}">
 <!--       					<input type="checkbox" name="my_allergy" value="땅콩">땅콩&nbsp;&nbsp;&nbsp; -->
 <!--              	<input type="checkbox" name="my_allergy" value="밀가루">밀가루&nbsp;&nbsp;&nbsp; -->
 <!--              	<input type="checkbox" name="my_allergy" value="해산물">해산물&nbsp;&nbsp;&nbsp; -->
@@ -226,7 +227,7 @@ $(document).ready(function() {
       				<tr>
       				<td>거동여부</td>
       				<td colspan='2'> 
-      				<input type="text" name="can_walk" value="${can_walk}">
+      				<input type="text" name="can_walk" value="${d.can_walk}">
 <!--       				<input type='radio' name='can_walk' value='walk' /><label>거동가능</label>&nbsp;&nbsp;&nbsp; -->
 <!-- 					<input type='radio' name='can_walk' value='nowalk' /><label>거동불가능</label> -->
       				</td>
@@ -234,27 +235,27 @@ $(document).ready(function() {
       				<tr>
       				<td>희망시작날짜</td>
       				<td colspan='2'> 
-      				<input type="date" name="Hope_start_date" value="${Hope_start_date}"> 부터
-      				<input type="date" name="Hope_finish_date" value="${Hope_finish_date}">	
+      				<input type="date" name="Hope_start_date" value="${d.hope_start_date}"> 부터
+      				<input type="date" name="Hope_finish_date" value="${d.hope_finish_date}">	
       				</td>
       				</tr>
       				<tr>
       				<td>희망장소</td>
       				<td colspan='2'> 
-      				<input type="text" name="Hope_service_place" value="${Hope_service_place}">
+      				<input type="text" name="Hope_service_place" value="${d.hope_service_place}">
       				</td>
       				</tr>
       				<tr>
       				<td>희망월급</td>
       				<td colspan='2'> 
-      				<input type="text" name="Hope_salary" value="${Hope_salary}">
+      				<input type="text" name="Hope_salary" value="${d.hope_salary}">
       				</td>
       				</tr>
       				<tr>
       				<td>희망시간</td>
       				<td colspan='2'> 
-      				<input type="text" name="Hope_start_servicetime" value="${Hope_start_servicetime}"> 부터
-      				<input type="text" name="Hope_end_servicetime" value="${Hope_end_servicetime}">
+      				<input type="text" name="Hope_start_servicetime" value="${d.hope_start_servicetime}"> 부터
+      				<input type="text" name="Hope_end_servicetime" value="${d.hope_end_servicetime}">
 <!--       			                  <select name="hope_start_servicetime" id="hope_start_servicetime" class="select_css03" > -->
 <!--                      <option value="">시작시간</option>                                                                                                                                                                                                                           -->
 <!--                      <option value="08:00" style="background:#CCFFFF;">08:00</option>                                                                                                                                  -->
@@ -286,9 +287,9 @@ $(document).ready(function() {
 <!--                   </select> 까지 -->
       				</td>
       				</tr>
-
+			</c:forEach>    
 				</table>
-<input type="hidden" name="customer_no" value="${Customer_no}"/>
+<input type="hidden" name="customer_no" value="${Default[0].customer_no}"/>
 <div class="button_div">	
 <button type="submit" class="btn btn-primary" id="update" value="수정하기" >수정하기</button>		
 <button type="submit" class="btn btn-primary" id="confirm" value="돌아가기" onclick="javascript: form.action='my_apply_service_detail';">돌아가기</button>

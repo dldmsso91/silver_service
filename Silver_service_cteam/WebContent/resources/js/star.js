@@ -257,18 +257,19 @@ function search_code_pop(w_area1, w_area2) {
 }
 // 현재시간 소스
  
+ 
  function start_time() {
     var now = new Date();
-    var s = now.getFullYear()+"년 " + (now.getMonth()+1)+"월 "+ now.getDate()+" 일 "+
-            now.getHours()+" 시 " + now.getMinutes()+" 분 "+now.getSeconds() +" 초"; 
-    document.getElementById("start_time").innerHTML=s;
+    var s = now.getFullYear()+"년"+(now.getMonth()+1)+"월"+ now.getDate()+"일"+
+            now.getHours()+"시" + now.getMinutes()+"분"+now.getSeconds() +"초"; 
+    document.getElementById("start_time").innerHTML="<input type='text'" + "id='start_time' name='start_time' value="+ s +">";
 }
 
  function end_time() {
 	    var now = new Date();
-	    var s = now.getFullYear()+"년 " + (now.getMonth()+1)+"월 "+ now.getDate()+" 일 "+
-	            now.getHours()+" 시 " + now.getMinutes()+" 분 "+now.getSeconds() +" 초"; 
-	    document.getElementById("end_time").innerHTML=s;
+	    var s = now.getFullYear()+"년"+(now.getMonth()+1)+"월"+ now.getDate()+"일"+
+            now.getHours()+"시" + now.getMinutes()+"분"+now.getSeconds() +"초";  
+	    document.getElementById("end_time").innerHTML="<input type='text'" + "id='end_time' name='end_time' value="+s+">";
 	}
 
  

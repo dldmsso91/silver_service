@@ -12,7 +12,9 @@ import org.springframework.stereotype.Service;
 
 import kr.co.kosmo.mvc.dao.Giver.GiverDAO;
 import kr.co.kosmo.mvc.dto.Giver.CustomerVO;
+import kr.co.kosmo.mvc.dto.BoardVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.SearchCriteria;
 import kr.co.kosmo.mvc.dto.Giver.Apply_to_giverVO;
 import kr.co.kosmo.mvc.dto.Giver.CareerVO;
 import kr.co.kosmo.mvc.dto.Giver.GiverVO;
@@ -32,6 +34,32 @@ public class GiverServiceImple implements GiverService {
 
 	@Autowired
 	private GiverDAO giver_dao;
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	// 추천지금 테스트중(검색으로가자그냥)
+	@Override
+	public List<GiverVO> giver_list_page(SearchCriteria scri) throws Exception {
+
+		return giver_dao.giver_list_page(scri);
+	}	
+	// 도우미 총 갯수
+	@Override
+	public int giver_listCount(SearchCriteria scri) throws Exception{
+		return giver_dao.giver_listCount(scri);
+	}	
+	
+	
 
 	//------------------------------------------ 은내 상세이력서select, 추천도우미 select, 일일만족도insert, 지원서 삭제 ----------------------------
 	
@@ -72,10 +100,6 @@ public class GiverServiceImple implements GiverService {
 	
 	
 	
-	
-	
-	
-	
 	//일일만족도 등록	
 	@Override
 	public void insertSatisfaction(Giver_SatisfactionVO satisfactionVO) throws Exception {
@@ -83,14 +107,17 @@ public class GiverServiceImple implements GiverService {
 		giver_dao.insertSatisfaction(satisfactionVO);
 	}
 	
-	
+
 	
 	//추천도우미 select 	
-//	@Override
-//	public List<GiverVO> recommend_giver(GiverVO vo) throws Exception {
-//		System.out.println("===> select_Giver_recommend_giver()_Service 출력");		
-//		return giver_dao.recommend_giver(vo);
-//	};	
+	@Override
+	public List<GiverVO> recommend_giver(HashMap<String, Object> map) throws Exception {
+		System.out.println("===> select_Giver_recommend_giver()_Service 출력");		
+		return giver_dao.recommend_giver(map);
+	};	
+	
+	
+	
 	
 	//추천도우미 대체용 select 	
 	@Override
@@ -182,6 +209,7 @@ public class GiverServiceImple implements GiverService {
 	//------------------------------------내 신청서 확인하기용 select문 start	
 	@Override
 	public List<CustomerVO> select_default_customer_info(int customer_no) throws Exception {
+		System.out.println("고객정보내놔"+customer_no);
 		return giver_dao.select_default_customer_info(customer_no);
 	}
 	//------------------------------------내 신청서 확인하기용 select문 end	
@@ -195,6 +223,7 @@ public class GiverServiceImple implements GiverService {
 		map.put("apply", giver_dao.select_customer_apply(customer_no));
 		map.put("matching_customer_info", giver_dao.select_customer_matching(u_no));
 		map.put("matching_giver_info", giver_dao.select_giver_matching(customer_no));
+		System.out.println("matching_giver_info service:"+customer_no);
 		return map;
 	}
 	//------------------------------------내 서비스 확인하기용(고객) select문 end		
@@ -307,10 +336,16 @@ public class GiverServiceImple implements GiverService {
 		return giver_dao.select_giver_matching(customer_no);
 	}
 	
-	//매칭 delete	
+	//매칭 고객용 delete	
 	@Override
 	public void delete_matching(Service_matchingVO svo) throws Exception {
 		giver_dao.delete_matching(svo);
+	}	
+
+	//매칭 도우미용 delete	
+	@Override
+	public void delete_matching_giver(Service_matchingVO svo) throws Exception {
+		giver_dao.delete_matching_giver(svo);
 	}	
 	
 	
@@ -402,14 +437,15 @@ public class GiverServiceImple implements GiverService {
 	}
 	@Override
 	public void worktimeInsertService(WorktimeVO wvo) throws Exception {
+		System.out.println(wvo.getG_work_no());
+		System.out.println(wvo.getStart_time());
 		giver_dao.worktimeInsert(wvo);
 		
 	}
 	@Override
-	public List<WorktimeVO> worktimeselectService(WorktimeVO wvo) throws Exception {
+	public List<WorktimeVO> worktimeselectService(int g_work_no) throws Exception {
 		System.out.println("selectService 호출=================");
-		System.out.println(wvo.getStart_time());
-		return giver_dao.worktimeselect(wvo);
+		return giver_dao.worktimeselect(g_work_no);
 		
 	}
 	@Override
@@ -422,10 +458,26 @@ public class GiverServiceImple implements GiverService {
 		giver_dao.updateHopeBusiness(hvo);
 		
 	}
-
-
-
-
+	@Override
+	public void worktimeupdateService(WorktimeVO wvo) throws Exception {
+		System.out.println("worktimeupdate Service 호출");
+		System.out.println(wvo.getEnd_time());
+		giver_dao.worktimeupdate(wvo);
+		
+	}
+	@Override
+	public List<Apply_to_giverVO> apply_to_giver_selectService(Apply_to_giverVO avo) throws Exception {
+		System.out.println("apply_to_giver_select Service 호출");
+		System.out.println(avo.getApply_service_redate());
+		System.out.println(avo.getApply_to_giver_no());
+		return giver_dao.apply_to_giver_select(avo);
+		
+	}
+	@Override
+	public List<WorktimeVO> worktimeselectone(int giver_no) throws Exception {
+		System.out.println("서비스 호출");
+		return giver_dao.worktimeselectone(giver_no);
+	}
 
 
 

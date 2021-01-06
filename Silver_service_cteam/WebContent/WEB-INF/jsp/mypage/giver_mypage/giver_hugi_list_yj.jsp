@@ -127,7 +127,7 @@ h4{
 			<tr>
 				<td><input type="radio" name='hugi_no' value='${h.hugi_no}'></td>
 				<td>
-					<a href="customer_hugi_detail_look_yj">${h.memberVO.u_name}</a>
+					${h.memberVO.u_name}
 				</td>
 				<td>${h.customerVO.giver_type}</td>
 				<td>${h.customerVO.hope_service_place}</td>
