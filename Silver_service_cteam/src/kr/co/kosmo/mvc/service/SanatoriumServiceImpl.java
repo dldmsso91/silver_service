@@ -8,15 +8,15 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import kr.co.kosmo.mvc.dao.CommunityDAO;
+import kr.co.kosmo.mvc.dao.SanatoriumDAO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 
 @Service("communityService")
-public class CommunityServiceImpl implements CommunityService{
+public class SanatoriumServiceImpl implements SanatoriumService{
 	
 	@Autowired
-	private CommunityDAO communityDao;
+	private SanatoriumDAO communityDao;
 	
 	@Transactional
 	@Override
@@ -68,6 +68,7 @@ public class CommunityServiceImpl implements CommunityService{
 		return map;
 	}
 	
+	@Transactional
 	@Override
 	public List<ReservationInfoVO> insertReservationInfo(ReservationInfoVO vo) {
 		communityDao.insertReservationInfo(vo);

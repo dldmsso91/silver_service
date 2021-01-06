@@ -15,20 +15,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import kr.co.kosmo.mvc.dao.CommunityDAO;
+import kr.co.kosmo.mvc.dao.SanatoriumDAO;
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
-import kr.co.kosmo.mvc.service.CommunityService;
+import kr.co.kosmo.mvc.service.SanatoriumService;
 
 @Controller
-public class CommunityController {
+public class SanatoriumController {
 
 	@Autowired
-	CommunityService communityService;
+	SanatoriumService sanatoriumService;
 
 	@Autowired
-	CommunityDAO communityDAO;
+	SanatoriumDAO sanatoriumDAO;
 
 	@RequestMapping(value = "/myReservation")
 	public String myReservation(ReservationInfoVO vo, Model model, HttpSession session) {
@@ -39,7 +39,7 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		model.addAttribute("myReservation", sanatoriumService.getMyReservation(vo));
 		return "mypage/community_mypage/myReservation_jw";
 	}
 
@@ -54,19 +54,19 @@ public class CommunityController {
 		map.put("town", town);
 		map.put("typeName", typeName);
 		map.put("facilityName", facilityName);
-		model.addAttribute("searchList",communityService.searchFacility(map));
-		return "community/communityService_jw";
+		model.addAttribute("searchList",sanatoriumService.searchFacility(map));
+		return "community/sanatoriumService_jw";
 	}
 	
 	@RequestMapping(value = "/communityService")
-	public String communityService() {
-		return "community/communityService_jw";
+	public String sanatoriumService() {
+		return "community/sanatoriumService_jw";
 	}
 
 	@RequestMapping(value = "/medicalLocation")
 	public String medicalLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getMedicalList(vo);
+		map = sanatoriumService.getMedicalList(vo);
 		model.addAttribute("medicalList", map.get("medicalList"));
 		model.addAttribute("medicalRecommendList", map.get("medicalRecommendList"));
 		return "community/medicalLocation_jw";
@@ -75,28 +75,28 @@ public class CommunityController {
 	@ResponseBody
 	@RequestMapping(value="/silverhallRecommendList", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> silverhallRecommendList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> silverhallList = communityDAO.getSilverhalleRecommendList(vo);
+		List<WelfareFacilitiesVO> silverhallList = sanatoriumDAO.getSilverhalleRecommendList(vo);
 		return silverhallList;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/elderlyhomeRecommendList", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> elderlyhomeRecommendList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> silverhallList = communityDAO.getElderlyhomeRecommendList(vo);
+		List<WelfareFacilitiesVO> silverhallList = sanatoriumDAO.getElderlyhomeRecommendList(vo);
 		return silverhallList;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/medicalRecommendList", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> medicalRecommendList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> silverhallList = communityDAO.getMedicalRecommendList(vo);
+		List<WelfareFacilitiesVO> silverhallList = sanatoriumDAO.getMedicalRecommendList(vo);
 		return silverhallList;
 	}
 
 	@RequestMapping(value = "/silverhallLocation")
 	public String silverhallLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getSilverhallList(vo);
+		map = sanatoriumService.getSilverhallList(vo);
 		model.addAttribute("silverhallList", map.get("silverhallList"));
 		model.addAttribute("silverhallRecommendList", map.get("silverhallRecommendList"));
 		return "community/silverhallLocation_jw";
@@ -105,7 +105,7 @@ public class CommunityController {
 	@RequestMapping(value = "/elderlyhomeLocation")
 	public String elderlyhomeLocation(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getElderlyhomeList(vo);
+		map = sanatoriumService.getElderlyhomeList(vo);
 		model.addAttribute("elderlyhomeList", map.get("elderlyhomeList"));
 		model.addAttribute("elderlyhomeRecommendList", map.get("elderlyhomeRecommendList"));
 		return "community/elderlyhomeLocation_jw";
@@ -114,7 +114,7 @@ public class CommunityController {
 	@RequestMapping(value = "/welfareFacilityDetail")
 	public String welfareFacilityDetail(WelfareFacilitiesVO vo, Model model) {
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getFacilityInfo(vo);
+		map = sanatoriumService.getFacilityInfo(vo);
 		model.addAttribute("facInfo", map.get("getFacilityInfo"));
 		model.addAttribute("review", map.get("getFacilityReview"));
 		return "community/welfareFacilityDetail_jw";
@@ -130,7 +130,7 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		Map<String, Object> map = new HashMap<String, Object>();
-		map = communityService.getReservationmember(u_no, vo);
+		map = sanatoriumService.getReservationmember(u_no, vo);
 		model.addAttribute("Reservationmember", map.get("member"));
 		model.addAttribute("WelfareFacilities", map.get("facInfo"));
 		return "community/communityReservation_jw";
@@ -145,8 +145,8 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		communityService.insertReservationInfo(vo);
-		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		sanatoriumService.insertReservationInfo(vo);
+		model.addAttribute("myReservation", sanatoriumService.getMyReservation(vo));
 		return "mypage/community_mypage/myReservation_jw";
 	}
 
@@ -159,7 +159,7 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		model.addAttribute("myReservation", communityService.updateReservationForm(vo));
+		model.addAttribute("myReservation", sanatoriumService.updateReservationForm(vo));
 		return "community/updateReservationForm_jw";
 	}
 
@@ -172,8 +172,8 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		communityDAO.updateReservation(vo);
-		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		sanatoriumDAO.updateReservation(vo);
+		model.addAttribute("myReservation", sanatoriumService.getMyReservation(vo));
 		return "mypage/community_mypage/myReservation_jw";
 	}
 
@@ -186,35 +186,35 @@ public class CommunityController {
 			u_no = Integer.parseInt(session.getAttribute("u_no").toString());
 		}
 		vo.setU_no(u_no);
-		communityDAO.reservationDelete(vo);
-		model.addAttribute("myReservation", communityService.getMyReservation(vo));
+		sanatoriumDAO.reservationDelete(vo);
+		model.addAttribute("myReservation", sanatoriumService.getMyReservation(vo));
 		return "mypage/community_mypage/myReservation_jw";
 	}
 
 	@ResponseBody
 	@RequestMapping(value="/getMedicalListAjax", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> getMedicalList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> medicalList = communityService.getMedicalListAjax(vo);
+		List<WelfareFacilitiesVO> medicalList = sanatoriumService.getMedicalListAjax(vo);
 		return medicalList;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/getSilverhallListAjax", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> getSilverhallList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> medicalList = communityService.getSilverhallListAjax(vo);
+		List<WelfareFacilitiesVO> medicalList = sanatoriumService.getSilverhallListAjax(vo);
 		return medicalList;
 	}
 	
 	@ResponseBody
 	@RequestMapping(value="/getElderlyhomeListAjax", method= RequestMethod.POST)
 	public List<WelfareFacilitiesVO> getElderlyhomeList(@RequestBody WelfareFacilitiesVO vo) {
-		List<WelfareFacilitiesVO> medicalList = communityService.getElderlyhomeListAjax(vo);
+		List<WelfareFacilitiesVO> medicalList = sanatoriumService.getElderlyhomeListAjax(vo);
 		return medicalList;
 	}
 	
 	@RequestMapping(value="addReview")
 	public String addReview(FacilityReviewVO vo) {
-		communityDAO.insertReview(vo);
+		sanatoriumDAO.insertReview(vo);
 		return "forward:/welfareFacilityDetail";
 	}
 

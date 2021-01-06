@@ -384,7 +384,7 @@ public class GiverController_len {
 	public String my_resume_update_mypage(Model model,HttpSession session) throws Exception{      
 		int giver_no = Integer.parseInt(session.getAttribute("giver_no").toString());
 
-		model.addAttribute("giver_no",giver_no);   
+		model.addAttribute("giver_no",giver_no);
 		System.out.println("my_resume_update_mypage"+giver_no);
 		
 		Map<String, Object> map = new HashMap<String, Object>();

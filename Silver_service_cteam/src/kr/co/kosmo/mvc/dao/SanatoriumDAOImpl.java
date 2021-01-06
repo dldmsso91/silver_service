@@ -12,7 +12,7 @@ import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 @Repository
-public class CommunityDAOImpl implements CommunityDAO{
+public class SanatoriumDAOImpl implements SanatoriumDAO{
 	
 	@Autowired
 	private SqlSessionTemplate ss;

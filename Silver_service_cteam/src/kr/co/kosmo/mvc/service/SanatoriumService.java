@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 
-public interface CommunityService {
+public interface SanatoriumService {
 	
 	
 	public Map<String, Object> getFacilityInfo(WelfareFacilitiesVO vo);

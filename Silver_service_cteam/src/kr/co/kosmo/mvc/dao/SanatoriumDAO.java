@@ -8,7 +8,7 @@ import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 
-public interface CommunityDAO {
+public interface SanatoriumDAO {
 	
 	
 	public WelfareFacilitiesVO getFacilityInfo(WelfareFacilitiesVO vo);
