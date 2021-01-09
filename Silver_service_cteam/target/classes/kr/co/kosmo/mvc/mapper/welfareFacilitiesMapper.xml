@@ -218,8 +218,21 @@
 		values((select nvl(max(revNo),0)+1 from facilityReview),#{facilityNo},#{facilityName},#{u_no},#{u_id},#{content},#{score},sysdate)
 	</insert>
 	
-	<select id="searchFacility" resultType="facInfo" parameterType="hashmap">
-		select facilityNo,typeName,eavaluationResult,facilityName,peopleLimit,peopleNow,address,peopleMargin,peopleWait,telnumber,address,supplyService from welfareFacilities
+<!-- 	<select id="searchFacility" resultType="facInfo" parameterType="hashmap"> -->
+<!-- 		select facilityNo,typeName,eavaluationResult,facilityName,peopleLimit,peopleNow,address,peopleMargin,peopleWait,telnumber,address,supplyService from welfareFacilities -->
+<!-- 		where address like '%'||#{city}||'%' AND address like '%'||#{town}||'%' -->
+<!-- 		<if test="typeName != null and typeName != ''"> -->
+<!-- 			AND typeName like #{typeName} -->
+<!-- 		</if> -->
+<!-- 		<if test="facilityName != null and facilityName != ''"> -->
+<!-- 			AND facilityName like '%'||#{facilityName}||'%' -->
+<!-- 		</if> -->
+<!-- 	</select> -->
+	
+	<select id="searchFacility" resultType="facInfo" parameterType="pvo">
+	select * from(
+		select rownum RNUM, w.* from
+		(select facilityNo,typeName,eavaluationResult,facilityName,peopleLimit,peopleNow,address,peopleMargin,peopleWait,telnumber,supplyService from welfareFacilities
 		where address like '%'||#{city}||'%' AND address like '%'||#{town}||'%'
 		<if test="typeName != null and typeName != ''">
 			AND typeName like #{typeName}
@@ -227,6 +240,58 @@
 		<if test="facilityName != null and facilityName != ''">
 			AND facilityName like '%'||#{facilityName}||'%'
 		</if>
+		order by facilityNo) w ) where RNUM between #{start} and #{end}
 	</select>
+	
+	<select id="totalCnt" resultType="Integer" parameterType="HashMap">
+		select count(*) "cnt" from welfareFacilities where address like '%'||#{city}||'%' AND address like '%'||#{town}||'%'
+		<if test="typeName != null and typeName != ''">
+			AND typeName like #{typeName}
+		</if>
+		<if test="facilityName != null and facilityName != ''">
+			AND facilityName like '%'||#{facilityName}||'%'
+		</if>
+<!-- 		<trim prefix="WHERE" prefixOverrides="and|or"> -->
+<!-- 			<choose> -->
+<!-- 				<when test='searchStatus=="" or searchStatus==null'> -->
+<!-- 					<if test="searchProName!='' and searchProName!=null"> -->
+<!-- 						and str_pro_name like '%'||#{searchProName}||'%'  -->
+<!-- 					</if> -->
+<!-- 					<if test="searchTrdList!='' and searchTrdList!=null"> -->
+<!-- 						and trd_list_no like '%'||#{searchTrdList}||'%'  -->
+<!-- 					</if> -->
+<!-- 				</when> -->
+<!-- 				<when test='searchStatus=="2"'> -->
+<!-- 					and str_pro_remind = 0  -->
+<!-- 					<if test="searchProName!='' and searchProName!=null"> -->
+<!-- 						and str_pro_name like '%'||#{searchProName}||'%'  -->
+<!-- 					</if> -->
+<!-- 					<if test="searchTrdList!='' and searchTrdList!=null"> -->
+<!-- 						and trd_list_no like '%'||#{searchTrdList}||'%'  -->
+<!-- 					</if> -->
+<!-- 				</when> -->
+<!-- 				<when test='searchStatus=="1"'> -->
+<!-- 					and str_pro_show = 1 and str_pro_remind != 0  -->
+<!-- 					<if test="searchProName!='' and searchProName!=null"> -->
+<!-- 						and str_pro_name like '%'||#{searchProName}||'%'  -->
+<!-- 					</if> -->
+<!-- 					<if test="searchTrdList!='' and searchTrdList!=null"> -->
+<!-- 						and trd_list_no like '%'||#{searchTrdList}||'%'  -->
+<!-- 					</if> -->
+<!-- 				</when> -->
+<!-- 				<when test='searchStatus=="0"'> -->
+<!-- 					and str_pro_show = 0 and str_pro_remind != 0  -->
+<!-- 					<if test="searchProName!='' and searchProName!=null"> -->
+<!-- 						and str_pro_name like '%'||#{searchProName}||'%'  -->
+<!-- 					</if> -->
+<!-- 					<if test="searchTrdList!='' and searchTrdList!=null"> -->
+<!-- 						and trd_list_no like '%'||#{searchTrdList}||'%'  -->
+<!-- 					</if> -->
+<!-- 				</when> -->
+<!-- 			</choose> -->
+<!-- 		</trim> -->
+	</select>
+	
+	
 
 </mapper>  

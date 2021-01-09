@@ -101,7 +101,42 @@
   <script src="resources/js/isotope.pkgd.min.js"></script>
   <script src="resources/js/main.js"></script>
   <script src="resources/js/star.js"></script>
+<script type="text/javascript">
 
+$(function() {
+	$('#s').hide();
+	$('#ss').hide();
+	$('#ss2').hide();
+	$('#ss3').hide();
+
+
+	$('#a1').click(function(){
+		$('#s').slideDown();
+		$('#ss').hide();
+		$('#ss2').hide();
+		$('#ss3').hide();
+	});
+	$('#a2').click(function(){
+		$('#ss').slideDown();
+		$('#s').hide();
+		$('#ss2').hide();
+		$('#ss3').hide();
+	});
+	$('#a3').click(function(){
+		$('#ss2').slideDown();
+		$('#s').hide();
+		$('#ss').hide();
+		$('#ss3').hide();
+	});
+	$('#a4').click(function(){
+		$('#ss3').slideDown();
+		$('#ss').hide();
+		$('#ss2').hide();
+		$('#s').hide();
+	});
+});
+
+</script>
 
 </body>
 </html>

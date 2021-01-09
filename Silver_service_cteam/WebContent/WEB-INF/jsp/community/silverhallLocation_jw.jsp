@@ -71,7 +71,7 @@
 
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div  
 		mapOption = {
-			center : new kakao.maps.LatLng(37.5935973, 127.02629), // 지도의 중심좌표
+			center : new kakao.maps.LatLng(37.4815596,126.8827065), // 지도의 중심좌표
 			level : 6
 		// 지도의 확대 레벨
 		};
@@ -126,28 +126,28 @@
 		}
 
 		// HTML5의 geolocation으로 사용할 수 있는지 확인합니다 
-		if (navigator.geolocation) {
+// 		if (navigator.geolocation) {
 
-			// GeoLocation을 이용해서 접속 위치를 얻어옵니다
-			navigator.geolocation.getCurrentPosition(function(position) {
+// 			// GeoLocation을 이용해서 접속 위치를 얻어옵니다
+// 			navigator.geolocation.getCurrentPosition(function(position) {
 
-				var lat = position.coords.latitude, // 위도
-				lon = position.coords.longitude; // 경도
+// 				var lat = position.coords.latitude, // 위도
+// 				lon = position.coords.longitude; // 경도
 
-				var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
-				message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
+// 				var locPosition = new kakao.maps.LatLng(lat, lon), // 마커가 표시될 위치를 geolocation으로 얻어온 좌표로 생성합니다
+// 				message = '<div style="padding:5px;">여기에 계신가요?!</div>'; // 인포윈도우에 표시될 내용입니다
 
-				// 마커와 인포윈도우를 표시합니다
-				displayMarker(locPosition, message);
+// 				// 마커와 인포윈도우를 표시합니다
+// 				displayMarker(locPosition, message);
 
-			});
+// 			});
 
-		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
+// 		} else { // HTML5의 GeoLocation을 사용할 수 없을때 마커 표시 위치와 인포윈도우 내용을 설정합니다
 
-			var locPosition = new kakao.maps.LatLng(33.450701, 126.570667), message = 'geolocation을 사용할수 없어요..'
+// 			var locPosition = new kakao.maps.LatLng(33.450701, 126.570667), message = 'geolocation을 사용할수 없어요..'
 
-			displayMarker(locPosition, message);
-		}
+// 			displayMarker(locPosition, message);
+// 		}
 
 		// 지도에 마커와 인포윈도우를 표시하는 함수입니다
 		function displayMarker(locPosition, message) {
@@ -219,57 +219,42 @@
 	        		neLat : neLat,
 	        		neLng : neLng,
 				}),
-	        	success : function(resultData){
+				success : function(resultData){
 	        		var positions = new Array();
 	        		for(var i in resultData){
 	        			positions.push({
 	        					content : '<div>'+resultData[i].facilityName+'</div>',
-	        					latlng : new kakao.maps.LatLng(resultData[i].latitude, resultData[i].longitude)
+	        					latlng : new kakao.maps.LatLng(resultData[i].latitude, resultData[i].longitude),
+	        					facilityNo : resultData[i].facilityNo
 	        			});
 	        		}
 	        		for (var i = 0; i < positions.length; i++) {
-	        			// 마커를 생성합니다
 	        			var marker = new kakao.maps.Marker({
-	        				map : map, // 마커를 표시할 지도
-	        				position : positions[i].latlng
-	        			// 마커의 위치
+	        				map : map,
+	        				position : positions[i].latlng,
+	        				title : positions[i].facilityNo,
 	        			});
-
-	        			// 마커에 표시할 인포윈도우를 생성합니다 
 	        			var infowindow = new kakao.maps.InfoWindow({
 	        				content : positions[i].content
-	        			// 인포윈도우에 표시할 내용
 	        			});
 
-	        			// 마커에 mouseover 이벤트와 mouseout 이벤트를 등록합니다
-	        			// 이벤트 리스너로는 클로저를 만들어 등록합니다 
-	        			// for문에서 클로저를 만들어 주지 않으면 마지막 마커에만 이벤트가 등록됩니다
 	        			kakao.maps.event.addListener(marker, 'mouseover', makeOverListener(
 	        					map, marker, infowindow));
 	        			kakao.maps.event.addListener(marker, 'mouseout',
 	        					makeOutListener(infowindow));
+	        			kakao.maps.event.addListener(marker, 'click', function(){
+	        			    var facilityNo = this.getTitle();
+	        			    location.href='welfareFacilityDetail?facilityNo='+facilityNo;
+	        			});
 	        		}
-
-	        		// 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
-	        		function makeOverListener(map, marker, infowindow) {
-	        			return function() {
-	        				infowindow.open(map, marker);
-	        			};
-	        		}
-
-	        		// 인포윈도우를 닫는 클로저를 만드는 함수입니다 
-	        		function makeOutListener(infowindow) {
-	        			return function() {
-	        				infowindow.close();
-	        			};
-	        		}
+	        		
 	        	},
 	        	error : function(err){
 	        		alert(err);
 	        	}
-			});
+	        });
 	        $.ajax({
-	        	url : 'silverhallRecommendList',
+	        	url : 'medicalRecommendList',
 	        	method : 'POST',
 	        	contentType : "application/json; charset=utf-8",
 	        	data : JSON.stringify({

@@ -99,9 +99,9 @@ public class SanatoriumServiceImpl implements SanatoriumService{
 		return communityDao.getSilverhallListAjax(vo);
 	}
 	
-	@Override
-	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map){
-		return communityDao.searchFacility(map);
-	}
+//	@OVERRIDE
+//	PUBLIC LIST<WELFAREFACILITIESVO> SEARCHFACILITY(MAP<STRING, STRING> MAP){
+//		RETURN COMMUNITYDAO.SEARCHFACILITY(MAP);
+//	}
 	
 }

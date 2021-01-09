@@ -35,6 +35,6 @@ public interface SanatoriumService {
 	
 	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
 	
-	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
+//	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
 	
 }

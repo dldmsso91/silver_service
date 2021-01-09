@@ -13,10 +13,13 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import kr.co.kosmo.mvc.dao.SanatoriumDAO;
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
+import kr.co.kosmo.mvc.dto.PageVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 import kr.co.kosmo.mvc.service.SanatoriumService;
@@ -43,19 +46,55 @@ public class SanatoriumController {
 		return "mypage/community_mypage/myReservation_jw";
 	}
 
-	@RequestMapping(value = "/searchFacility", method = RequestMethod.POST)
-	public String searchFacility(HttpServletRequest request, Model model) {
-		Map<String, String> map = new HashMap<String, String>();
-		String city = request.getParameter("city");
-		String town = request.getParameter("town");
-		String typeName = request.getParameter("typeName");
-		String facilityName = request.getParameter("facilityName");
+//	@RequestMapping(value = "/searchFacility", method = RequestMethod.POST)
+//	public String searchFacility(HttpServletRequest request, Model model) {
+//		Map<String, String> map = new HashMap<String, String>();
+//		String city = request.getParameter("city");
+//		String town = request.getParameter("town");
+//		String typeName = request.getParameter("typeName");
+//		String facilityName = request.getParameter("facilityName");
+//		map.put("city", city);
+//		map.put("town", town);
+//		map.put("typeName", typeName);
+//		map.put("facilityName", facilityName);
+//		model.addAttribute("searchList",sanatoriumService.searchFacility(map));
+//		return "community/sanatoriumService_jw";
+//	}
+	
+	@RequestMapping(value = "/searchFacility")
+	public ModelAndView searchFacility(HttpServletRequest request, Model model, PageVO pvo,
+			@RequestParam(value = "nowPage", required = false, defaultValue = "1") String nowPage,
+			@RequestParam(value = "cntPerPage", required = false, defaultValue = "10") String cntPerPage,
+			@RequestParam(required = false) String city,
+			@RequestParam(required = false) String town,
+			@RequestParam(required = false) String typeName,
+			@RequestParam(required = false) String facilityName) {
+		ModelAndView mv = new ModelAndView();
+		
+		HashMap<String,String> map = new HashMap<String,String>();
 		map.put("city", city);
 		map.put("town", town);
 		map.put("typeName", typeName);
 		map.put("facilityName", facilityName);
-		model.addAttribute("searchList",sanatoriumService.searchFacility(map));
-		return "community/sanatoriumService_jw";
+		int total = sanatoriumDAO.totalCnt(map);
+		
+		pvo = new PageVO(total, Integer.parseInt(nowPage), Integer.parseInt(cntPerPage));
+		pvo.setCity(city);
+		pvo.setTown(town);
+		pvo.setTypeName(typeName);
+		pvo.setFacilityName(facilityName);
+		
+		/*
+		 * pvo.setSearchProName(searchProName); 
+		 * pvo.setSearchTrdList(searchTrdList);
+		 * pvo.setSearchStatus(searchStatus);
+		 */
+		
+		mv.addObject("paging",pvo);
+		mv.addObject("searchList", sanatoriumDAO.searchFacility(pvo));
+		mv.addObject("total", total);
+		mv.setViewName("community/sanatoriumService_jw");
+		return mv;
 	}
 	
 	@RequestMapping(value = "/communityService")

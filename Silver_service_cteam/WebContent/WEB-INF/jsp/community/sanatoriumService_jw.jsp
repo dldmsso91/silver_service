@@ -1,5 +1,5 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-	pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
 <%@ taglib uri="http://java.sun.com/jstl/core_rt" prefix="c"%>
 <link rel="stylesheet" href="resources/css/welfareFacilityDetail.css">
 <!-- MAIN -->
@@ -14,7 +14,7 @@
 					<td>지역 : <select name="city" id="city"></select> <select
 						name="town" id="town"></select>
 					</td>
-					<td>급여종류 : <select name="typeName" class="select_css03">
+					<td>급여종류 : <select name="typeName" id="typeName" class="select_css03">
 							<option value="%">전체</option>
 							<option value="노인요양시설">노인요양시설</option>
 							<option value="노인요양공동생활가정">노인요양공동생활가정</option>
@@ -26,39 +26,47 @@
 							<option value="복지용구">복지용구</option>
 					</select>
 					</td>
-					<td>시설명 : <input type="text" name="facilityName">
+					<td>시설명 : <input type="text" name="facilityName" id="facilityName">
 					</td>
-					<td><input type="submit" id="searchFacilityBtn" class="btn btn-primary" value="검색">
+					<td>
+					<!-- <input type="submit" id="searchFacilityBtn"class="btn btn-primary" value="검색"> -->
+					<button id='searchBtn' class="btn btn-primary" type="button">검색</button>
 					</td>
 				</tr>
 			</table>
 		</form>
 		<table class="ui celled table">
-			<tr>
-				<td>급여종류</td>
-				<td>평가결과</td>
-				<td>기관명</td>
-				<td>정원</td>
-				<td>현원</td>
-				<td>잔여</td>
-				<td>대기</td>
-				<td>전화번호</td>
-				<td>주소</td>
-			</tr>
-			<c:forEach var="searchList" items="${searchList}">
+			<thead>
 				<tr>
-					<td>${searchList.typeName}</td>
-					<td>${searchList.eavaluationResult}</td>
-					<td><a href="welfareFacilityDetail?facilityNo=${searchList.facilityNo}">${searchList.facilityName}</a></td>
-					<td>${searchList.peopleLimit}</td>
-					<td>${searchList.peopleNow}</td>
-					<td>${searchList.peopleMargin}</td>
-					<td>${searchList.peopleWait}</td>
-					<td>${searchList.telnumber}</td>
-					<td>${searchList.address}</td>
+					<td>급여종류</td>
+					<td>평가결과</td>
+					<td>기관명</td>
+					<td>정원</td>
+					<td>현원</td>
+					<td>잔여</td>
+					<td>대기</td>
+					<td>전화번호</td>
+					<td>주소</td>
 				</tr>
-			</c:forEach>
+			</thead>
+			<tbody>
+				<c:forEach var="searchList" items="${searchList}">
+					<tr>
+						<td>${searchList.typeName}</td>
+						<td>${searchList.eavaluationResult}</td>
+						<td><a
+							href="welfareFacilityDetail?facilityNo=${searchList.facilityNo}">${searchList.facilityName}</a></td>
+						<td>${searchList.peopleLimit}</td>
+						<td>${searchList.peopleNow}</td>
+						<td>${searchList.peopleMargin}</td>
+						<td>${searchList.peopleWait}</td>
+						<td>${searchList.telnumber}</td>
+						<td>${searchList.address}</td>
+					</tr>
+				</c:forEach>
+			</tbody>
 		</table>
+		<div><%@include file="pageProcess.jsp"%></div>
 	</div>
 </div>
 
@@ -77,10 +85,8 @@
 <script src="resources/js/main.js"></script>
 
 <script>
-	$('document').ready(function(){
-
+	$('document').ready(function() {
 		var city = $("#city").val();
-		
 		var area0 = [ "시/도 선택", "서울특별시", "인천광역시", "대전광역시",
 				"광주광역시", "대구광역시", "울산광역시", "부산광역시", "경기도",
 				"강원도", "충청북도", "충청남도", "전라북도", "전라남도", "경상북도",
@@ -128,7 +134,6 @@
 				"고성군", "남해군", "산청군", "의령군", "창녕군", "하동군",
 				"함안군", "함양군", "합천군" ];
 		var area16 = [ "서귀포시", "제주시", "남제주군", "북제주군" ];
-
 		// 시/도 선택 박스 초기화
 		$("select[name^=city]").each(function() {
 			city = $("#city").val();
@@ -144,28 +149,37 @@
 		$("select[name^=city]").change(function() {
 			city = $("#city").val();
 // 			alert(city);
-			var area = "area"+ $("option", $(this)).index(
-				$("option:selected",$(this))); // 선택지역의 구군 Array
-				var $town = $(this).next(); // 선택영역 군구 객체
-				$("option", $town).remove(); // 구군 초기화
-				if (area == "area0")
-					$town.append("<option value=''>구/군 선택</option>");
-				else {
-					$.each(eval(area),function() {
-						$town.append("<option value='"+this+"'>"+ this+ "</option>");
-					});
-				}
+			var area = "area" + $("option", $(this)).index($("option:selected",$(this))); // 선택지역의 구군 Array
+			var $town = $(this).next(); // 선택영역 군구 객체
+			$("option", $town).remove(); // 구군 초기화
+			if (area == "area0")
+				$town.append("<option value=''>구/군 선택</option>");
+			else {
+				$.each(eval(area),function() {
+					$town.append("<option value='"+this+"'>"+ this+ "</option>");
+				});
+			}
 		});
-
-		$("#searchFacilityBtn").click(function(){
-			if(city==null){
+		$("#searchFacilityBtn").click(function() {
+			if (city == null) {
 				alert("지역을 선택해 주세요!");
 				return;
 			}
 		});
 
-// 		$("$city").change(function(){
-// 			var city = $("#city").val();
-// 		});
+		$('#searchBtn').click(function(){
+			var city = $('#city').val();
+			var town = $('#town').val();
+			var typeName = $('#typeName').val();
+			var facilityName = $('#facilityName').val();
+			var url = "searchFacility?city="+city+"&town="+town+"&typeName="+typeName+"&facilityName="+facilityName
+			
+			location.href=url;
+		})
+
+		// 		$("$city").change(function(){
+		// 			var city = $("#city").val();
+		// 		});
 	});
+
 </script>

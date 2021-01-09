@@ -1,5 +1,6 @@
 package kr.co.kosmo.mvc.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,6 +10,7 @@ import org.springframework.stereotype.Repository;
 
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.PageVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 @Repository
@@ -112,9 +114,20 @@ public class SanatoriumDAOImpl implements SanatoriumDAO{
 		return ss.selectList("commu.getSilverhallListAjax", vo);
 	}
 	
+//	@Override
+//	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map){
+//		return ss.selectList("commu.searchFacility", map);
+//	}
+	
 	@Override
-	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map){
-		return ss.selectList("commu.searchFacility", map);
+	public List<WelfareFacilitiesVO> searchFacility(PageVO pvo){
+		return ss.selectList("commu.searchFacility", pvo);
+	}
+	
+	
+	@Override
+	public int totalCnt(HashMap<String,String> map) {
+		return ss.selectOne("commu.totalCnt",map);
 	}
 	
 }

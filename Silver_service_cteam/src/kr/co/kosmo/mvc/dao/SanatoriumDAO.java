@@ -1,11 +1,13 @@
 package kr.co.kosmo.mvc.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import kr.co.kosmo.mvc.dto.WelfareFacilitiesVO;
 import kr.co.kosmo.mvc.dto.FacilityReviewVO;
 import kr.co.kosmo.mvc.dto.MemberVO;
+import kr.co.kosmo.mvc.dto.PageVO;
 import kr.co.kosmo.mvc.dto.ReservationInfoVO;
 
 public interface SanatoriumDAO {
@@ -49,5 +51,9 @@ public interface SanatoriumDAO {
 	
 	public List<WelfareFacilitiesVO> getSilverhallListAjax(WelfareFacilitiesVO vo);
 
-	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
+//	public List<WelfareFacilitiesVO> searchFacility(Map<String, String> map);
+	
+	public List<WelfareFacilitiesVO> searchFacility(PageVO pvo);
+	
+	public int totalCnt(HashMap<String,String> map);
 }

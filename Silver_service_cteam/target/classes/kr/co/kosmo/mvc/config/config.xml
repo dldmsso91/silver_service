@@ -25,5 +25,6 @@
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.LicenseVO" alias="license"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.Hope_Business_AreaVO" alias="hope_business_area"/>
 	<typeAlias type="kr.co.kosmo.mvc.dto.Giver.WorktimeVO" alias="work"/>
+	<typeAlias type="kr.co.kosmo.mvc.dto.PageVO" alias="pvo"/>
 </typeAliases>
 </configuration>  
